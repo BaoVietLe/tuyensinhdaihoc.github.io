@@ -17,23 +17,32 @@
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ueh: {
-                            teal: '#005F69',
-                            orange: '#F26F33',
-                            orangeHover: '#F26F33',
-                            gray: '#f7f9f9',
-                        },
-                        standardGray: '#666666'
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
-        }
+  theme: {
+    extend: {
+      colors: {
+        ueh: {
+          teal: '#005F69',
+          orange: '#F26F33',
+          orangeHover: '#F26F33',
+          gray: '#f7f9f9',
+        },
+        standardGray: '#666666'
+      },
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+      },
+      fontSize: {
+        'h1': ['48px', { lineHeight: '1.2' }],
+        'h2': ['36px', { lineHeight: '1.3' }],
+        'h3': ['28px', { lineHeight: '1.4' }],
+        'h4': ['24px', { lineHeight: '1.4' }],
+        'h5': ['20px', { lineHeight: '1.5' }],
+        'h6': ['16px', { lineHeight: '1.5' }],
+        'normal': ['20px', { lineHeight: '1.5' }],
+      }
+    }
+  }
+}
     </script>
 
     <style>
@@ -186,15 +195,15 @@
 
     <!-- ================= SECTION 3: EXPLORE (TABS CONTENT) ================= -->
     <section class="max-w-[1200px] mx-auto py-20 px-6">
-        <h2 class="text-ueh-teal font-extrabold text-[32px] uppercase tracking-wide mb-12">
+        <h1 class="text-ueh-teal font-extrabold text-[40px] uppercase tracking-wide mb-12">
             Khai phá I am who I choose to be
-        </h2>
+        </h1>
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
             <!-- Sidebar Navigation -->
             <div class="lg:col-span-4 border-r-[1.5px] border-gray-200 pr-10 py-2">
-                <ul class="space-y-6 text-[14px] font-medium uppercase tracking-wide leading-relaxed text-standardGray" id="tabMenu">
+                <ul class="space-y-6 text-[20px] font-bold uppercase tracking-wide leading-relaxed text-standardGray" id="tabMenu">
                     <li class="tab-item active cursor-pointer" data-target="tab1">Vì sao tôi là người tôi chọn tại UEH?</li>
                     <li class="tab-item cursor-pointer" data-target="tab2">Học tập không giới hạn | Đa ngành, Đa lĩnh vực, Gắn với phát triển bền vững</li>
                     <li class="tab-item cursor-pointer" data-target="tab3">Học thật làm thật | Đa dạng loại hình đào tạo</li>

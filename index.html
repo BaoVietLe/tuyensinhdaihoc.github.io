@@ -213,65 +213,148 @@
     </section>
 
     <!-- ================= SECTION 3: EXPLORE (TABS & ACCORDION) ================= -->
-    <section class="max-w-[1200px] mx-auto py-20 px-6">
-        <h2 class="text-[#005c5a] font-extrabold text-[32px] uppercase tracking-wide mb-12">
+<section class="max-w-[1200px] mx-auto py-20 px-6">
+        <h2 class="text-ueh-teal font-extrabold text-[32px] uppercase tracking-wide mb-12">
             Khai phá I am who I choose to be
         </h2>
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
-            <!-- Sidebar (Thanh xám đặt ở giữa: dùng border-r-2) -->
+            <!-- Sidebar Navigation -->
             <div class="lg:col-span-4 border-r-[1.5px] border-gray-200 pr-10 py-2">
-                <ul class="space-y-6 text-[14px] font-medium uppercase leading-relaxed text-standardGray">
-                    <li class="tab-item active cursor-pointer">Vì sao tôi là người tôi chọn tại UEH?</li>
-                    <li class="tab-item cursor-pointer">Học tập không giới hạn | Đa ngành, Đa lĩnh vực, Gắn với phát triển bền vững</li>
-                    <li class="tab-item cursor-pointer">Học thật làm thật | Đa dạng loại hình đào tạo</li>
-                    <li class="tab-item cursor-pointer">Học đón đầu tương lai | Năng lực công nghệ & Bền vững</li>
-                    <li class="tab-item cursor-pointer">Bắt đầu hành trình "Chọn là người tôi chọn"</li>
-                    <li class="tab-item cursor-pointer">Những trải nghiệm định hình tương lai của bạn tại UEH</li>
+                <ul class="space-y-6 text-[14px] font-medium uppercase leading-relaxed text-standardGray" id="tabMenu">
+                    <li class="tab-item active cursor-pointer" data-target="tab1">Vì sao tôi là người tôi chọn tại UEH?</li>
+                    <li class="tab-item cursor-pointer" data-target="tab2">Học tập không giới hạn | Đa ngành, Đa lĩnh vực, Gắn với phát triển bền vững</li>
+                    <li class="tab-item cursor-pointer" data-target="tab3">Học thật làm thật | Đa dạng loại hình đào tạo</li>
+                    <li class="tab-item cursor-pointer" data-target="tab4">Học đón đầu tương lai | Năng lực công nghệ & Bền vững</li>
+                    <li class="tab-item cursor-pointer" data-target="tab5">Bắt đầu hành trình "Chọn là người tôi chọn"</li>
+                    <li class="tab-item cursor-pointer" data-target="tab6">Những trải nghiệm định hình tương lai của bạn tại UEH</li>
                 </ul>
             </div>
 
-            <!-- Accordions -->
-            <div class="lg:col-span-8 pl-10 space-y-4">
+            <!-- Content Area -->
+            <div class="lg:col-span-8 pl-10">
                 
-                <!-- Accordion 1 (Mặc định ĐÓNG, icon +) -->
-                <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
-                    <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
-                        <span class="font-medium text-[15px] text-standardGray">Vì UEH dạy những gì các đại học hàng đầu thế giới đang dạy.</span>
-                        <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
+                <!-- TAB 1: Vì sao tôi là người tôi chọn tại UEH? -->
+                <div id="tab1" class="tab-pane active space-y-4">
+                    <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
+                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                            <span class="font-medium text-[15px] text-standardGray">Vì UEH dạy những gì các đại học hàng đầu thế giới đang dạy.</span>
+                            <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
+                                Sinh viên UEH học tập các chương trình đào tạo đạt kiểm định quốc tế AUN-QA, FIBAA, được thiết kế đối sánh theo chuẩn Top 200 đại học hàng đầu thế giới. Định hướng quốc tế hóa giúp người học tiếp cận chuẩn đào tạo toàn cầu ngay tại Việt Nam, phát triển tư duy quốc tế và năng lực nghề nghiệp bền vững.
+                            </div>
+                        </div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
-                            Sinh viên UEH học tập các chương trình đào tạo đạt kiểm định quốc tế AUN-QA, FIBAA, được thiết kế đối sánh theo chuẩn Top 200 đại học hàng đầu thế giới. Định hướng quốc tế hóa giúp người học tiếp cận chuẩn đào tạo toàn cầu ngay tại Việt Nam, phát triển tư duy quốc tế và năng lực nghề nghiệp bền vững.
+                    <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
+                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                            <span class="font-medium text-[15px] text-standardGray">Vì UEH trao cho tôi đa dạng lựa chọn để định hình con đường riêng.</span>
+                            <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
+                                UEH mang đến lộ trình linh hoạt giúp sinh viên làm chủ định hướng phát triển của bản thân.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
+                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                            <span class="font-medium text-[15px] text-standardGray">Vì UEH là môi trường học tập năng động với những trải nghiệm sinh viên đáng nhớ.</span>
+                            <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
+                                Tham gia các hoạt động ngoại khóa, câu lạc bộ và các chương trình thực tiễn giúp bạn phát triển toàn diện.
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Accordion 2 -->
-                <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
-                    <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
-                        <span class="font-medium text-[15px] text-standardGray">Vì UEH trao cho tôi đa dạng lựa chọn để định hình con đường riêng.</span>
-                        <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
+                <!-- TAB 2: Học tập không giới hạn -->
+                <div id="tab2" class="tab-pane text-[14.5px] leading-[1.8] text-standardGray space-y-5">
+                    <p>Năm 2026, UEH chính thức tuyển sinh 82 chương trình đào tạo đại học chính quy, trong đó có 08 chương trình đào tạo mới tập trung vào các lĩnh vực đang dẫn dắt chuyển đổi kinh tế – đô thị – công nghệ, bao gồm: Kinh tế chính trị quốc tế, Công nghệ Logistics (tích hợp chứng chỉ quốc tế FIATA), Kiến trúc sư Kiến trúc và Thiết kế đô thị thông minh, Luật, Luật Thương mại quốc tế, Sản xuất thông minh, Quản trị vận hành và di chuyển thông minh, Chương trình Cử nhân Tài năng – Công nghệ.</p>
+                    <p>Do đó, các chương trình học được thiết kế với tinh thần đa ngành, liên ngành, xuyên ngành ở 12 lĩnh vực: Kinh doanh và quản lý; Nhân văn; Khoa học xã hội và hành vi; Báo chí và thông tin; Pháp luật; Toán và Thống kê; Máy tính và công nghệ thông tin; Công nghệ kỹ thuật; Kiến trúc và xây dựng; Nông, lâm nghiệp và thủy sản; và Du lịch, khách sạn, thể thao và dịch vụ cá nhân, Dịch vụ vận tải.</p>
+                    <p>Song song đó, trong năm 2026, UEH chính thức triển khai 06 chương trình song bằng quốc tế, mang đến cơ hội học tập và nhận bằng từ các đại học uy tín trên thế giới: Truyền thông số và thiết kế đa phương tiện song bằng UEH – Đại học Saint Joseph, Macao; Quản trị bền vững doanh nghiệp và môi trường song bằng UEH – Koblenz University of Applied Sciences (Hochschule Koblenz), Đức; Chương trình đào tạo nguồn nhân lực quốc tế cử nhân Tài chính – Ngân hàng song bằng UEH – Đại học Rennes, Pháp; Robot và Trí tuệ nhân tạo song bằng UEH – Đại học Kwangwoon, Hàn Quốc (hệ kỹ sư); Điều khiển thông minh và tự động hóa song bằng UEH – Đại học Kwangwoon, Hàn Quốc (hệ kỹ sư); Cử nhân Kiến trúc và thiết kế đô thị thông minh song bằng UEH – Đại học Auckland, New Zealand.</p>
+                </div>
+
+                <!-- TAB 3: Học thật làm thật -->
+                <div id="tab3" class="tab-pane text-[14.5px] leading-[1.8] text-standardGray">
+                    <p>UEH mang tới đa dạng các loại hình đào tạo dành cho đa dạng nhu cầu và lộ trình học tập của mỗi sinh viên, trọng tâm lấy trải nghiệm thực tiễn làm trung tâm. Các loại hình đào tạo chính quy tại UEH bao gồm:</p>
+                    
+                    <!-- Grid Box theo ảnh -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+                        <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
+                            <span class="font-bold text-[14px] text-standardGray">Chuẩn</span>
+                        </div>
+                        <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
+                            <span class="font-bold text-[14px] text-standardGray">Tiếng Anh<br>Bán phần</span>
+                        </div>
+                        <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
+                            <span class="font-bold text-[14px] text-standardGray">Tiếng Anh<br>toàn phần</span>
+                        </div>
+                        <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
+                            <span class="font-bold text-[14px] text-standardGray">Chương trình<br>song bằng<br>quốc tế</span>
+                        </div>
+                        <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
+                            <span class="font-bold text-[14px] text-standardGray">Song ngành –<br>Song<br>chuyên ngành –<br>Song ngành<br>tích hợp</span>
+                        </div>
+                        <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
+                            <span class="font-bold text-[14px] text-standardGray">Chương trình<br>Cử nhân<br>tài năng ISB</span>
+                        </div>
+                        <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
+                            <span class="font-bold text-[14px] text-standardGray">Chương trình<br>Cử nhân<br>ASIA Co-op</span>
+                        </div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
-                            (Nội dung hiển thị khi ấn dấu +)...
+
+                    <p class="mb-4">Thông qua đa dạng loại hình đào tạo với lộ trình kiến tạo "Công dân toàn cầu", các lớp học tại UEH lấy người học làm trung tâm, nuôi dưỡng tư duy “Global Think – Local Act”. Bên cạnh kiến thức lý thuyết, sinh viên được học qua làm việc nhóm, thực địa, dự án thực tế (Live-case), giải quyết các vấn đề xã hội và nghiên cứu khoa học theo phương pháp Project-based Learning, đồng thời ứng dụng linh hoạt các mô hình học tập số như E-learning, Blended/Hybrid learning, VR, AR.</p>
+                    <p>Sinh viên UEH vừa kinh tế vừa hiểu công nghệ, vừa học truyền thông vừa vững thiết kế, học quản trị nhưng sẵn sàng khởi nghiệp. Nền tảng kiến thức liên ngành ấy chính là hành trang để Gen Z tự tin thích ứng và chinh phục thị trường lao động toàn cầu.</p>
+                </div>
+
+                <!-- TAB 4: Học đón đầu tương lai -->
+                <div id="tab4" class="tab-pane text-[14.5px] leading-[1.8] text-standardGray space-y-5">
+                    <p>Là sinh viên UEH, bạn mang trong mình dấu ấn của một đại học đa ngành và bền vững. Dù theo học bất kỳ ngành nào, bạn đều được trang bị 06 học phần nền tảng chung, tạo nên dấu ấn riêng của sinh viên UEH. Đây là các học phần bắt buộc, được thiết kế nhằm mở rộng tư duy đa ngành, kết nối tri thức với các vấn đề toàn cầu và định hình bạn trở thành một công dân toàn cầu hành động vì phát triển bền vững.</p>
+                    <p>Cụ thể, bạn sẽ được học và trải nghiệm các học phần: Nhập môn Khoa học Dữ liệu (Introduction to Data Science), Kỹ năng mềm (Soft Skills), Khởi nghiệp (Entrepreneurship), Tâm lý học nền tảng, Tư duy thiết kế (Design Thinking) và Phát triển bền vững (Sustainable Development). Đây chính là “bộ năng lực cốt lõi” giúp bạn làm chủ công nghệ, phát triển tư duy sáng tạo, hiểu con người – xã hội và tự tin bắt nhịp với kỷ nguyên AI, số hóa và thị trường lao động toàn cầu. Tìm hiểu 06 phần làm nên thương hiệu của sinh viên UEH <a href="#" class="underline hover:text-ueh-teal">tại đây</a>.</p>
+                </div>
+
+                <!-- TAB 5: Bắt đầu hành trình -->
+                <div id="tab5" class="tab-pane text-[14.5px] leading-[1.8] text-standardGray space-y-5">
+                    <p>“I am who I choose to be” – mỗi người học đều có quyền chủ động lựa chọn con đường phát triển của chính mình. Và tại UEH, bạn không chỉ được lựa chọn, mà còn được trao đủ năng lực, môi trường và cơ hội để biến lựa chọn ấy thành hiện thực.</p>
+                    <p>Dựa trên ba giá trị cốt lõi: Unbounded Learning – Empowered Growth – Holistic Citizenship (Học tập không giới hạn – Trao quyền phát triển suốt đời – Hoàn thiện năng lực công dân toàn cầu).</p>
+                    <p>UEH đồng hành cùng bạn không chỉ trong học tập, mà trong hành trình khai mở bản sắc cá nhân, giúp bạn trở thành phiên bản tốt nhất của chính mình giữa một thế giới không ngừng biến đổi.</p>
+                    
+                    <!-- Accordion riêng trong Tab 5 -->
+                    <div class="bg-ueh-gray rounded-lg overflow-hidden mt-6 mb-4">
+                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                            <span class="font-medium text-[15px] text-standardGray">Bắt đầu từ việc hiểu chính mình</span>
+                            <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray space-y-3">
+                                <p>Hành trình “chọn là người bạn chọn” tại UEH bắt đầu bằng việc hiểu bản thân. UEH cung cấp công cụ trắc nghiệm khám phá tiềm năng – sở thích nghề nghiệp, hoàn toàn miễn phí, được hơn 60.000 học sinh THPT sử dụng mỗi năm.<br>Công cụ tích hợp hai phương pháp trắc nghiệm uy tín Holland và MBTI, giúp bạn:</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Hiểu tính cách, thói quen và điểm mạnh của bản thân</li>
+                                    <li>Xác định khuynh hướng nghề nghiệp phù hợp</li>
+                                    <li>Khám phá những người nổi tiếng cùng nhóm tính cách</li>
+                                    <li>Nhận gợi ý các ngành học tương ứng theo danh mục đào tạo của Bộ GD&ĐT</li>
+                                    <li>Mở rộng lựa chọn đến từng bậc, hệ đào tạo: Đại học chính quy, Vừa làm vừa học, Sau đại học</li>
+                                </ul>
+                                <p>Khám phá bản thân ngay tại: <a href="https://hieuveban.ueh.edu.vn/" class="underline hover:text-ueh-teal">https://hieuveban.ueh.edu.vn/</a><br>Hoặc Zalo Mini App: <a href="https://zalo.me/s/1883841182404547642/" class="underline hover:text-ueh-teal">https://zalo.me/s/1883841182404547642/</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Accordion 3 -->
-                <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
-                    <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
-                        <span class="font-medium text-[15px] text-standardGray">Vì UEH là môi trường học tập năng động với những trải nghiệm sinh viên đáng nhớ.</span>
-                        <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
-                            (Nội dung hiển thị khi ấn dấu +)...
-                        </div>
-                    </div>
+                <!-- TAB 6: Những trải nghiệm định hình tương lai -->
+                <div id="tab6" class="tab-pane text-[14.5px] leading-[1.8] text-standardGray">
+                    <ul class="list-disc pl-5 space-y-4">
+                        <li>Trải nghiệm Du học tại Việt Nam – Chất lượng quốc tế: Trong quá trình học tập tại TP.HCM (KSA), sinh viên còn được lựa chọn luân chuyển campus, trải nghiệm UEH Mekong và các trường Đại học uy tín trên thế giới, sinh viên được tham gia các hoạt động giao lưu, trao đổi sinh viên trong nước và quốc tế hướng đến việc giải quyết các vấn đề địa phương và hành động bền vững.</li>
+                        <li>Trải nghiệm Mekong – Sẵn sàng hội nhập quốc tế: Với điều kiện học tập thuận lợi và môi trường giáo dục đại học lý tưởng, bằng cấp, chất lượng như UEH-KSA, lựa chọn học tại UEH Mekong, Vĩnh Long (KSV) là một lựa chọn đặc biệt và gia tăng cơ hội dành cho thế hệ trẻ trên cả nước. Sau khi học tại UEH Mekong 2,5 năm, tất cả sinh viên của Khóa được luân chuyển Campus vào năm cuối để trải nghiệm môi trường học tập, sinh hoạt và các trải nghiệm thú vị khác ở các campus của UEH TP. Hồ Chí Minh. Bên cạnh đó, sinh viên còn được tham gia Chương trình trao đổi sinh viên Summer Camp với các trường Đại học khối chương trình đào tạo kinh tế hàng đầu trên cả nước.</li>
+                        <li>Trải nghiệm trở thành công dân xanh, đóng góp vào sự phát triển bền vững: Công dân UEHer xanh được trải nghiệm những hoạt động tiên phong để trở thành thế hệ công dân toàn cầu với tư duy và hành động bảo vệ môi trường: thực hành lối sống xanh, thân thiện với môi trường, phân loại rác, giảm thiểu rác thải, tiết kiệm tài nguyên. Khám phá UEH Green Campus tại: <a href="https://gogreen.ueh.edu.vn/" class="underline hover:text-ueh-teal">https://gogreen.ueh.edu.vn/</a>.</li>
+                        <li>Trải nghiệm trở thành sinh viên số với những công nghệ mới nhất: Tại UEH bạn sẽ được trải nghiệm những công nghệ số mới nhất toàn cầu: Thực tế ảo tăng cường (Augmented Reality); Thực tế ảo (Virtual Reality); Nghệ thuật 3D mapping (Digital art in 3D mapping); Nghệ thuật Hologram (Holgram Art); Nghệ thuật tương tác (Interactive Art);... đắm chìm trong sự giao thoa kết hợp giữa nghệ thuật và công nghệ. Bên cạnh đó, công tác chăm sóc, hỗ trợ sinh viên, các thủ tục hành chính được số hóa 100% tại UEH. Không cần phải di chuyển giữa các campus, sinh viên vẫn có thể tương tác với Thầy Cô và bộ phận hỗ trợ chỉ bằng máy tính, điện thoại thông minh. Khám phá UEH 4.0 tại: <a href="https://smarttech.ueh.edu.vn/" class="underline hover:text-ueh-teal">https://smarttech.ueh.edu.vn/</a></li>
+                        <li>Trải nghiệm thời sinh viên rực rỡ nhất tại UEH: Là một trong những ngôi trường có hoạt động Đoàn thanh niên – Hội sinh viên dẫn đầu tại TP. Hồ Chí Minh và Mekong, với hơn 30 CLB/Đội/Nhóm, bạn sẽ được trải nghiệm thời sinh viên cùng với các hoạt động hấp dẫn, đáng nhớ, được tham gia, tổ chức đa dạng các chương trình từ phong trào, tình nguyện đến học tập, nghiên cứu.</li>
+                    </ul>
                 </div>
 
             </div>

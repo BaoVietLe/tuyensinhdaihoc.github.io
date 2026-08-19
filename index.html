@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TUYỂN SINH ĐẠI HỌC - UEH</title>
+    <title>UEH Landing Page - Chuẩn UI/UX</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,13 +21,12 @@
                 extend: {
                     colors: {
                         ueh: {
-                            teal: '#005F69',
-                            orange: '#f26f33',
-                            orangeHover: '#f26f33',
-                            gray: '#222222',
+                            teal: '#005c5a',
+                            orange: '#f26d21',
+                            orangeHover: '#d95a16',
+                            gray: '#f7f9f9',
                         },
-                        /* Màu xám chuẩn cho toàn bộ văn bản */
-                        standardGray: '#222222'
+                        standardGray: '#666666'
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -44,60 +43,26 @@
             --transition-slow: 0.5s ease-in-out;
         }
 
-        /* TẤT CẢ CHỮ (TRỪ NAVBAR/HEADING) LÀ MÀU XÁM CHUẨN, KHÔNG DÙNG MÀU ĐEN */
+        /* TẤT CẢ CHỮ LÀ MÀU XÁM CHUẨN (#666666) */
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #666666; /* Màu xám chuẩn */
+            color: #666666;
             overflow-x: hidden;
         }
 
         /* Slider Animations */
-       /* Khung chứa slider vừa màn hình, trừ đi chiều cao của navbar */
-.slider-container {
-  width: 100%;
-  height: calc(100vh - 60px); /* Thay 60px bằng chiều cao thực tế của navbar */
-  overflow: hidden;
-  position: relative;
-}
-
-/* Slider Animations */
-.slider-wrapper {
-  display: flex;
-  transition: transform var(--transition-slow);
-  height: 100%;
-  width: 100%;
-}
-
-.slide {
-  min-width: 100%;
-  width: 100%;
-  height: 100%;
-  position: relative; /* Tạo mốc để chứa lớp phủ gradient */
-}
-
-/* Ảnh bên trong slide */
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Giúp ảnh không bị méo khi vừa khung */
-}
-
-/* Gradient đen nhẹ 15% trước ảnh */
-.slide::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
-  pointer-events: none; /* Giúp click xuyên qua lớp gradient */
-}
-
+        .slider-wrapper {
+            display: flex;
+            transition: transform var(--transition-slow);
+            height: 100%;
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
         .slider-dot {
             transition: background-color var(--transition-fast), transform var(--transition-fast);
         }
-        /* Dot navigation nhỏ lại và màu xanh */
         .slider-dot.active {
             background-color: #005c5a !important;
             transform: scale(1.3);
@@ -109,7 +74,7 @@
             transition: background-color var(--transition-fast);
         }
         .accordion-header:hover {
-            background-color: #f0f4f4;
+            background-color: #eef3f3;
         }
         .accordion-content {
             display: grid;
@@ -123,7 +88,7 @@
             overflow: hidden;
         }
 
-        /* Sidebar Tabs - Xóa vạch đen ở trước */
+        /* Sidebar Tabs */
         .tab-item {
             transition: all var(--transition-fast);
         }
@@ -132,7 +97,35 @@
         }
         .tab-item.active {
             color: #005c5a;
-            font-weight: 700;
+            font-weight: 600;
+        }
+        
+        /* Tab Panes */
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Flip / hover-reveal card (Tab 3 - "Chuẩn") */
+        .flip-card .flip-face {
+            transition: opacity var(--transition-normal);
+        }
+        .flip-card .flip-back {
+            opacity: 0;
+        }
+        .flip-card:hover .flip-front {
+            opacity: 0;
+        }
+        .flip-card:hover .flip-back {
+            opacity: 1;
         }
     </style>
 </head>
@@ -141,16 +134,15 @@
     <!-- ================= SECTION 1: NAVBAR ================= -->
     <header class="bg-ueh-teal text-white w-full z-50 relative shadow-md">
         <div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center gap-12">
-            
-            <!-- Logo Block (Căn giữa 2 dòng) -->
+            <!-- Logo Block -->
             <div class="flex items-center space-x-4 shrink-0">
-                <img src="img/logo-navbar.png" alt="UEH Logo" class="h-[60px] rounded">
+                <img src="https://via.placeholder.com/140x60/ffffff/005c5a?text=UEH+Logo" alt="UEH Logo" class="h-[60px] rounded">
+                <img src="https://via.placeholder.com/100x60/ffffff/005c5a?text=THE+Rank" alt="THE Ranking" class="h-[60px] rounded">
             </div>
 
-            <!-- Content Block (Đã làm chữ nhỏ và căn chỉnh chuẩn UX/UI) -->
+            <!-- Content Block -->
             <div class="flex flex-col flex-grow justify-center space-y-3">
-                
-                <!-- Dòng 1: Cỡ chữ nhỏ, nút tương đương cỡ chữ -->
+                <!-- Dòng 1 -->
                 <div class="flex justify-between items-center text-[12.5px] font-medium border-b border-white/20 pb-2.5">
                     <div class="flex space-x-6 items-center tracking-wide text-white/90">
                         <span>Khám phá I am who I choose to be</span>
@@ -161,8 +153,7 @@
                         Đăng ký tư vấn
                     </button>
                 </div>
-
-                <!-- Dòng 2: Menu chính to hơn dòng 1 một chút -->
+                <!-- Dòng 2 -->
                 <nav class="flex justify-between w-full text-[14px] font-bold">
                     <a href="#" class="hover:text-ueh-orange transition-colors duration-300">Tại sao chọn UEH?</a>
                     <a href="#" class="hover:text-ueh-orange transition-colors duration-300">Học gì ở UEH</a>
@@ -170,41 +161,21 @@
                     <a href="#" class="hover:text-ueh-orange transition-colors duration-300">7 bước xét tuyển ở UEH</a>
                     <a href="#" class="hover:text-ueh-orange transition-colors duration-300">Q&A</a>
                 </nav>
-
             </div>
-            
         </div>
     </header>
 
-    <!-- ================= SECTION 2: PURE IMAGE SLIDER ================= -->
+    <!-- ================= SECTION 2: HERO BANNER ================= -->
     <section class="relative w-full h-[600px] overflow-hidden group bg-gray-200">
-        
         <div class="slider-wrapper" id="sliderWrapper">
-            <div class="slide">
-                <a href="https://tuyensinh.ueh.edu.vn/cu-nhan-chinh-quy/dai-hoc-chinh-quy/">
-                <img src="img/herobanner-1.png" alt="Banner 1" class="w-full h-full object-cover">
-                </a>
-            </div>
-            <div class="slide">
-                <a href="https://tuyensinh.ueh.edu.vn/cu-nhan-chinh-quy/dai-hoc-chinh-quy/">
-                <img src="img/herobanner-2.png" alt="Banner 2" class="w-full h-full object-cover">
-                </a>
-            </div>
-            <div class="slide">
-                <a href="https://tuyensinh.ueh.edu.vn/cu-nhan-chinh-quy/dai-hoc-chinh-quy/">
-                <img src="img/herobanner-3.png" alt="Banner 3" class="w-full h-full object-cover">
-                </a>
-            </div>
+            <div class="slide"><img src="https://via.placeholder.com/1920x600/eef1f1/333333?text=Ảnh+Hero+Banner+1+(Chèn+Herobanner.png+vào+đây)" alt="Banner 1" class="w-full h-full object-cover"></div>
+            <div class="slide"><img src="https://via.placeholder.com/1920x600/005c5a/ffffff?text=Ảnh+Hero+Banner+2" alt="Banner 2" class="w-full h-full object-cover"></div>
+            <div class="slide"><img src="https://via.placeholder.com/1920x600/f26d21/ffffff?text=Ảnh+Hero+Banner+3" alt="Banner 3" class="w-full h-full object-cover"></div>
         </div>
-
-        <button id="prevBtn" class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-ueh-teal w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 transition transform hover:scale-110 opacity-0 group-hover:opacity-100">
-            <i class="fa-solid fa-chevron-left text-lg"></i>
-        </button>
-        <button id="nextBtn" class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-ueh-teal w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 transition transform hover:scale-110 opacity-0 group-hover:opacity-100">
-            <i class="fa-solid fa-chevron-right text-lg"></i>
-        </button>
-
-        <!-- Slider Dots (Kích thước nhỏ w-2.5 h-2.5) -->
+        <button id="prevBtn" class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-ueh-teal w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 transition transform hover:scale-110 opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left text-lg"></i></button>
+        <button id="nextBtn" class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-ueh-teal w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 transition transform hover:scale-110 opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right text-lg"></i></button>
+        
+        <!-- Dots xanh cổ vịt -->
         <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2.5 z-30">
             <button class="slider-dot active w-2.5 h-2.5 rounded-full bg-ueh-teal shadow opacity-100 cursor-pointer" data-index="0"></button>
             <button class="slider-dot w-2.5 h-2.5 rounded-full bg-white shadow opacity-70 hover:opacity-100 cursor-pointer" data-index="1"></button>
@@ -212,8 +183,8 @@
         </div>
     </section>
 
-    <!-- ================= SECTION 3: EXPLORE (TABS & ACCORDION) ================= -->
-<section class="max-w-[1200px] mx-auto py-20 px-6">
+    <!-- ================= SECTION 3: EXPLORE (TABS CONTENT) ================= -->
+    <section class="max-w-[1200px] mx-auto py-20 px-6">
         <h2 class="text-ueh-teal font-extrabold text-[32px] uppercase tracking-wide mb-12">
             Khai phá I am who I choose to be
         </h2>
@@ -222,7 +193,7 @@
             
             <!-- Sidebar Navigation -->
             <div class="lg:col-span-4 border-r-[1.5px] border-gray-200 pr-10 py-2">
-                <ul class="space-y-6 text-[14px] font-medium uppercase leading-relaxed text-standardGray" id="tabMenu">
+                <ul class="space-y-6 text-[14px] font-medium uppercase tracking-wide leading-relaxed text-standardGray" id="tabMenu">
                     <li class="tab-item active cursor-pointer" data-target="tab1">Vì sao tôi là người tôi chọn tại UEH?</li>
                     <li class="tab-item cursor-pointer" data-target="tab2">Học tập không giới hạn | Đa ngành, Đa lĩnh vực, Gắn với phát triển bền vững</li>
                     <li class="tab-item cursor-pointer" data-target="tab3">Học thật làm thật | Đa dạng loại hình đào tạo</li>
@@ -237,35 +208,41 @@
                 
                 <!-- TAB 1: Vì sao tôi là người tôi chọn tại UEH? -->
                 <div id="tab1" class="tab-pane active space-y-4">
-                    <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
-                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+
+                    <!-- Item 1 (mở sẵn theo thiết kế) -->
+                    <div>
+                        <div class="accordion-header bg-ueh-gray flex justify-between items-center p-5 rounded-lg shadow-sm cursor-pointer" onclick="toggleAccordion(this)">
                             <span class="font-medium text-[15px] text-standardGray">Vì UEH dạy những gì các đại học hàng đầu thế giới đang dạy.</span>
-                            <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
+                            <i class="fa-solid fa-minus text-standardGray text-lg transition-transform duration-300" style="transform: rotate(180deg);"></i>
                         </div>
-                        <div class="accordion-content">
-                            <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
+                        <div class="accordion-content open">
+                            <div class="accordion-inner px-1 pt-4 pb-1 text-[14.5px] leading-relaxed text-standardGray">
                                 Sinh viên UEH học tập các chương trình đào tạo đạt kiểm định quốc tế AUN-QA, FIBAA, được thiết kế đối sánh theo chuẩn Top 200 đại học hàng đầu thế giới. Định hướng quốc tế hóa giúp người học tiếp cận chuẩn đào tạo toàn cầu ngay tại Việt Nam, phát triển tư duy quốc tế và năng lực nghề nghiệp bền vững.
                             </div>
                         </div>
                     </div>
-                    <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
-                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+
+                    <!-- Item 2 -->
+                    <div>
+                        <div class="accordion-header bg-ueh-gray flex justify-between items-center p-5 rounded-lg shadow-sm cursor-pointer" onclick="toggleAccordion(this)">
                             <span class="font-medium text-[15px] text-standardGray">Vì UEH trao cho tôi đa dạng lựa chọn để định hình con đường riêng.</span>
                             <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
+                            <div class="accordion-inner px-1 pt-4 pb-1 text-[14.5px] leading-relaxed text-standardGray">
                                 UEH mang đến lộ trình linh hoạt giúp sinh viên làm chủ định hướng phát triển của bản thân.
                             </div>
                         </div>
                     </div>
-                    <div class="bg-ueh-gray rounded-lg overflow-hidden border border-gray-100 shadow-sm">
-                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+
+                    <!-- Item 3 -->
+                    <div>
+                        <div class="accordion-header bg-ueh-gray flex justify-between items-center p-5 rounded-lg shadow-sm cursor-pointer" onclick="toggleAccordion(this)">
                             <span class="font-medium text-[15px] text-standardGray">Vì UEH là môi trường học tập năng động với những trải nghiệm sinh viên đáng nhớ.</span>
                             <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray">
+                            <div class="accordion-inner px-1 pt-4 pb-1 text-[14.5px] leading-relaxed text-standardGray">
                                 Tham gia các hoạt động ngoại khóa, câu lạc bộ và các chương trình thực tiễn giúp bạn phát triển toàn diện.
                             </div>
                         </div>
@@ -285,9 +262,13 @@
                     
                     <!-- Grid Box theo ảnh -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
-                        <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
-                            <span class="font-bold text-[14px] text-standardGray">Chuẩn</span>
+
+                        <!-- Card 1: "Chuẩn" - hover để xem mô tả (flip-reveal) -->
+                        <div class="flip-card relative bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm overflow-hidden cursor-default">
+                            <span class="flip-face flip-front font-bold text-[14px] text-standardGray">Chuẩn</span>
+                            <span class="flip-face flip-back absolute inset-0 flex items-center justify-center px-3 text-[12.5px] leading-snug font-medium text-standardGray">Sinh viên được giảng dạy hoàn toàn bằng tiếng Việt</span>
                         </div>
+
                         <div class="bg-ueh-gray rounded-xl p-4 flex items-center justify-center text-center aspect-square md:aspect-auto md:h-28 shadow-sm">
                             <span class="font-bold text-[14px] text-standardGray">Tiếng Anh<br>Bán phần</span>
                         </div>
@@ -308,31 +289,31 @@
                         </div>
                     </div>
 
-                    <p class="mb-4">Thông qua đa dạng loại hình đào tạo với lộ trình kiến tạo "Công dân toàn cầu", các lớp học tại UEH lấy người học làm trung tâm, nuôi dưỡng tư duy “Global Think – Local Act”. Bên cạnh kiến thức lý thuyết, sinh viên được học qua làm việc nhóm, thực địa, dự án thực tế (Live-case), giải quyết các vấn đề xã hội và nghiên cứu khoa học theo phương pháp Project-based Learning, đồng thời ứng dụng linh hoạt các mô hình học tập số như E-learning, Blended/Hybrid learning, VR, AR.</p>
+                    <p class="mb-4">Thông qua đa dạng loại hình đào tạo với lộ trình kiến tạo "Công dân toàn cầu", các lớp học tại UEH lấy người học làm trung tâm, nuôi dưỡng tư duy "Global Think – Local Act". Bên cạnh kiến thức lý thuyết, sinh viên được học qua làm việc nhóm, thực địa, dự án thực tế (Live-case), giải quyết các vấn đề xã hội và nghiên cứu khoa học theo phương pháp Project-based Learning, đồng thời ứng dụng linh hoạt các mô hình học tập số như E-learning, Blended/Hybrid learning, VR, AR.</p>
                     <p>Sinh viên UEH vừa kinh tế vừa hiểu công nghệ, vừa học truyền thông vừa vững thiết kế, học quản trị nhưng sẵn sàng khởi nghiệp. Nền tảng kiến thức liên ngành ấy chính là hành trang để Gen Z tự tin thích ứng và chinh phục thị trường lao động toàn cầu.</p>
                 </div>
 
                 <!-- TAB 4: Học đón đầu tương lai -->
                 <div id="tab4" class="tab-pane text-[14.5px] leading-[1.8] text-standardGray space-y-5">
                     <p>Là sinh viên UEH, bạn mang trong mình dấu ấn của một đại học đa ngành và bền vững. Dù theo học bất kỳ ngành nào, bạn đều được trang bị 06 học phần nền tảng chung, tạo nên dấu ấn riêng của sinh viên UEH. Đây là các học phần bắt buộc, được thiết kế nhằm mở rộng tư duy đa ngành, kết nối tri thức với các vấn đề toàn cầu và định hình bạn trở thành một công dân toàn cầu hành động vì phát triển bền vững.</p>
-                    <p>Cụ thể, bạn sẽ được học và trải nghiệm các học phần: Nhập môn Khoa học Dữ liệu (Introduction to Data Science), Kỹ năng mềm (Soft Skills), Khởi nghiệp (Entrepreneurship), Tâm lý học nền tảng, Tư duy thiết kế (Design Thinking) và Phát triển bền vững (Sustainable Development). Đây chính là “bộ năng lực cốt lõi” giúp bạn làm chủ công nghệ, phát triển tư duy sáng tạo, hiểu con người – xã hội và tự tin bắt nhịp với kỷ nguyên AI, số hóa và thị trường lao động toàn cầu. Tìm hiểu 06 phần làm nên thương hiệu của sinh viên UEH <a href="#" class="underline hover:text-ueh-teal">tại đây</a>.</p>
+                    <p>Cụ thể, bạn sẽ được học và trải nghiệm các học phần: Nhập môn Khoa học Dữ liệu (Introduction to Data Science), Kỹ năng mềm (Soft Skills), Khởi nghiệp (Entrepreneurship), Tâm lý học nền tảng, Tư duy thiết kế (Design Thinking) và Phát triển bền vững (Sustainable Development). Đây chính là "bộ năng lực cốt lõi" giúp bạn làm chủ công nghệ, phát triển tư duy sáng tạo, hiểu con người – xã hội và tự tin bắt nhịp với kỷ nguyên AI, số hóa và thị trường lao động toàn cầu. Tìm hiểu 06 phần làm nên thương hiệu của sinh viên UEH <a href="#" class="underline hover:text-ueh-teal">tại đây</a>.</p>
                 </div>
 
                 <!-- TAB 5: Bắt đầu hành trình -->
                 <div id="tab5" class="tab-pane text-[14.5px] leading-[1.8] text-standardGray space-y-5">
-                    <p>“I am who I choose to be” – mỗi người học đều có quyền chủ động lựa chọn con đường phát triển của chính mình. Và tại UEH, bạn không chỉ được lựa chọn, mà còn được trao đủ năng lực, môi trường và cơ hội để biến lựa chọn ấy thành hiện thực.</p>
+                    <p>"I am who I choose to be" – mỗi người học đều có quyền chủ động lựa chọn con đường phát triển của chính mình. Và tại UEH, bạn không chỉ được lựa chọn, mà còn được trao đủ năng lực, môi trường và cơ hội để biến lựa chọn ấy thành hiện thực.</p>
                     <p>Dựa trên ba giá trị cốt lõi: Unbounded Learning – Empowered Growth – Holistic Citizenship (Học tập không giới hạn – Trao quyền phát triển suốt đời – Hoàn thiện năng lực công dân toàn cầu).</p>
                     <p>UEH đồng hành cùng bạn không chỉ trong học tập, mà trong hành trình khai mở bản sắc cá nhân, giúp bạn trở thành phiên bản tốt nhất của chính mình giữa một thế giới không ngừng biến đổi.</p>
-                    
-                    <!-- Accordion riêng trong Tab 5 -->
-                    <div class="bg-ueh-gray rounded-lg overflow-hidden mt-6 mb-4">
-                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+
+                    <!-- Accordion riêng trong Tab 5 (mở sẵn theo thiết kế) -->
+                    <div class="pt-2">
+                        <div class="accordion-header bg-ueh-gray flex justify-between items-center p-5 rounded-lg shadow-sm cursor-pointer" onclick="toggleAccordion(this)">
                             <span class="font-medium text-[15px] text-standardGray">Bắt đầu từ việc hiểu chính mình</span>
-                            <i class="fa-solid fa-plus text-standardGray text-lg transition-transform duration-300"></i>
+                            <i class="fa-solid fa-minus text-standardGray text-lg transition-transform duration-300" style="transform: rotate(180deg);"></i>
                         </div>
-                        <div class="accordion-content">
-                            <div class="accordion-inner px-5 pb-5 text-[14.5px] leading-relaxed text-standardGray space-y-3">
-                                <p>Hành trình “chọn là người bạn chọn” tại UEH bắt đầu bằng việc hiểu bản thân. UEH cung cấp công cụ trắc nghiệm khám phá tiềm năng – sở thích nghề nghiệp, hoàn toàn miễn phí, được hơn 60.000 học sinh THPT sử dụng mỗi năm.<br>Công cụ tích hợp hai phương pháp trắc nghiệm uy tín Holland và MBTI, giúp bạn:</p>
+                        <div class="accordion-content open">
+                            <div class="accordion-inner px-1 pt-4 pb-1 text-[14.5px] leading-relaxed text-standardGray space-y-3">
+                                <p>Hành trình "chọn là người bạn chọn" tại UEH bắt đầu bằng việc hiểu bản thân. UEH cung cấp công cụ trắc nghiệm khám phá tiềm năng – sở thích nghề nghiệp, hoàn toàn miễn phí, được hơn 60.000 học sinh THPT sử dụng mỗi năm.<br>Công cụ tích hợp hai phương pháp trắc nghiệm uy tín Holland và MBTI, giúp bạn:</p>
                                 <ul class="list-disc pl-5 space-y-1">
                                     <li>Hiểu tính cách, thói quen và điểm mạnh của bản thân</li>
                                     <li>Xác định khuynh hướng nghề nghiệp phù hợp</li>
@@ -362,7 +343,7 @@
     </section>
 
     <!-- ================= JAVASCRIPT ================= -->
-<script>
+    <script>
         /* Slider Logic */
         const sliderWrapper = document.getElementById('sliderWrapper');
         const dots = document.querySelectorAll('.slider-dot');
@@ -407,7 +388,7 @@
             const icon = header.querySelector('i');
             const isOpen = content.classList.contains('open');
 
-            // Đóng tất cả accordion trước (trong cùng scope)
+            // Đóng tất cả accordion trước (trong cùng scope của tab hiện tại)
             const parent = header.closest('.tab-pane');
             parent.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
             parent.querySelectorAll('.accordion-header i').forEach(i => {

@@ -52,16 +52,48 @@
         }
 
         /* Slider Animations */
-        .slider-wrapper {
-            display: flex;
-            transition: transform var(--transition-slow);
-            height: 100%;
-        }
-        .slide {
-            min-width: 100%;
-            height: 100%;
-        }
-        
+       /* Khung chứa slider vừa màn hình, trừ đi chiều cao của navbar */
+.slider-container {
+  width: 100%;
+  height: calc(100vh - 60px); /* Thay 60px bằng chiều cao thực tế của navbar */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Slider Animations */
+.slider-wrapper {
+  display: flex;
+  transition: transform var(--transition-slow);
+  height: 100%;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  position: relative; /* Tạo mốc để chứa lớp phủ gradient */
+}
+
+/* Ảnh bên trong slide */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Giúp ảnh không bị méo khi vừa khung */
+}
+
+/* Gradient đen nhẹ 15% trước ảnh */
+.slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+  pointer-events: none; /* Giúp click xuyên qua lớp gradient */
+}
+
         .slider-dot {
             transition: background-color var(--transition-fast), transform var(--transition-fast);
         }
@@ -150,7 +182,7 @@
         <div class="slider-wrapper" id="sliderWrapper">
             <div class="slide">
                 <a href="https://tuyensinh.ueh.edu.vn/cu-nhan-chinh-quy/dai-hoc-chinh-quy/">
-                <img src=img/herobanner-1.png" alt="Banner 1" class="w-full h-full object-cover">
+                <img src="img/herobanner-1.png" alt="Banner 1" class="w-full h-full object-cover">
                 </a>
             </div>
             <div class="slide">

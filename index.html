@@ -63,13 +63,20 @@
          .slider-wrapper {
           display: flex;
           transition: transform var(--transition-slow);
-          height: calc(100vh - 80px); 
+          height: calc(100vh - 88px); 
         }
         
         .slide {
           min-width: 100%;
           height: 100%;
           position: relative; /* Tạo mốc để chứa lớp phủ gradient */
+        }
+        /* Thêm lớp img để ảnh fit hết khung */
+        .slide img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Giúp ảnh fit đầy khung, cắt phần thừa nếu lệch tỷ lệ */
+          display: block;
         }
         
         /* Thêm gradient đen 15% nhẹ trước ảnh */

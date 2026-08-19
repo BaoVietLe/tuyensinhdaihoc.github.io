@@ -362,7 +362,7 @@
     </section>
 
     <!-- ================= JAVASCRIPT ================= -->
-    <script>
+<script>
         /* Slider Logic */
         const sliderWrapper = document.getElementById('sliderWrapper');
         const dots = document.querySelectorAll('.slider-dot');
@@ -401,21 +401,22 @@
             });
         });
 
-        /* Accordion Logic (Mở/Đóng khi nhấn) */
+        /* Accordion Logic (Mở/Đóng) */
         function toggleAccordion(header) {
             const content = header.nextElementSibling;
             const icon = header.querySelector('i');
             const isOpen = content.classList.contains('open');
 
-            // Đóng tất cả accordion trước
-            document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-            document.querySelectorAll('.accordion-header i').forEach(i => {
+            // Đóng tất cả accordion trước (trong cùng scope)
+            const parent = header.closest('.tab-pane');
+            parent.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+            parent.querySelectorAll('.accordion-header i').forEach(i => {
                 i.classList.remove('fa-minus');
                 i.classList.add('fa-plus');
                 i.style.transform = "rotate(0deg)";
             });
 
-            // Nếu cái đang bấm chưa mở, thì mở nó ra và đổi thành dấu -
+            // Nếu chưa mở -> Mở và đổi dấu
             if (!isOpen) {
                 content.classList.add('open');
                 icon.classList.remove('fa-plus');
@@ -424,12 +425,22 @@
             }
         }
 
-        /* Sidebar Tabs Logic */
+        /* Tabs Switching Logic */
         const tabs = document.querySelectorAll('.tab-item');
+        const panes = document.querySelectorAll('.tab-pane');
+
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
+                // Xóa active tất cả tabs
                 tabs.forEach(t => t.classList.remove('active'));
+                // Thêm active cho tab được click
                 tab.classList.add('active');
+
+                // Ẩn tất cả panes
+                panes.forEach(p => p.classList.remove('active'));
+                // Hiển thị pane tương ứng
+                const targetId = tab.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
             });
         });
     </script>

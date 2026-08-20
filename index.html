@@ -761,7 +761,7 @@
         <!-- CỘT BÊN PHẢI: 8 THẺ SCROLL (Hiển thị 4 thẻ mặc định) -->
         <div class="lg:col-span-7">
             <!-- Container giới hạn chiều cao bằng đúng 2 dòng thẻ, overflow-y-auto để lướt -->
-            <div class="ueh-scroll-container h-[476px] overflow-y-auto pr-2 pb-2 -mr-2">
+            <div class="ueh-scroll-container h-[476px] overflow-y-auto overscroll-contain pr-2 pb-2 -mr-2">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                     <!-- CARD 1: CHUẨN (ACTIVE MẶC ĐỊNH) -->
@@ -1277,6 +1277,19 @@ document.addEventListener('DOMContentLoaded', () => {
         container.classList.remove('fade-out');
         container.classList.add('fade-in');
     }, 200);
+}
+        // Khóa cuộn trang chính cho đến khi lướt hết các card trong section
+const uehScrollBox = document.querySelector('.ueh-scroll-container');
+if (uehScrollBox) {
+    uehScrollBox.addEventListener('wheel', function(e) {
+        const atTop = this.scrollTop === 0;
+        const atBottom = Math.abs(this.scrollHeight - this.clientHeight - this.scrollTop) < 1;
+        
+        // Nếu chưa chạm đỉnh hoặc chưa chạm đáy thì giữ sự kiện cuộn nằm trọn trong khung card
+        if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
+            e.stopPropagation();
+        }
+    });
 }
                      // --- 1. LOGIC CHUYỂN TAB KSA / KSV ---
         function switchTab(tabId) {

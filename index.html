@@ -29,7 +29,7 @@
         standardGray: '#666666'
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['SVN-Poppins', 'sans-serif'],
       },
       fontSize: {
         'h1': ['48px', { lineHeight: '1.2' }],
@@ -52,11 +52,49 @@
             --transition-slow: 0.5s ease-in-out;
         }
 
-        /* TẤT CẢ CHỮ LÀ MÀU XÁM CHUẨN (#666666) */
+        @font-face {
+          font-family: 'SVN-Poppins';
+          src: url('fonts/Font-web Light.otf') format('opentype'); 
+          font-style: normal;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'SVN-Poppins';
+          src: url('fonts/Font-web Regular.otf') format('opentype');
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'SVN-Poppins';
+          src: url('fonts/Font-web SemiBold.otf') format('opentype');
+          font-weight: 600;
+          font-style: normal;
+          font-display: swap;
+        }
+           @font-face {
+            font-family: 'SVN Poppins';
+            src: url('fonts/Font-web Italic.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+          }
+          @font-face {
+            font-family: 'SVN Poppins';
+            src: url('fonts/Font-web Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+          }
+          @font-face {
+            font-family: 'SVN Poppins';
+            src: url('fonts/Font-web Bold Italic.otf') format('opentype');
+            font-weight: 700;
+            font-style: italic;
+          }
+        
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: #222222;
-            overflow-x: hidden;
+          font-family: 'SVN-Poppins', sans-serif;
+          color: #222222;
+          overflow-x: hidden;
         }
 
         /* Slider Animations */

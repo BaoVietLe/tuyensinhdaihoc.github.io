@@ -168,6 +168,88 @@
     .content-transition { transition: opacity 0.3s ease, transform 0.3s ease; }
     .fade-out { opacity: 0; transform: translateY(10px); }
     .fade-in { opacity: 1; transform: translateY(0); }
+        .ueh-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        
+        .ueh-table th {
+            background-color: #005B5C;
+            color: white;
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 14px 10px;
+            text-align: center;
+            border: 1px solid #004748;
+            vertical-align: middle;
+            letter-spacing: 0.025em;
+        }
+
+        .ueh-table td {
+            padding: 12px 10px;
+            font-size: 12.5px;
+            color: #334155;
+            border: 1px solid #f1f5f9;
+            text-align: center;
+            vertical-align: middle;
+            transition: background-color 0.15s ease;
+        }
+
+        .ueh-table tbody tr:hover td {
+            background-color: #f0fdfa !important;
+        }
+
+        .ueh-table td:nth-child(2),
+        .ueh-table td:nth-child(3) {
+            text-align: left;
+        }
+        
+        .ueh-table td:nth-child(2) {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .ueh-table tr.section-heading td,
+        .ueh-table tr.main-region-heading td {
+            background-color: #f0fdf4;
+            color: #005B5C;
+            font-weight: 700;
+            font-size: 13.5px;
+            text-align: left !important;
+            padding-left: 16px;
+            border-left: 4px solid #005B5C;
+        }
+
+        .ueh-table tbody tr:nth-child(even):not(.section-heading):not(.main-region-heading) {
+            background-color: #f8fafc;
+        }
+
+        .ueh-table a {
+            color: #005B5C;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .ueh-table a:hover {
+            color: #0f766e;
+            text-decoration: underline;
+        }
+
+        .widget-btn {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -720,125 +802,51 @@
 
     </div>
 </section>
-    <!-- Bắt đầu Section Chương trình đào tạo UEH -->
-<section id="ueh-programs-section" class="w-full bg-gray-50 py-8 relative">
-    <style>
-        /* Tùy chỉnh thiết kế bảng 100% giống ảnh */
-        .ueh-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-family: Arial, sans-serif;
-            background-color: white;
-        }
-        
-        .ueh-table th {
-            background-color: #005B5C; /* Xanh ngọc tối đặc trưng */
-            color: white;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 12px 8px;
-            text-align: center;
-            border: 1px solid #004d4e;
-            vertical-align: middle;
-        }
-
-        .ueh-table td {
-            padding: 10px 8px;
-            font-size: 12px;
-            color: #333;
-            border: 1px solid #e5e7eb;
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        /* Tên chương trình (Cột 2) và Ngành (Cột 3) căn trái */
-        .ueh-table td:nth-child(2),
-        .ueh-table td:nth-child(3) {
-            text-align: left;
-        }
-        
-        /* Tên chương trình in đậm */
-        .ueh-table td:nth-child(2) {
-            font-weight: 600;
-        }
-
-        /* Định dạng hàng tiêu đề lĩnh vực (I, II, III...) */
-        .ueh-table tr.section-heading td,
-        .ueh-table tr.main-region-heading td {
-            background-color: #E8F4F5; /* Xanh nhạt */
-            color: #005B5C;
-            font-weight: bold;
-            font-size: 13px;
-            text-align: left !important;
-        }
-
-        /* Tô màu xen kẽ cho các hàng (Striped rows) */
-        .ueh-table tbody tr:nth-child(even):not(.section-heading):not(.main-region-heading) {
-            background-color: #F9FAFB;
-        }
-
-        /* Nút "Xem" */
-        .ueh-table a {
-            color: #005B5C;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .ueh-table a:hover {
-            text-decoration: underline;
-        }
-
-        /* Widget dọc nằm góc phải */
-        .widget-btn {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: rotate(180deg); /* Lật chữ đọc từ dưới lên cho tự nhiên */
-        }
-
-        /* Ẩn scrollbar cho panel nội dung */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-    </style>
-
-    <!-- KHUNG CHÍNH (Đã thêm overflow-hidden để Popup bo góc đẹp) -->
-    <div class="max-w-[1400px] mx-auto bg-white p-8 rounded-xl shadow-sm relative overflow-hidden">
+<!-- Bắt đầu Section Chương trình đào tạo UEH - UI/UX Enhanced -->
+<section id="ueh-programs-section" class="w-full bg-slate-100/70 py-12 relative font-sans">
+    <!-- KHUNG CHÍNH -->
+    <div class="max-w-[1440px] mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-xl shadow-slate-200/60 relative overflow-hidden border border-slate-100">
         
         <!-- Tiêu đề -->
-        <h2 class="text-3xl font-extrabold text-center text-[#005B5C] mb-8">CHƯƠNG TRÌNH ĐÀO TẠO - MÃ ĐĂNG KÝ - CHỈ TIÊU</h2>
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#005B5C] bg-[#E8F4F5] px-3 py-1 rounded-full">Tuyển sinh chính quy 2026</span>
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-3 tracking-tight">CHƯƠNG TRÌNH ĐÀO TẠO - MÃ ĐĂNG KÝ - CHỈ TIÊU</h2>
+            <div class="w-20 h-1 bg-[#005B5C] mx-auto mt-3 rounded-full"></div>
+        </div>
         
         <!-- Nút Tab -->
-        <div class="flex justify-center mb-4">
-            <!-- Nút KSA -->
-            <button id="btn-ksa" onclick="switchTab('ksa')" class="tab-btn w-64 py-4 rounded-l-lg bg-[#f0f0f0] text-gray-500 font-bold transition-all duration-300">
-                <span class="block text-lg">HỌC TẠI TP. HCM</span>
-                <span class="block text-sm font-normal italic mt-1">Mã trường: KSA</span>
-            </button>
-            <!-- Nút KSV -->
-            <button id="btn-ksv" onclick="switchTab('ksv')" class="tab-btn w-64 py-4 rounded-r-lg bg-[#f0f0f0] text-gray-500 font-bold transition-all duration-300">
-                <span class="block text-lg">HỌC TẠI VĨNH LONG, UEH MEKONG</span>
-                <span class="block text-sm font-normal italic mt-1">Mã trường: KSV</span>
-            </button>
+        <div class="flex justify-center mb-6">
+            <div class="bg-slate-100 p-1.5 rounded-xl flex gap-1 shadow-inner">
+                <button id="btn-ksa" onclick="switchTab('ksa')" class="tab-btn px-6 py-3 rounded-lg text-slate-600 font-bold text-sm transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>HỌC TẠI TP. HCM (KSA)</span>
+                </button>
+                <button id="btn-ksv" onclick="switchTab('ksv')" class="tab-btn px-6 py-3 rounded-lg text-slate-600 font-bold text-sm transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>HỌC TẠI VĨNH LONG (KSV)</span>
+                </button>
+            </div>
         </div>
 
-        <!-- Chú thích -->
-        <div class="text-[13px] text-gray-600 mb-6 px-2">
-            * Lưu ý: Thí sinh có thể sử dụng tổ hợp xét tuyển có môn ngoại ngữ khác tiếng Anh để xét tuyển (ngoại trừ chương trình Tiếng Anh thương mại), bao gồm: Tiếng Hàn, Tiếng Đức, Tiếng Nga, Tiếng Nhật, Tiếng Pháp, Tiếng Trung.
+        <!-- Chú thích nhanh -->
+        <div class="text-xs text-slate-500 bg-amber-50/60 border border-amber-200/60 rounded-xl p-4 mb-6 flex items-start gap-3">
+            <i class="fa-solid fa-circle-exclamation text-amber-500 mt-0.5 text-sm"></i>
+            <div>
+                <strong class="text-amber-800">Lưu ý quan trọng:</strong> Thí sinh có thể sử dụng tổ hợp xét tuyển có môn ngoại ngữ khác tiếng Anh để xét tuyển (ngoại trừ chương trình Tiếng Anh thương mại), bao gồm: Tiếng Hàn, Tiếng Đức, Tiếng Nga, Tiếng Nhật, Tiếng Pháp, Tiếng Trung.
+            </div>
         </div>
 
         <!-- CÔNG CỤ TÌM KIẾM & LỌC -->
-        <div class="flex flex-col md:flex-row gap-4 mb-6 bg-gray-50 p-4 rounded-lg border border-gray-100">
-            <div class="flex-1">
-                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="🔍 Nhập mã ngành, tên chương trình..." 
-                       class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#005B5C]/50 text-sm">
+        <div class="flex flex-col md:flex-row gap-4 mb-6 bg-slate-50/80 p-4 rounded-xl border border-slate-200/70">
+            <div class="flex-1 relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Nhập mã ngành, tên chương trình cần tìm..." 
+                       class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005B5C]/30 focus:border-[#005B5C] text-sm text-slate-800 transition-all shadow-sm">
             </div>
-            <div class="w-full md:w-1/3">
-                <select id="filterSelect" onchange="filterTable()" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#005B5C]/50 text-sm">
-                    <option value="">-- Tất cả lĩnh vực --</option>
+            <div class="w-full md:w-1/3 relative">
+                <i class="fa-solid fa-filter absolute left-3.5 top-3.5 text-slate-400 text-sm pointer-events-none"></i>
+                <select id="filterSelect" onchange="filterTable()" class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005B5C]/30 focus:border-[#005B5C] text-sm text-slate-800 transition-all shadow-sm appearance-none cursor-pointer">
+                    <option value="">-- Tất cả lĩnh vực đào tạo --</option>
                     <option value="nhân văn">I. Lĩnh vực Nhân văn</option>
                     <option value="khoa học xã hội">II. Lĩnh vực Khoa học xã hội</option>
                     <option value="báo chí">III. Lĩnh vực Báo chí</option>
@@ -849,11 +857,12 @@
                     <option value="nông, lâm">Lĩnh vực Nông lâm nghiệp</option>
                     <option value="du lịch">Lĩnh vực Du lịch, khách sạn</option>
                 </select>
+                <i class="fa-solid fa-chevron-down absolute right-3.5 top-4 text-slate-400 text-xs pointer-events-none"></i>
             </div>
         </div>
 
         <!-- KHU VỰC CHỨA BẢNG -->
-        <div class="overflow-x-auto border-t-4 border-[#005B5C]">
+        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
             <!-- BẢNG KSA -->
             <div id="content-ksa" class="tab-content block">
                 <table class="ueh-table">
@@ -865,17 +874,17 @@
                         <th>Mã xét tuyển</th>
                         <th>Chỉ tiêu 2026</th>
                         <th>Tổ hợp môn</th>
-                        <th>Điểm trúng tuyển 2026</th>
-                        <th>CHƯƠNG TRÌNH Chuẩn (Tiếng Việt)</th>
-                        <th>CHƯƠNG TRÌNH Tiếng Anh bán phần</th>
-                        <th>CHƯƠNG TRÌNH Tiếng Anh toàn phần</th>
+                        <th>Điểm chuẩn 2026</th>
+                        <th>Chuẩn (Tiếng Việt)</th>
+                        <th>Tiếng Anh bán phần</th>
+                        <th>Tiếng Anh toàn phần</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="section-heading"><td colspan="10">I. Lĩnh vực Nhân văn</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-book-open-reader mr-2"></i> I. Lĩnh vực Nhân văn</td></tr>
                     <tr><td>1</td><td>Tiếng Anh thương mại<sup> (6)</sup></td><td>Ngôn ngữ Anh</td><td>7220201</td><td>150</td><td>D01, D09, D14</td><td>83,40</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">II. Lĩnh vực Khoa học xã hội và hành vi</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-users-rectangle mr-2"></i> II. Lĩnh vực Khoa học xã hội và hành vi</td></tr>
                     <tr><td>2</td><td>Kinh tế</td><td>Kinh tế</td><td>7310101</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>85,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>3</td><td>Kinh tế chính trị<sup> (6)</sup></td><td>Kinh tế chính trị</td><td>731010201</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>77,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
                     <tr><td>4</td><td>Kinh tế chính trị quốc tế<sup> (1)</sup></td><td>Kinh tế chính trị</td><td>731010202</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
@@ -885,11 +894,11 @@
                     <tr><td>8</td><td>Toán tài chính<sup> (6)</sup></td><td>Toán kinh tế</td><td>731010801</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>82,20</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
                     <tr><td>9</td><td>Phân tích rủi ro và định phí bảo hiểm</td><td>Toán kinh tế</td><td>731010802</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>79,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">III. Lĩnh vực Báo chí và Thông tin</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-bullhorn mr-2"></i> III. Lĩnh vực Báo chí và Thông tin</td></tr>
                     <tr><td>10</td><td>Truyền thông số và thiết kế đa phương tiện<sup> (6)</sup></td><td>Công nghệ truyền thông</td><td>732010601</td><td>60</td><td>A00, A01, D01, D07, D09, V00</td><td>90,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>11</td><td>Truyền thông số và thiết kế đa phương tiện song bằng UEH - Đại học Saint Joseph, Macao<sup>(2a)(4)</sup></td><td>Công nghệ truyền thông</td><td>73201061D</td><td>40</td><td>A00, A01, D01, D07, D09, V00</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">IV. Lĩnh vực Kinh doanh và quản lý</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-briefcase mr-2"></i> IV. Lĩnh vực Kinh doanh và quản lý</td></tr>
                     <tr><td>12</td><td>Quản trị kinh doanh<sup> (5)</sup></td><td>Quản trị kinh doanh</td><td>734010101</td><td>750</td><td>A00, A01, D01, D07, D09</td><td>79,40</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>13</td><td>Quản trị - Tiếng Anh toàn phần<sup> (2a)</sup></td><td>Quản trị kinh doanh</td><td>73401011F</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>71,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
                     <tr><td>14</td><td>Kinh doanh số</td><td>Quản trị kinh doanh</td><td>734010102</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>87,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
@@ -931,17 +940,17 @@
                     <tr><td>50</td><td>Quản trị nhân lực</td><td>Quản trị nhân lực</td><td>7340404</td><td>150</td><td>A00, A01, D01, D07, D09</td><td>83,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>51</td><td>Hệ thống thông tin quản lý</td><td>Hệ thống thông tin quản lý</td><td>7340405</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>86,80</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">V. Lĩnh vực Pháp luật</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-scale-balanced mr-2"></i> V. Lĩnh vực Pháp luật</td></tr>
                     <tr><td>52</td><td>Luật kinh doanh quốc tế</td><td>Luật</td><td>738010101</td><td>70</td><td>A00, A01, D01, D09, X25</td><td>82,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>53</td><td>Luật<sup> (1)</sup> </td><td>Luật</td><td>738010102</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>76,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
                     <tr><td>54</td><td>Luật kinh tế</td><td>Luật kinh tế</td><td>7380107</td><td>80</td><td>A00, A01, D01, D09, X25</td><td>82,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>55</td><td>Luật thương mại quốc tế<sup> (1)</sup></td><td>Luật thương mại quốc tế</td><td>7380109</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>80,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">VI. Lĩnh vực Toán và thống kê</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-square-root-variable mr-2"></i> VI. Lĩnh vực Toán và thống kê</td></tr>
                     <tr><td>56</td><td>Khoa học dữ liệu</td><td>Khoa học dữ liệu</td><td>746010801</td><td>55</td><td>A00, A01, D01, D07, X26</td><td>88,10</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
                     <tr><td>57</td><td>Phân tích dữ liệu</td><td>Khoa học dữ liệu</td><td>746010802</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>91,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">VII. Lĩnh vực Máy tính và Công nghệ thông tin</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-laptop-code mr-2"></i> VII. Lĩnh vực Máy tính và Công nghệ thông tin</td></tr>
                     <tr><td>58</td><td>Khoa học máy tính</td><td>Khoa học máy tính</td><td>7480101</td><td>50</td><td>A00, A01, D01, D07, X26</td><td>79,40</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
                     <tr><td>59</td><td>Kỹ thuật phần mềm</td><td>Kỹ thuật phần mềm</td><td>7480103</td><td>55</td><td>A00, A01, D01, D07, X26</td><td>76,60</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
                     <tr><td>60</td><td>Robot và Trí tuệ nhân tạo (hệ kỹ sư)</td><td>Trí tuệ nhân tạo</td><td>748010701</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>75,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
@@ -953,29 +962,29 @@
                     <tr><td>66</td><td>Công nghệ và đổi mới sáng tạo</td><td>Công nghệ thông tin</td><td>748020103</td><td>100</td><td>A00, A01, D01, D07, X26</td><td>78,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>67</td><td>An toàn thông tin</td><td>An toàn thông tin</td><td>7480202</td><td>50</td><td>A00, A01, D01, D07, X26</td><td>77,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">VIII. Lĩnh vực Công nghệ kỹ thuật</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-gears mr-2"></i> VIII. Lĩnh vực Công nghệ kỹ thuật</td></tr>
                     <tr><td>68</td><td>Sản xuất thông minh (hệ kỹ sư)<sup> (1)</sup></td><td>Công nghệ kỹ thuật cơ khí</td><td>7510201</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
                     <tr><td>69</td><td>Logistics và Quản lý chuỗi cung ứng<sup> (6)</sup></td><td>Logistics chuỗi cung ứng</td><td>751060501</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>97,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>70</td><td>Logistics và Quản lý chuỗi cung ứng  - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Logistics chuỗi cung ứng</td><td>75106051F</td><td>80</td><td>A00, A01, D01, D07, X26</td><td>94,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
                     <tr><td>71</td><td>Công nghệ Logistics (hệ kỹ sư)</td><td>Logistics chuỗi cung ứng</td><td>751060502</td><td>60</td><td>A00, A01, D01, D07, X26</td><td>87,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>72</td><td>Công nghệ Logistics tích hợp chứng chỉ FIATA - Tiếng Anh toàn phần (hệ kỹ sư)<sup>(1)(2a)</sup></td><td>Logistics chuỗi cung ứng</td><td>75106052F</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>88,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
                     
-                    <tr class="section-heading"><td colspan="10">* Chương trình đào tạo kỹ sư tài năng thuộc các lĩnh vực STEM</td></tr>
-                    <tr><td></td><td>Kỹ sư tài năng Logistics thông minh<sup>(1)(7)</sup></td><td>Logistics chuỗi cung ứng</td><td></td><td>30 (dự kiến)</td><td>Thí sinh trúng tuyển nếu đủ điều kiện sẽ được đăng ký khi nhập học</td><td>---</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-star text-amber-500 mr-2"></i> * Chương trình đào tạo kỹ sư tài năng thuộc các lĩnh vực STEM</td></tr>
+                    <tr><td></td><td>Kỹ sư tài năng Logistics thông minh<sup>(1)(7)</sup></td><td>Logistics chuỗi cung ứng</td><td></td><td>30 (dự kiến)</td><td>Đăng ký khi nhập học</td><td>---</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">IX. Lĩnh vực Kiến trúc và xây dựng</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-city mr-2"></i> IX. Lĩnh vực Kiến trúc và xây dựng</td></tr>
                     <tr><td>73</td><td>Kiến trúc và thiết kế đô thị thông minh song bằng ĐH Auckland<sup>(2c)(4)</sup></td><td>Kiến trúc đô thị</td><td>7580104SD</td><td>80</td><td>A00, A01, D01, D09, V00</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>74</td><td>Kiến trúc và Thiết kế đô thị thông minh (hệ kiến trúc sư)<sup> (1)</sup></td><td>Kiến trúc đô thị</td><td>758010402</td><td>40</td><td>A00, A01, D01, D09, V00</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">X. Lĩnh vực Nông, lâm nghiệp và thủy sản</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-seedling mr-2"></i> X. Lĩnh vực Nông, lâm nghiệp và thủy sản</td></tr>
                     <tr><td>75</td><td>Kinh doanh nông nghiệp<sup> (6)</sup></td><td>Kinh doanh nông nghiệp</td><td>7620114</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>78,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">XI. Lĩnh vực Du lịch, khách sạn, thể thao và dịch vụ cá nhân</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-plane-departure mr-2"></i> XI. Lĩnh vực Du lịch, khách sạn, thể thao và dịch vụ cá nhân</td></tr>
                     <tr><td>76</td><td>Quản trị dịch vụ du lịch và lữ hành</td><td>Quản trị lữ hành</td><td>7810103</td><td>165</td><td>A00, A01, D01, D07, D09</td><td>75,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>77</td><td>Quản trị khách sạn</td><td>Quản trị khách sạn</td><td>781020101</td><td>85</td><td>A00, A01, D01, D07, D09</td><td>78,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>78</td><td>Quản trị sự kiện và dịch vụ giải trí</td><td>Quản trị khách sạn</td><td>781020102</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>85,70</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="10">XII. Lĩnh vực Dịch vụ vận tải</td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-truck-fast mr-2"></i> XII. Lĩnh vực Dịch vụ vận tải</td></tr>
                     <tr><td>79</td><td>Quản trị vận hành và di chuyển thông minh<sup> (1)</sup></td><td>Kinh tế vận tải</td><td>7840104</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>76,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
                 </tbody>
                 </table>
@@ -991,41 +1000,41 @@
                         <th>Thuộc ngành</th>
                         <th>Mã xét tuyển</th>
                         <th>Chỉ tiêu 2026</th>
-                        <th>Tổ hợp xét tuyển (2026)</th>
-                        <th>Điểm trúng tuyển 2026</th>
-                        <th>CHƯƠNG TRÌNH Chuẩn (Tiếng Việt)</th>
-                        <th>CHƯƠNG TRÌNH Tiếng Anh bán phần</th>
+                        <th>Tổ hợp xét tuyển</th>
+                        <th>Điểm chuẩn 2026</th>
+                        <th>Chuẩn (Tiếng Việt)</th>
+                        <th>Tiếng Anh bán phần</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="main-region-heading"><td></td><td colspan="8">Tuyển sinh cả nước</td></tr>
+                    <tr class="main-region-heading"><td></td><td colspan="8"><i class="fa-solid fa-globe mr-2"></i> Tuyển sinh cả nước</td></tr>
 
-                    <tr class="section-heading"><td colspan="9">I. Lĩnh vực Nhân văn</td></tr>
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-book-open-reader mr-2"></i> I. Lĩnh vực Nhân văn</td></tr>
                     <tr><td>1</td><td>Tiếng Anh thương mại</td><td>Ngôn ngữ Anh</td><td>7220201</td><td>30</td><td>D01, D09, D14</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="9">II. Lĩnh vực Kinh doanh và quản lý</td></tr>
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-briefcase mr-2"></i> II. Lĩnh vực Kinh doanh và quản lý</td></tr>
                     <tr><td>2</td><td>Thuế</td><td>Tài chính – Ngân hàng</td><td>734020103</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>3</td><td>Thương mại điện tử</td><td>Thương mại điện tử</td><td>7340122</td><td>60</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
 
-                    <tr class="section-heading"><td colspan="9">III. Lĩnh vực Pháp luật</td></tr>
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-scale-balanced mr-2"></i> III. Lĩnh vực Pháp luật</td></tr>
                     <tr><td>4</td><td>Luật kinh tế</td><td>Luật kinh tế</td><td>7380107</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="9">IV. Lĩnh vực Công nghệ kỹ thuật</td></tr>
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-gears mr-2"></i> IV. Lĩnh vực Công nghệ kỹ thuật</td></tr>
                     <tr><td>5</td><td>Logistics và Quản lý chuỗi cung ứng (S)</td><td>Logistics chuỗi cung ứng</td><td>7510605</td><td>60</td><td>A00, A01, D01, D07, X26</td><td>67,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
 
-                    <tr class="section-heading"><td colspan="9">V. Lĩnh vực Máy tính và công nghệ thông tin</td></tr>
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-laptop-code mr-2"></i> V. Lĩnh vực Máy tính và công nghệ thông tin</td></tr>
                     <tr><td>6</td><td>Công nghệ và đổi mới sáng tạo</td><td>Công nghệ thông tin</td><td>7480201</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>7</td><td>Robot và Trí tuệ nhân tạo (hệ kỹ sư)</td><td>Trí tuệ nhân tạo</td><td>7480107</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
 
-                    <tr class="section-heading"><td colspan="9">VI. Lĩnh vực Nông, lâm nghiệp và thủy sản</td></tr>
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-seedling mr-2"></i> VI. Lĩnh vực Nông, lâm nghiệp và thủy sản</td></tr>
                     <tr><td>8</td><td>Kinh doanh nông nghiệp (S)</td><td>Kinh doanh nông nghiệp</td><td>7620114</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
 
-                    <tr class="section-heading"><td colspan="9">VII. Lĩnh vực Du lịch, khách sạn, thể thao và dịch vụ cá nhân</td></tr>
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-plane-departure mr-2"></i> VII. Lĩnh vực Du lịch, khách sạn, thể thao và dịch vụ cá nhân</td></tr>
                     <tr><td>9</td><td>Quản trị khách sạn</td><td>Quản trị khách sạn</td><td>7810201</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
 
-                    <tr class="main-region-heading"><td></td><td colspan="8">Tuyển sinh khu vực ĐBSCL &amp; Tây Ninh</td></tr>
+                    <tr class="main-region-heading"><td></td><td colspan="8"><i class="fa-solid fa-location-crosshairs mr-2"></i> Tuyển sinh khu vực ĐBSCL &amp; Tây Ninh</td></tr>
 
-                    <tr class="section-heading"><td colspan="9">I. Lĩnh vực Kinh doanh và quản lý</td></tr>
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-briefcase mr-2"></i> I. Lĩnh vực Kinh doanh và quản lý</td></tr>
                     <tr><td>10</td><td>Quản trị</td><td>Quản trị kinh doanh</td><td>7340101</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
                     <tr><td>11</td><td>Kinh doanh quốc tế (S)</td><td>Kinh doanh quốc tế</td><td>7340120</td><td>60</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
                     <tr><td>12</td><td>Marketing (S)</td><td>Marketing</td><td>7340115</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
@@ -1036,49 +1045,50 @@
                 </table>
             </div>
 
-        </div> <!-- KẾT THÚC KHU VỰC CHỨA BẢNG -->
-
-        <!-- Nút kích hoạt Widget (Cố định ở rìa khung bảng chính) -->
-        <div onclick="togglePopup()" class="widget-btn absolute top-1/2 right-0 bg-[#005B5C] text-white py-4 px-2 rounded-l-md shadow-lg cursor-pointer z-30 flex items-center justify-center hover:bg-[#004d4e] transition-colors group">
-            <span class="text-[13px] tracking-wide mb-2 uppercase">Nhấn để xem thêm về chú thích</span>
-            <!-- Biểu tượng mũi tên < hướng ra -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform rotate-90 text-white/70 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
         </div>
 
-        <!-- Màn mờ (Backdrop Blur) nằm ngay trong khung bảng -->
-        <div id="popup-backdrop" onclick="togglePopup()" class="absolute inset-0 bg-black/60 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 rounded-xl"></div>
+        <!-- Nút kích hoạt Widget (Gắn icon Font Awesome) -->
+        <div onclick="togglePopup()" class="widget-btn absolute top-1/2 right-0 bg-[#005B5C] text-white py-4 px-2.5 rounded-l-xl shadow-lg cursor-pointer z-30 flex items-center justify-center gap-2 hover:bg-[#004748] transition-all group">
+            <i class="fa-solid fa-circle-info text-emerald-300 text-xs"></i>
+            <span class="text-[12px] font-semibold tracking-wider uppercase">Chú thích ký hiệu</span>
+        </div>
 
-        <!-- Khung Nội dung Popup (Modal phủ kín khung chính) -->
-        <div id="popup-panel" class="absolute inset-0 bg-white shadow-2xl z-50 rounded-xl flex flex-col opacity-0 pointer-events-none transition-opacity duration-300">
+        <!-- Màn mờ Backdrop -->
+        <div id="popup-backdrop" onclick="togglePopup()" class="absolute inset-0 bg-slate-900/60 backdrop-blur-xs z-40 opacity-0 pointer-events-none transition-opacity duration-300 rounded-2xl"></div>
+
+        <!-- Khung Nội dung Popup (Modal) -->
+        <div id="popup-panel" class="absolute inset-0 bg-white shadow-2xl z-50 rounded-2xl flex flex-col opacity-0 pointer-events-none transition-all duration-300 transform scale-98">
             <!-- Header Popup -->
-            <div class="p-5 border-b flex justify-between items-center bg-gray-50 rounded-t-xl">
-                <h3 class="text-lg font-bold text-[#005B5C]">Chú thích ký hiệu</h3>
-                <button onclick="togglePopup()" class="p-2 hover:bg-gray-200 rounded-full transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50 rounded-t-2xl">
+                <div class="flex items-center gap-2.5 text-[#005B5C]">
+                    <i class="fa-solid fa-circle-info text-lg"></i>
+                    <h3 class="text-base font-bold text-slate-900">Chi tiết chú thích ký hiệu tuyển sinh</h3>
+                </div>
+                <button onclick="togglePopup()" class="w-9 h-9 flex items-center justify-center bg-white border border-slate-200 hover:bg-slate-100 rounded-full transition text-slate-500 hover:text-slate-800 shadow-xs cursor-pointer">
+                    <i class="fa-solid fa-xmark text-sm"></i>
                 </button>
             </div>
             
             <!-- Nội dung chú thích -->
-            <div class="p-6 overflow-y-auto no-scrollbar text-[13.5px] text-gray-700 leading-relaxed space-y-4">
-                <p><strong>(1):</strong> Chương trình mới tuyển sinh năm 2026.</p>
-                <p><strong>(2a):</strong> Các chương trình song bằng UEH - Đối tác quốc tế, chương trình tiếng Anh toàn phần (tuyển sinh riêng): điều kiện đăng ký thí sinh có chứng chỉ tiếng Anh IELTS Academic từ 5.5 (hoặc TOEFL iBT từ 62, hoặc TOEIC 4 kỹ năng từ 670 trong đó điểm các kỹ năng Speaking từ 140, Writing từ 140) trở lên.</p>
-                <p><strong>(2b):</strong> Chương trình Kế toán tích hợp chứng chỉ nghề nghiệp quốc tế ICAEW; Kế toán tích hợp chứng chỉ nghề nghiệp quốc tế ACCA; Chương trình đào tạo nguồn nhân lực quốc tế cử nhân Tài chính - Ngân hàng song bằng UEH - Đại học Rennes, Pháp: điều kiện đăng ký là thí sinh có chứng chỉ tiếng Anh IELTS Academic từ 6.0 (hoặc TOEFL iBT từ 73, hoặc TOEIC 4 kỹ năng từ 785 trong đó điểm các kỹ năng Speaking từ 160, Writing từ 150) trở lên.</p>
-                <p><strong>(2c):</strong> Chương trình Cử nhân Kiến trúc và thiết kế đô thị thông minh song bằng UEH - Đại học Auckland, New Zealand chưa yêu cầu trình độ tiếng Anh khi xét tuyển đầu vào (chỉ yêu cầu tiếng Anh IELTS từ 6.0-các kỹ năng từ 5.5 trở lên, khi xét chọn học bằng 2 của đối tác quốc tế)</p>
-                <p><strong>(3):</strong> Chương trình Cử nhân tài năng ISB - Kinh doanh, Cử nhân Asia Co-op và Cử nhân tài năng ISB - Công nghệ: điều kiện đăng ký thí sinh có chứng chỉ IELTS Academic từ 5.5 (hoặc TOEFL iBT từ 62, hoặc TOEIC 4 kỹ năng từ 670 trong đó điểm các kỹ năng Speaking từ 140, Writing từ 140) trở lên. Riêng chương trình Cử nhân tài năng ISB - Kinh doanh, Cử nhân Asia Co-op, sinh viên sẽ được phân ngành sau 2 học kỳ theo nguyện vọng, chỉ tiêu, điểm GPA của 2 học kỳ.</p>
-                <p><strong>(4):</strong> Chương trình song bằng UEH - Đối tác quốc tế: Chương trình đào tạo ĐHCQ UEH được đối tác quốc tế công nhận và cấp bằng (ngoài bằng ĐHCQ do UEH cấp). Sinh viên trúng tuyển, sau khi học xong giai đoạn tại UEH, nếu có nhu cầu và thỏa các điều kiện sẽ được lựa chọn chuyển sang học tiếp tại Trường đối tác và nhận bằng thứ 2 của đối tác: Xem chi tiết.</p>
-                <p><strong>(5):</strong> Đối với chương trình đào tạo Quản trị kinh doanh: Sau khi hoàn thành kiến thức đại cương, kiến thức ngành, UEH sẽ khảo sát để sinh viên có thể chọn học 01 trong 03 hướng chương trình đào tạo Quản trị, Quản trị chất lượng, Quản trị khởi nghiệp và sẽ tổ chức mở các hướng chương trình theo nhu cầu nếu đáp ứng quy mô lớp tối thiểu.</p>
-                <p><strong>(6):</strong> Sinh viên có thể đăng ký học chương trình song ngành tích hợp sau khi trúng tuyển để được cấp hai bằng trong thời gian tối ưu.</p>
-                <p><strong>(7):</strong> Thí sinh trúng tuyển chương trình Công nghệ Logistics (hệ kỹ sư) hoặc Công nghệ Logistics tích hợp chứng chỉ quốc tế FIATA - Tiếng Anh toàn phần (hệ kỹ sư) sẽ được đăng ký xét tuyển vào chương trình đào tạo Kỹ sư tài năng Logistics thông minh (ngành Logistics và quản lý chuỗi cung ứng) khi nhập học theo chỉ tiêu, nguyện vọng thí sinh và thỏa điều kiện theo Quyết định số 2627/QĐ-BGDĐT ngày 17/9/2025 về việc ban hành Chuẩn chương trình đào tạo kỹ sư, thạc sĩ tài năng thuộc các lĩnh vực STEM. Đồng thời, thí sinh được xét học bổng theo Nghị định số 179/2026/NĐ-CP ngày 20/5/2026 về việc quy định chính sách học bổng cho người học các ngành khoa học cơ bản, kỹ thuật then chốt và công nghệ chiến lược của Chính phủ.</p>
+            <div class="p-6 md:p-8 overflow-y-auto no-scrollbar text-xs md:text-sm text-slate-600 leading-relaxed space-y-4">
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(1):</strong> <span>Chương trình mới tuyển sinh năm 2026.</span></div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(2a):</strong> <span>Các chương trình song bằng UEH - Đối tác quốc tế, chương trình tiếng Anh toàn phần (tuyển sinh riêng): điều kiện đăng ký thí sinh có chứng chỉ tiếng Anh IELTS Academic từ 5.5 (hoặc tương đương).</span></div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(2b):</strong> <span>Chương trình Kế toán tích hợp chứng chỉ nghề nghiệp quốc tế ICAEW, ACCA và chương trình Tài chính - Ngân hàng song bằng Đại học Rennes, Pháp: IELTS từ 6.0 trở lên.</span></div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(2c):</strong> <span>Chương trình Cử nhân Kiến trúc và thiết kế đô thị thông minh song bằng UEH - Đại học Auckland, New Zealand chưa yêu cầu tiếng Anh đầu vào khi xét tuyển.</span></div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(3):</strong> <span>Chương trình Cử nhân tài năng ISB - Kinh doanh, Cử nhân Asia Co-op và Cử nhân tài năng ISB - Công nghệ: điều kiện IELTS từ 5.5 trở lên.</span></div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(4):</strong> <span>Chương trình song bằng UEH - Đối tác quốc tế được công nhận và cấp bằng kép từ trường đối tác.</span></div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(5):</strong> <span>Đối với Quản trị kinh doanh: Sinh viên chọn 1 trong 3 hướng (Quản trị, Quản trị chất lượng, Quản trị khởi nghiệp) sau khi hoàn thành kiến thức cơ bản.</span></div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(6):</strong> <span>Sinh viên có thể đăng ký học chương trình song ngành tích hợp sau khi trúng tuyển.</span></div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(7):</strong> <span>Thí sinh trúng tuyển khối ngành Công nghệ Logistics hệ kỹ sư được đăng ký xét tuyển chương trình Kỹ sư tài năng Logistics thông minh (thỏa điều kiện QĐ số 2627/QĐ-BGDĐT).</span></div>
                 
-                <div class="w-full h-[1px] bg-gray-200 my-4"></div>
+                <div class="w-full h-px bg-slate-200 my-6"></div>
                 
-                <p><strong>*</strong> Đối với các chương trình đào tạo (ngoại trừ chương trình Tiếng Anh thương mại) thí sinh có thể sử dụng tổ hợp xét tuyển có ngoại ngữ khác môn tiếng Anh để xét tuyển, gồm: Tiếng Hàn, Tiếng Đức, Tiếng Nga, Tiếng Nhật, Tiếng Pháp, Tiếng Trung.</p>
-                <p><strong>*</strong> Tham khảo chi tiết quy đổi điểm xét tuyển giữa các phương thức năm 2025 tại: link.</p>
+                <p class="text-slate-500 italic"><i class="fa-solid fa-circle-info mr-1 text-[#005B5C]"></i> <strong>*</strong> Thí sinh được phép sử dụng các tổ hợp môn ngoại ngữ khác tiếng Anh (Tiếng Hàn, Đức, Nga, Nhật, Pháp, Trung) để xét tuyển ngoại trừ ngành Tiếng Anh thương mại.</p>
             </div>
         </div>
-    </div> <!-- HẾT KHUNG CHÍNH -->
+    </div>
 </section>
-
+<!-- Kết thúc Section -->
     <!-- ================= JAVASCRIPT ================= -->
     <script>
         /* Slider Logic */
@@ -1229,20 +1239,16 @@ document.addEventListener('DOMContentLoaded', () => {
         container.classList.add('fade-in');
     }, 200);
 }
-                // --- 1. LOGIC CHUYỂN TAB KSA / KSV ---
+                     // --- 1. LOGIC CHUYỂN TAB KSA / KSV ---
         function switchTab(tabId) {
-            document.getElementById('btn-ksa').classList.replace('bg-white', 'bg-[#f0f0f0]');
-            document.getElementById('btn-ksa').classList.replace('text-[#005B5C]', 'text-gray-500');
-            document.getElementById('btn-ksv').classList.replace('bg-white', 'bg-[#f0f0f0]');
-            document.getElementById('btn-ksv').classList.replace('text-[#005B5C]', 'text-gray-500');
+            const btnKsa = document.getElementById('btn-ksa');
+            const btnKsv = document.getElementById('btn-ksv');
             
-            document.getElementById('btn-ksa').classList.remove('shadow-md', 'z-10');
-            document.getElementById('btn-ksv').classList.remove('shadow-md', 'z-10');
+            btnKsa.className = "tab-btn px-6 py-3 rounded-lg font-bold text-sm transition-all duration-300 flex items-center gap-2 text-slate-600 hover:text-slate-900";
+            btnKsv.className = "tab-btn px-6 py-3 rounded-lg font-bold text-sm transition-all duration-300 flex items-center gap-2 text-slate-600 hover:text-slate-900";
 
             const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.classList.replace('bg-[#f0f0f0]', 'bg-white');
-            activeBtn.classList.replace('text-gray-500', 'text-[#005B5C]');
-            activeBtn.classList.add('shadow-md', 'z-10'); 
+            activeBtn.className = "tab-btn px-6 py-3 rounded-lg font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-[#005B5C] text-white shadow-md shadow-[#005B5C]/20";
 
             document.getElementById('content-ksa').classList.add('hidden');
             document.getElementById('content-ksv').classList.add('hidden');
@@ -1281,19 +1287,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // --- 3. LOGIC POPUP (Đã sửa thành Modal phủ kín) ---
+        // --- 3. LOGIC POPUP ---
         function togglePopup() {
             const panel = document.getElementById('popup-panel');
             const backdrop = document.getElementById('popup-backdrop');
             
-            // Nếu panel đang bị mờ (opacity-0), thực hiện mở
             if (panel.classList.contains('opacity-0')) {
-                // Mở Modal & Backdrop
-                panel.classList.remove('opacity-0', 'pointer-events-none');
+                panel.classList.remove('opacity-0', 'pointer-events-none', 'scale-98');
+                panel.classList.add('scale-100');
                 backdrop.classList.remove('opacity-0', 'pointer-events-none');
             } else {
-                // Đóng Modal & Backdrop
-                panel.classList.add('opacity-0', 'pointer-events-none');
+                panel.classList.add('opacity-0', 'pointer-events-none', 'scale-98');
+                panel.classList.remove('scale-100');
                 backdrop.classList.add('opacity-0', 'pointer-events-none');
             }
         }

@@ -317,7 +317,7 @@
                 <nav class="flex justify-between w-full text-[14px] font-bold">
                     <a href="#khai-pha-I-am-who-I-choose-to-be" class="hover:text-ueh-orange transition-colors duration-300">Tại sao chọn UEH?</a>
                     <a href="#hoc-gi-o-ueh?" class="hover:text-ueh-orange transition-colors duration-300">Học gì ở UEH</a>
-                    <a href="#" class="hover:text-ueh-orange transition-colors duration-300">Phương thức tuyển sinh</a>
+                    <a href="#chuong-trinh-dao-tao-ueh" class="hover:text-ueh-orange transition-colors duration-300">Phương thức tuyển sinh</a>
                     <a href="#" class="hover:text-ueh-orange transition-colors duration-300">7 bước xét tuyển ở UEH</a>
                     <a href="#" class="hover:text-ueh-orange transition-colors duration-300">Q&A</a>
                 </nav>
@@ -519,9 +519,9 @@
     
     <!-- TIÊU ĐỀ CỐ ĐỊNH Ở TRÊN CÙNG KHI SCROLL -->
     <div class="sticky top-0 z-30 bg-white/95 backdrop-blur-md py-4 text-center border-b border-gray-100/50 mb-1">
-        <h2 class="text-[#005B5C] font-black text-[28px] lg:text-[36px] uppercase tracking-wide">
+        <h1 class="text-ueh-teal font-black text-[28px] lg:text-[40px] uppercase tracking-wide">
             TẠI SAO CHỌN UEH?
-        </h2>
+        </h1>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
@@ -841,295 +841,8 @@
 
     </div>
 </section>
-<!-- Bắt đầu Section Chương trình đào tạo UEH - UI/UX Enhanced -->
-<section id="ueh-programs-section" class="w-full bg-slate-100/70 py-12 relative font-sans">
-    <!-- KHUNG CHÍNH -->
-    <div class="max-w-[1440px] mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-xl shadow-slate-200/60 relative overflow-hidden border border-slate-100">
-        
-        <!-- Tiêu đề -->
-        <div class="text-center mb-10">
-            <h1 class="text-ueh-teal font-black text-[34px] lg:text-[40px] tracking-tight mb-2 uppercase">CHƯƠNG TRÌNH ĐÀO TẠO - MÃ ĐĂNG KÝ - CHỈ TIÊU</h1>
-        </div>
-        
-        <!-- Nút Tab -->
-        <div class="flex justify-center mb-6">
-            <div class="bg-slate-100 p-1.5 rounded-xl flex gap-1 shadow-inner">
-                <button id="btn-ksa" onclick="switchTab('ksa')" class="tab-btn px-6 py-3 rounded-lg text-slate-600 font-bold text-sm transition-all duration-300 flex items-center gap-2">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>HỌC TẠI TP. HCM (KSA)</span>
-                </button>
-                <button id="btn-ksv" onclick="switchTab('ksv')" class="tab-btn px-6 py-3 rounded-lg text-slate-600 font-bold text-sm transition-all duration-300 flex items-center gap-2">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <span>HỌC TẠI VĨNH LONG (KSV)</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Chú thích nhanh -->
-        <div class="text-xs text-slate-500 bg-amber-50/60 border border-amber-200/60 rounded-xl p-4 mb-6 flex items-start gap-3">
-            <i class="fa-solid fa-circle-exclamation text-amber-500 mt-0.5 text-sm"></i>
-            <div>
-                <strong class="text-amber-800">Lưu ý quan trọng:</strong> Thí sinh có thể sử dụng tổ hợp xét tuyển có môn ngoại ngữ khác tiếng Anh để xét tuyển (ngoại trừ chương trình Tiếng Anh thương mại), bao gồm: Tiếng Hàn, Tiếng Đức, Tiếng Nga, Tiếng Nhật, Tiếng Pháp, Tiếng Trung.
-            </div>
-        </div>
-
-        <!-- CÔNG CỤ TÌM KIẾM & LỌC -->
-        <div class="flex flex-col md:flex-row gap-4 mb-6 bg-slate-50/80 p-4 rounded-xl border border-slate-200/70">
-            <div class="flex-1 relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
-                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Nhập mã ngành, tên chương trình cần tìm..." 
-                       class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005B5C]/30 focus:border-[#005B5C] text-sm text-slate-800 transition-all shadow-sm">
-            </div>
-            <div class="w-full md:w-1/3 relative">
-                <i class="fa-solid fa-filter absolute left-3.5 top-3.5 text-slate-400 text-sm pointer-events-none"></i>
-                <select id="filterSelect" onchange="filterTable()" class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005B5C]/30 focus:border-[#005B5C] text-sm text-slate-800 transition-all shadow-sm appearance-none cursor-pointer">
-                    <option value="">-- Tất cả lĩnh vực đào tạo --</option>
-                    <option value="nhân văn">I. Lĩnh vực Nhân văn</option>
-                    <option value="khoa học xã hội">II. Lĩnh vực Khoa học xã hội</option>
-                    <option value="báo chí">III. Lĩnh vực Báo chí</option>
-                    <option value="kinh doanh">IV. Lĩnh vực Kinh doanh</option>
-                    <option value="pháp luật">V. Lĩnh vực Pháp luật</option>
-                    <option value="công nghệ kỹ thuật">Lĩnh vực Công nghệ kỹ thuật</option>
-                    <option value="máy tính">Lĩnh vực Máy tính</option>
-                    <option value="nông, lâm">Lĩnh vực Nông lâm nghiệp</option>
-                    <option value="du lịch">Lĩnh vực Du lịch, khách sạn</option>
-                </select>
-                <i class="fa-solid fa-chevron-down absolute right-3.5 top-4 text-slate-400 text-xs pointer-events-none"></i>
-            </div>
-        </div>
-
-        <!-- KHU VỰC CHỨA BẢNG -->
-        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-            <!-- BẢNG KSA -->
-            <div id="content-ksa" class="tab-content block">
-                <table class="ueh-table">
-                <thead>
-                    <tr>
-                        <th>TT</th>
-                        <th>Chương trình đào tạo</th>
-                        <th>Thuộc ngành</th>
-                        <th>Mã xét tuyển</th>
-                        <th>Chỉ tiêu 2026</th>
-                        <th>Tổ hợp môn</th>
-                        <th>Điểm chuẩn 2026</th>
-                        <th>Chuẩn (Tiếng Việt)</th>
-                        <th>Tiếng Anh bán phần</th>
-                        <th>Tiếng Anh toàn phần</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-book-open-reader mr-2"></i> I. Lĩnh vực Nhân văn</td></tr>
-                    <tr><td>1</td><td>Tiếng Anh thương mại<sup> (6)</sup></td><td>Ngôn ngữ Anh</td><td>7220201</td><td>150</td><td>D01, D09, D14</td><td>83,40</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-users-rectangle mr-2"></i> II. Lĩnh vực Khoa học xã hội và hành vi</td></tr>
-                    <tr><td>2</td><td>Kinh tế</td><td>Kinh tế</td><td>7310101</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>85,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>3</td><td>Kinh tế chính trị<sup> (6)</sup></td><td>Kinh tế chính trị</td><td>731010201</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>77,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>4</td><td>Kinh tế chính trị quốc tế<sup> (1)</sup></td><td>Kinh tế chính trị</td><td>731010202</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>5</td><td>Kinh tế đầu tư</td><td>Kinh tế đầu tư</td><td>731010401</td><td>200</td><td>A00, A01, D01, D07, D09</td><td>80,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>6</td><td>Thẩm định giá và Quản trị tài sản</td><td>Kinh tế đầu tư</td><td>731010402</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>76,10</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>7</td><td>Thống kê kinh doanh</td><td>Thống kê kinh tế</td><td>7310107</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>83,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>8</td><td>Toán tài chính<sup> (6)</sup></td><td>Toán kinh tế</td><td>731010801</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>82,20</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>9</td><td>Phân tích rủi ro và định phí bảo hiểm</td><td>Toán kinh tế</td><td>731010802</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>79,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-bullhorn mr-2"></i> III. Lĩnh vực Báo chí và Thông tin</td></tr>
-                    <tr><td>10</td><td>Truyền thông số và thiết kế đa phương tiện<sup> (6)</sup></td><td>Công nghệ truyền thông</td><td>732010601</td><td>60</td><td>A00, A01, D01, D07, D09, V00</td><td>90,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>11</td><td>Truyền thông số và thiết kế đa phương tiện song bằng UEH - Đại học Saint Joseph, Macao<sup>(2a)(4)</sup></td><td>Công nghệ truyền thông</td><td>73201061D</td><td>40</td><td>A00, A01, D01, D07, D09, V00</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-briefcase mr-2"></i> IV. Lĩnh vực Kinh doanh và quản lý</td></tr>
-                    <tr><td>12</td><td>Quản trị kinh doanh<sup> (5)</sup></td><td>Quản trị kinh doanh</td><td>734010101</td><td>750</td><td>A00, A01, D01, D07, D09</td><td>79,40</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>13</td><td>Quản trị - Tiếng Anh toàn phần<sup> (2a)</sup></td><td>Quản trị kinh doanh</td><td>73401011F</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>71,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>14</td><td>Kinh doanh số</td><td>Quản trị kinh doanh</td><td>734010102</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>87,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>15</td><td>Quản trị bệnh viện</td><td>Quản trị kinh doanh</td><td>734010103</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>71,90</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>16</td><td>Quản trị bền vững doanh nghiệp và môi trường</td><td>Quản trị kinh doanh</td><td>734010104</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>80,70</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>17</td><td>Quản trị bền vững doanh nghiệp và môi trường song bằng UEH - Koblenz University, Đức<sup>(2a)(4)</sup></td><td>Quản trị kinh doanh</td><td>73401014D</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>18</td><td>Marketing<sup> (6)</sup></td><td>Marketing</td><td>734011501</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>90,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>19</td><td>Marketing - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Marketing</td><td>73401151F</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>86,30</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>20</td><td>Công nghệ Marketing</td><td>Marketing</td><td>734011502</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>90,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>21</td><td>Bất động sản</td><td>Bất động sản</td><td>7340116</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>72,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>22</td><td>Kinh doanh quốc tế<sup> (6)</sup></td><td>Kinh doanh quốc tế</td><td>734012001</td><td>320</td><td>A00, A01, D01, D07, D09</td><td>92,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>23</td><td>Kinh doanh quốc tế - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Kinh doanh quốc tế</td><td>73401201F</td><td>250</td><td>A00, A01, D01, D07, D09</td><td>89,30</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>24</td><td>Kinh doanh thương mại<sup> (6)</sup></td><td>Kinh doanh thương mại</td><td>734012101</td><td>170</td><td>A00, A01, D01, D07, D09</td><td>88,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>25</td><td>Kinh doanh thương mại - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Kinh doanh thương mại</td><td>73401211F</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>86,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>26</td><td>Thương mại điện tử</td><td>Thương mại điện tử</td><td>7340122</td><td>140</td><td>A00, A01, D01, D07, D09</td><td>89,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>27</td><td>Tài chính công</td><td>Tài chính - Ngân hàng</td><td>734020101</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>79,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>28</td><td>Thuế</td><td>Tài chính - Ngân hàng</td><td>734020102</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>78,70</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>29</td><td>Ngân hàng<sup> (6)</sup></td><td>Tài chính - Ngân hàng</td><td>734020103</td><td>220</td><td>A00, A01, D01, D07, D09</td><td>80,80</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>30</td><td>Ngân hàng - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Tài chính - Ngân hàng</td><td>73402013F</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>31</td><td>Thị trường chứng khoán<sup> (6)</sup></td><td>Tài chính - Ngân hàng</td><td>734020104</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>77,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>32</td><td>Tài chính</td><td>Tài chính - Ngân hàng</td><td>734020105</td><td>380</td><td>A00, A01, D01, D07, D09</td><td>85,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>33</td><td>Tài chính - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Tài chính - Ngân hàng</td><td>73402015F</td><td>90</td><td>A00, A01, D01, D07, D09</td><td>82,20</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>34</td><td>Đầu tư tài chính</td><td>Tài chính - Ngân hàng</td><td>734020106</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>83,80</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>35</td><td>Đầu tư tài chính - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Tài chính - Ngân hàng</td><td>73402016F</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>36</td><td>Quản trị Hải quan – Ngoại thương<sup> (6)</sup></td><td>Tài chính - Ngân hàng</td><td>734020107</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>86,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>37</td><td>Chương trình nguồn nhân lực quốc tế song bằng Đại học Rennes<sup>(2b)(4)</sup> </td><td>Tài chính - Ngân hàng</td><td>73402010D</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>38</td><td>Bảo hiểm<sup> (6)</sup></td><td>Bảo hiểm</td><td>7340204</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>75,30</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>39</td><td>Công nghệ tài chính</td><td>Công nghệ tài chính</td><td>7340205</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>88,70</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>40</td><td>Tài chính quốc tế</td><td>Tài chính quốc tế</td><td>734020601</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>92,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>41</td><td>Tài chính quốc tế - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Tài chính quốc tế</td><td>73402061F</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>88,30</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>42</td><td>Kế toán doanh nghiệp<sup> (6)</sup></td><td>Kế toán</td><td>734030101</td><td>510</td><td>A00, A01, D01, D07, D09</td><td>79,10</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>43</td><td>Kế toán doanh nghiệp - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Kế toán</td><td>73403011F</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>44</td><td>Kế toán công</td><td>Kế toán</td><td>734030102</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>81,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>45</td><td>Kế toán tích hợp chứng chỉ nghề nghiệp quốc tế ICAEW<sup>(2b)</sup></td><td>Kế toán</td><td>734030103</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>46</td><td>Kế toán tích hợp chứng chỉ nghề nghiệp quốc tế ACCA<sup>(2b)</sup></td><td>Kế toán</td><td>734030104</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>80,00</td><td></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>47</td><td>Kiểm toán</td><td>Kiểm toán</td><td>734030201</td><td>120</td><td>A00, A01, D01, D07, D09</td><td>91,10</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>48</td><td>Kiểm toán - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Kiểm toán</td><td>73403021F</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>85,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>49</td><td>Quản lý công<sup> (6)</sup></td><td>Quản lý công</td><td>7340403</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>76,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>50</td><td>Quản trị nhân lực</td><td>Quản trị nhân lực</td><td>7340404</td><td>150</td><td>A00, A01, D01, D07, D09</td><td>83,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>51</td><td>Hệ thống thông tin quản lý</td><td>Hệ thống thông tin quản lý</td><td>7340405</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>86,80</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-scale-balanced mr-2"></i> V. Lĩnh vực Pháp luật</td></tr>
-                    <tr><td>52</td><td>Luật kinh doanh quốc tế</td><td>Luật</td><td>738010101</td><td>70</td><td>A00, A01, D01, D09, X25</td><td>82,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>53</td><td>Luật<sup> (1)</sup> </td><td>Luật</td><td>738010102</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>76,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>54</td><td>Luật kinh tế</td><td>Luật kinh tế</td><td>7380107</td><td>80</td><td>A00, A01, D01, D09, X25</td><td>82,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>55</td><td>Luật thương mại quốc tế<sup> (1)</sup></td><td>Luật thương mại quốc tế</td><td>7380109</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>80,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-square-root-variable mr-2"></i> VI. Lĩnh vực Toán và thống kê</td></tr>
-                    <tr><td>56</td><td>Khoa học dữ liệu</td><td>Khoa học dữ liệu</td><td>746010801</td><td>55</td><td>A00, A01, D01, D07, X26</td><td>88,10</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>57</td><td>Phân tích dữ liệu</td><td>Khoa học dữ liệu</td><td>746010802</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>91,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-laptop-code mr-2"></i> VII. Lĩnh vực Máy tính và Công nghệ thông tin</td></tr>
-                    <tr><td>58</td><td>Khoa học máy tính</td><td>Khoa học máy tính</td><td>7480101</td><td>50</td><td>A00, A01, D01, D07, X26</td><td>79,40</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>59</td><td>Kỹ thuật phần mềm</td><td>Kỹ thuật phần mềm</td><td>7480103</td><td>55</td><td>A00, A01, D01, D07, X26</td><td>76,60</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>60</td><td>Robot và Trí tuệ nhân tạo (hệ kỹ sư)</td><td>Trí tuệ nhân tạo</td><td>748010701</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>75,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>61</td><td>Robot và Trí tuệ nhân tạo song bằng ĐH Kwangwoon<sup>(1)(2a)(4)</sup></td><td>Trí tuệ nhân tạo</td><td>74801071D</td><td>60</td><td>A00, A01, D01, D07, X26</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>62</td><td>Điều khiển thông minh và tự động hóa (hệ kỹ sư)</td><td>Trí tuệ nhân tạo</td><td>748010702</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>77,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>63</td><td>Điều khiển thông minh và tự động hóa song bằng ĐH Kwangwoon<sup>(1)(2a)(4)</sup> </td><td>Trí tuệ nhân tạo</td><td>74801072D</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>64</td><td>Công nghệ thông tin</td><td>Công nghệ thông tin</td><td>748020101</td><td>50</td><td>A00, A01, D01, D07, X26</td><td>78,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>65</td><td>Công nghệ nghệ thuật<sup> (6)</sup></td><td>Công nghệ thông tin</td><td>748020102</td><td>70</td><td>A00, A01, D01, D07, X26</td><td>84,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>66</td><td>Công nghệ và đổi mới sáng tạo</td><td>Công nghệ thông tin</td><td>748020103</td><td>100</td><td>A00, A01, D01, D07, X26</td><td>78,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>67</td><td>An toàn thông tin</td><td>An toàn thông tin</td><td>7480202</td><td>50</td><td>A00, A01, D01, D07, X26</td><td>77,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-gears mr-2"></i> VIII. Lĩnh vực Công nghệ kỹ thuật</td></tr>
-                    <tr><td>68</td><td>Sản xuất thông minh (hệ kỹ sư)<sup> (1)</sup></td><td>Công nghệ kỹ thuật cơ khí</td><td>7510201</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                    <tr><td>69</td><td>Logistics và Quản lý chuỗi cung ứng<sup> (6)</sup></td><td>Logistics chuỗi cung ứng</td><td>751060501</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>97,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>70</td><td>Logistics và Quản lý chuỗi cung ứng  - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Logistics chuỗi cung ứng</td><td>75106051F</td><td>80</td><td>A00, A01, D01, D07, X26</td><td>94,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>71</td><td>Công nghệ Logistics (hệ kỹ sư)</td><td>Logistics chuỗi cung ứng</td><td>751060502</td><td>60</td><td>A00, A01, D01, D07, X26</td><td>87,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>72</td><td>Công nghệ Logistics tích hợp chứng chỉ FIATA - Tiếng Anh toàn phần (hệ kỹ sư)<sup>(1)(2a)</sup></td><td>Logistics chuỗi cung ứng</td><td>75106052F</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>88,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-star text-amber-500 mr-2"></i> * Chương trình đào tạo kỹ sư tài năng thuộc các lĩnh vực STEM</td></tr>
-                    <tr><td></td><td>Kỹ sư tài năng Logistics thông minh<sup>(1)(7)</sup></td><td>Logistics chuỗi cung ứng</td><td></td><td>30 (dự kiến)</td><td>Đăng ký khi nhập học</td><td>---</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-city mr-2"></i> IX. Lĩnh vực Kiến trúc và xây dựng</td></tr>
-                    <tr><td>73</td><td>Kiến trúc và thiết kế đô thị thông minh song bằng ĐH Auckland<sup>(2c)(4)</sup></td><td>Kiến trúc đô thị</td><td>7580104SD</td><td>80</td><td>A00, A01, D01, D09, V00</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>74</td><td>Kiến trúc và Thiết kế đô thị thông minh (hệ kiến trúc sư)<sup> (1)</sup></td><td>Kiến trúc đô thị</td><td>758010402</td><td>40</td><td>A00, A01, D01, D09, V00</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-seedling mr-2"></i> X. Lĩnh vực Nông, lâm nghiệp và thủy sản</td></tr>
-                    <tr><td>75</td><td>Kinh doanh nông nghiệp<sup> (6)</sup></td><td>Kinh doanh nông nghiệp</td><td>7620114</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>78,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-plane-departure mr-2"></i> XI. Lĩnh vực Du lịch, khách sạn, thể thao và dịch vụ cá nhân</td></tr>
-                    <tr><td>76</td><td>Quản trị dịch vụ du lịch và lữ hành</td><td>Quản trị lữ hành</td><td>7810103</td><td>165</td><td>A00, A01, D01, D07, D09</td><td>75,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>77</td><td>Quản trị khách sạn</td><td>Quản trị khách sạn</td><td>781020101</td><td>85</td><td>A00, A01, D01, D07, D09</td><td>78,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>78</td><td>Quản trị sự kiện và dịch vụ giải trí</td><td>Quản trị khách sạn</td><td>781020102</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>85,70</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-truck-fast mr-2"></i> XII. Lĩnh vực Dịch vụ vận tải</td></tr>
-                    <tr><td>79</td><td>Quản trị vận hành và di chuyển thông minh<sup> (1)</sup></td><td>Kinh tế vận tải</td><td>7840104</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>76,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
-                </tbody>
-                </table>
-            </div>
-
-            <!-- BẢNG KSV -->
-            <div id="content-ksv" class="tab-content hidden">
-                <table class="ueh-table">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Chương trình đào tạo</th>
-                        <th>Thuộc ngành</th>
-                        <th>Mã xét tuyển</th>
-                        <th>Chỉ tiêu 2026</th>
-                        <th>Tổ hợp xét tuyển</th>
-                        <th>Điểm chuẩn 2026</th>
-                        <th>Chuẩn (Tiếng Việt)</th>
-                        <th>Tiếng Anh bán phần</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="main-region-heading"><td></td><td colspan="8"><i class="fa-solid fa-globe mr-2"></i> Tuyển sinh cả nước</td></tr>
-
-                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-book-open-reader mr-2"></i> I. Lĩnh vực Nhân văn</td></tr>
-                    <tr><td>1</td><td>Tiếng Anh thương mại</td><td>Ngôn ngữ Anh</td><td>7220201</td><td>30</td><td>D01, D09, D14</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-briefcase mr-2"></i> II. Lĩnh vực Kinh doanh và quản lý</td></tr>
-                    <tr><td>2</td><td>Thuế</td><td>Tài chính – Ngân hàng</td><td>734020103</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>3</td><td>Thương mại điện tử</td><td>Thương mại điện tử</td><td>7340122</td><td>60</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
-
-                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-scale-balanced mr-2"></i> III. Lĩnh vực Pháp luật</td></tr>
-                    <tr><td>4</td><td>Luật kinh tế</td><td>Luật kinh tế</td><td>7380107</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-gears mr-2"></i> IV. Lĩnh vực Công nghệ kỹ thuật</td></tr>
-                    <tr><td>5</td><td>Logistics và Quản lý chuỗi cung ứng (S)</td><td>Logistics chuỗi cung ứng</td><td>7510605</td><td>60</td><td>A00, A01, D01, D07, X26</td><td>67,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
-
-                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-laptop-code mr-2"></i> V. Lĩnh vực Máy tính và công nghệ thông tin</td></tr>
-                    <tr><td>6</td><td>Công nghệ và đổi mới sáng tạo</td><td>Công nghệ thông tin</td><td>7480201</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>7</td><td>Robot và Trí tuệ nhân tạo (hệ kỹ sư)</td><td>Trí tuệ nhân tạo</td><td>7480107</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
-
-                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-seedling mr-2"></i> VI. Lĩnh vực Nông, lâm nghiệp và thủy sản</td></tr>
-                    <tr><td>8</td><td>Kinh doanh nông nghiệp (S)</td><td>Kinh doanh nông nghiệp</td><td>7620114</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-
-                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-plane-departure mr-2"></i> VII. Lĩnh vực Du lịch, khách sạn, thể thao và dịch vụ cá nhân</td></tr>
-                    <tr><td>9</td><td>Quản trị khách sạn</td><td>Quản trị khách sạn</td><td>7810201</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-
-                    <tr class="main-region-heading"><td></td><td colspan="8"><i class="fa-solid fa-location-crosshairs mr-2"></i> Tuyển sinh khu vực ĐBSCL &amp; Tây Ninh</td></tr>
-
-                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-briefcase mr-2"></i> I. Lĩnh vực Kinh doanh và quản lý</td></tr>
-                    <tr><td>10</td><td>Quản trị</td><td>Quản trị kinh doanh</td><td>7340101</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>11</td><td>Kinh doanh quốc tế (S)</td><td>Kinh doanh quốc tế</td><td>7340120</td><td>60</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>12</td><td>Marketing (S)</td><td>Marketing</td><td>7340115</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>13</td><td>Ngân hàng (S)</td><td>Tài chính – Ngân hàng</td><td>734020101</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                    <tr><td>14</td><td>Tài chính</td><td>Tài chính – Ngân hàng</td><td>734020102</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
-                    <tr><td>15</td><td>Kế toán doanh nghiệp (S)</td><td>Kế toán</td><td>7340301</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
-                </tbody>
-                </table>
-            </div>
-
-        </div>
-
-        <!-- Nút kích hoạt Widget (Gắn icon Font Awesome) -->
-        <div onclick="togglePopup()" class="widget-btn absolute top-1/2 right-0 bg-[#005B5C] text-white py-4 px-2.5 rounded-l-xl shadow-lg cursor-pointer z-30 flex items-center justify-center gap-2 hover:bg-[#004748] transition-all group">
-            <i class="fa-solid fa-circle-info text-emerald-300 text-xs"></i>
-            <span class="text-[12px] font-semibold tracking-wider uppercase">Chú thích ký hiệu</span>
-        </div>
-
-        <!-- Màn mờ Backdrop -->
-        <div id="popup-backdrop" onclick="togglePopup()" class="absolute inset-0 bg-slate-900/60 backdrop-blur-xs z-40 opacity-0 pointer-events-none transition-opacity duration-300 rounded-2xl"></div>
-
-        <!-- Khung Nội dung Popup (Modal) -->
-        <div id="popup-panel" class="absolute inset-0 bg-white shadow-2xl z-50 rounded-2xl flex flex-col opacity-0 pointer-events-none transition-all duration-300 transform scale-98">
-            <!-- Header Popup -->
-            <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50 rounded-t-2xl">
-                <div class="flex items-center gap-2.5 text-[#005B5C]">
-                    <i class="fa-solid fa-circle-info text-lg"></i>
-                    <h3 class="text-base font-bold text-slate-900">Chi tiết chú thích ký hiệu tuyển sinh</h3>
-                </div>
-                <button onclick="togglePopup()" class="w-9 h-9 flex items-center justify-center bg-white border border-slate-200 hover:bg-slate-100 rounded-full transition text-slate-500 hover:text-slate-800 shadow-xs cursor-pointer">
-                    <i class="fa-solid fa-xmark text-sm"></i>
-                </button>
-            </div>
-            
-            <!-- Nội dung chú thích -->
-            <div class="p-6 md:p-8 overflow-y-auto no-scrollbar text-xs md:text-sm text-slate-600 leading-relaxed space-y-4">
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(1):</strong> <span>Chương trình mới tuyển sinh năm 2026.</span></div>
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(2a):</strong> <span>Các chương trình song bằng UEH - Đối tác quốc tế, chương trình tiếng Anh toàn phần (tuyển sinh riêng): điều kiện đăng ký thí sinh có chứng chỉ tiếng Anh IELTS Academic từ 5.5 (hoặc tương đương).</span></div>
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(2b):</strong> <span>Chương trình Kế toán tích hợp chứng chỉ nghề nghiệp quốc tế ICAEW, ACCA và chương trình Tài chính - Ngân hàng song bằng Đại học Rennes, Pháp: IELTS từ 6.0 trở lên.</span></div>
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(2c):</strong> <span>Chương trình Cử nhân Kiến trúc và thiết kế đô thị thông minh song bằng UEH - Đại học Auckland, New Zealand chưa yêu cầu tiếng Anh đầu vào khi xét tuyển.</span></div>
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(3):</strong> <span>Chương trình Cử nhân tài năng ISB - Kinh doanh, Cử nhân Asia Co-op và Cử nhân tài năng ISB - Công nghệ: điều kiện IELTS từ 5.5 trở lên.</span></div>
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(4):</strong> <span>Chương trình song bằng UEH - Đối tác quốc tế được công nhận và cấp bằng kép từ trường đối tác.</span></div>
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(5):</strong> <span>Đối với Quản trị kinh doanh: Sinh viên chọn 1 trong 3 hướng (Quản trị, Quản trị chất lượng, Quản trị khởi nghiệp) sau khi hoàn thành kiến thức cơ bản.</span></div>
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(6):</strong> <span>Sinh viên có thể đăng ký học chương trình song ngành tích hợp sau khi trúng tuyển.</span></div>
-                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50"><strong class="text-[#005B5C] min-w-[28px]">(7):</strong> <span>Thí sinh trúng tuyển khối ngành Công nghệ Logistics hệ kỹ sư được đăng ký xét tuyển chương trình Kỹ sư tài năng Logistics thông minh (thỏa điều kiện QĐ số 2627/QĐ-BGDĐT).</span></div>
-                
-                <div class="w-full h-px bg-slate-200 my-6"></div>
-                
-                <p class="text-slate-500 italic"><i class="fa-solid fa-circle-info mr-1 text-[#005B5C]"></i> <strong>*</strong> Thí sinh được phép sử dụng các tổ hợp môn ngoại ngữ khác tiếng Anh (Tiếng Hàn, Đức, Nga, Nhật, Pháp, Trung) để xét tuyển ngoại trừ ngành Tiếng Anh thương mại.</p>
-            </div>
-        </div>
-    </div>
-</section>
     <!-- UEH Admission Program Table - 100% Match Original Design -->
-<section id="ueh-program-section" class="w-full bg-white py-8 px-4 font-sans text-slate-800">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<section id="chuong-trinh-dao-tao-ueh" class="w-full bg-white py-8 px-4 font-sans text-slate-800">
     <style>
         .ueh-main-title {
             color: #005B5C;
@@ -1268,7 +981,9 @@
         
         <!-- Header Title -->
         <div class="text-center mb-6">
-            <h1 class="ueh-main-title text-2xl md:text-3xl uppercase">CHƯƠNG TRÌNH ĐÀO TẠO - MÃ ĐĂNG KÝ - CHỈ TIÊU</h1>
+            <h1 class="text-ueh-teal font-black text-[28px] lg:text-[40px] uppercase tracking-wide">
+            CHƯƠNG TRÌNH ĐÀO TẠO - MÃ ĐĂNG KÝ - CHỈ TIÊU
+        </h1>
         </div>
 
         <!-- Campus Selector Tabs -->
@@ -1295,69 +1010,179 @@
                 <!-- KSA TABLE -->
                 <table id="table-ksa" class="ueh-custom-table">
                     <thead>
-                        <tr>
-                            <th style="width: 3%;">TT</th>
-                            <th style="width: 22%;">CHƯƠNG TRÌNH ĐÀO TẠO</th>
-                            <th style="width: 14%;">THUỘC NGÀNH</th>
-                            <th style="width: 8%;">MÃ XÉT TUYỂN</th>
-                            <th style="width: 7%;">CHỈ TIÊU 2026</th>
-                            <th style="width: 14%;">TỔ HỢP MÔN</th>
-                            <th style="width: 8%;">ĐIỂM TRÚNG TUYỂN 2026</th>
-                            <th style="width: 8%;">CHƯƠNG TRÌNH CHUẨN (TIẾNG VIỆT)</th>
-                            <th style="width: 8%;">CHƯƠNG TRÌNH TIẾNG ANH BÁN PHẦN</th>
-                            <th style="width: 8%;">CHƯƠNG TRÌNH TIẾNG ANH TOÀN PHẦN</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="category-row"><td colspan="10">I. Lĩnh vực Nhân văn</td></tr>
-                        <tr><td>1</td><td>Tiếng Anh thương mại <sup>(6)</sup></td><td>Ngôn ngữ Anh</td><td>7220201</td><td>150</td><td>D01, D09, D14</td><td>83,40</td><td><a href="#" target="_blank">Xem</a></td><td></td><td></td></tr>
+                    <tr>
+                        <th>TT</th>
+                        <th>Chương trình đào tạo</th>
+                        <th>Thuộc ngành</th>
+                        <th>Mã xét tuyển</th>
+                        <th>Chỉ tiêu 2026</th>
+                        <th>Tổ hợp môn</th>
+                        <th>Điểm chuẩn 2026</th>
+                        <th>Chuẩn (Tiếng Việt)</th>
+                        <th>Tiếng Anh bán phần</th>
+                        <th>Tiếng Anh toàn phần</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-book-open-reader mr-2"></i> I. Lĩnh vực Nhân văn</td></tr>
+                    <tr><td>1</td><td>Tiếng Anh thương mại<sup> (6)</sup></td><td>Ngôn ngữ Anh</td><td>7220201</td><td>150</td><td>D01, D09, D14</td><td>83,40</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
 
-                        <tr class="category-row"><td colspan="10">II. Lĩnh vực Khoa học xã hội và hành vi</td></tr>
-                        <tr><td>2</td><td>Kinh tế</td><td>Kinh tế</td><td>7310101</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>85,20</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>3</td><td>Kinh tế chính trị <sup>(6)</sup></td><td>Kinh tế chính trị</td><td>731010201</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>77,50</td><td><a href="#" target="_blank">Xem</a></td><td></td><td></td></tr>
-                        <tr><td>4</td><td>Kinh tế chính trị quốc tế <sup>(1)</sup></td><td>Kinh tế chính trị</td><td>731010202</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td><a href="#" target="_blank">Xem</a></td><td></td><td></td></tr>
-                        <tr><td>5</td><td>Kinh tế đầu tư</td><td>Kinh tế đầu tư</td><td>731010401</td><td>200</td><td>A00, A01, D01, D07, D09</td><td>80,50</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>6</td><td>Thẩm định giá và Quản trị tài sản</td><td>Kinh tế đầu tư</td><td>731010402</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>76,10</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>7</td><td>Thống kê kinh doanh</td><td>Thống kê kinh tế</td><td>7310107</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>83,00</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>8</td><td>Toán tài chính <sup>(6)</sup></td><td>Toán kinh tế</td><td>731010801</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>82,20</td><td><a href="#" target="_blank">Xem</a></td><td></td><td></td></tr>
-                        <tr><td>9</td><td>Phân tích rủi ro và định phí bảo hiểm</td><td>Toán kinh tế</td><td>731010802</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>79,50</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-users-rectangle mr-2"></i> II. Lĩnh vực Khoa học xã hội và hành vi</td></tr>
+                    <tr><td>2</td><td>Kinh tế</td><td>Kinh tế</td><td>7310101</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>85,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>3</td><td>Kinh tế chính trị<sup> (6)</sup></td><td>Kinh tế chính trị</td><td>731010201</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>77,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>4</td><td>Kinh tế chính trị quốc tế<sup> (1)</sup></td><td>Kinh tế chính trị</td><td>731010202</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>5</td><td>Kinh tế đầu tư</td><td>Kinh tế đầu tư</td><td>731010401</td><td>200</td><td>A00, A01, D01, D07, D09</td><td>80,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>6</td><td>Thẩm định giá và Quản trị tài sản</td><td>Kinh tế đầu tư</td><td>731010402</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>76,10</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>7</td><td>Thống kê kinh doanh</td><td>Thống kê kinh tế</td><td>7310107</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>83,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>8</td><td>Toán tài chính<sup> (6)</sup></td><td>Toán kinh tế</td><td>731010801</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>82,20</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>9</td><td>Phân tích rủi ro và định phí bảo hiểm</td><td>Toán kinh tế</td><td>731010802</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>79,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
 
-                        <tr class="category-row"><td colspan="10">III. Lĩnh vực Báo chí và Thông tin</td></tr>
-                        <tr><td>10</td><td>Truyền thông số và thiết kế đa phương tiện <sup>(6)</sup></td><td>Công nghệ truyền thông</td><td>732010601</td><td>60</td><td>A00, A01, D01, D07, D09, V00</td><td>90,20</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>11</td><td>Truyền thông số và thiết kế đa phương tiện song bằng UEH - Đại học Saint Joseph, Macao <sup>(2a)(4)</sup></td><td>Công nghệ truyền thông</td><td>73201061D</td><td>40</td><td>A00, A01, D01, D07, D09, V00</td><td>70,00</td><td></td><td></td><td><a href="#" target="_blank">Xem</a></td></tr>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-bullhorn mr-2"></i> III. Lĩnh vực Báo chí và Thông tin</td></tr>
+                    <tr><td>10</td><td>Truyền thông số và thiết kế đa phương tiện<sup> (6)</sup></td><td>Công nghệ truyền thông</td><td>732010601</td><td>60</td><td>A00, A01, D01, D07, D09, V00</td><td>90,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>11</td><td>Truyền thông số và thiết kế đa phương tiện song bằng UEH - Đại học Saint Joseph, Macao<sup>(2a)(4)</sup></td><td>Công nghệ truyền thông</td><td>73201061D</td><td>40</td><td>A00, A01, D01, D07, D09, V00</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
 
-                        <tr class="category-row"><td colspan="10">IV. Lĩnh vực Kinh doanh và quản lý</td></tr>
-                        <tr><td>12</td><td>Quản trị kinh doanh <sup>(5)</sup></td><td>Quản trị kinh doanh</td><td>734010101</td><td>750</td><td>A00, A01, D01, D07, D09</td><td>79,40</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>13</td><td>Quản trị - Tiếng Anh toàn phần <sup>(2a)</sup></td><td>Quản trị kinh doanh</td><td>73401011F</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>71,00</td><td></td><td></td><td><a href="#" target="_blank">Xem</a></td></tr>
-                        <tr><td>14</td><td>Kinh doanh số</td><td>Quản trị kinh doanh</td><td>734010102</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>87,00</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>15</td><td>Quản trị bệnh viện</td><td>Quản trị kinh doanh</td><td>734010103</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>71,90</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>16</td><td>Quản trị bền vững doanh nghiệp và môi trường</td><td>Quản trị kinh doanh</td><td>734010104</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>80,70</td><td><a href="#" target="_blank">Xem</a></td><td></td><td></td></tr>
-                    </tbody>
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-briefcase mr-2"></i> IV. Lĩnh vực Kinh doanh và quản lý</td></tr>
+                    <tr><td>12</td><td>Quản trị kinh doanh<sup> (5)</sup></td><td>Quản trị kinh doanh</td><td>734010101</td><td>750</td><td>A00, A01, D01, D07, D09</td><td>79,40</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>13</td><td>Quản trị - Tiếng Anh toàn phần<sup> (2a)</sup></td><td>Quản trị kinh doanh</td><td>73401011F</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>71,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>14</td><td>Kinh doanh số</td><td>Quản trị kinh doanh</td><td>734010102</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>87,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>15</td><td>Quản trị bệnh viện</td><td>Quản trị kinh doanh</td><td>734010103</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>71,90</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>16</td><td>Quản trị bền vững doanh nghiệp và môi trường</td><td>Quản trị kinh doanh</td><td>734010104</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>80,70</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>17</td><td>Quản trị bền vững doanh nghiệp và môi trường song bằng UEH - Koblenz University, Đức<sup>(2a)(4)</sup></td><td>Quản trị kinh doanh</td><td>73401014D</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>18</td><td>Marketing<sup> (6)</sup></td><td>Marketing</td><td>734011501</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>90,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>19</td><td>Marketing - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Marketing</td><td>73401151F</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>86,30</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>20</td><td>Công nghệ Marketing</td><td>Marketing</td><td>734011502</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>90,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>21</td><td>Bất động sản</td><td>Bất động sản</td><td>7340116</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>72,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>22</td><td>Kinh doanh quốc tế<sup> (6)</sup></td><td>Kinh doanh quốc tế</td><td>734012001</td><td>320</td><td>A00, A01, D01, D07, D09</td><td>92,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>23</td><td>Kinh doanh quốc tế - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Kinh doanh quốc tế</td><td>73401201F</td><td>250</td><td>A00, A01, D01, D07, D09</td><td>89,30</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>24</td><td>Kinh doanh thương mại<sup> (6)</sup></td><td>Kinh doanh thương mại</td><td>734012101</td><td>170</td><td>A00, A01, D01, D07, D09</td><td>88,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>25</td><td>Kinh doanh thương mại - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Kinh doanh thương mại</td><td>73401211F</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>86,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>26</td><td>Thương mại điện tử</td><td>Thương mại điện tử</td><td>7340122</td><td>140</td><td>A00, A01, D01, D07, D09</td><td>89,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>27</td><td>Tài chính công</td><td>Tài chính - Ngân hàng</td><td>734020101</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>79,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>28</td><td>Thuế</td><td>Tài chính - Ngân hàng</td><td>734020102</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>78,70</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>29</td><td>Ngân hàng<sup> (6)</sup></td><td>Tài chính - Ngân hàng</td><td>734020103</td><td>220</td><td>A00, A01, D01, D07, D09</td><td>80,80</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>30</td><td>Ngân hàng - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Tài chính - Ngân hàng</td><td>73402013F</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>31</td><td>Thị trường chứng khoán<sup> (6)</sup></td><td>Tài chính - Ngân hàng</td><td>734020104</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>77,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>32</td><td>Tài chính</td><td>Tài chính - Ngân hàng</td><td>734020105</td><td>380</td><td>A00, A01, D01, D07, D09</td><td>85,20</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>33</td><td>Tài chính - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Tài chính - Ngân hàng</td><td>73402015F</td><td>90</td><td>A00, A01, D01, D07, D09</td><td>82,20</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>34</td><td>Đầu tư tài chính</td><td>Tài chính - Ngân hàng</td><td>734020106</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>83,80</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>35</td><td>Đầu tư tài chính - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Tài chính - Ngân hàng</td><td>73402016F</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>36</td><td>Quản trị Hải quan – Ngoại thương<sup> (6)</sup></td><td>Tài chính - Ngân hàng</td><td>734020107</td><td>100</td><td>A00, A01, D01, D07, D09</td><td>86,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>37</td><td>Chương trình nguồn nhân lực quốc tế song bằng Đại học Rennes<sup>(2b)(4)</sup> </td><td>Tài chính - Ngân hàng</td><td>73402010D</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>38</td><td>Bảo hiểm<sup> (6)</sup></td><td>Bảo hiểm</td><td>7340204</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>75,30</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>39</td><td>Công nghệ tài chính</td><td>Công nghệ tài chính</td><td>7340205</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>88,70</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>40</td><td>Tài chính quốc tế</td><td>Tài chính quốc tế</td><td>734020601</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>92,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>41</td><td>Tài chính quốc tế - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Tài chính quốc tế</td><td>73402061F</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>88,30</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>42</td><td>Kế toán doanh nghiệp<sup> (6)</sup></td><td>Kế toán</td><td>734030101</td><td>510</td><td>A00, A01, D01, D07, D09</td><td>79,10</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>43</td><td>Kế toán doanh nghiệp - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Kế toán</td><td>73403011F</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>44</td><td>Kế toán công</td><td>Kế toán</td><td>734030102</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>81,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>45</td><td>Kế toán tích hợp chứng chỉ nghề nghiệp quốc tế ICAEW<sup>(2b)</sup></td><td>Kế toán</td><td>734030103</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>70,00</td><td></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>46</td><td>Kế toán tích hợp chứng chỉ nghề nghiệp quốc tế ACCA<sup>(2b)</sup></td><td>Kế toán</td><td>734030104</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>80,00</td><td></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>47</td><td>Kiểm toán</td><td>Kiểm toán</td><td>734030201</td><td>120</td><td>A00, A01, D01, D07, D09</td><td>91,10</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>48</td><td>Kiểm toán - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Kiểm toán</td><td>73403021F</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>85,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>49</td><td>Quản lý công<sup> (6)</sup></td><td>Quản lý công</td><td>7340403</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>76,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>50</td><td>Quản trị nhân lực</td><td>Quản trị nhân lực</td><td>7340404</td><td>150</td><td>A00, A01, D01, D07, D09</td><td>83,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>51</td><td>Hệ thống thông tin quản lý</td><td>Hệ thống thông tin quản lý</td><td>7340405</td><td>110</td><td>A00, A01, D01, D07, D09</td><td>86,80</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-scale-balanced mr-2"></i> V. Lĩnh vực Pháp luật</td></tr>
+                    <tr><td>52</td><td>Luật kinh doanh quốc tế</td><td>Luật</td><td>738010101</td><td>70</td><td>A00, A01, D01, D09, X25</td><td>82,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>53</td><td>Luật<sup> (1)</sup> </td><td>Luật</td><td>738010102</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>76,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>54</td><td>Luật kinh tế</td><td>Luật kinh tế</td><td>7380107</td><td>80</td><td>A00, A01, D01, D09, X25</td><td>82,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>55</td><td>Luật thương mại quốc tế<sup> (1)</sup></td><td>Luật thương mại quốc tế</td><td>7380109</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>80,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-square-root-variable mr-2"></i> VI. Lĩnh vực Toán và thống kê</td></tr>
+                    <tr><td>56</td><td>Khoa học dữ liệu</td><td>Khoa học dữ liệu</td><td>746010801</td><td>55</td><td>A00, A01, D01, D07, X26</td><td>88,10</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>57</td><td>Phân tích dữ liệu</td><td>Khoa học dữ liệu</td><td>746010802</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>91,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-laptop-code mr-2"></i> VII. Lĩnh vực Máy tính và Công nghệ thông tin</td></tr>
+                    <tr><td>58</td><td>Khoa học máy tính</td><td>Khoa học máy tính</td><td>7480101</td><td>50</td><td>A00, A01, D01, D07, X26</td><td>79,40</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>59</td><td>Kỹ thuật phần mềm</td><td>Kỹ thuật phần mềm</td><td>7480103</td><td>55</td><td>A00, A01, D01, D07, X26</td><td>76,60</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>60</td><td>Robot và Trí tuệ nhân tạo (hệ kỹ sư)</td><td>Trí tuệ nhân tạo</td><td>748010701</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>75,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>61</td><td>Robot và Trí tuệ nhân tạo song bằng ĐH Kwangwoon<sup>(1)(2a)(4)</sup></td><td>Trí tuệ nhân tạo</td><td>74801071D</td><td>60</td><td>A00, A01, D01, D07, X26</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>62</td><td>Điều khiển thông minh và tự động hóa (hệ kỹ sư)</td><td>Trí tuệ nhân tạo</td><td>748010702</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>77,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>63</td><td>Điều khiển thông minh và tự động hóa song bằng ĐH Kwangwoon<sup>(1)(2a)(4)</sup> </td><td>Trí tuệ nhân tạo</td><td>74801072D</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>70,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>64</td><td>Công nghệ thông tin</td><td>Công nghệ thông tin</td><td>748020101</td><td>50</td><td>A00, A01, D01, D07, X26</td><td>78,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>65</td><td>Công nghệ nghệ thuật<sup> (6)</sup></td><td>Công nghệ thông tin</td><td>748020102</td><td>70</td><td>A00, A01, D01, D07, X26</td><td>84,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>66</td><td>Công nghệ và đổi mới sáng tạo</td><td>Công nghệ thông tin</td><td>748020103</td><td>100</td><td>A00, A01, D01, D07, X26</td><td>78,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>67</td><td>An toàn thông tin</td><td>An toàn thông tin</td><td>7480202</td><td>50</td><td>A00, A01, D01, D07, X26</td><td>77,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-gears mr-2"></i> VIII. Lĩnh vực Công nghệ kỹ thuật</td></tr>
+                    <tr><td>68</td><td>Sản xuất thông minh (hệ kỹ sư)<sup> (1)</sup></td><td>Công nghệ kỹ thuật cơ khí</td><td>7510201</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                    <tr><td>69</td><td>Logistics và Quản lý chuỗi cung ứng<sup> (6)</sup></td><td>Logistics chuỗi cung ứng</td><td>751060501</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>97,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>70</td><td>Logistics và Quản lý chuỗi cung ứng  - Tiếng Anh toàn phần<sup>(2a)</sup></td><td>Logistics chuỗi cung ứng</td><td>75106051F</td><td>80</td><td>A00, A01, D01, D07, X26</td><td>94,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>71</td><td>Công nghệ Logistics (hệ kỹ sư)</td><td>Logistics chuỗi cung ứng</td><td>751060502</td><td>60</td><td>A00, A01, D01, D07, X26</td><td>87,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>72</td><td>Công nghệ Logistics tích hợp chứng chỉ FIATA - Tiếng Anh toàn phần (hệ kỹ sư)<sup>(1)(2a)</sup></td><td>Logistics chuỗi cung ứng</td><td>75106052F</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>88,00</td><td></td><td></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-star text-amber-500 mr-2"></i> * Chương trình đào tạo kỹ sư tài năng thuộc các lĩnh vực STEM</td></tr>
+                    <tr><td></td><td>Kỹ sư tài năng Logistics thông minh<sup>(1)(7)</sup></td><td>Logistics chuỗi cung ứng</td><td></td><td>30 (dự kiến)</td><td>Đăng ký khi nhập học</td><td>---</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-city mr-2"></i> IX. Lĩnh vực Kiến trúc và xây dựng</td></tr>
+                    <tr><td>73</td><td>Kiến trúc và thiết kế đô thị thông minh song bằng ĐH Auckland<sup>(2c)(4)</sup></td><td>Kiến trúc đô thị</td><td>7580104SD</td><td>80</td><td>A00, A01, D01, D09, V00</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>74</td><td>Kiến trúc và Thiết kế đô thị thông minh (hệ kiến trúc sư)<sup> (1)</sup></td><td>Kiến trúc đô thị</td><td>758010402</td><td>40</td><td>A00, A01, D01, D09, V00</td><td>70,00</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-seedling mr-2"></i> X. Lĩnh vực Nông, lâm nghiệp và thủy sản</td></tr>
+                    <tr><td>75</td><td>Kinh doanh nông nghiệp<sup> (6)</sup></td><td>Kinh doanh nông nghiệp</td><td>7620114</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>78,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-plane-departure mr-2"></i> XI. Lĩnh vực Du lịch, khách sạn, thể thao và dịch vụ cá nhân</td></tr>
+                    <tr><td>76</td><td>Quản trị dịch vụ du lịch và lữ hành</td><td>Quản trị lữ hành</td><td>7810103</td><td>165</td><td>A00, A01, D01, D07, D09</td><td>75,30</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>77</td><td>Quản trị khách sạn</td><td>Quản trị khách sạn</td><td>781020101</td><td>85</td><td>A00, A01, D01, D07, D09</td><td>78,50</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>78</td><td>Quản trị sự kiện và dịch vụ giải trí</td><td>Quản trị khách sạn</td><td>781020102</td><td>80</td><td>A00, A01, D01, D07, D09</td><td>85,70</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="10"><i class="fa-solid fa-truck-fast mr-2"></i> XII. Lĩnh vực Dịch vụ vận tải</td></tr>
+                    <tr><td>79</td><td>Quản trị vận hành và di chuyển thông minh<sup> (1)</sup></td><td>Kinh tế vận tải</td><td>7840104</td><td>40</td><td>A00, A01, D01, D07, X26</td><td>76,50</td><td><a target="_blank" href="#">Xem</a></td><td></td><td></td></tr>
+                </tbody>
                 </table>
 
                 <!-- KSV TABLE (Hidden by default) -->
                 <table id="table-ksv" class="ueh-custom-table hidden">
                     <thead>
-                        <tr>
-                            <th style="width: 3%;">STT</th>
-                            <th style="width: 25%;">CHƯƠNG TRÌNH ĐÀO TẠO</th>
-                            <th style="width: 15%;">THUỘC NGÀNH</th>
-                            <th style="width: 10%;">MÃ XÉT TUYỂN</th>
-                            <th style="width: 8%;">CHỈ TIÊU 2026</th>
-                            <th style="width: 15%;">TỔ HỢP XÉT TUYỂN</th>
-                            <th style="width: 10%;">ĐIỂM TRÚNG TUYỂN 2026</th>
-                            <th style="width: 7%;">CHƯƠNG TRÌNH CHUẨN (TIẾNG VIỆT)</th>
-                            <th style="width: 7%;">CHƯƠNG TRÌNH TIẾNG ANH BÁN PHẦN</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="category-row"><td colspan="9">Tuyển sinh cả nước</td></tr>
-                        <tr class="category-row"><td colspan="9">I. Lĩnh vực Nhân văn</td></tr>
-                        <tr><td>1</td><td>Tiếng Anh thương mại</td><td>Ngôn ngữ Anh</td><td>7220201</td><td>30</td><td>D01, D09, D14</td><td>60,00</td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr class="category-row"><td colspan="9">II. Lĩnh vực Kinh doanh và quản lý</td></tr>
-                        <tr><td>2</td><td>Thuế</td><td>Tài chính – Ngân hàng</td><td>734020103</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a href="#" target="_blank">Xem</a></td><td></td></tr>
-                        <tr><td>3</td><td>Thương mại điện tử</td><td>Thương mại điện tử</td><td>7340122</td><td>60</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a href="#" target="_blank">Xem</a></td><td><a href="#" target="_blank">Xem</a></td></tr>
-                    </tbody>
+                    <tr>
+                        <th>STT</th>
+                        <th>Chương trình đào tạo</th>
+                        <th>Thuộc ngành</th>
+                        <th>Mã xét tuyển</th>
+                        <th>Chỉ tiêu 2026</th>
+                        <th>Tổ hợp xét tuyển</th>
+                        <th>Điểm chuẩn 2026</th>
+                        <th>Chuẩn (Tiếng Việt)</th>
+                        <th>Tiếng Anh bán phần</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="main-region-heading"><td></td><td colspan="8"><i class="fa-solid fa-globe mr-2"></i> Tuyển sinh cả nước</td></tr>
+
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-book-open-reader mr-2"></i> I. Lĩnh vực Nhân văn</td></tr>
+                    <tr><td>1</td><td>Tiếng Anh thương mại</td><td>Ngôn ngữ Anh</td><td>7220201</td><td>30</td><td>D01, D09, D14</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-briefcase mr-2"></i> II. Lĩnh vực Kinh doanh và quản lý</td></tr>
+                    <tr><td>2</td><td>Thuế</td><td>Tài chính – Ngân hàng</td><td>734020103</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>3</td><td>Thương mại điện tử</td><td>Thương mại điện tử</td><td>7340122</td><td>60</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
+
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-scale-balanced mr-2"></i> III. Lĩnh vực Pháp luật</td></tr>
+                    <tr><td>4</td><td>Luật kinh tế</td><td>Luật kinh tế</td><td>7380107</td><td>40</td><td>A00, A01, D01, D09, X25</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-gears mr-2"></i> IV. Lĩnh vực Công nghệ kỹ thuật</td></tr>
+                    <tr><td>5</td><td>Logistics và Quản lý chuỗi cung ứng (S)</td><td>Logistics chuỗi cung ứng</td><td>7510605</td><td>60</td><td>A00, A01, D01, D07, X26</td><td>67,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
+
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-laptop-code mr-2"></i> V. Lĩnh vực Máy tính và công nghệ thông tin</td></tr>
+                    <tr><td>6</td><td>Công nghệ và đổi mới sáng tạo</td><td>Công nghệ thông tin</td><td>7480201</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>7</td><td>Robot và Trí tuệ nhân tạo (hệ kỹ sư)</td><td>Trí tuệ nhân tạo</td><td>7480107</td><td>30</td><td>A00, A01, D01, D07, X26</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
+
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-seedling mr-2"></i> VI. Lĩnh vực Nông, lâm nghiệp và thủy sản</td></tr>
+                    <tr><td>8</td><td>Kinh doanh nông nghiệp (S)</td><td>Kinh doanh nông nghiệp</td><td>7620114</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-plane-departure mr-2"></i> VII. Lĩnh vực Du lịch, khách sạn, thể thao và dịch vụ cá nhân</td></tr>
+                    <tr><td>9</td><td>Quản trị khách sạn</td><td>Quản trị khách sạn</td><td>7810201</td><td>30</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+
+                    <tr class="main-region-heading"><td></td><td colspan="8"><i class="fa-solid fa-location-crosshairs mr-2"></i> Tuyển sinh khu vực ĐBSCL &amp; Tây Ninh</td></tr>
+
+                    <tr class="section-heading"><td colspan="9"><i class="fa-solid fa-briefcase mr-2"></i> I. Lĩnh vực Kinh doanh và quản lý</td></tr>
+                    <tr><td>10</td><td>Quản trị</td><td>Quản trị kinh doanh</td><td>7340101</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>11</td><td>Kinh doanh quốc tế (S)</td><td>Kinh doanh quốc tế</td><td>7340120</td><td>60</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>12</td><td>Marketing (S)</td><td>Marketing</td><td>7340115</td><td>70</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>13</td><td>Ngân hàng (S)</td><td>Tài chính – Ngân hàng</td><td>734020101</td><td>40</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                    <tr><td>14</td><td>Tài chính</td><td>Tài chính – Ngân hàng</td><td>734020102</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td><a target="_blank" href="#">Xem</a></td></tr>
+                    <tr><td>15</td><td>Kế toán doanh nghiệp (S)</td><td>Kế toán</td><td>7340301</td><td>50</td><td>A00, A01, D01, D07, D09</td><td>60,00</td><td><a target="_blank" href="#">Xem</a></td><td></td></tr>
+                </tbody>
                 </table>
             </div>
 

@@ -844,43 +844,62 @@
     <!-- UEH Admission Program Table - 100% Match Original Design -->
 <section id="chuong-trinh-dao-tao-ueh" class="w-full bg-white py-8 px-4 font-sans text-slate-800">
     <style>
-        .ueh-main-title {
-            color: #005B5C;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
         /* Tab Style */
-        .ueh-tab-card {
-            background-color: #F4F5F7;
-            border-radius: 12px;
-            padding: 12px 28px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: 2px solid transparent;
-            text-align: center;
-        }
+        .ueh-tabs-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        position: relative;
+        z-index: 2;
+        margin-bottom: -1px; /* Đè lên viền của khung bên dưới để tạo kết nối */
+    }
 
-        .ueh-tab-card.active {
-            background-color: #E8F3F3;
-            border-color: #005B5C;
-        }
+    .ueh-tab-card {
+        background-color: #E2E8F0; /* Nền xám nhạt cho tab chưa chọn */
+        border: 1px solid #CBD5E1;
+        border-radius: 12px 12px 0 0; /* Bo tròn 2 góc trên */
+        padding: 12px 32px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        text-align: center;
+    }
 
-        .ueh-tab-card .tab-title {
-            color: #475569;
-            font-weight: 800;
-            font-size: 17px;
-        }
+    /* Hover tab chưa active: chỉ đổi xám đậm hơn nhẹ, không hover màu xanh */
+    .ueh-tab-card:hover:not(.active) {
+        background-color: #CBD5E1;
+    }
 
-        .ueh-tab-card.active .tab-title {
-            color: #005B5C;
-        }
+    /* Tab đang Active: Màu trắng nổi bật, mất viền đáy để liền mạch với khối dưới */
+    .ueh-tab-card.active {
+        background-color: #FFFFFF;
+        border-bottom-color: #FFFFFF;
+    }
 
-        .ueh-tab-card .tab-sub {
-            color: #64748B;
-            font-style: italic;
-            font-size: 13px;
-        }
+    .ueh-tab-card .tab-title {
+        color: #475569;
+        font-weight: 800;
+        font-size: 16px;
+    }
+
+    .ueh-tab-card.active .tab-title {
+        color: #005B5C;
+    }
+
+    .ueh-tab-card .tab-sub {
+        color: #64748B;
+        font-style: italic;
+        font-size: 13px;
+    }
+
+    /* Khung bọc toàn bộ nội dung bên dưới */
+    .ueh-content-card {
+        background-color: #FFFFFF;
+        border: 1px solid #CBD5E1;
+        border-radius: 12px;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 
         /* Table Styling */
         .ueh-custom-table {
@@ -987,24 +1006,25 @@
         </div>
 
         <!-- Campus Selector Tabs -->
-        <div class="flex justify-center items-center gap-4 mb-5">
-            <div id="tab-ksa" onclick="switchCampus('ksa')" class="ueh-tab-card active">
-                <div class="tab-title">HỌC TẠI TP. HCM</div>
-                <div class="tab-sub">Mã trường: KSA</div>
-            </div>
-            <div id="tab-ksv" onclick="switchCampus('ksv')" class="ueh-tab-card">
-                <div class="tab-title">HỌC TẠI VĨNH LONG, UEH MEKONG</div>
-                <div class="tab-sub">Mã trường: KSV</div>
-            </div>
-        </div>
+        <div class="ueh-tabs-container">
+    <div id="tab-ksa" onclick="switchCampus('ksa')" class="ueh-tab-card active">
+        <div class="tab-title">HỌC TẠI TP. HCM</div>
+        <div class="tab-sub">Mã trường: KSA</div>
+    </div>
+    <div id="tab-ksv" onclick="switchCampus('ksv')" class="ueh-tab-card">
+        <div class="tab-title">HỌC TẠI VĨNH LONG, UEH MEKONG</div>
+        <div class="tab-sub">Mã trường: KSV</div>
+    </div>
+</div>
 
-        <!-- VIEW 1: TABLE VIEW -->
-        <div id="view-table" class="block">
-            <!-- Top Warning Note -->
-            <p class="text-[11.5px] italic text-slate-700 mb-3 text-left">
-                * Lưu ý: Thí sinh có thể sử dụng tổ hợp xét tuyển có môn ngoại ngữ khác tiếng Anh để xét tuyển (ngoại trừ chương trình Tiếng Anh thương mại), bao gồm: Tiếng Hàn, Tiếng Đức, Tiếng Nga, Tiếng Nhật, Tiếng Pháp, Tiếng Trung.
-            </p>
-
+<!-- VIEW CONTAINER (Bọc ngoài các view để tạo khung nối liền) -->
+<div class="ueh-content-card">
+    <!-- VIEW 1: TABLE VIEW -->
+    <div id="view-table" class="block">
+        <!-- Top Warning Note -->
+        <p class="text-[11.5px] italic text-slate-700 mb-3 text-left">
+            * Lưu ý: Thí sinh có thể sử dụng tổ hợp xét tuyển có môn ngoại ngữ khác tiếng Anh để xét tuyển (ngoại trừ chương trình Tiếng Anh thương mại), bao gồm: Tiếng Hàn, Tiếng Đức, Tiếng Nga, Tiếng Nhật, Tiếng Pháp, Tiếng Trung.
+        </p>
             <!-- Table Container -->
             <div class="overflow-x-auto border border-slate-300">
                 <!-- KSA TABLE -->

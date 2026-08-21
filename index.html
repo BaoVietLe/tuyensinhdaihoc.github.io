@@ -471,6 +471,28 @@
             overflow-y: auto;
             padding: 20px 24px 28px 24px;
         }
+          /* CSS cho hiệu ứng mở rộng Accordion mượt mà */
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-in-out;
+        }
+        .accordion-content.is-open {
+            grid-template-rows: 1fr;
+        }
+        .accordion-inner {
+            overflow: hidden;
+        }
+
+        /* CSS cho nút Xem thêm / Thu gọn */
+        .read-more-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease;
+        }
+        .read-more-content.expanded {
+            grid-template-rows: 1fr;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -1338,44 +1360,16 @@
     </div>
 </section>
     <!-- BẮT ĐẦU SECTION PHƯƠNG THỨC TUYỂN SINH -->
-<section id="admission-methods" class="relative w-full py-16 px-4 md:px-8 font-sans bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000&auto=format&fit=crop');">
+<section id="phuong-thuc-tuyen-sinh" class="relative w-full py-16 px-4 md:px-8 font-sans bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('img/phuong-thuc-tuyen-sinh.png');">
     
     <!-- Lớp phủ Gradient trắng mờ (che 85%, để lộ ảnh 15%) -->
     <div class="absolute inset-0 bg-gradient-to-b from-white/90 to-white/85 backdrop-blur-[1px] z-0"></div>
-
-    <!-- Nhúng Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* CSS cho hiệu ứng mở rộng Accordion mượt mà */
-        .accordion-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.4s ease-in-out;
-        }
-        .accordion-content.is-open {
-            grid-template-rows: 1fr;
-        }
-        .accordion-inner {
-            overflow: hidden;
-        }
-
-        /* CSS cho nút Xem thêm / Thu gọn */
-        .read-more-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.3s ease;
-        }
-        .read-more-content.expanded {
-            grid-template-rows: 1fr;
-        }
-    </style>
 
     <!-- KHUNG CHỨA NỘI DUNG CHÍNH -->
     <div class="relative z-10 max-w-[1100px] mx-auto">
         
         <!-- Tiêu đề -->
-        <h2 class="text-[28px] md:text-[36px] font-black text-center text-[#005B5C] mb-10 uppercase tracking-tight">
+        <h2 class="text-[28px] md:text-[40px] font-black text-center text-ueh-teal mb-10 uppercase tracking-tight">
             02 Phương thức tuyển sinh
         </h2>
 
@@ -1386,10 +1380,10 @@
             <div class="accordion-item">
                 <!-- Header -->
                 <button onclick="toggleAdmissionAccordion(this)" class="w-full bg-white rounded-xl shadow-sm px-6 py-5 flex justify-between items-center transition hover:shadow-md">
-                    <h3 class="text-[#005B5C] font-bold text-[15px] md:text-[17px] uppercase text-left pr-4">
+                    <h3 class="text-ueh-teal font-bold text-[15px] md:text-[17px] uppercase text-left pr-4">
                         Xét tuyển thẳng theo quy định của Bộ Giáo dục và Đào tạo (GD&ĐT)
                     </h3>
-                    <div class="text-[#005B5C] text-xl icon-indicator transition-transform duration-300">
+                    <div class="text-ueh-teal text-xl icon-indicator transition-transform duration-300">
                         <!-- Icon sẽ được JS đổi giữa + và - -->
                         <i class="fa-solid fa-plus"></i>
                     </div>
@@ -1436,10 +1430,10 @@
                 <!-- Header -->
                 <!-- Thêm class active mặc định để mở sẵn như ảnh PTTS-2 -->
                 <button onclick="toggleAdmissionAccordion(this)" class="w-full bg-white rounded-xl shadow-sm px-6 py-5 flex justify-between items-center transition hover:shadow-md active">
-                    <h3 class="text-[#005B5C] font-bold text-[15px] md:text-[17px] uppercase text-left pr-4">
+                    <h3 class="text-ueh-teal font-bold text-[15px] md:text-[17px] uppercase text-left pr-4">
                         Phương thức xét tuyển tích hợp
                     </h3>
-                    <div class="text-[#005B5C] text-xl icon-indicator transition-transform duration-300">
+                    <div class="text-ueh-teal text-xl icon-indicator transition-transform duration-300">
                         <i class="fa-solid fa-minus"></i>
                     </div>
                 </button>
@@ -1535,43 +1529,6 @@
 
         </div>
     </div>
-
-    <!-- JAVASCRIPT ĐIỀU KHIỂN LOGIC -->
-    <script>
-        // Logic gập mở cho thẻ Accordion chính
-        function toggleAdmissionAccordion(button) {
-            const icon = button.querySelector('i');
-            const content = button.nextElementSibling;
-            
-            // Toggle active state
-            button.classList.toggle('active');
-
-            if (button.classList.contains('active')) {
-                // Đang mở
-                icon.classList.remove('fa-plus');
-                icon.classList.add('fa-minus');
-                content.classList.add('is-open');
-            } else {
-                // Đang đóng
-                icon.classList.remove('fa-minus');
-                icon.classList.add('fa-plus');
-                content.classList.remove('is-open');
-            }
-        }
-
-        // Logic cho nút "Xem thêm" / "Thu gọn" bên trong Box
-        function toggleReadMore(contentId, btn) {
-            const content = document.getElementById(contentId);
-            
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                btn.textContent = 'Xem thêm';
-            } else {
-                content.classList.add('expanded');
-                btn.textContent = 'Thu gọn';
-            }
-        }
-    </script>
 </section>
     <!-- ================= JAVASCRIPT ================= -->
     <script>
@@ -1926,6 +1883,39 @@ if (uehScrollBox) {
     populateFieldFilter();
     render();
 })();
+      // Logic gập mở cho thẻ Accordion chính
+        function toggleAdmissionAccordion(button) {
+            const icon = button.querySelector('i');
+            const content = button.nextElementSibling;
+            
+            // Toggle active state
+            button.classList.toggle('active');
+
+            if (button.classList.contains('active')) {
+                // Đang mở
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+                content.classList.add('is-open');
+            } else {
+                // Đang đóng
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+                content.classList.remove('is-open');
+            }
+        }
+
+        // Logic cho nút "Xem thêm" / "Thu gọn" bên trong Box
+        function toggleReadMore(contentId, btn) {
+            const content = document.getElementById(contentId);
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                btn.textContent = 'Xem thêm';
+            } else {
+                content.classList.add('expanded');
+                btn.textContent = 'Thu gọn';
+            }
+        }
     </script>
 </body>
 </html>

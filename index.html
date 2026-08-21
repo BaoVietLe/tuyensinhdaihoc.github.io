@@ -1337,7 +1337,242 @@
         </div>
     </div>
 </section>
-<!-- Kết thúc Section -->
+    <!-- BẮT ĐẦU SECTION PHƯƠNG THỨC TUYỂN SINH -->
+<section id="admission-methods" class="relative w-full py-16 px-4 md:px-8 font-sans bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000&auto=format&fit=crop');">
+    
+    <!-- Lớp phủ Gradient trắng mờ (che 85%, để lộ ảnh 15%) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-white/90 to-white/85 backdrop-blur-[1px] z-0"></div>
+
+    <!-- Nhúng Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS cho hiệu ứng mở rộng Accordion mượt mà */
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-in-out;
+        }
+        .accordion-content.is-open {
+            grid-template-rows: 1fr;
+        }
+        .accordion-inner {
+            overflow: hidden;
+        }
+
+        /* CSS cho nút Xem thêm / Thu gọn */
+        .read-more-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease;
+        }
+        .read-more-content.expanded {
+            grid-template-rows: 1fr;
+        }
+    </style>
+
+    <!-- KHUNG CHỨA NỘI DUNG CHÍNH -->
+    <div class="relative z-10 max-w-[1100px] mx-auto">
+        
+        <!-- Tiêu đề -->
+        <h2 class="text-[28px] md:text-[36px] font-black text-center text-[#005B5C] mb-10 uppercase tracking-tight">
+            02 Phương thức tuyển sinh
+        </h2>
+
+        <!-- DANH SÁCH ACCORDION -->
+        <div class="space-y-4">
+
+            <!-- ================= ITEM 1: XÉT TUYỂN THẲNG ================= -->
+            <div class="accordion-item">
+                <!-- Header -->
+                <button onclick="toggleAdmissionAccordion(this)" class="w-full bg-white rounded-xl shadow-sm px-6 py-5 flex justify-between items-center transition hover:shadow-md">
+                    <h3 class="text-[#005B5C] font-bold text-[15px] md:text-[17px] uppercase text-left pr-4">
+                        Xét tuyển thẳng theo quy định của Bộ Giáo dục và Đào tạo (GD&ĐT)
+                    </h3>
+                    <div class="text-[#005B5C] text-xl icon-indicator transition-transform duration-300">
+                        <!-- Icon sẽ được JS đổi giữa + và - -->
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </button>
+
+                <!-- Content -->
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <div class="pt-4 pb-2">
+                            <p class="text-slate-700 text-[14px] mb-4 leading-relaxed">
+                                UEH xét tuyển thẳng các đối tượng theo quy định tại khoản 1; điểm a, b khoản 2; khoản 4 Điều 8 Quy chế tuyển sinh các ngành đào tạo trình độ đại học và ngành Giáo dục Mầm non trình độ cao đẳng, cụ thể:
+                            </p>
+
+                            <!-- Layout 2 cột (Tham chiếu PTTS.png) -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-4">
+                                <!-- Cột Trái -->
+                                <div class="bg-[#EEF2F5]/80 backdrop-blur-sm rounded-xl p-5 text-[13.5px] text-slate-700 leading-relaxed">
+                                    <p class="mb-2"><strong>– Khoản 1:</strong> Anh hùng lao động, Anh hùng lực lượng vũ trang nhân dân, Chiến sĩ thi đua toàn quốc được tuyển thẳng vào các chương trình đào tạo do cơ sở đào tạo quy định.</p>
+                                    <p class="font-bold mb-1">– Khoản 2:</p>
+                                    <p class="mb-2">+ Điểm a: Thí sinh đạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia, quốc tế; thời gian đạt giải không quá 03 năm tính tới thời điểm xét tuyển thẳng;</p>
+                                    <p>+ Điểm b: Thí sinh đạt giải nhất, nhì, ba kỳ thi khoa học, kỹ thuật cấp quốc gia, quốc tế do Bộ GDĐT tổ chức, cử tham gia và đạt ngưỡng đảm bảo chất lượng đầu vào của chương trình đào tạo. Thời gian đạt giải không quá 03 năm tính tới thời điểm nếu được xét tuyển thẳng;<br>UEH căn cứ môn đoạt giải, quy định hiện hành của Bộ GDĐT và nguyện vọng của thí sinh để xem xét, quyết định ngành, chuyên ngành, chương trình đào tạo theo học.</p>
+                                </div>
+
+                                <!-- Cột Phải -->
+                                <div class="bg-[#EEF2F5]/80 backdrop-blur-sm rounded-xl p-5 text-[13.5px] text-slate-700 leading-relaxed">
+                                    <p class="mb-3"><strong>– Khoản 3:</strong> UEH căn cứ kết quả học tập cấp THPT của thí sinh và yêu cầu của ngành, chuyên ngành, chương trình đào tạo để xem xét, quyết định nhận vào học những trường hợp quy định dưới đây:</p>
+                                    <p class="mb-3">a) Thí sinh là người nước ngoài (tốt nghiệp THPT hoặc tương đương) đã đạt chuẩn năng lực ngôn ngữ theo yêu cầu của chương trình đào tạo (do UEH quy định) phù hợp với quy định của Bộ GDĐT:<br>– Thí sinh nước ngoài theo diện ngoài Hiệp định: UEH căn cứ kết quả học tập của thí sinh, quy định hiện hành của Bộ GDĐT, năng lực ngôn ngữ và nguyện vọng của thí sinh để xem xét, quyết định ngành, chuyên ngành, chương trình đào tạo theo học.<br>– Thí sinh nước ngoài theo diện Hiệp định: UEH thực hiện theo quy chế tuyển sinh hiện hành của Bộ GDĐT.</p>
+                                    <p class="mb-3">b) Thí sinh là người Việt Nam học tập cấp THPT, trung học nghề ở nước ngoài hoặc học tập chương trình giáo dục nước ngoài bằng tiếng nước ngoài ở Việt Nam đạt trình độ tương đương với trình độ THPT, trung học nghề của Việt Nam và đạt chuẩn năng lực ngôn ngữ theo yêu cầu của chương trình đào tạo phù hợp với quy định của Bộ GDĐT. Điều kiện nộp hồ sơ xét tuyển thẳng vào UEH:<br>– Thí sinh có kết quả học tập tương đương đánh giá mức Tốt (học lực xếp loại từ Giỏi trở lên) đối với các năm lớp 10, lớp 11 và lớp 12 tương đương của Việt Nam, và<br>– Có chứng chỉ tiếng Anh quốc tế còn thời hạn (tính đến ngày nộp hồ sơ xét tuyển) đạt yêu cầu ngôn ngữ chương trình đào tạo tương đương IELTS từ 5.5 (hoặc TOEFL iBT từ 62, hoặc TOEIC 4 kỹ năng từ 670 trong đó điểm các kỹ năng Speaking từ 140, Writing từ 140) trở lên, đáp ứng điều kiện đầu vào CTĐT thí sinh đăng ký.</p>
+                                    <p class="mb-3">c) Thí sinh là người dân tộc thiểu số rất ít người theo quy định hiện hành của Chính phủ, điều kiện nộp hồ sơ xét tuyển thẳng vào UEH:<br>– Thí sinh có kết quả học tập được đánh giá mức Tốt (học lực xếp loại từ Giỏi trở lên) đối với các năm lớp 10, lớp 11 và lớp 12.<br>– Thí sinh phải học bổ sung kiến thức 01 (một) năm học trước khi vào học chính thức. Chương trình bổ sung kiến thức do UEH quy định.</p>
+                                    <p>d) Thí sinh là người khuyết tật nặng có giấy xác nhận khuyết tật của cơ quan có thẩm quyền cấp theo quy định; có khả năng theo học một số chương trình đào tạo do UEH quy định nhưng không có khả năng dự tuyển theo phương thức tuyển sinh bình thường.<br>Điều kiện nộp hồ sơ xét tuyển thẳng vào UEH:<br>– Thí sinh được miễn thi tốt nghiệp THPT, và<br>– Thí sinh có kết quả học tập được đánh giá mức Tốt (học lực xếp loại từ Giỏi trở lên) và kết quả rèn luyện được đánh giá mức Tốt (hạnh kiểm xếp loại Tốt) đối với các năm lớp 10, lớp 11 và lớp 12.<br>UEH căn cứ tình trạng sức khỏe, yêu cầu của ngành, chuyên ngành, chương trình đào tạo và nguyện vọng của thí sinh để xem xét, quyết định nhận vào học.</p>
+                                </div>
+                            </div>
+
+                            <p class="text-[13px] text-slate-600 italic">
+                                Lưu ý: UEH thông báo điểm cộng trên thông tin tuyển sinh đối với thí sinh quy định tại khoản 1; điểm a, b khoản 2 Điều 8 không dùng quyền tuyển thẳng; thí sinh quy định tại điểm b khoản 5 Điều 8 theo quy chế tuyển sinh hiện hành của Bộ GDĐT.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= ITEM 2: PHƯƠNG THỨC XÉT TUYỂN TÍCH HỢP ================= -->
+            <div class="accordion-item">
+                <!-- Header -->
+                <!-- Thêm class active mặc định để mở sẵn như ảnh PTTS-2 -->
+                <button onclick="toggleAdmissionAccordion(this)" class="w-full bg-white rounded-xl shadow-sm px-6 py-5 flex justify-between items-center transition hover:shadow-md active">
+                    <h3 class="text-[#005B5C] font-bold text-[15px] md:text-[17px] uppercase text-left pr-4">
+                        Phương thức xét tuyển tích hợp
+                    </h3>
+                    <div class="text-[#005B5C] text-xl icon-indicator transition-transform duration-300">
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
+                </button>
+
+                <!-- Content (Mở sẵn) -->
+                <div class="accordion-content is-open">
+                    <div class="accordion-inner">
+                        <div class="pt-4 space-y-4">
+                            
+                            <!-- Box Đối tượng 1 (Đã mở sẵn) -->
+                            <div class="bg-[#EEF2F5]/85 backdrop-blur-sm rounded-xl p-5 md:p-6 text-[13.5px] text-slate-700 leading-relaxed relative">
+                                <h4 class="font-bold text-[#005B5C] mb-2 text-[14px]">Đối tượng 1: Thí sinh tốt nghiệp chương trình THPT, trung học nghề của Việt Nam</h4>
+                                
+                                <div id="content-dt1" class="read-more-content expanded">
+                                    <div class="overflow-hidden">
+                                        <p class="mb-1 text-slate-600">a) Điều kiện: Thí sinh tham gia một hoặc đồng thời các kỳ thi sau:</p>
+                                        <ul class="mb-3 space-y-1 text-slate-600">
+                                            <li>+ Kỳ thi tốt nghiệp THPT năm 2026, trong đó có kết quả các môn thi theo tổ hợp xét tuyển của UEH (viết tắt TN THPT);</li>
+                                            <li>+ Kỳ thi đánh giá năng lực do Đại học Quốc gia TP. Hồ Chí Minh tổ chức năm 2026 (viết tắt ĐGNL-HCM);</li>
+                                            <li>+ Kỳ thi đánh giá đầu vào đại học V-SAT năm 2026 (viết tắt V-SAT).</li>
+                                        </ul>
+                                        <p class="mb-4 text-slate-600">Thí sinh tốt nghiệp THPT, trung học nghề hoặc tương đương theo quy định của Bộ GDĐT, và đạt ngưỡng đảm bảo chất lượng đầu vào theo quy định của UEH.</p>
+
+                                        <p class="mb-1 text-slate-600">b) Điểm xét tuyển: Điểm xét tuyển được tính theo thang điểm 100, cụ thể như sau:</p>
+                                        <p class="font-semibold text-slate-700 mb-2 bg-white/50 inline-block px-2 py-1 rounded">ĐIỂM XÉT TUYỂN = Điểm thi x Hệ số a + Điểm trung bình các năm học THPT x Hệ số b + Điểm cộng (nếu có) + Điểm ưu tiên KV, ĐT (nếu có)</p>
+                                        <p class="mb-1 text-slate-600">Trong đó:</p>
+                                        <ul class="mb-3 space-y-1 text-slate-600">
+                                            <li>• Hệ số a + Hệ số b = 100%, trong đó hệ số a = 60%, hệ số b = 40%</li>
+                                            <li>• Điểm thi: Xét các kỳ thi (TN THPT, ĐGNL-HCM, V-SAT) là tương đương nhau, thí sinh chỉ sử dụng 01 điểm kỳ thi tham gia xét tuyển. Trong đó, Thí sinh có đồng thời nhiều điểm thi của nhiều kỳ thi khác nhau, UEH sẽ quy đổi điểm tương đương giữa các kỳ thi chọn điểm xét tuyển có lợi nhất cho thí sinh.</li>
+                                        </ul>
+                                        
+                                        <p class="mb-1 text-slate-600">Lưu ý:</p>
+                                        <ul class="mb-3 space-y-1 text-slate-600">
+                                            <li>+ Đối với thí sinh tốt nghiệp trước năm 2026 (thí sinh tự do) tham gia 1 trong các kỳ thi trên để xét tuyển.</li>
+                                            <li>+ UEH áp dụng kỳ thi V-SAT do Đại học Cần Thơ tổ chức năm 2026 và chỉ áp dụng cho mã xét tuyển KSV.</li>
+                                            <li>• Điểm trung bình các năm học THPT: Điểm TB các năm học THPT= (ĐTB lớp 10 x 1 + ĐTB lớp 11 x 2 + ĐTB lớp 12 x 3)/6</li>
+                                        </ul>
+                                        
+                                        <p class="mb-1 text-slate-600">Lưu ý: Trường hợp thí sinh không có điểm TB các năm học thì tính bằng cách trung bình cộng các môn có điểm học tập nhân hệ số 1 theo năm lớp 10 (ĐTB lớp 10), 11 (ĐTB lớp 11), và 12 (ĐTB lớp 12); Sau đó, Điểm TB các năm học THPT= (ĐTB lớp 10 x 1 + ĐTB lớp 11 x 2 + ĐTB lớp 12 x 3)/6 và làm tròn theo điểm TB các năm học THPT).</p>
+                                        <ul class="mb-4 space-y-1 text-slate-600">
+                                            <li>• Điểm cộng: tối đa 10% theo thang điểm xét tuyển tính từ các tiêu chí sau:</li>
+                                            <li>+ Thí sinh có chứng chỉ tiếng Anh quốc tế còn thời hạn (tính đến ngày nộp hồ sơ xét tuyển) tương đương IELTS từ 6.0 (hoặc TOEFL iBT từ 73, hoặc TOEIC 4 kỹ năng từ 785 trong đó điểm các kỹ năng Speaking từ 160, Writing từ 150) trở lên.</li>
+                                            <li>+ Thí sinh đạt giải thưởng (Nhất, Nhì, Ba) kỳ thi chọn học sinh Giỏi THPT cấp tỉnh, cấp thành phố (trực thuộc trung ương) các môn: Toán, Vật lý, Hoá học, Tiếng Anh, Ngữ văn, Lịch sử, Địa lí, Tin học, Giáo dục kinh tế và pháp luật, Sinh học, Công nghệ (Định hướng công nghiệp hoặc Định hướng nông nghiệp).</li>
+                                            <li>+ Thí sinh là học sinh trường THPT chuyên/năng khiếu.</li>
+                                            <li>• Điểm ưu tiên KV, ĐT: theo quy định của Bộ GD&ĐT.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <!-- Nút Thu gọn -->
+                                <div class="text-right mt-2">
+                                    <button onclick="toggleReadMore('content-dt1', this)" class="text-slate-500 hover:text-[#005B5C] font-medium text-[13px] transition-colors">
+                                        Thu gọn
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Box Đối tượng 2 (Đang thu gọn) -->
+                            <div class="bg-[#EEF2F5]/85 backdrop-blur-sm rounded-xl p-5 md:p-6 text-[13.5px] text-slate-700 leading-relaxed relative">
+                                <h4 class="font-bold text-[#005B5C] mb-2 text-[14px]">Đối tượng 2: Thí sinh (quốc tịch Việt Nam) tốt nghiệp chương trình THPT của nước ngoài</h4>
+                                
+                                <div id="content-dt2" class="read-more-content">
+                                    <div class="overflow-hidden">
+                                        <p class="mb-1 text-slate-600">Điều kiện đăng ký xét tuyển:</p>
+                                        <p class="mb-3 text-slate-600">– Thí sinh (quốc tịch Việt Nam) tốt nghiệp chương trình THPT của nước ngoài nhưng không đủ điều kiện tham gia xét tuyển thẳng.</p>
+                                        
+                                        <p class="mb-1 text-slate-600">Điểm xét tuyển: Điểm xét tuyển được tính theo thang điểm 100, cụ thể như sau:</p>
+                                        <p class="font-semibold text-slate-700 mb-2 bg-white/50 inline-block px-2 py-1 rounded">ĐIỂM XÉT TUYỂN = Điểm trung bình các năm học THPT (quy đổi) + Điểm cộng (nếu có) + Điểm ưu tiên KV, ĐT (nếu có)</p>
+                                        
+                                        <p class="mb-1 text-slate-600">Trong đó:</p>
+                                        <ul class="mb-4 space-y-1 text-slate-600">
+                                            <li>• Điểm trung bình các năm học THPT (quy đổi) = (Điểm trung bình các năm học THPT/Thang điểm tối đa chương trình học) x 100</li>
+                                            <li>• Điểm cộng: tối đa 10% theo thang điểm xét tuyển tính từ các tiêu chí sau:</li>
+                                            <li>+ Thí sinh có chứng chỉ tiếng Anh quốc tế còn thời hạn (tính đến ngày nộp hồ sơ xét tuyển) tương đương IELTS từ 6.0 (hoặc TOEFL iBT từ 73, hoặc TOEIC 4 kỹ năng từ 785 trong đó điểm các kỹ năng Speaking từ 160, Writing từ 150) trở lên.</li>
+                                            <li>+ Thí sinh có chứng chỉ SAT (điểm tổng từ 1296 điểm) hoặc ACT (từ 27 điểm).</li>
+                                            <li>• Điểm ưu tiên KV, ĐT: theo quy định của Bộ GD&ĐT.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Nút Xem thêm -->
+                                <div class="text-right mt-2">
+                                    <button onclick="toggleReadMore('content-dt2', this)" class="text-slate-500 hover:text-[#005B5C] font-medium text-[13px] transition-colors">
+                                        Xem thêm
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT ĐIỀU KHIỂN LOGIC -->
+    <script>
+        // Logic gập mở cho thẻ Accordion chính
+        function toggleAdmissionAccordion(button) {
+            const icon = button.querySelector('i');
+            const content = button.nextElementSibling;
+            
+            // Toggle active state
+            button.classList.toggle('active');
+
+            if (button.classList.contains('active')) {
+                // Đang mở
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+                content.classList.add('is-open');
+            } else {
+                // Đang đóng
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+                content.classList.remove('is-open');
+            }
+        }
+
+        // Logic cho nút "Xem thêm" / "Thu gọn" bên trong Box
+        function toggleReadMore(contentId, btn) {
+            const content = document.getElementById(contentId);
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                btn.textContent = 'Xem thêm';
+            } else {
+                content.classList.add('expanded');
+                btn.textContent = 'Thu gọn';
+            }
+        }
+    </script>
+</section>
     <!-- ================= JAVASCRIPT ================= -->
     <script>
         /* Slider Logic */

@@ -993,6 +993,34 @@
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .ueh-modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(15, 23, 42, 0.45); /* Nền tối nhẹ */
+        backdrop-filter: blur(5px); /* Làm mờ bảng bên dưới */
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+    }
+
+    .ueh-modal-content {
+        background-color: #FFFFFF;
+        border-radius: 16px;
+        max-width: 920px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 28px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        position: relative;
+        border: 1px solid #E2E8F0;
+    }
     </style>
 
     <!-- Main Container -->
@@ -1214,14 +1242,17 @@
         </div>
 
         <!-- VIEW 2: ANNOTATIONS / NOTES VIEW (Image 2) -->
-        <div id="view-annotation" class="hidden relative pt-2">
-            <!-- Left Side Toggle Back Handle -->
-            <div onclick="toggleAnnotationView(false)" class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center cursor-pointer z-30">
-                <div class="w-9 h-9 bg-[#005B5C] text-white rounded-full flex items-center justify-center shadow-md">
-                    <i class="fa-solid fa-chevron-left text-xs"></i>
-                </div>
-            </div>
+<div id="view-annotation" class="hidden ueh-modal-backdrop" onclick="if(event.target === this) toggleAnnotationView(false)">
+    <div class="ueh-modal-content">
+        <!-- Nút đóng Popup -->
+        <button onclick="toggleAnnotationView(false)" class="absolute top-4 right-4 w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-xmark text-base"></i>
+        </button>
 
+      <div id="annotation-ksa" class="hidden">
+            <h3 class="text-base font-bold text-[#005B5C] uppercase mb-4 border-b border-slate-200 pb-3 flex items-center gap-2">
+                <i class="fa-solid fa-circle-info"></i> Chú thích & Điều kiện đăng ký (Học tại TP.HCM - KSA)
+            </h3>
             <div class="pl-12 pr-4 text-xs leading-relaxed text-slate-800 space-y-3.5">
                 <p><strong>(1):</strong> Chương trình mới tuyển sinh năm 2026.</p>
                 
@@ -1244,49 +1275,42 @@
                 <p class="pt-2">* Đối với các chương trình đào tạo (ngoại trừ chương trình Tiếng Anh thương mại) thí sinh có thể sử dụng tổ hợp xét tuyển có ngoại ngữ khác môn tiếng Anh để xét tuyển, gồm: Tiếng Hàn, Tiếng Đức, Tiếng Nga, Tiếng Nhật, Tiếng Pháp, Tiếng Trung. Xem tổ hợp xét tuyển tại: <a href="#" class="text-[#005B5C] font-semibold underline">link</a></p>
                 
                 <p>* Tham khảo chi tiết quy đổi điểm xét tuyển giữa các phương thức năm 2025 tại: <a href="#" class="text-[#005B5C] font-semibold underline">link</a></p>
+     </div>
+            </div>
+        </div>
+    <!-- CHÚ THÍCH DÀNH CHO KSV (VĨNH LONG) -->
+        <div id="annotation-ksv" class="hidden">
+            <h3 class="text-base font-bold text-[#005B5C] uppercase mb-4 border-b border-slate-200 pb-3 flex items-center gap-2">
+                <i class="fa-solid fa-circle-info"></i> Chú thích & Điều kiện đăng ký (Học tại Vĩnh Long - KSV)
+            </h3>
+            <div class="text-xs leading-relaxed text-slate-800 space-y-3.5 pr-1">
+                <div>
+                    <p><strong>(1): Chương trình đào tạo có chương trình tiếng Việt, tiếng Anh bán phần:</strong></p>
+                    <p class="pl-3 mt-1">– Sau khi trúng tuyển, sinh viên được đăng ký và xét vào học chương trình tiếng Việt, chương trình tiếng Anh bán phần tùy thuộc vào từng chương trình đào tạo cụ thể và thỏa mãn điều kiện tiếng Anh đầu vào như sau:</p>
+                    <ul class="pl-7 list-disc space-y-1 mt-1">
+                        <li>Chương trình tiếng Anh bán phần là chương trình đào tạo với tối thiểu 05 học phần (15 tín chỉ), thuộc khối kiến thức cơ sở ngành và chuyên ngành được giảng dạy, học tập bằng tiếng Anh.</li>
+                        <li>Điều kiện tiếng Anh đầu vào: Điểm trung bình học tập tiếng Anh lớp 12 từ 7.0 hoặc điểm thi môn tiếng Anh trong kỳ thi THPT năm 2026 từ 7.0 điểm trở lên.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p><strong>(S): Có chương trình đào tạo song bằng tích hợp:</strong></p>
+                    <p class="pl-3 mt-1">Sau khi trúng tuyển, sinh viên được đăng ký và xét vào học chương trình song bằng tích hợp đối với chương trình có đào tạo song bằng tích hợp như sau:</p>
+                    <ul class="pl-7 list-disc space-y-1 mt-1">
+                        <li>Kinh doanh nông nghiệp – Kinh doanh quốc tế</li>
+                        <li>Kinh doanh nông nghiệp – Logistics và Quản lý chuỗi cung ứng</li>
+                        <li>Kế toán doanh nghiệp – Thuế</li>
+                    </ul>
+                </div>
+
+                <div class="pt-2 border-t border-slate-100 text-slate-600">
+                    <p>* Ngoài ra, đối với các chương trình đào tạo (ngoại trừ chương trình Tiếng Anh thương mại) thí sinh có thể sử dụng tổ hợp xét tuyển có ngoại ngữ khác môn tiếng Anh để xét tuyển, gồm: Tiếng Hàn, Tiếng Đức, Tiếng Nga, Tiếng Nhật, Tiếng Pháp, Tiếng Trung. Xem tổ hợp xét tuyển tại: <a href="#" class="text-[#005B5C] font-semibold underline">link</a></p>
+                </div>
             </div>
         </div>
 
     </div>
-
-    <!-- JavaScript Logic -->
-    <script>
-        function switchCampus(campus) {
-            const tabKsa = document.getElementById('tab-ksa');
-            const tabKsv = document.getElementById('tab-ksv');
-            const tableKsa = document.getElementById('table-ksa');
-            const tableKsv = document.getElementById('table-ksv');
-
-            if (campus === 'ksa') {
-                tabKsa.classList.add('active');
-                tabKsv.classList.remove('active');
-                tableKsa.classList.remove('hidden');
-                tableKsv.classList.add('hidden');
-            } else {
-                tabKsv.classList.add('active');
-                tabKsa.classList.remove('active');
-                tableKsv.classList.remove('hidden');
-                tableKsa.classList.add('hidden');
-            }
-        }
-
-        function toggleAnnotationView(showAnnotation) {
-            const viewTable = document.getElementById('view-table');
-            const viewAnnotation = document.getElementById('view-annotation');
-
-            if (showAnnotation) {
-                viewTable.classList.add('hidden');
-                viewTable.classList.remove('block');
-                viewAnnotation.classList.remove('hidden');
-                viewAnnotation.classList.add('block');
-            } else {
-                viewAnnotation.classList.add('hidden');
-                viewAnnotation.classList.remove('block');
-                viewTable.classList.remove('hidden');
-                viewTable.classList.add('block');
-            }
-        }
-    </script>
+</div>
 </section>
 <!-- Kết thúc Section -->
     <!-- ================= JAVASCRIPT ================= -->
@@ -1515,6 +1539,48 @@ if (uehScrollBox) {
                 backdrop.classList.add('opacity-0', 'pointer-events-none');
             }
         }
+        function switchCampus(campus) {
+            const tabKsa = document.getElementById('tab-ksa');
+            const tabKsv = document.getElementById('tab-ksv');
+            const tableKsa = document.getElementById('table-ksa');
+            const tableKsv = document.getElementById('table-ksv');
+
+            if (campus === 'ksa') {
+                tabKsa.classList.add('active');
+                tabKsv.classList.remove('active');
+                tableKsa.classList.remove('hidden');
+                tableKsv.classList.add('hidden');
+            } else {
+                tabKsv.classList.add('active');
+                tabKsa.classList.remove('active');
+                tableKsv.classList.remove('hidden');
+                tableKsa.classList.add('hidden');
+            }
+        }
+        function toggleAnnotationView(showAnnotation) {
+        const viewAnnotation = document.getElementById('view-annotation');
+        const annKsa = document.getElementById('annotation-ksa');
+        const annKsv = document.getElementById('annotation-ksv');
+
+        if (showAnnotation) {
+            // Kiểm tra tab cơ sở nào đang được active
+            const isKsaActive = document.getElementById('tab-ksa').classList.contains('active');
+
+            if (isKsaActive) {
+                annKsa.classList.remove('hidden');
+                annKsv.classList.add('hidden');
+            } else {
+                annKsv.classList.remove('hidden');
+                annKsa.classList.add('hidden');
+            }
+
+            viewAnnotation.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        } else {
+            viewAnnotation.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    }
     </script>
 </body>
 </html>

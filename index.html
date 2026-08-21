@@ -493,6 +493,28 @@
         .read-more-content.expanded {
             grid-template-rows: 1fr;
         }
+                /* CSS tuỳ chỉnh cho thẻ Grid */
+        .ueh-tool-card {
+            background-color: #F8FAFC; /* Màu xám rất sáng, sang trọng */
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .ueh-tool-card:hover {
+            background-color: #FFFFFF;
+            border-color: #E2E8F0;
+            box-shadow: 0 10px 25px -5px rgba(0, 91, 92, 0.1), 0 8px 10px -6px rgba(0, 91, 92, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .ueh-tool-icon-wrapper {
+            transition: all 0.3s ease;
+        }
+
+        .ueh-tool-card:hover .ueh-tool-icon-wrapper {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -1531,46 +1553,18 @@
     </div>
 </section>
     <!-- BẮT ĐẦU SECTION: BỘ CÔNG CỤ ĐỊNH HƯỚNG -->
-<section id="orientation-tools" class="w-full bg-white py-16 px-4 md:px-8 font-sans">
-    
-    <!-- Nhúng Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* CSS tuỳ chỉnh cho thẻ Grid */
-        .ueh-tool-card {
-            background-color: #F8FAFC; /* Màu xám rất sáng, sang trọng */
-            border-radius: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid transparent;
-        }
-
-        .ueh-tool-card:hover {
-            background-color: #FFFFFF;
-            border-color: #E2E8F0;
-            box-shadow: 0 10px 25px -5px rgba(0, 91, 92, 0.1), 0 8px 10px -6px rgba(0, 91, 92, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .ueh-tool-icon-wrapper {
-            transition: all 0.3s ease;
-        }
-
-        .ueh-tool-card:hover .ueh-tool-icon-wrapper {
-            transform: scale(1.1);
-        }
-    </style>
+<section id="cong-cu-dinh-huong" class="w-full bg-white py-16 px-4 md:px-8 font-sans">
 
     <div class="max-w-[1300px] mx-auto relative">
         
         <!-- Header Section (Có logo UEH góc phải trên Desktop) -->
         <div class="relative flex flex-col md:flex-row items-center justify-center mb-12">
-            <h2 class="text-[26px] md:text-[32px] font-black text-[#005B5C] uppercase tracking-wide text-center">
+            <h2 class="text-[26px] md:text-[40px] font-black text-ueh-teal uppercase tracking-wide text-center">
                 THÔNG TIN TUYỂN SINH - BỘ CÔNG CỤ ĐỊNH HƯỚNG
             </h2>
             <!-- Placeholder Logo góc phải giống ảnh mẫu -->
             <div class="md:absolute right-0 top-1/2 md:-translate-y-1/2 mt-4 md:mt-0">
-                <img src="https://ueh.edu.vn/wp-content/uploads/2021/10/Logo-UEH-1.png" alt="UEH Logo" class="h-10 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
+                <img src="img/ueh-logo-xanh.png" alt="UEH Logo" class="h-10 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
             </div>
         </div>
 
@@ -1579,10 +1573,10 @@
             
             <!-- Item 1 -->
             <a href="#ttts-chi-tiet" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-file-lines"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Thông tin tuyển sinh chi tiết
                 </h3>
             </a>
@@ -1591,16 +1585,16 @@
             <div class="ueh-tool-card relative flex flex-col items-center justify-center p-6 text-center h-44 sm:h-52 overflow-hidden">
                 <!-- Nút hiển thị mặc định -->
                 <div class="w-full h-full flex flex-col items-center justify-center cursor-pointer group" onclick="toggleBrochureOverlay(this, true)">
-                    <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                    <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                         <i class="fa-solid fa-book"></i>
                     </div>
-                    <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                    <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                         Brochure tuyển sinh ĐHCQ
                     </h3>
                 </div>
 
                 <!-- Lớp Overlay xuất hiện khi click -->
-                <div class="brochure-overlay absolute inset-0 bg-[#005B5C] flex flex-col items-center justify-center p-4 z-10 opacity-0 pointer-events-none transition-all duration-300 translate-y-4">
+                <div class="brochure-overlay absolute inset-0 bg-ueh-teal flex flex-col items-center justify-center p-4 z-10 opacity-0 pointer-events-none transition-all duration-300 translate-y-4">
                     <!-- Nút tắt overlay -->
                     <button onclick="toggleBrochureOverlay(this, false)" class="absolute top-2 right-2 text-white/70 hover:text-white w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20 transition-all">
                         <i class="fa-solid fa-xmark text-lg"></i>
@@ -1620,126 +1614,106 @@
 
             <!-- Item 3 -->
             <a href="#cong-cu-quy-doi-diem" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-calculator"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Công cụ quy đổi điểm
                 </h3>
             </a>
 
             <!-- Item 4 -->
             <a href="#thong-tin-tuyen-sinh" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-bullhorn"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Thông tin tuyển sinh
                 </h3>
             </a>
 
             <!-- Item 5 -->
             <a href="#trac-nghiem-tinh-cach" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-brain"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Trắc nghiệm tính cách
                 </h3>
             </a>
 
             <!-- Item 6 -->
             <a href="#qa-ueh" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-comments"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Trả lời tất tần tật về UEH
                 </h3>
             </a>
 
             <!-- Item 7 -->
             <a href="#co-so-vat-chat" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-building-columns"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Khám phá cơ sở vật chất UEH
                 </h3>
             </a>
 
             <!-- Item 8 -->
             <a href="#luyen-de-thi" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-laptop-code"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Luyện đề trắc nghiệm, ôn thi tốt nghiệp THPT
                 </h3>
             </a>
 
             <!-- Item 9 -->
             <a href="#group-k52" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-users-rectangle"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Group Tư vấn tuyển sinh K52
                 </h3>
             </a>
 
             <!-- Item 10 -->
             <a href="#fanpage-ksa" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4 text-[#1877F2]"> <!-- Đổi màu icon Facebook -->
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4 text-ueh-teal"> <!-- Đổi màu icon Facebook -->
                     <i class="fa-brands fa-facebook"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Fanpage tư vấn tuyển sinh KSA (TP.HCM)
                 </h3>
             </a>
 
             <!-- Item 11 -->
             <a href="#fanpage-ksv" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4 text-[#1877F2]">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4 text-ueh-teal">
                     <i class="fa-brands fa-facebook"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Fanpage tư vấn tuyển sinh KSV (Vĩnh Long)
                 </h3>
             </a>
 
             <!-- Item 12 -->
             <a href="#hoc-phi" class="ueh-tool-card flex flex-col items-center justify-center p-6 text-center group h-44 sm:h-52">
-                <div class="ueh-tool-icon-wrapper text-[#005B5C] text-4xl mb-4">
+                <div class="ueh-tool-icon-wrapper text-ueh-teal text-4xl mb-4">
                     <i class="fa-solid fa-coins"></i>
                 </div>
-                <h3 class="text-[#005B5C] font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
+                <h3 class="text-ueh-teal font-bold text-[14px] md:text-[15px] leading-snug group-hover:text-[#F26F33] transition-colors">
                     Hiểu đúng về Học phí tín chỉ tại UEH
                 </h3>
             </a>
 
         </div>
     </div>
-
-    <!-- JAVASCRIPT CHO CARD BROCHURE -->
-    <script>
-        function toggleBrochureOverlay(element, isOpening) {
-            // Tìm thẻ div chứa class .brochure-overlay nằm cùng cấp hoặc bên ngoài nó
-            const parentCard = element.closest('.ueh-tool-card');
-            const overlay = parentCard.querySelector('.brochure-overlay');
-            
-            if (isOpening) {
-                // Hiển thị Overlay
-                overlay.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-                overlay.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-            } else {
-                // Đóng Overlay (cần stop propagation để không trigger click của parent)
-                if(event) event.stopPropagation();
-                overlay.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                overlay.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-            }
-        }
-    </script>
 
 </section>
 <!-- KẾT THÚC SECTION -->
@@ -2127,6 +2101,22 @@ if (uehScrollBox) {
             } else {
                 content.classList.add('expanded');
                 btn.textContent = 'Thu gọn';
+            }
+        }
+        function toggleBrochureOverlay(element, isOpening) {
+            // Tìm thẻ div chứa class .brochure-overlay nằm cùng cấp hoặc bên ngoài nó
+            const parentCard = element.closest('.ueh-tool-card');
+            const overlay = parentCard.querySelector('.brochure-overlay');
+            
+            if (isOpening) {
+                // Hiển thị Overlay
+                overlay.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                overlay.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+                // Đóng Overlay (cần stop propagation để không trigger click của parent)
+                if(event) event.stopPropagation();
+                overlay.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                overlay.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
             }
         }
     </script>

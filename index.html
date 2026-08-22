@@ -1876,8 +1876,135 @@
     </script>
 
 </section>
-<!-- KẾT THÚC SECTION -->
-<!-- KẾT THÚC SECTION -->
+<!-- BẮT ĐẦU SECTION: Q&A -->
+<section id="HoiDap" class="w-full bg-[#F3F4F6] py-16 px-4 md:px-12 relative overflow-hidden font-sans">
+    
+    <!-- Nhúng Font Awesome 6 (Nếu chưa có) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 
+      ẢNH NỀN HỌA TIẾT (Thay src bằng link ảnh họa tiết mờ của UEH)
+      Sử dụng absolute để nằm dưới nội dung chữ 
+    -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] z-0 opacity-80 pointer-events-none">
+        <!-- Chèn link ảnh chứa dòng chữ "Unbounded creativity..." và hình minh họa vào đây -->
+        <img src="URL_ANH_NEN_HOA_TIET_CUA_BAN" alt="" class="w-full h-auto object-contain object-bottom">
+    </div>
+
+    <!-- KHUNG NỘI DUNG CHÍNH -->
+    <div class="max-w-[1000px] mx-auto relative z-10">
+        
+        <!-- Tiêu đề -->
+        <div class="text-center mb-8">
+            <h2 class="text-[28px] md:text-[34px] font-black text-[#005B5C] uppercase tracking-wide">
+                Q&A
+            </h2>
+            <p class="text-[#005B5C] italic text-[14px] md:text-[15px] mt-1 font-medium">
+                Hỏi tất tần tật về UEH
+            </p>
+        </div>
+
+        <!-- Thanh Tìm Kiếm -->
+        <div class="mb-8 shadow-sm rounded-md overflow-hidden bg-white border border-slate-200 focus-within:ring-2 focus-within:ring-[#005B5C]/30 transition-shadow">
+            <form action="https://hotro.ueh.edu.vn/search" method="get" target="_blank" class="flex w-full h-12">
+                <input 
+                    type="search" 
+                    name="query" 
+                    placeholder="Chương trình đào tạo robot và trí tuệ nhân tạo học gì?" 
+                    class="flex-1 px-5 py-3 text-[14.5px] text-slate-700 focus:outline-none bg-transparent placeholder-slate-400"
+                >
+                <input type="hidden" name="tuyensinh" value="true">
+                <button type="submit" class="w-14 bg-[#005B5C] text-white flex items-center justify-center hover:bg-[#004748] transition-colors" aria-label="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass text-[15px]"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- Danh sách Câu hỏi (Accordion) -->
+        <div class="space-y-3">
+            
+            <!-- Câu hỏi 1 -->
+            <div class="qna-item bg-[#F8FAFC]/90 backdrop-blur-md rounded-md shadow-sm border border-white/50 overflow-hidden transition-all duration-300">
+                <button onclick="toggleQna(this)" class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-white/50 transition-colors">
+                    <h3 class="text-[#005B5C] font-bold text-[15px] pr-4">Phương thức xét tuyển UEH như thế nào?</h3>
+                    <div class="text-slate-500 w-6 h-6 flex items-center justify-center shrink-0 icon-toggle">
+                        <i class="fa-solid fa-plus text-lg"></i>
+                    </div>
+                </button>
+                <div class="qna-content hidden px-6 pb-5 pt-1 text-[14px] text-slate-700 leading-relaxed border-t border-slate-200/50 mt-1">
+                    <!-- Nội dung câu trả lời -->
+                    UEH áp dụng nhiều phương thức xét tuyển đa dạng nhằm tạo điều kiện tốt nhất cho thí sinh. Chi tiết các phương thức bao gồm Xét tuyển thẳng, Xét tuyển tích hợp, Xét điểm thi THPT... Bạn vui lòng tham khảo chi tiết tại mục "02 Phương thức tuyển sinh".
+                </div>
+            </div>
+
+            <!-- Câu hỏi 2 -->
+            <div class="qna-item bg-[#F8FAFC]/90 backdrop-blur-md rounded-md shadow-sm border border-white/50 overflow-hidden transition-all duration-300">
+                <button onclick="toggleQna(this)" class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-white/50 transition-colors">
+                    <h3 class="text-[#005B5C] font-bold text-[15px] pr-4">Làm thế nào để học tập tốt tại UEH?</h3>
+                    <div class="text-slate-500 w-6 h-6 flex items-center justify-center shrink-0 icon-toggle">
+                        <i class="fa-solid fa-plus text-lg"></i>
+                    </div>
+                </button>
+                <div class="qna-content hidden px-6 pb-5 pt-1 text-[14px] text-slate-700 leading-relaxed border-t border-slate-200/50 mt-1">
+                    <!-- Nội dung câu trả lời -->
+                    Để học tập tốt tại UEH, sinh viên cần chủ động lập kế hoạch học tập, tận dụng tối đa thư viện thông minh, tham gia các hoạt động ngoại khóa, câu lạc bộ học thuật và thường xuyên trao đổi cùng giảng viên, cố vấn học tập.
+                </div>
+            </div>
+
+            <!-- Câu hỏi 3 -->
+            <div class="qna-item bg-[#F8FAFC]/90 backdrop-blur-md rounded-md shadow-sm border border-white/50 overflow-hidden transition-all duration-300">
+                <button onclick="toggleQna(this)" class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-white/50 transition-colors">
+                    <h3 class="text-[#005B5C] font-bold text-[15px] pr-4">Phương châm của UEH trong đào tạo cử nhân là gì?</h3>
+                    <div class="text-slate-500 w-6 h-6 flex items-center justify-center shrink-0 icon-toggle">
+                        <i class="fa-solid fa-plus text-lg"></i>
+                    </div>
+                </button>
+                <div class="qna-content hidden px-6 pb-5 pt-1 text-[14px] text-slate-700 leading-relaxed border-t border-slate-200/50 mt-1">
+                    <!-- Nội dung câu trả lời -->
+                    Phương châm đào tạo của UEH hướng đến sự phát triển toàn diện: "Unbounded creativity. Empowered futures. Holistic values." (Thỏa sức sáng tạo. Chủ động tương lai. Toàn diện giá trị). Chúng tôi trang bị cho sinh viên không chỉ kiến thức chuyên môn mà còn kỹ năng hội nhập toàn cầu.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT ĐIỀU KHIỂN ACCORDION -->
+    <script>
+        function toggleQna(button) {
+            // Lấy icon và phần nội dung tương ứng
+            const icon = button.querySelector('.icon-toggle i');
+            const content = button.nextElementSibling;
+            const item = button.parentElement;
+            const isHidden = content.classList.contains('hidden');
+
+            // Đóng tất cả các tab khác trước (Tùy chọn: Nếu muốn chỉ mở 1 tab tại 1 thời điểm)
+            /*
+            document.querySelectorAll('.qna-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.icon-toggle i').forEach(el => {
+                el.classList.remove('fa-minus');
+                el.classList.add('fa-plus');
+            });
+            document.querySelectorAll('.qna-item').forEach(el => el.classList.remove('bg-white'));
+            */
+
+            // Toggle trạng thái của tab hiện tại
+            if (isHidden) {
+                content.classList.remove('hidden');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+                item.classList.add('bg-white'); // Đổi màu nền sáng hơn khi mở
+                item.classList.remove('bg-[#F8FAFC]/90');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+                item.classList.remove('bg-white');
+                item.classList.add('bg-[#F8FAFC]/90');
+            }
+        }
+    </script>
+</section>
+<!-- KẾT THÚC SECTION: Q&A -->
     <!-- ================= JAVASCRIPT ================= -->
     <script>
         /* Slider Logic */

@@ -2004,95 +2004,104 @@
         }
     </script>
 </section>
-    <!-- BẮT ĐẦU SECTION: TIN TỨC & HƯỚNG NGHIỆP -->
+<!-- BẮT ĐẦU SECTION: TIN TỨC & HƯỚNG NGHIỆP -->
 <section id="news-orientation-section" class="w-full bg-white py-16 px-4 md:px-12 font-sans overflow-hidden">
     
-    <div class="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+    <div class="max-w-[1300px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8 items-start">
         
-        <!-- CỘT 1: NÚT TAB & SLOGAN (Chiếm 3.5 phần) -->
-        <div class="lg:col-span-4 flex flex-col gap-5 relative z-20">
-            <!-- Nút Tab 1 -->
-            <button id="tab-btn-ts" onclick="switchNewsTab('ts')" class="w-full sm:w-[85%] lg:w-[90%] py-4 md:py-5 px-6 rounded-2xl font-black text-[15px] md:text-[16px] tracking-wide transition-all duration-300 bg-white text-[#475569] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-50 relative overflow-hidden">
-                TIN TUYỂN SINH
-                <!-- Dấu chấm chỉ định active -->
-                <div class="active-indicator absolute left-0 top-0 bottom-0 w-1.5 bg-[#005B5C] transition-opacity duration-300 opacity-100"></div>
-            </button>
+        <!-- KHỐI TRÁI: TABS, TIN BÀI & SLOGAN (Chiếm ~65%) -->
+        <div class="w-full lg:w-[65%] flex flex-col gap-10 lg:gap-14">
             
-            <!-- Nút Tab 2 -->
-            <button id="tab-btn-hn" onclick="switchNewsTab('hn')" class="w-full sm:w-[85%] lg:w-[90%] py-4 md:py-5 px-6 rounded-2xl font-black text-[15px] md:text-[16px] tracking-wide transition-all duration-300 bg-[#F8FAFC] text-[#64748B] hover:bg-[#f1f5f9] border border-transparent relative overflow-hidden">
-                TIN HƯỚNG NGHIỆP
-                <div class="active-indicator absolute left-0 top-0 bottom-0 w-1.5 bg-[#005B5C] transition-opacity duration-300 opacity-0"></div>
-            </button>
+            <!-- HÀNG 1: TABS & TIN BÀI -->
+            <div class="flex flex-col md:flex-row gap-8 md:gap-10 items-start w-full">
+                
+                <!-- Cột Tab (Nút bấm) -->
+                <div class="w-full md:w-[45%] flex flex-col gap-4 relative z-20">
+                    <!-- Nút Tab 1 -->
+                    <button id="tab-btn-ts" onclick="switchNewsTab('ts')" class="w-full py-4 md:py-[18px] px-6 rounded-2xl font-black text-[15px] md:text-[16px] tracking-wide transition-all duration-300 bg-white text-[#475569] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-50 relative overflow-hidden flex items-center">
+                        <!-- Dấu chấm chỉ định active -->
+                        <div class="active-indicator absolute left-0 top-0 bottom-0 w-1.5 bg-[#005B5C] transition-opacity duration-300 opacity-100"></div>
+                        <span class="w-full text-left ml-2">TIN TUYỂN SINH</span>
+                    </button>
+                    
+                    <!-- Nút Tab 2 -->
+                    <button id="tab-btn-hn" onclick="switchNewsTab('hn')" class="w-full py-4 md:py-[18px] px-6 rounded-2xl font-black text-[15px] md:text-[16px] tracking-wide transition-all duration-300 bg-[#F8FAFC] text-[#64748B] hover:bg-[#f1f5f9] border border-transparent relative overflow-hidden flex items-center">
+                        <div class="active-indicator absolute left-0 top-0 bottom-0 w-1.5 bg-[#005B5C] transition-opacity duration-300 opacity-0"></div>
+                        <span class="w-full text-left ml-2">TIN HƯỚNG NGHIỆP</span>
+                    </button>
+                </div>
 
-            <!-- Slogan UEH (Phối màu chuẩn ảnh) -->
-            <div class="mt-8 md:mt-12 text-[18px] md:text-[22px] font-black leading-snug tracking-tight">
-                <span class="text-[#F26F33]">Unbounded</span> <span class="text-[#005B5C]">creativity.</span>
-                <span class="text-[#F26F33]">Empowered</span> <span class="text-[#005B5C]">futures.</span>
-                <span class="text-[#F26F33]">Holistic</span> <span class="text-[#005B5C]">values.</span>
+                <!-- Cột Danh sách Tin bài (Căn ngang hàng với nút Tab đầu tiên) -->
+                <div class="w-full md:w-[55%] relative min-h-[140px] pt-1 md:pt-4">
+                    
+                    <!-- Danh sách Tin Tuyển Sinh (Hiển thị mặc định) -->
+                    <ul id="content-ts" class="absolute top-0 left-0 w-full space-y-4 transition-opacity duration-300 opacity-100 z-10 pt-1 md:pt-4">
+                        <li class="flex items-start gap-3 group cursor-pointer">
+                            <div class="w-1.5 h-1.5 rounded-full bg-[#005B5C] mt-2 shrink-0 group-hover:scale-150 group-hover:bg-[#F26F33] transition-all"></div>
+                            <a href="#" class="text-[14.5px] md:text-[15.5px] text-[#005B5C] italic leading-relaxed hover:text-[#F26F33] transition-colors">
+                                Thông tin tuyển sinh Đại học chính quy Khóa 52 năm 2026
+                            </a>
+                        </li>
+                        <li class="flex items-start gap-3 group cursor-pointer">
+                            <div class="w-1.5 h-1.5 rounded-full bg-[#005B5C] mt-2 shrink-0 group-hover:scale-150 group-hover:bg-[#F26F33] transition-all"></div>
+                            <a href="#" class="text-[14.5px] md:text-[15.5px] text-[#005B5C] italic leading-relaxed hover:text-[#F26F33] transition-colors">
+                                Hướng dẫn thí sinh cung cấp minh chứng xét tuyển Tuyển sinh Đại học chính quy Khóa 52 năm 2026
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Danh sách Tin Hướng Nghiệp (Ẩn mặc định) -->
+                    <ul id="content-hn" class="absolute top-0 left-0 w-full space-y-4 transition-opacity duration-300 opacity-0 pointer-events-none z-0 pt-1 md:pt-4">
+                        <li class="flex items-start gap-3 group cursor-pointer">
+                            <div class="w-1.5 h-1.5 rounded-full bg-[#005B5C] mt-2 shrink-0 group-hover:scale-150 group-hover:bg-[#F26F33] transition-all"></div>
+                            <a href="#" class="text-[14.5px] md:text-[15.5px] text-[#005B5C] italic leading-relaxed hover:text-[#F26F33] transition-colors">
+                                Khám phá trắc nghiệm MBTI: Chọn đúng ngành, làm đúng nghề
+                            </a>
+                        </li>
+                        <li class="flex items-start gap-3 group cursor-pointer">
+                            <div class="w-1.5 h-1.5 rounded-full bg-[#005B5C] mt-2 shrink-0 group-hover:scale-150 group-hover:bg-[#F26F33] transition-all"></div>
+                            <a href="#" class="text-[14.5px] md:text-[15.5px] text-[#005B5C] italic leading-relaxed hover:text-[#F26F33] transition-colors">
+                                Định hướng nghề nghiệp cùng các chuyên gia hàng đầu từ UEH
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- HÀNG 2: SLOGAN (Luôn hiển thị 1 dòng - whitespace-nowrap) -->
+            <div class="w-full overflow-hidden mt-2 md:mt-0">
+                <h3 class="text-[16px] sm:text-[20px] md:text-[23px] lg:text-[25px] font-black leading-snug tracking-tight whitespace-nowrap">
+                    <span class="text-[#F26F33]">Unbounded</span> <span class="text-[#005B5C]">creativity.</span>
+                    <span class="text-[#F26F33]">Empowered</span> <span class="text-[#005B5C]">futures.</span>
+                    <span class="text-[#F26F33]">Holistic</span> <span class="text-[#005B5C]">values.</span>
+                </h3>
             </div>
         </div>
 
-        <!-- CỘT 2: NỘI DUNG DANH SÁCH TIN (Chiếm 4.5 phần) -->
-        <div class="lg:col-span-5 relative min-h-[150px] lg:min-h-[200px] flex items-center">
-            
-            <!-- Danh sách Tin Tuyển Sinh (Hiển thị mặc định) -->
-            <ul id="content-ts" class="space-y-4 w-full transition-opacity duration-300 opacity-100">
-                <li class="flex items-start gap-3 group cursor-pointer">
-                    <div class="w-1.5 h-1.5 rounded-full bg-[#005B5C] mt-2.5 shrink-0 group-hover:scale-150 group-hover:bg-[#F26F33] transition-all"></div>
-                    <a href="#" class="text-[15px] md:text-[16px] text-[#005B5C] italic leading-relaxed hover:text-[#F26F33] transition-colors">
-                        Thông tin tuyển sinh Đại học chính quy Khóa 52 năm 2026
-                    </a>
-                </li>
-                <li class="flex items-start gap-3 group cursor-pointer">
-                    <div class="w-1.5 h-1.5 rounded-full bg-[#005B5C] mt-2.5 shrink-0 group-hover:scale-150 group-hover:bg-[#F26F33] transition-all"></div>
-                    <a href="#" class="text-[15px] md:text-[16px] text-[#005B5C] italic leading-relaxed hover:text-[#F26F33] transition-colors">
-                        Hướng dẫn thí sinh cung cấp minh chứng xét tuyển Tuyển sinh Đại học chính quy Khóa 52 năm 2026
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Danh sách Tin Hướng Nghiệp (Ẩn mặc định) -->
-            <ul id="content-hn" class="space-y-4 w-full absolute top-1/2 -translate-y-1/2 left-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <li class="flex items-start gap-3 group cursor-pointer">
-                    <div class="w-1.5 h-1.5 rounded-full bg-[#005B5C] mt-2.5 shrink-0 group-hover:scale-150 group-hover:bg-[#F26F33] transition-all"></div>
-                    <a href="#" class="text-[15px] md:text-[16px] text-[#005B5C] italic leading-relaxed hover:text-[#F26F33] transition-colors">
-                        Khám phá trắc nghiệm MBTI: Chọn đúng ngành, làm đúng nghề
-                    </a>
-                </li>
-                <li class="flex items-start gap-3 group cursor-pointer">
-                    <div class="w-1.5 h-1.5 rounded-full bg-[#005B5C] mt-2.5 shrink-0 group-hover:scale-150 group-hover:bg-[#F26F33] transition-all"></div>
-                    <a href="#" class="text-[15px] md:text-[16px] text-[#005B5C] italic leading-relaxed hover:text-[#F26F33] transition-colors">
-                        Định hướng nghề nghiệp cùng các chuyên gia hàng đầu từ UEH
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- CỘT 3: HÌNH ẢNH COLLAGE & LOGO (Chiếm 4 phần) -->
-        <div class="lg:col-span-3 relative h-[320px] sm:h-[400px] lg:h-[350px] w-full flex justify-center lg:justify-end mt-8 lg:mt-0">
+        <!-- KHỐI PHẢI: HÌNH ẢNH COLLAGE & LOGO (Chiếm ~35%) -->
+        <div class="w-full lg:w-[35%] relative h-[320px] sm:h-[400px] lg:h-[350px] flex justify-center lg:justify-end mt-8 lg:mt-0">
             <div class="relative w-full max-w-[400px] lg:max-w-full h-full">
                 
-                <!-- Hình ảnh trên cùng (Học sinh) -->
+                <!-- Hình ảnh trên cùng -->
                 <div class="absolute top-0 right-4 w-[65%] sm:w-[60%] aspect-[4/3] rounded-3xl overflow-hidden shadow-lg z-0">
                     <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="Students walking" class="w-full h-full object-cover">
                 </div>
 
-                <!-- Hình ảnh dưới cùng (Cử nhân) - Nằm đè lên hình trên -->
+                <!-- Hình ảnh dưới cùng - Nằm đè lên hình trên -->
                 <div class="absolute bottom-12 left-0 w-[60%] sm:w-[55%] aspect-square rounded-3xl overflow-hidden shadow-2xl border-[6px] border-white z-10">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop" alt="Graduates" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="Graduates" class="w-full h-full object-cover">
                 </div>
 
                 <!-- Logo UEH -->
                 <div class="absolute bottom-0 right-2 lg:-right-4 z-20 bg-white/80 backdrop-blur-sm p-2 rounded-xl">
-                    <!-- Ảnh Logo chuẩn từ trang UEH -->
-                    <img src="https://ueh.edu.vn/wp-content/uploads/2021/10/Logo-UEH-1.png" alt="UEH University" class="h-12 md:h-14 object-contain">
+                    <img src="img/ueh-logo-xanh.png" alt="UEH University" class="h-12 md:h-14 object-contain">
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- JAVASCRIPT ĐIỀU KHIỂN TAB -->
+    <!-- JAVASCRIPT ĐIỀU KHIỂN TAB MƯỢT MÀ -->
     <script>
         function switchNewsTab(tabId) {
             const btnTs = document.getElementById('tab-btn-ts');
@@ -2106,51 +2115,50 @@
             const activeClasses = ['bg-white', 'text-[#475569]', 'shadow-[0_8px_30px_rgb(0,0,0,0.06)]', 'border-slate-50'];
 
             if (tabId === 'ts') {
-                // Kích hoạt Tab TS
+                // Đổi style Nút
                 btnTs.classList.remove(...inactiveClasses);
                 btnTs.classList.add(...activeClasses);
-                btnTs.querySelector('.active-indicator').classList.remove('opacity-0');
-                btnTs.querySelector('.active-indicator').classList.add('opacity-100');
+                btnTs.querySelector('.active-indicator').classList.replace('opacity-0', 'opacity-100');
 
-                // Tắt Tab HN
                 btnHn.classList.remove(...activeClasses, 'shadow-[0_8px_30px_rgb(0,0,0,0.06)]');
                 btnHn.classList.add(...inactiveClasses);
-                btnHn.querySelector('.active-indicator').classList.add('opacity-0');
-                btnHn.querySelector('.active-indicator').classList.remove('opacity-100');
+                btnHn.querySelector('.active-indicator').classList.replace('opacity-100', 'opacity-0');
 
-                // Hiển thị nội dung TS
-                contentHn.classList.add('opacity-0', 'pointer-events-none');
-                contentHn.classList.remove('opacity-100');
+                // Đổi nội dung Tin tức
+                contentHn.classList.replace('opacity-100', 'opacity-0');
+                contentHn.classList.replace('z-10', 'z-0');
+                contentHn.classList.add('pointer-events-none');
+                
                 setTimeout(() => {
-                    contentTs.classList.remove('opacity-0', 'pointer-events-none');
-                    contentTs.classList.add('opacity-100');
-                }, 150); // Delay nhẹ tạo hiệu ứng crossfade
+                    contentTs.classList.remove('pointer-events-none');
+                    contentTs.classList.replace('z-0', 'z-10');
+                    contentTs.classList.replace('opacity-0', 'opacity-100');
+                }, 150);
             } else {
-                // Kích hoạt Tab HN
+                // Đổi style Nút
                 btnHn.classList.remove(...inactiveClasses);
                 btnHn.classList.add(...activeClasses);
-                btnHn.querySelector('.active-indicator').classList.remove('opacity-0');
-                btnHn.querySelector('.active-indicator').classList.add('opacity-100');
+                btnHn.querySelector('.active-indicator').classList.replace('opacity-0', 'opacity-100');
 
-                // Tắt Tab TS
                 btnTs.classList.remove(...activeClasses, 'shadow-[0_8px_30px_rgb(0,0,0,0.06)]');
                 btnTs.classList.add(...inactiveClasses);
-                btnTs.querySelector('.active-indicator').classList.add('opacity-0');
-                btnTs.querySelector('.active-indicator').classList.remove('opacity-100');
+                btnTs.querySelector('.active-indicator').classList.replace('opacity-100', 'opacity-0');
 
-                // Hiển thị nội dung HN
-                contentTs.classList.add('opacity-0', 'pointer-events-none');
-                contentTs.classList.remove('opacity-100');
+                // Đổi nội dung Tin tức
+                contentTs.classList.replace('opacity-100', 'opacity-0');
+                contentTs.classList.replace('z-10', 'z-0');
+                contentTs.classList.add('pointer-events-none');
+                
                 setTimeout(() => {
-                    contentHn.classList.remove('opacity-0', 'pointer-events-none');
-                    contentHn.classList.add('opacity-100');
+                    contentHn.classList.remove('pointer-events-none');
+                    contentHn.classList.replace('z-0', 'z-10');
+                    contentHn.classList.replace('opacity-0', 'opacity-100');
                 }, 150);
             }
         }
     </script>
 </section>
 <!-- KẾT THÚC SECTION -->
-<!-- KẾT THÚC SECTION: Q&A -->
     <!-- ================= JAVASCRIPT ================= -->
     <script>
         /* Slider Logic */

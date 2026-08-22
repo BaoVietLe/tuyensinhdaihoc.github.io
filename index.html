@@ -1716,6 +1716,167 @@
     </div>
 
 </section>
+    <!-- BẮT ĐẦU SECTION: 7 BƯỚC XÉT TUYỂN THÀNH CÔNG -->
+<section id="7-buoc-xet-tuyen-thanh-cong" class="w-full bg-[#F8FAFC] py-16 font-sans relative overflow-hidden">
+    
+    <!-- Nhúng Font Awesome 6 (Nếu chưa có) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Ẩn thanh cuộn mặc định nhưng vẫn cho phép cuộn */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+
+    <div class="max-w-[1300px] mx-auto px-4 md:px-12 relative">
+        
+        <!-- Tiêu đề -->
+        <h2 class="text-[26px] md:text-[32px] font-black text-[#005B5C] uppercase tracking-wide text-center mb-16">
+            7 BƯỚC XÉT TUYỂN THÀNH CÔNG
+        </h2>
+
+        <!-- Vùng chứa Slider -->
+        <div class="relative w-full group">
+            
+            <!-- Nút điều hướng Trái -->
+            <button onclick="slideTimeline('left')" class="absolute left-[-15px] md:left-[-30px] top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-slate-400 hover:text-[#005B5C] hover:shadow-lg transition-all z-20 border border-slate-100">
+                <i class="fa-solid fa-chevron-left text-sm"></i>
+            </button>
+
+            <!-- Nút điều hướng Phải -->
+            <button onclick="slideTimeline('right')" class="absolute right-[-15px] md:right-[-30px] top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-slate-400 hover:text-[#005B5C] hover:shadow-lg transition-all z-20 border border-slate-100">
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </button>
+
+            <!-- Băng chuyền Timeline -->
+            <div id="timeline-slider" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 pt-2 px-2 scroll-smooth">
+                
+                <!-- ĐƯỜNG TRỤC NGANG KẾT NỐI TIMELINE -->
+                <div class="absolute top-[49px] left-4 right-4 h-[2px] bg-slate-200 z-0"></div>
+
+                <!-- ITEM 1 -->
+                <div class="snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[380px] pr-6 relative flex flex-col z-10">
+                    <!-- Text Bước -->
+                    <h3 class="text-[17px] font-bold text-slate-400 mb-4 tracking-wide hover:text-[#005B5C] transition-colors cursor-default">Bước 1: Chọn ngành</h3>
+                    <!-- Nút Icon Lịch (Nằm đè lên trục ngang) -->
+                    <div class="w-8 h-8 rounded-full bg-slate-100 border-[3px] border-white shadow-sm flex items-center justify-center mb-5 ml-4">
+                        <i class="fa-solid fa-calendar-days text-[12px] text-slate-700"></i>
+                    </div>
+                    <!-- Card Hình ảnh -->
+                    <div class="relative bg-white p-2.5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <!-- Mũi tên trỏ lên -->
+                        <div class="absolute -top-2 left-6 w-4 h-4 bg-white transform rotate-45 rounded-sm"></div>
+                        <a href="https://hieuveban.ueh.edu.vn" target="_blank" class="block overflow-hidden rounded-lg">
+                            <img src="https://tuyensinhdaihoc.ueh.edu.vn/wp-content/uploads/2023/03/BUOC-1-400x300.png" alt="Bước 1" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[380px] pr-6 relative flex flex-col z-10">
+                    <h3 class="text-[17px] font-bold text-slate-400 mb-4 tracking-wide hover:text-[#005B5C] transition-colors cursor-default">Bước 2: Chọn nơi học</h3>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 border-[3px] border-white shadow-sm flex items-center justify-center mb-5 ml-4">
+                        <i class="fa-solid fa-calendar-days text-[12px] text-slate-700"></i>
+                    </div>
+                    <div class="relative bg-white p-2.5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="absolute -top-2 left-6 w-4 h-4 bg-white transform rotate-45 rounded-sm"></div>
+                        <a href="#ChuongTrinhDaoTao" class="block overflow-hidden rounded-lg">
+                            <img src="https://tuyensinhdaihoc.ueh.edu.vn/wp-content/uploads/2023/03/BUOC-2-400x300.png" alt="Bước 2" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[380px] pr-6 relative flex flex-col z-10">
+                    <h3 class="text-[17px] font-bold text-slate-400 mb-4 tracking-wide hover:text-[#005B5C] transition-colors cursor-default">Bước 3: Chọn phương thức</h3>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 border-[3px] border-white shadow-sm flex items-center justify-center mb-5 ml-4">
+                        <i class="fa-solid fa-calendar-days text-[12px] text-slate-700"></i>
+                    </div>
+                    <div class="relative bg-white p-2.5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="absolute -top-2 left-6 w-4 h-4 bg-white transform rotate-45 rounded-sm"></div>
+                        <a href="#PhuongThucTuyenSinh" class="block overflow-hidden rounded-lg">
+                            <img src="https://tuyensinhdaihoc.ueh.edu.vn/wp-content/uploads/2023/03/BUOC-3-400x300.png" alt="Bước 3" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 -->
+                <div class="snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[380px] pr-6 relative flex flex-col z-10">
+                    <h3 class="text-[17px] font-bold text-slate-400 mb-4 tracking-wide hover:text-[#005B5C] transition-colors cursor-default">Bước 4: Nộp hồ sơ</h3>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 border-[3px] border-white shadow-sm flex items-center justify-center mb-5 ml-4">
+                        <i class="fa-solid fa-calendar-days text-[12px] text-slate-700"></i>
+                    </div>
+                    <div class="relative bg-white p-2.5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="absolute -top-2 left-6 w-4 h-4 bg-white transform rotate-45 rounded-sm"></div>
+                        <div class="block overflow-hidden rounded-lg">
+                            <img src="https://tuyensinhdaihoc.ueh.edu.vn/wp-content/uploads/2026/01/BUOC-4-1-400x300-01-400x300.png" alt="Bước 4" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 5 -->
+                <div class="snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[380px] pr-6 relative flex flex-col z-10">
+                    <h3 class="text-[17px] font-bold text-slate-400 mb-4 tracking-wide hover:text-[#005B5C] transition-colors cursor-default whitespace-nowrap">Bước 5: ĐK, điều chỉnh NV</h3>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 border-[3px] border-white shadow-sm flex items-center justify-center mb-5 ml-4">
+                        <i class="fa-solid fa-calendar-days text-[12px] text-slate-700"></i>
+                    </div>
+                    <div class="relative bg-white p-2.5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="absolute -top-2 left-6 w-4 h-4 bg-white transform rotate-45 rounded-sm"></div>
+                        <div class="block overflow-hidden rounded-lg">
+                            <img src="https://tuyensinhdaihoc.ueh.edu.vn/wp-content/uploads/2025/06/Them-tieu-de-phu.png" alt="Bước 5" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 6 -->
+                <div class="snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[380px] pr-6 relative flex flex-col z-10">
+                    <h3 class="text-[17px] font-bold text-slate-400 mb-4 tracking-wide hover:text-[#005B5C] transition-colors cursor-default">Bước 6: Trúng tuyển UEH</h3>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 border-[3px] border-white shadow-sm flex items-center justify-center mb-5 ml-4">
+                        <i class="fa-solid fa-calendar-days text-[12px] text-slate-700"></i>
+                    </div>
+                    <div class="relative bg-white p-2.5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="absolute -top-2 left-6 w-4 h-4 bg-white transform rotate-45 rounded-sm"></div>
+                        <div class="block overflow-hidden rounded-lg">
+                            <img src="https://tuyensinhdaihoc.ueh.edu.vn/wp-content/uploads/2025/02/buoc7.png" alt="Bước 6" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 7 -->
+                <div class="snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[380px] relative flex flex-col z-10">
+                    <h3 class="text-[17px] font-bold text-slate-400 mb-4 tracking-wide hover:text-[#005B5C] transition-colors cursor-default">Bước 7: Nhập học</h3>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 border-[3px] border-white shadow-sm flex items-center justify-center mb-5 ml-4">
+                        <i class="fa-solid fa-calendar-days text-[12px] text-slate-700"></i>
+                    </div>
+                    <div class="relative bg-white p-2.5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="absolute -top-2 left-6 w-4 h-4 bg-white transform rotate-45 rounded-sm"></div>
+                        <a href="https://nhaphoc.ueh.edu.vn/" target="_blank" class="block overflow-hidden rounded-lg">
+                            <img src="https://tuyensinhdaihoc.ueh.edu.vn/wp-content/uploads/2024/01/Thiet-ke-chua-co-ten-1.png" alt="Bước 7" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT XỬ LÝ SCROLL SLIDER -->
+    <script>
+        function slideTimeline(direction) {
+            const slider = document.getElementById('timeline-slider');
+            // Tính toán khoảng cách trượt bằng chiều rộng của 1 card (khoảng 380px)
+            const scrollAmount = window.innerWidth < 640 ? window.innerWidth * 0.85 : 380; 
+            
+            if (direction === 'left') {
+                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</section>
+<!-- KẾT THÚC SECTION -->
 <!-- KẾT THÚC SECTION -->
     <!-- ================= JAVASCRIPT ================= -->
     <script>

@@ -520,57 +520,102 @@
 <body class="bg-white">
 
     <!-- ================= SECTION 1: NAVBAR ================= -->
-   <header class="bg-ueh-teal text-white w-full z-50 sticky top-0 shadow-md">
-        <div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center gap-12">
-            <!-- Logo Block -->
-            <div class="flex items-center space-x-4 shrink-0">
-                <img src="img/logo-navbar.png" alt="UEH Logo" class="h-[60px] rounded">
+<header id="main-header" class="bg-ueh-teal text-white w-full z-50 sticky top-0 shadow-md transition-all duration-300">
+    <!-- Đã thêm id="header-container" và transition -->
+    <div id="header-container" class="max-w-[1400px] mx-auto px-6 py-4 flex items-center gap-12 transition-all duration-300">
+        
+        <!-- Logo Block -->
+        <div class="flex items-center space-x-4 shrink-0">
+            <!-- Đã thêm id="nav-logo" và transition -->
+            <img id="nav-logo" src="img/logo-navbar.png" alt="UEH Logo" class="h-[60px] rounded transition-all duration-300">
+        </div>
+
+        <!-- Content Block (Đã bỏ space-y-3 ở đây để tránh dư khoảng trống) -->
+        <div class="flex flex-col flex-grow justify-center">
+            
+            <!-- Dòng 1: Đã thêm id="nav-line-1", mb-3, overflow-hidden, max-h, opacity -->
+            <div id="nav-line-1" class="flex justify-between items-center text-[12.5px] font-medium border-b border-white/20 pb-2.5 mb-3 transition-all duration-300 overflow-hidden max-h-[100px] opacity-100">
+                <div class="flex space-x-6 items-center tracking-wide text-white/90">
+                    <a href="#khai-pha-I-am-who-I-choose-to-be" class="hover:underline">Khám phá I am who I choose to be</a>
+                    <a href="https://www.ueh.edu.vn/" class="hover:underline flex items-center"><i class="fa-solid fa-check text-ueh-orange mr-1"></i> Học tại TP. Hồ Chí Minh (KSA)</a>
+                    <a href="https://www.ueh.edu.vn/ueh-mekong" class="hover:underline flex items-center"><i class="fa-solid fa-check text-ueh-orange mr-1"></i> Học tại Vĩnh Long - UEH Mekong (KSV)</a>
+                </div>
+                <a href="#footer-ueh" class="bg-ueh-orange hover:bg-ueh-orangeHover text-white px-5 py-1.5 rounded-full font-bold transition-all duration-300 text-[12.5px] shadow-sm hover:shadow-md transform hover:-translate-y-0.5 inline-block text-center">
+                    Đăng ký tư vấn
+                </a>
             </div>
 
-            <!-- Content Block -->
-            <div class="flex flex-col flex-grow justify-center space-y-3">
-                <!-- Dòng 1 -->
-                <div class="flex justify-between items-center text-[12.5px] font-medium border-b border-white/20 pb-2.5">
-                    <div class="flex space-x-6 items-center tracking-wide text-white/90">
-                        <a href="#tai-sao-chon-UEH?" class="hover:underline">Khám phá I am who I choose to be</a>
-                        <a href="#hcm" class="hover:underline flex items-center"><i class="fa-solid fa-check text-ueh-orange mr-1"></i> Học tại TP. Hồ Chí Minh (KSA)</a>
-                        <a href="#vinh-long" class="hover:underline flex items-center"><i class="fa-solid fa-check text-ueh-orange mr-1"></i> Học tại Vĩnh Long - UEH Mekong (KSV)</a>
-                    </div>
-                    <a href="#dang-ky" class="bg-ueh-orange hover:bg-ueh-orangeHover text-white px-5 py-1.5 rounded-full font-bold transition-all duration-300 text-[12.5px] shadow-sm hover:shadow-md transform hover:-translate-y-0.5 inline-block text-center">
-                        Đăng ký tư vấn
-                    </a>
-                </div>
-                <!-- Dòng 2 -->
-                <nav class="flex justify-between w-full text-[14px] font-bold">
-                    <a href="#khai-pha-I-am-who-I-choose-to-be" class="hover:text-ueh-orange transition-colors duration-300">Tại sao chọn UEH?</a>
-                    <a href="#hoc-gi-o-ueh?" class="hover:text-ueh-orange transition-colors duration-300">Học gì ở UEH</a>
-                    <a href="#chuong-trinh-dao-tao-ueh" class="hover:text-ueh-orange transition-colors duration-300">Phương thức tuyển sinh</a>
-                    <a href="#" class="hover:text-ueh-orange transition-colors duration-300">7 bước xét tuyển ở UEH</a>
-                    <a href="#" class="hover:text-ueh-orange transition-colors duration-300">Q&A</a>
-                </nav>
-            </div>
+            <!-- Dòng 2 -->
+            <nav class="flex justify-between w-full text-[14px] font-bold">
+                <a href="#tai-sao-chon-UEH?" class="hover:text-ueh-standardGray transition-colors duration-300">Tại sao chọn UEH?</a>
+                <a href="#hoc-gi-o-ueh?" class="hover:text-standardGray transition-colors duration-300">Học gì ở UEH</a>
+                <a href="#chuong-trinh-dao-tao-ueh" class="hover:text-ueh-standardGray transition-colors duration-300">Phương thức tuyển sinh</a>
+                <a href="#7-buoc-xet-tuyen-thanh-cong" class="hover:text-ueh-standardGray transition-colors duration-300">7 bước xét tuyển ở UEH</a>
+                <a href="#HoiDap" class="hover:text-ueh-standardGray transition-colors duration-300">Q&A</a>
+            </nav>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- ================= SECTION 2: HERO BANNER ================= -->
-    <section class="relative w-full h-[calc(100vh-88px)] overflow-hidden group bg-gray-200">
-        <a href="https://tuyensinh.ueh.edu.vn/dang-tuyen-sinh/dai-hoc-chinh-quy/" class="block w-full h-full">
-        <div class="slider-wrapper" id="sliderWrapper">
-            <div class="slide"><img src="img/herobanner-1.png" alt="Banner 1" class="w-full h-full object-cover"></div>
-            <div class="slide"><img src="img/herobanner-2.png" alt="Banner 2" class="w-full h-full object-cover"></div>
-            <div class="slide"><img src="img/herobanner-3.png" alt="Banner 3" class="w-full h-full object-cover"></div>
+ <section class="relative w-full h-[calc(100vh-88px)] overflow-hidden group bg-gray-200">
+    <a href="https://tuyensinh.ueh.edu.vn/dang-tuyen-sinh/dai-hoc-chinh-quy/" class="block w-full h-full">
+        <div class="slider-wrapper h-full flex" id="sliderWrapper">
+            
+            <!-- SLIDE 1 -->
+            <div class="slide relative w-full h-full flex-shrink-0">
+                <!-- Ảnh nền bị làm mờ (Blur Background) -->
+                <img src="img/herobanner-1.png" alt="Banner 1 Blur" 
+                     class="absolute inset-0 w-full h-full object-cover blur-xl opacity-70 scale-110">
+                
+                <!-- Overlay đen/trắng nhẹ để làm dịu ảnh nền (Tùy chọn) -->
+                <div class="absolute inset-0 bg-black/20"></div>
+
+                <!-- Ảnh chính hiển thị đầy đủ không cắt xén -->
+                <img src="img/herobanner-1.png" alt="Banner 1" 
+                     class="relative z-10 w-full h-full object-contain">
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide relative w-full h-full flex-shrink-0">
+                <img src="img/herobanner-2.png" alt="Banner 2 Blur" 
+                     class="absolute inset-0 w-full h-full object-cover blur-xl opacity-70 scale-110">
+                <div class="absolute inset-0 bg-black/20"></div>
+                
+                <img src="img/herobanner-2.png" alt="Banner 2" 
+                     class="relative z-10 w-full h-full object-contain">
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide relative w-full h-full flex-shrink-0">
+                <img src="img/herobanner-3.png" alt="Banner 3 Blur" 
+                     class="absolute inset-0 w-full h-full object-cover blur-xl opacity-70 scale-110">
+                <div class="absolute inset-0 bg-black/20"></div>
+
+                <img src="img/herobanner-3.png" alt="Banner 3" 
+                     class="relative z-10 w-full h-full object-contain">
+            </div>
+
         </div>
-        </a>
-        <button id="prevBtn" class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-ueh-teal w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 transition transform hover:scale-110 opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left text-lg"></i></button>
-        <button id="nextBtn" class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-ueh-teal w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 transition transform hover:scale-110 opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right text-lg"></i></button>
-        
-        <!-- Dots xanh cổ vịt -->
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2.5 z-30">
-            <button class="slider-dot active w-2.5 h-2.5 rounded-full bg-ueh-teal shadow opacity-100 cursor-pointer" data-index="0"></button>
-            <button class="slider-dot w-2.5 h-2.5 rounded-full bg-white shadow opacity-70 hover:opacity-100 cursor-pointer" data-index="1"></button>
-            <button class="slider-dot w-2.5 h-2.5 rounded-full bg-white shadow opacity-70 hover:opacity-100 cursor-pointer" data-index="2"></button>
-        </div>
-    </section>
+    </a>
+
+    <!-- Nút Prev -->
+    <button id="prevBtn" class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-ueh-teal w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 transition transform hover:scale-110 opacity-0 group-hover:opacity-100">
+        <i class="fa-solid fa-chevron-left text-lg"></i>
+    </button>
+    
+    <!-- Nút Next -->
+    <button id="nextBtn" class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-ueh-teal w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 transition transform hover:scale-110 opacity-0 group-hover:opacity-100">
+        <i class="fa-solid fa-chevron-right text-lg"></i>
+    </button>
+    
+    <!-- Dots -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2.5 z-30">
+        <button class="slider-dot active w-2.5 h-2.5 rounded-full bg-ueh-teal shadow opacity-100 cursor-pointer" data-index="0"></button>
+        <button class="slider-dot w-2.5 h-2.5 rounded-full bg-white shadow opacity-70 hover:opacity-100 cursor-pointer" data-index="1"></button>
+        <button class="slider-dot w-2.5 h-2.5 rounded-full bg-white shadow opacity-70 hover:opacity-100 cursor-pointer" data-index="2"></button>
+    </div>
+</section>
 
     <!-- ================= SECTION 3: EXPLORE (TABS CONTENT) ================= -->
     <section id="khai-pha-I-am-who-I-choose-to-be" class="max-w-[1200px] mx-auto py-20 px-6 scroll-mt-20">
@@ -2590,6 +2635,43 @@
 <!-- KẾT THÚC SECTION -->
     <!-- ================= JAVASCRIPT ================= -->
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const headerContainer = document.getElementById('header-container');
+    const navLine1 = document.getElementById('nav-line-1');
+    const navLogo = document.getElementById('nav-logo');
+
+    // Lắng nghe sự kiện cuộn chuột
+    window.addEventListener('scroll', () => {
+        // Nếu cuộn xuống quá 50px
+        if (window.scrollY > 50) {
+            // Ẩn Dòng 1 (Xóa class hiện, thêm class ẩn)
+            navLine1.classList.remove('max-h-[100px]', 'opacity-100', 'pb-2.5', 'mb-3', 'border-white/20');
+            navLine1.classList.add('max-h-0', 'opacity-0', 'pb-0', 'mb-0', 'border-transparent');
+            
+            // Thu nhỏ Logo
+            navLogo.classList.remove('h-[60px]');
+            navLogo.classList.add('h-[45px]');
+            
+            // Làm gọn Padding của cả thanh Header
+            headerContainer.classList.remove('py-4');
+            headerContainer.classList.add('py-2');
+        } 
+        // Nếu cuộn ngược lại lên trên cùng
+        else {
+            // Hiện lại Dòng 1
+            navLine1.classList.remove('max-h-0', 'opacity-0', 'pb-0', 'mb-0', 'border-transparent');
+            navLine1.classList.add('max-h-[100px]', 'opacity-100', 'pb-2.5', 'mb-3', 'border-white/20');
+            
+            // Phóng to lại Logo
+            navLogo.classList.remove('h-[45px]');
+            navLogo.classList.add('h-[60px]');
+            
+            // Phục hồi Padding thanh Header
+            headerContainer.classList.remove('py-2');
+            headerContainer.classList.add('py-4');
+        }
+    });
+});
         /* Slider Logic */
         const sliderWrapper = document.getElementById('sliderWrapper');
         const dots = document.querySelectorAll('.slider-dot');

@@ -754,8 +754,8 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
         
         <!-- CỘT BÊN TRÁI: CỐ ĐỊNH (STICKY) - ĐÃ NHÍCH LÊN TRÊN (TOP-20) -->
-        <div class="lg:col-span-4 sticky top-28 self-start z-10 pr-4">
-            <h3 id="sticky-title" class="text-[#005B5C] font-extrabold text-[22px] lg:text-[26px] leading-[1.3] uppercase transition-all duration-300">
+        <div class="lg:col-span-4 sticky top-35 self-start z-10 pr-4">
+            <h3 id="sticky-title" class="text-ueh-teal font-extrabold text-[22px] lg:text-[26px] leading-[1.3] uppercase transition-all duration-300">
                 CHẤT LƯỢNG ĐƯỢC CÔNG NHẬN BẰNG XẾP HẠNG TOÀN CẦU
             </h3>
         </div>
@@ -988,72 +988,354 @@
 
                 <!-- CARD 1: CHUẨN (ACTIVE MẶC ĐỊNH) -->
                 <div class="program-card ring-4 ring-ueh-teal ring-offset-2 opacity-100 scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300"
-                     onclick="changeProgram(this)"
-                     data-title="Chương trình Chuẩn"
-                     data-desc="Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA (Mạng lưới Đảm bảo chất lượng các trường đại học ASEAN), FIBAA (Bộ tiêu chuẩn kiểm định chất lượng quốc tế của châu Âu)...); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2 - 5 năm/lần."
-                     data-type="Loại hình đào tạo: Giảng dạy hoàn toàn bằng tiếng Việt">
+                     onclick="changeProgram(this)">
                     <img src="img/hoc-gi-ueh-1.png" class="w-full h-full object-cover">
+                    
+                    <!-- DATA ẨN CHO CARD 1 (Viết HTML thoải mái ở đây) -->
+                    <div class="hidden data-title">Chương trình Chuẩn</div>
+                    <div class="hidden data-body">
+                        <p class="italic mb-4">
+                            Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA, FIBAA...); hoặc được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới.
+                        </p>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Được rà soát chất lượng định kỳ 2 - 5 năm/lần.</li>
+                            <li>Tham khảo thêm thông tin tại <a href="https://ueh.edu.vn" class="text-blue-600 hover:underline font-medium" target="_blank">website UEH</a>.</li>
+                        </ul>
+                        <p class="text-[#555] font-bold italic mt-6">
+                            Loại hình đào tạo: Giảng dạy hoàn toàn bằng tiếng Việt
+                        </p>
+                    </div>
                 </div>
 
                 <!-- CARD 2: TIẾNG ANH BÁN PHẦN -->
                 <div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
-                     onclick="changeProgram(this)"
-                     data-title="Chương trình Tiếng Anh Bán Phần"
-                     data-desc="Chương trình Tiếng Anh Bán phần tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA (Mạng lưới Đảm bảo chất lượng các trường đại học ASEAN), FIBAA (Bộ tiêu chuẩn kiểm định chất lượng quốc tế của châu Âu)…); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2 – 5 năm/lần."
-                     data-type="Loại hình đào tạo: Được giảng dạy tối thiểu 15 tín chỉ môn học ngành được giảng dạy bằng tiếng Anh, các tín chỉ còn lại được giảng dạy bằng tiếng Việt.">
+                     onclick="changeProgram(this)">
                     <img src="img/hoc-gi-ueh-2.png" class="w-full h-full object-cover">
+                    
+                    <!-- DATA ẨN CHO CARD 2 -->
+                    <div class="hidden data-title">Chương trình Tiếng Anh Bán Phần</div>
+                    <div class="hidden data-body">
+                        <p class="italic mb-4">
+                            Chương trình Tiếng Anh Bán phần tại UEH cung cấp môi trường học tập hội nhập quốc tế. Sinh viên sẽ được làm quen với các thuật ngữ chuyên ngành bằng tiếng Anh.
+                        </p>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Giảng dạy tối thiểu <strong>15 tín chỉ</strong> môn học bằng tiếng Anh.</li>
+                            <li>Đội ngũ giảng viên có chuyên môn sâu, tu nghiệp tại nước ngoài.</li>
+                            <li>Xem điều kiện đầu vào <a href="#" class="text-blue-600 hover:underline font-medium">tại đây</a>.</li>
+                        </ul>
+                        <p class="text-[#555] font-bold italic mt-6">
+                            Điều kiện: IELTS từ 5.0 hoặc tương đương.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- CARD 3: TIẾNG ANH TOÀN PHẦN -->
-                <div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
-                     onclick="changeProgram(this)"
-                     data-title="Chương trình Tiếng Anh Toàn Phần"
-                     data-desc="Chương trình Tiếng Anh Toàn phần tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA (Mạng lưới Đảm bảo chất lượng các trường đại học ASEAN), FIBAA (Bộ tiêu chuẩn kiểm định chất lượng quốc tế của châu Âu)…); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2 – 5 năm/lần."
-                     data-type="Loại hình đào tạo: Được giảng dạy toàn bộ bằng tiếng Anh, trừ 11 tín chỉ Lý luận chính trị, Giáo dục thể chất, Giáo dục quốc phòng được giảng dạy bằng tiếng Việt.">
-                    <img src="img/hoc-gi-ueh-3.png" class="w-full h-full object-cover">
-                </div>
+              <div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
+     onclick="changeProgram(this)">
+    <img src="img/hoc-gi-ueh-3.png" class="w-full h-full object-cover">
+    
+    <!-- DATA ẨN CHO CARD 3 -->
+    <div class="hidden data-title">Chương trình Tiếng Anh Toàn Phần</div>
+    <div class="hidden data-body">
+        <p class="italic mb-4">
+            Chương trình Tiếng Anh Toàn phần tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA (Mạng lưới Đảm bảo chất lượng các trường đại học ASEAN), FIBAA (Bộ tiêu chuẩn kiểm định chất lượng quốc tế của châu Âu)…); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2 – 5 năm/lần.
+        </p>
+        <p class="mb-4">
+            <span class="font-bold text-[#555]">Loại hình đào tạo:</span> Được giảng dạy toàn bộ bằng tiếng Anh, trừ 11 tín chỉ Lý luận chính trị, Giáo dục thể chất, Giáo dục quốc phòng được giảng dạy bằng tiếng Việt.
+        </p>
+        <div class="p-3 bg-gray-50 border-l-4 border-ueh-teal rounded-r-md mt-4">
+            <p class="text-[#444] font-bold text-[14px]">
+                Điều kiện tiếng Anh đầu vào:
+            </p>
+            <p class="text-[#555] text-[14px] mt-1">
+                IELTS Academic từ 5.5 (hoặc TOEFL iBT từ 62 hoặc TOEIC 4 kỹ năng từ 670 trong đó điểm các kỹ năng Speaking từ 140, Writing từ 140) trở lên.
+            </p>
+        </div>
+    </div>
+</div>
 
                 <!-- CARD 4: ASIA CO-OP -->
-                <div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
-                     onclick="changeProgram(this)"
-                     data-title="Cử nhân ASIA CO-OP"
-                     data-desc="Chương trình đào tạo hoàn toàn bằng tiếng Anh. Chương trình không chỉ cung cấp kiến thức tổng quan, chuyên sâu cho sinh viên mà còn tạo cơ hội thực hành nghề nghiệp và các kinh nghiệm làm việc thực tiễn tại các tập đoàn ASIA++ ngay trong quá trình học tập tại trường. Tham gia chương trình học, người học có thể trải nghiệm môn học tại các trường đối tác nước ngoài và học tập thực tế tại các doanh nghiệp trong khu vực Châu Á. <br> Sau 02 học kỳ, sinh viên được xét vào một trong 02 ngành Marketing và Tài chính ứng dụng theo nguyện vọng, chỉ tiêu, điểm GPA của 02 học kỳ.">
-                    <img src="img/hoc-gi-ueh-4.jpg" class="w-full h-full object-cover">
-                </div>
+<div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
+     onclick="changeProgram(this)">
+    <img src="img/hoc-gi-ueh-4.jpg" class="w-full h-full object-cover">
+    
+    <!-- DATA ẨN CHO CARD 4 -->
+    <div class="hidden data-title">Cử nhân ASIA CO-OP</div>
+    <div class="hidden data-body">
+        <p class="font-bold text-[#555] mb-4">
+            Chương trình đào tạo hoàn toàn bằng tiếng Anh.
+        </p>
+        
+        <ul class="space-y-3 mb-4">
+            <li class="flex items-start">
+                <svg class="w-5 h-5 text-ueh-teal mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-[#666] leading-relaxed">
+                    Chương trình không chỉ cung cấp kiến thức tổng quan, chuyên sâu cho sinh viên mà còn tạo cơ hội <strong>thực hành nghề nghiệp</strong> và các kinh nghiệm làm việc thực tiễn tại các tập đoàn ASIA++ ngay trong quá trình học tập tại trường.
+                </span>
+            </li>
+            <li class="flex items-start">
+                <svg class="w-5 h-5 text-ueh-teal mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-[#666] leading-relaxed">
+                    Tham gia chương trình học, người học có thể <strong>trải nghiệm môn học tại các trường đối tác nước ngoài</strong> và học tập thực tế tại các doanh nghiệp trong khu vực Châu Á.
+                </span>
+            </li>
+        </ul>
 
-                <!-- CARD 5: TÀI NĂNG UEH.ISB -->
-                <div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
-                     onclick="changeProgram(this)"
-                     data-title="Cử nhân Tài năng UEH.ISB"
-                     data-desc="Chương trình chính quy 100% tiếng Anh, do UEH cấp bằng Honours, kiểm định FIBAA (Thụy Sĩ), tập trung vào phát triển toàn diện năng lực người học trong môi trường năng động, giàu thử thách. Các kỹ năng mềm được lồng ghép trong suốt quá trình học tập với sự đa dạng trong hình thức triển khai. Sinh viên có cơ hội tham gia trao đổi sinh viên với các trường quốc tế uy tín và trở thành nhân sự làm việc cho tập đoàn lớn tại Việt Nam và toàn cầu. Sinh viên chương trình Cử nhân tài năng ISB – Kinh doanh được xét vào một trong các ngành Kinh doanh quốc tế, Quản trị kinh doanh, Marketing, Tài chính ứng dụng, Kế toán sau 02 học kỳ theo nguyện vọng, chỉ tiêu, điểm GPA của 02 học kỳ.">
-                    <img src="img/hoc-gi-ueh-5.jpg" class="w-full h-full object-cover">
-                </div>
+        <div class="p-3 bg-[#f8fafc] border border-gray-200 rounded-lg mt-5">
+            <p class="text-[#444] text-[14.5px]">
+                <strong class="text-ueh-teal">Lộ trình xét ngành:</strong> Sau 02 học kỳ, sinh viên được xét vào một trong 02 ngành <strong>Marketing</strong> và <strong>Tài chính ứng dụng</strong> theo nguyện vọng, chỉ tiêu, điểm GPA của 02 học kỳ.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- CARD 5: TÀI NĂNG UEH.ISB -->
+<div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
+     onclick="changeProgram(this)">
+    <img src="img/hoc-gi-ueh-5.jpg" class="w-full h-full object-cover">
+    
+    <!-- DATA ẨN CHO CARD 5 -->
+    <div class="hidden data-title">Cử nhân Tài năng UEH.ISB</div>
+    <div class="hidden data-body">
+        <p class="font-bold text-[#555] mb-4">
+            Chương trình chính quy 100% tiếng Anh, do UEH cấp bằng Honours, kiểm định FIBAA (Thụy Sĩ).
+        </p>
+        
+        <ul class="space-y-3 mb-4">
+            <li class="flex items-start">
+                <svg class="w-5 h-5 text-ueh-teal mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span class="text-[#666] leading-relaxed">
+                    Tập trung vào phát triển <strong>toàn diện năng lực</strong> người học trong môi trường năng động, giàu thử thách. Các kỹ năng mềm được lồng ghép trong suốt quá trình học tập với sự đa dạng trong hình thức triển khai.
+                </span>
+            </li>
+            <li class="flex items-start">
+                <svg class="w-5 h-5 text-ueh-teal mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span class="text-[#666] leading-relaxed">
+                    Cơ hội tham gia <strong>trao đổi sinh viên với các trường quốc tế uy tín</strong> và trở thành nhân sự làm việc cho tập đoàn lớn tại Việt Nam và toàn cầu.
+                </span>
+            </li>
+        </ul>
+
+        <div class="p-3 bg-[#f8fafc] border border-gray-200 rounded-lg mt-5">
+            <p class="text-[#444] text-[14.5px]">
+                <strong class="text-ueh-teal">Lộ trình xét ngành:</strong> Sinh viên chương trình Cử nhân tài năng ISB – Kinh doanh được xét vào một trong các ngành <em>Kinh doanh quốc tế, Quản trị kinh doanh, Marketing, Tài chính ứng dụng, Kế toán</em> sau 02 học kỳ theo nguyện vọng, chỉ tiêu, điểm GPA của 02 học kỳ.
+            </p>
+        </div>
+    </div>
+</div>
 
                 <!-- CARD 6: SONG NGÀNH TÍCH HỢP -->
                 <div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
-                     onclick="changeProgram(this)"
-                     data-title="Chương trình Song Ngành Tích Hợp"
-                     data-desc="Chương trình cho phép sinh viên tiếp thu kiến thức của 2 ngành học cùng lúc. Với sự tích hợp chặt chẽ, sinh viên vừa tối ưu hóa được thời gian đào tạo, vừa nhận được 2 bằng cử nhân khi tốt nghiệp, mở rộng cơ hội việc làm vô hạn."
-                     data-type="Loại hình đào tạo: Tích hợp 2 khối kiến thức chuyên ngành">
-                    <img src="img/hoc-gi-ueh-6.png" class="w-full h-full object-cover">
-                </div>
+     onclick="changeProgram(this)">
+    <img src="img/hoc-gi-ueh-6.png" class="w-full h-full object-cover">
+    
+    <!-- DATA ẨN CHO CARD 6 -->
+    <div class="hidden data-title">Chương trình Song Ngành Tích Hợp</div>
+    <div class="hidden data-body">
+        <p class="italic mb-3">
+            Chương trình đào tạo được thiết kế tối ưu, giúp sinh viên nhận 2 bằng Cử nhân trong khi rút ngắn từ 2 đến 2,5 năm thời gian đào tạo, mở rộng tư duy liên ngành và bứt phá lợi thế cạnh tranh.
+        </p>
+        
+        <p class="font-bold text-[#555] mb-2">39 chương trình song ngành tích hợp hiện có tại UEH:</p>
+        
+        <!-- Khung scroll cho danh sách 39 ngành tránh làm hỏng giao diện -->
+        <ul class="list-disc pl-5 mb-4 space-y-1.5 max-h-[220px] overflow-y-auto pr-3 scrollbar-thin">
+            <li>Bảo hiểm – Tài chính</li>
+            <li>Kinh doanh nông nghiệp – Logistics quản lý chuỗi cung ứng</li>
+            <li>Kinh doanh nông nghiệp – Kinh doanh quốc tế</li>
+            <li>Quản lý công – Luật và quản trị địa phương</li>
+            <li>Quản trị bền vững doanh nghiệp và môi trường – Tài chính</li>
+            <li>Quản trị Hải quan – Ngoại thương – Logistics & Quản lý chuỗi cung ứng</li>
+            <li>Kinh tế chính trị – Luật và quản trị địa phương</li>
+            <li>Ngôn ngữ Anh – Quản trị dịch vụ du lịch và lữ hành</li>
+            <li>Kế toán doanh nghiệp – Thuế</li>
+            <li>Công nghệ truyền thông – Marketing</li>
+            <li>Công nghệ truyền thông – Kinh doanh quốc tế</li>
+            <li>Công nghệ truyền thông – Kinh doanh thương mại</li>
+            <li>Công nghệ nghệ thuật – Marketing</li>
+            <li>Toán tài chính – Ngân hàng</li>
+            <li>Ngân hàng – Kinh doanh quốc tế</li>
+            <li>Ngân hàng – Kinh doanh thương mại</li>
+            <li>Ngân hàng – Marketing</li>
+            <li>Ngân hàng – Logistics và quản lý chuỗi cung ứng</li>
+            <li>Thị trường chứng khoán – Kinh doanh quốc tế</li>
+            <li>Thị trường chứng khoán – Kinh doanh thương mại</li>
+            <li>Thị trường chứng khoán – Marketing</li>
+            <li>Thị trường chứng khoán – Logistics và quản lý chuỗi cung ứng</li>
+            <li>Logistics và Quản lý chuỗi cung ứng – Quản trị Hải quan – Ngoại thương</li>
+            <li>Logistics và Quản lý chuỗi cung ứng – Kinh doanh quốc tế</li>
+            <li>Kinh doanh quốc tế – Marketing</li>
+            <li>Kinh doanh quốc tế – Logistics và Quản lý chuỗi cung ứng</li>
+            <li>Kinh doanh quốc tế – Ngân hàng</li>
+            <li>Kinh doanh quốc tế – Thị trường chứng khoán</li>
+            <li>Kinh doanh quốc tế – Công nghệ truyền thông</li>
+            <li>Kinh doanh thương mại – Ngân hàng</li>
+            <li>Kinh doanh thương mại – Thị trường chứng khoán</li>
+            <li>Kinh doanh thương mại – Công nghệ truyền thông</li>
+            <li>Kinh doanh thương mại – Logistics và Quản lý chuỗi cung ứng</li>
+            <li>Marketing – Ngân hàng</li>
+            <li>Marketing – Công nghệ truyền thông</li>
+            <li>Marketing – Công nghệ nghệ thuật</li>
+            <li>Marketing – Kinh doanh quốc tế</li>
+            <li>Tài chính – Quản trị bền vững doanh nghiệp và môi trường</li>
+            <li>Thuế – Kế toán doanh nghiệp</li>
+        </ul>
+        
+        <!-- Nút có chứa href -->
+        <div class="mt-4">
+            <a href="LINK_CHITIET_CUABAN" target="_blank" class="inline-flex items-center text-ueh-teal font-bold hover:text-blue-700 transition-colors underline underline-offset-4">
+                Xem chi tiết tại đây
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+        </div>
+    </div>
+</div>
 
                 <!-- CARD 7: SONG BẰNG QUỐC TẾ -->
-                <div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
-                     onclick="changeProgram(this)"
-                     data-title="Chương trình Song Bằng Quốc Tế"
-                     data-desc="Là chương trình UEH phối hợp với các Đại học đối tác trên thế giới xây dựng chương trình giảng dạy hoàn toàn bằng tiếng Anh, mang đến trải nghiệm học tập toàn cầu ngay tại Việt Nam.<br> Sinh viên trúng tuyển sau khi học xong giai đoạn tại UEH, nếu có nhu cầu và thỏa các điều kiện sẽ được lựa chọn chuyển sang học tiếp tại Trường đối tác và nhận bằng thứ 2 của Trường đối tác.">
-                    <img src="img/hoc-gi-ueh-7.png" class="w-full h-full object-cover">
-                </div>
+<div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
+     onclick="changeProgram(this)">
+    <img src="img/hoc-gi-ueh-7.png" class="w-full h-full object-cover">
+    
+    <!-- DATA ẨN CHO CARD 7 -->
+    <div class="hidden data-title">Chương trình Song Bằng Quốc Tế</div>
+    <div class="hidden data-body">
+        
+        <p class="text-[#666] leading-[1.8] mb-5">
+            Là chương trình UEH phối hợp với các Đại học đối tác trên thế giới xây dựng chương trình giảng dạy <strong class="text-[#555]">hoàn toàn bằng tiếng Anh</strong>, mang đến trải nghiệm học tập toàn cầu ngay tại Việt Nam.
+        </p>
+        
+        <!-- Khối nhấn mạnh quyền lợi nhận bằng kép -->
+        <div class="p-4 bg-[#f0f9fa] border-l-4 border-ueh-teal rounded-r-lg">
+            <div class="flex items-start">
+                <!-- Icon bằng cấp/học vấn -->
+                <svg class="w-6 h-6 text-ueh-teal mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422M12 21l9-5-9-5-9 5 9 5z"></path></svg>
+                <p class="text-[#444] text-[14.5px] leading-relaxed">
+                    Sinh viên trúng tuyển sau khi học xong giai đoạn tại UEH, nếu có nhu cầu và thỏa các điều kiện sẽ được lựa chọn <strong class="text-ueh-teal">chuyển sang học tiếp tại Trường đối tác</strong> và <strong class="text-ueh-teal">nhận bằng thứ 2</strong> của Trường đối tác.
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</div>
 
                 <!-- CARD 8: TRAO ĐỔI & LIÊN KẾT QUỐC TẾ -->
-                <div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
-                     onclick="changeProgram(this)"
-                     data-title="Chương trình Trao đổi & Liên kết Quốc tế"
-                     data-desc="Sinh viên UEH được trao cơ hội học tập từ 1 đến 2 học kỳ tại các trường đại học đối tác trên toàn cầu, trải nghiệm sự đa dạng văn hóa và tận hưởng môi trường giáo dục tiên tiến nhất thế giới."
-                     data-type="Loại hình đào tạo: Giao lưu, trao đổi tín chỉ quốc tế">
-                    <img src="img/hoc-gi-ueh-8.png" class="w-full h-full object-cover">
+<div class="program-card opacity-[0.7] hover:opacity-100 scale-[0.98] hover:scale-100 cursor-pointer group relative w-full h-[230px] rounded-[24px] overflow-hidden transition-all duration-300 ring-0 ring-offset-2 ring-[#005B5C]"
+     onclick="changeProgram(this)">
+    <img src="img/hoc-gi-ueh-8.png" class="w-full h-full object-cover">
+    
+    <!-- DATA ẨN CHO CARD 8 -->
+    <div class="hidden data-title">Chương trình Trao đổi & Liên kết Quốc tế</div>
+    <div class="hidden data-body">
+        
+        <!-- Đoạn Intro -->
+        <p class="italic mb-3 text-[14.5px]">
+            Chương trình hợp tác đào tạo giữa UEH và các đối tác đại học ở trong nước và thế giới giúp sinh viên học tập ở môi trường đại học hiện đại, quốc tế, được trải nghiệm nền văn hóa mới và nhận bằng cấp quốc tế.
+        </p>
+        
+        <!-- KHỐI ACCORDION (ĐÓNG/MỞ) CHO 3 DANH SÁCH -->
+        <div class="space-y-2 mb-4">
+            
+            <!-- Danh sách 1: Trong nước (Mở sẵn mặc định với thuộc tính "open") -->
+            <details class="group border border-gray-200 rounded-lg bg-gray-50 [&_summary::-webkit-details-marker]:hidden" open>
+                <summary class="flex justify-between items-center font-bold cursor-pointer p-3 text-[#005B5C] list-none select-none">
+                    <span>Chương trình trao đổi trong nước</span>
+                    <span class="transition duration-300 group-open:-rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
+                </summary>
+                <div class="text-[#555] text-[13.5px] px-4 pb-3 max-h-[160px] overflow-y-auto pr-2">
+                    <ul class="list-disc pl-4 space-y-1.5">
+                        <li>Summer camp</li>
+                        <li>Giao lưu sinh viên quốc tế Trường Ngee Ann Polytechnic, Singapore tại UEH – Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Trường Đại học Khon Kaen, Thái Lan và Trường Đại học Tokyo Keizai, Nhật Bản</li>
+                        <li>Giao lưu sinh viên quốc tế Trường Western Washington, Mỹ tại UEH – Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Trường Republic Polytechnic tại Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Đại học Osaka Sangyo (OSU) tại UEH Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Đại học Tokyo Keizai (TKU) tại UEH Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Đại học Khoa học Ứng dụng và Nghệ thuật Tây Bắc Thụy Sĩ (FHNW) tại UEH Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Đại học Công nghệ MARA, Malaysia (UiTM) tại UEH Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Đại học Chulalongkorn, Thái Lan tại UEH Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Đại học Quản lý Singapore (SMU) tại UEH Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Đại học Công nghệ Queensland, Úc tại UEH Mekong</li>
+                    </ul>
                 </div>
+            </details>
+
+            <!-- Danh sách 2: Quốc tế -->
+            <details class="group border border-gray-200 rounded-lg bg-gray-50 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold cursor-pointer p-3 text-[#005B5C] list-none select-none">
+                    <span>✈️ Chương trình trao đổi quốc tế</span>
+                    <span class="transition duration-300 group-open:-rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
+                </summary>
+                <div class="text-[#555] text-[13.5px] px-4 pb-3 max-h-[160px] overflow-y-auto pr-2">
+                    <ul class="list-disc pl-4 space-y-1.5">
+                        <li>Trao đổi sinh viên 1 học kỳ với Đại học Saint Joseph (USJ), Macao</li>
+                        <li>Trao đổi sinh viên 1 học kỳ với Đại học truyền thông Stuttgart (HdM), Đức</li>
+                        <li>SMU-X Overseas “Digital Business Transformation Across Asia Practicum”</li>
+                        <li>SMU-X Overseas – Economics of a Green Economy: An Introduction</li>
+                        <li>Trao đổi sinh viên 1 học kỳ với Đại học Saxion, Hà Lan</li>
+                        <li>Empowering Integrated Culture and Art for Sustainable Tourism in the Digital Economy</li>
+                        <li>Trao đổi 1 học kì với Đại học Khoa học Kỹ thuật Nam Đài, Đài Loan</li>
+                        <li>Trao đổi 1 học kì với Đại học Quốc gia Cao Hùng, Đài Loan</li>
+                        <li>Trao đổi 1 học kỳ với Đại học Siena, Ý</li>
+                        <li>Trao đổi 1 học kỳ với Đại học khoa học ứng dụng Osnabruck, Đức</li>
+                        <li>Trao đổi 1 học kỳ với Đại học Padjadjaran, Indonesia</li>
+                        <li>Chương trình trao đổi sinh viên với Đại học Nam Hoa, Đài Loan</li>
+                        <li>Chương trình Summer Camp tại Đại học Đông Hải, Đài Loan</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Danh sách 3: Liên kết quốc tế -->
+            <details class="group border border-gray-200 rounded-lg bg-gray-50 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold cursor-pointer p-3 text-[#005B5C] list-none select-none">
+                    <span>🎓 Chương trình liên kết quốc tế</span>
+                    <span class="transition duration-300 group-open:-rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
+                </summary>
+                <div class="text-[#555] text-[13.5px] px-4 pb-3 max-h-[160px] overflow-y-auto pr-2">
+                    <ul class="list-disc pl-4 space-y-1.5">
+                        <li>Cử nhân Thương mại – Victoria University of Wellington</li>
+                        <li>Cử nhân Kinh doanh – Western Sydney University</li>
+                        <li>Cử nhân Khoa học dữ liệu ứng dụng – Western Sydney University</li>
+                        <li>Cử nhân Truyền thông – Western Sydney University</li>
+                        <li>Cử nhân Bán phần – Macquarie University</li>
+                        <li>Cử nhân song bằng Kỹ sư robot và trí tuệ nhân tạo – Kwangwoon University</li>
+                        <li>Cử nhân song bằng Truyền thông số & Thiết kế đa phương tiện – University of Saint Joseph</li>
+                        <li>Cử nhân Tài chính ứng dụng – University of Rennes</li>
+                        <li>Cử nhân bằng đôi Kiến trúc và thiết kế đô thị thông minh – University of Auckland</li>
+                        <li>Cử nhân Quản trị kinh doanh – City University of Seattle</li>
+                        <li>Cử nhân Liên kết Đa ngành (Trường Tài năng UEH.ISB với Fu Jen Catholic University)</li>
+                        <li>Cử nhân song bằng quốc tế ngành Tài chính – Ngân hàng – University of Rennes</li>
+                        <li>Kỹ sư song bằng Điều khiển thông minh và tự động hóa – Kwangwoon University</li>
+                    </ul>
+                </div>
+            </details>
+
+        </div>
+
+        <!-- KHỐI LINKS HÀNH ĐỘNG (CTA) -->
+        <div class="border-t border-gray-200 pt-4 space-y-2 text-[14px]">
+            <a href="LINK_HOC_BONG" target="_blank" class="flex items-start text-ueh-teal hover:text-blue-700 transition group">
+                <span class="mr-2 mt-0.5">>></span>
+                <span class="group-hover:underline">Chính sách học bổng dành cho SV UEH tại trường đối tác và SV quốc tế tại UEH</span>
+            </a>
+            <a href="LINK_DANG_DIEN_RA" target="_blank" class="flex items-start text-ueh-teal hover:text-blue-700 transition group">
+                <span class="mr-2 mt-0.5">>></span>
+                <span class="group-hover:underline">Các chương trình Trao đổi quốc tế đang diễn ra</span>
+            </a>
+            <a href="LINK_CHI_TIET" target="_blank" class="inline-flex items-center text-ueh-teal font-bold hover:text-blue-700 transition-colors underline underline-offset-4 mt-2">
+                Xem chi tiết tại đây
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+        </div>
+
+    </div>
+</div>
 
             </div>
         </div>
@@ -2416,40 +2698,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(sec => observer.observe(sec));
 });
-        function changeProgram(element) {
-    // 1. Cập nhật giao diện của các thẻ (Card)
+function changeProgram(element) {
+    // 1. Lấy dữ liệu HTML từ các thẻ ẩn bên trong Card vừa click
+    const titleHTML = element.querySelector('.data-title').innerHTML;
+    const bodyHTML = element.querySelector('.data-body').innerHTML;
+
+    // 2. Định vị khu vực cần thay đổi bên trái
+    const titleContainer = document.getElementById('prog-title');
+    const bodyContainer = document.getElementById('prog-body');
+    const contentBox = document.getElementById('dynamic-program-content');
+
+    // 3. Hiệu ứng mờ dần (Fade Out)
+    contentBox.classList.remove('opacity-100');
+    contentBox.classList.add('opacity-0');
+
+    // Chờ 150ms cho hiệu ứng mờ xong rồi mới thay đổi chữ
+    setTimeout(() => {
+        titleContainer.innerHTML = titleHTML;
+        bodyContainer.innerHTML = bodyHTML;
+        
+        // Hiện lại (Fade In)
+        contentBox.classList.remove('opacity-0');
+        contentBox.classList.add('opacity-100');
+    }, 150);
+
+    // 4. Xử lý UI (đổi màu viền và làm sáng thẻ được chọn)
     const allCards = document.querySelectorAll('.program-card');
     allCards.forEach(card => {
-        // Reset về trạng thái chưa active
-        card.classList.remove('ring-4', 'opacity-100', 'scale-100');
-        card.classList.add('opacity-[0.7]', 'scale-[0.98]');
+        card.classList.remove('ring-4', 'ring-ueh-teal', 'opacity-100', 'scale-100');
+        card.classList.add('opacity-[0.7]', 'scale-[0.98]', 'ring-0');
     });
 
-    // Cập nhật trạng thái Active cho thẻ đang được click
-    element.classList.remove('opacity-[0.7]', 'scale-[0.98]');
-    element.classList.add('ring-4', 'opacity-100', 'scale-100');
-
-    // 2. Lấy Data từ thẻ được click
-    const title = element.getAttribute('data-title');
-    const desc = element.getAttribute('data-desc');
-    const type = element.getAttribute('data-type');
-
-    // 3. Thực hiện Animation cho khung nội dung bên trái
-    const container = document.getElementById('dynamic-program-content');
-    
-    // Bắt đầu fade out
-    container.classList.remove('fade-in');
-    container.classList.add('fade-out');
-
-    // Đợi 200ms để hiệu ứng mờ kết thúc rồi mới đổi Text và hiện lại
-    setTimeout(() => {
-        document.getElementById('prog-title').textContent = title;
-        document.getElementById('prog-desc').textContent = desc;
-        document.getElementById('prog-type').textContent = type;
-
-        container.classList.remove('fade-out');
-        container.classList.add('fade-in');
-    }, 200);
+    element.classList.remove('opacity-[0.7]', 'scale-[0.98]', 'ring-0');
+    element.classList.add('ring-4', 'ring-ueh-teal', 'opacity-100', 'scale-100');
 }
         // Khóa cuộn trang chính cho đến khi lướt hết các card trong section
 const uehScrollBox = document.querySelector('.ueh-scroll-container');

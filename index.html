@@ -2673,35 +2673,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.scroll-section');
     const stickyTitle = document.getElementById('sticky-title');
     let activeIndex = -1;
+    let timeoutId = null; // Thêm biến này để quản lý thời gian chờ
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            // Khi phần tử lọt vào "khung ngắm"
             if (entry.isIntersecting) {
                 const idx = parseInt(entry.target.getAttribute('data-index'));
                 const titleText = entry.target.getAttribute('data-title');
 
+                // Nếu đúng là chuyển sang khu vực mới
                 if (idx !== activeIndex) {
                     activeIndex = idx;
+                    
+                    // 1. NGĂN CHẶN LỖI CHỚP NHÁY: Hủy ngay lệnh đổi chữ cũ nếu người dùng cuộn quá nhanh
+                    if (timeoutId) {
+                        clearTimeout(timeoutId);
+                    }
+
+                    // 2. Hiệu ứng làm mờ và trượt lên
                     stickyTitle.style.opacity = '0';
                     stickyTitle.style.transform = 'translateY(-6px)';
 
-                    setTimeout(() => {
+                    // 3. Đặt thời gian chờ để xuất hiện chữ mới
+                    timeoutId = setTimeout(() => {
                         stickyTitle.textContent = titleText;
                         stickyTitle.style.opacity = '1';
                         stickyTitle.style.transform = 'translateY(0)';
-                    }, 180);
+                    }, 180); // Lưu ý: Thời gian này nên bằng hoặc nhỏ hơn thời gian transition trong CSS một chút
                 }
             }
         });
     }, {
         root: null,
-        rootMargin: '-25% 0px -35% 0px',
+        rootMargin: '-25% 0px -35% 0px', // Ngắm vào khoảng 40% ở giữa màn hình
         threshold: 0.1
     });
 
     sections.forEach(sec => observer.observe(sec));
 });
-        }
 function changeProgram(element) {
     // 1. Lấy dữ liệu HTML từ các thẻ ẩn bên trong Card vừa click
     const titleHTML = element.querySelector('.data-title').innerHTML;

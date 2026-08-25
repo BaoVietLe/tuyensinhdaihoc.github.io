@@ -962,23 +962,27 @@
         <!-- CỘT BÊN TRÁI: TIÊU ĐỀ & NỘI DUNG (STICKY) -->
         <!-- sticky và top-28 sẽ giữ khối này ghim trên màn hình khi cuộn chuột qua cột phải -->
         <div class="lg:col-span-5 sticky top-28 z-10">
-            <h2 class="text-ueh-teal font-black text-[34px] lg:text-[40px] tracking-tight mb-2">
-                Học gì ở UEH?
-            </h2>
-            
-            <!-- Vùng chứa nội dung sẽ thay đổi bằng JS -->
-            <div id="dynamic-program-content" class="content-transition fade-in">
-                <h3 id="prog-title" class="text-[#666] font-extrabold text-[26px] lg:text-[30px] mb-4">
-                    Chương trình Chuẩn
-                </h3>
-                <p id="prog-desc" class="text-[#777] italic text-[14.5px] lg:text-[15.5px] leading-[1.8] font-light text-justify">
-                    Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA (Mạng lưới Đảm bảo chất lượng các trường đại học ASEAN), FIBAA (Bộ tiêu chuẩn kiểm định chất lượng quốc tế của châu Âu)...); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2 - 5 năm/lần.
-                </p>
-                <p id="prog-type" class="text-[#555] font-bold italic text-[14.5px] lg:text-[15.5px] mt-6">
-                    Loại hình đào tạo: Giảng dạy hoàn toàn bằng tiếng Việt
-                </p>
-            </div>
+    <h2 class="text-ueh-teal font-black text-[34px] lg:text-[40px] tracking-tight mb-2">
+        Học gì ở UEH?
+    </h2>
+    
+    <!-- Vùng chứa nội dung sẽ thay đổi bằng JS -->
+    <div id="dynamic-program-content" class="content-transition transition-opacity duration-300 opacity-100">
+        <h3 id="prog-title" class="text-[#666] font-extrabold text-[26px] lg:text-[30px] mb-4">
+            Chương trình Chuẩn
+        </h3>
+        
+        <!-- BẮT BUỘC PHẢI CÓ id="prog-body" Ở ĐÂY -->
+        <div id="prog-body" class="text-[#777] text-[15px] leading-[1.8] font-light text-justify">
+            <p class="italic mb-4">
+                Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA, FIBAA...); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới...
+            </p>
+            <p class="text-[#555] font-bold italic mt-6">
+                Loại hình đào tạo: Giảng dạy hoàn toàn bằng tiếng Việt
+            </p>
         </div>
+    </div>
+</div>
 
         <!-- CỘT BÊN PHẢI: 8 THẺ -->
         <div class="lg:col-span-7">

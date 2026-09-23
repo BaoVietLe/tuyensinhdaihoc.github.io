@@ -58,19 +58,40 @@
       <span class="navbar-toggle-bar"></span>
     </button>
   </header>
-
+  
+<!-- HERO BANNER: 3 ảnh, cả 3 trỏ về cùng 1 liên kết (thay HERO_LINK bên dưới) -->
+  <section class="hero" id="hero" aria-label="Banner tuyển sinh">
+    <div class="hero-slides">
+      <a href="#dang-ky-tu-van" class="hero-slide is-active" data-index="0">
+        <img src="img/herobanner-1.png" alt="Banner tuyển sinh UEH 1" class="hero-image">
+      </a>
+      <a href="#dang-ky-tu-van" class="hero-slide" data-index="1">
+        <img src="img/herobanner-2.png" alt="Banner tuyển sinh UEH 2" class="hero-image">
+      </a>
+      <a href="#dang-ky-tu-van" class="hero-slide" data-index="2">
+        <img src="img/herobanner-3.png" alt="Banner tuyển sinh UEH 3" class="hero-image">
+      </a>
+    </div>
+ 
+    <div class="hero-dots" role="tablist" aria-label="Chọn ảnh banner">
+      <button type="button" class="hero-dot is-active" data-index="0" aria-label="Ảnh 1" aria-selected="true"></button>
+      <button type="button" class="hero-dot" data-index="1" aria-label="Ảnh 2" aria-selected="false"></button>
+      <button type="button" class="hero-dot" data-index="2" aria-label="Ảnh 3" aria-selected="false"></button>
+    </div>
+  </section>
+ 
   <script>
     // Bật/tắt menu mobile khi bấm nút hamburger
     (function () {
       var navbar = document.getElementById('navbar');
       var toggle = document.getElementById('navbarToggle');
-
+ 
       toggle.addEventListener('click', function () {
         var isOpen = navbar.classList.toggle('is-open');
         toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         toggle.setAttribute('aria-label', isOpen ? 'Đóng menu' : 'Mở menu');
       });
-
+ 
       // Đóng menu khi bấm 1 link/nút bên trong (trải nghiệm mobile tốt hơn)
       document.getElementById('navbarContent').addEventListener('click', function (e) {
         if (e.target.tagName === 'A' && navbar.classList.contains('is-open')) {
@@ -80,7 +101,53 @@
         }
       });
     })();
+ 
+    // Hero banner: chuyển ảnh khi bấm dot, tự động chuyển sau mỗi 5s
+    (function () {
+      var hero = document.getElementById('hero');
+      if (!hero) return;
+ 
+      var slides = hero.querySelectorAll('.hero-slide');
+      var dots = hero.querySelectorAll('.hero-dot');
+      var current = 0;
+      var AUTOPLAY_MS = 5000;
+      var timer = null;
+ 
+      function goTo(index) {
+        slides[current].classList.remove('is-active');
+        dots[current].classList.remove('is-active');
+        dots[current].setAttribute('aria-selected', 'false');
+ 
+        current = index;
+ 
+        slides[current].classList.add('is-active');
+        dots[current].classList.add('is-active');
+        dots[current].setAttribute('aria-selected', 'true');
+      }
+ 
+      function next() {
+        goTo((current + 1) % slides.length);
+      }
+ 
+      function startAutoplay() {
+        stopAutoplay();
+        timer = setInterval(next, AUTOPLAY_MS);
+      }
+ 
+      function stopAutoplay() {
+        if (timer) clearInterval(timer);
+      }
+ 
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          goTo(i);
+          startAutoplay(); // reset lại thời gian đếm khi người dùng tự bấm
+        });
+      });
+ 
+      startAutoplay();
+    })();
   </script>
-
+ 
 </body>
 </html>

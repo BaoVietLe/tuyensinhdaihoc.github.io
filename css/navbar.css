@@ -1,90 +1,90 @@
 /* ==========================================================================
-   NAVBAR.CSS — Style riêng cho navbar, dựa trên biến của root.css
-   Navbar: 1440 x 81, căn giữa toàn bộ nội dung theo chiều dọc
+   NAVBAR.CSS — Responsive cho desktop / tablet / mobile
+   - Giữ bố cục 2 hàng trên desktop
+   - Hàng 2 dùng cùng kiểu chữ với H3 nhưng IN ĐẬM
+   - Tự co giãn theo chiều rộng màn hình, không tạo overflow ngang
    ========================================================================== */
 
 .navbar {
-  width: 1440px;
-  height: 81px;
+  width: 100%;
+  min-height: 81px;
   background-color: var(--color-secondary);
   display: flex;
   align-items: center;
-  padding: 0 40px; /* đo lại từ ảnh gốc: ~40-46px 2 bên */
+  padding: 14px clamp(16px, 2.8vw, 40px);
   box-sizing: border-box;
 }
 
-/* ---------- Logo ---------- */
 .navbar-logo {
-  width: 184px;
-  height: 51px;
-  flex-shrink: 0;
+  width: clamp(120px, 12.8vw, 184px);
+  height: auto;
+  max-height: 51px;
+  flex: 0 1 auto;
   object-fit: contain;
 }
 
-/* ---------- Khối nội dung bên phải logo (2 hàng) ---------- */
 .navbar-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 24px; /* đo lại từ ảnh: khoảng trống giữa dòng 1 và dòng 2 là ~24px, không phải 10px */
-  margin-left: 60px; /* khoảng cách từ logo đến khối nội dung, đo lại từ ảnh */
-  flex: 1;
+  gap: clamp(12px, 1.65vw, 24px);
+  margin-left: clamp(20px, 4.15vw, 60px);
+  flex: 1 1 auto;
   min-width: 0;
 }
 
-/* ---------- Hàng 1 ---------- */
 .navbar-row-1 {
   display: flex;
   align-items: center;
+  gap: 16px;
   width: 100%;
+  min-width: 0;
 }
 
 .navbar-texts-row1 {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  gap: 8px 30px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
-/* Mỗi item text/icon-text trong hàng 1 dùng chung class .section-spacing-hon
-   (khoảng cách ngang 30px, đã khai báo trong root.css) */
 .navbar-texts-row1 > * {
   white-space: nowrap;
 }
 
-/* Cụm icon + chữ (ví dụ: ✓ Học tại TP. Hồ Chí Minh) */
 .navbar-check-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-icon-text); /* 10px giữa icon và chữ */
+  gap: var(--spacing-icon-text, 10px);
 }
 
 .navbar-check-icon {
   width: 18px;
   height: 14px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   color: var(--color-main);
 }
 
-/* ---------- Nút "Đăng ký tư vấn" ---------- */
 .navbar-btn {
-  margin-left: auto; /* đẩy nút về sát mép phải của hàng 1 */
-  flex-shrink: 0;
+  margin-left: auto;
+  flex: 0 0 auto;
 
   font-family: var(--font-family-base);
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-light);
-  line-height: var(--line-height-auto); /* = line-height của h3 => chiều cao nút bằng h3 */
+  line-height: var(--line-height-auto);
 
   color: #FFFFFF;
   background-color: var(--color-main);
   border: none;
   border-radius: 999px;
-  /* Đo trực tiếp trên ảnh mẫu: nút cao ~27px = chữ h3 (15px) + padding dọc ~6px mỗi bên,
-     KHÔNG phải 0 padding dọc như bản trước (khi đó nút bị quá mảnh so với ảnh) */
   padding: 6px 16px;
 
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -93,28 +93,192 @@
   opacity: 0.9;
 }
 
-/* ---------- Hàng 2 ---------- */
 .navbar-row-2 {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 30px;
   width: 100%;
-  /* Quan trọng: đo trực tiếp trên ảnh mẫu cho thấy hàng 2 KHÔNG thẳng hàng với
-     hàng 1 - nó lùi vào thêm ~70px. Đây không phải lỗi mà là chi tiết thật của ảnh. */
-  padding-left: 70px;
+  padding-left: clamp(0px, 4.85vw, 70px);
+  box-sizing: border-box;
 }
 
 .navbar-row-2 a {
   color: #FFFFFF;
   text-decoration: none;
   white-space: nowrap;
+
+  /* Cùng kiểu chữ với H3 nhưng in đậm */
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  line-height: var(--line-height-auto);
 }
 
 .navbar-row-2 a:hover {
   text-decoration: underline;
 }
 
-/* ---------- Toàn bộ chữ trong navbar dùng định dạng H3 & màu trắng ---------- */
-.navbar .h3,
-.navbar-row-2 a {
+.navbar .h3 {
   color: #FFFFFF;
+}
+
+
+/* ==========================================================================
+   TABLET — 768px đến 1100px
+   Thu gọn khoảng cách và cho hàng 1 tự xuống dòng khi thiếu chỗ.
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .navbar {
+    align-items: flex-start;
+  }
+
+  .navbar-logo {
+    width: clamp(110px, 16vw, 160px);
+  }
+
+  .navbar-content {
+    margin-left: clamp(18px, 3vw, 36px);
+    gap: 14px;
+  }
+
+  .navbar-row-1 {
+    align-items: flex-start;
+  }
+
+  .navbar-texts-row1 {
+    gap: 6px 18px;
+  }
+
+  .navbar-btn {
+    padding: 5px 13px;
+  }
+
+  .navbar-row-2 {
+    gap: 7px 18px;
+    padding-left: clamp(0px, 3vw, 34px);
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE — <= 767px
+   Chuyển navbar thành bố cục dọc, tránh chữ/nút bị ép hoặc tràn màn hình.
+   ========================================================================== */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .navbar-logo {
+    width: 120px;
+    max-width: 34vw;
+  }
+
+  .navbar-content {
+    margin-left: 14px;
+    gap: 12px;
+  }
+
+  .navbar-row-1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .navbar-texts-row1 {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .navbar-texts-row1 > * {
+    white-space: normal;
+  }
+
+  .navbar-check-item {
+    gap: 8px;
+  }
+
+  .navbar-check-icon {
+    width: 16px;
+    height: 14px;
+  }
+
+  .navbar-btn {
+    margin-left: 0;
+    font-size: var(--font-size-h3);
+    padding: 6px 14px;
+  }
+
+  .navbar-row-2 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    padding-left: 0;
+  }
+
+  .navbar-row-2 a {
+    white-space: normal;
+    font-weight: 700;
+  }
+}
+
+
+/* ==========================================================================
+   Màn hình rất nhỏ — <= 480px
+   ========================================================================== */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+
+  .navbar-logo {
+    width: 92px;
+  }
+
+  .navbar-content {
+    margin-left: 10px;
+    gap: 10px;
+  }
+
+  .navbar-texts-row1 {
+    gap: 4px;
+  }
+
+  .navbar-check-item {
+    gap: 6px;
+  }
+
+  .navbar-btn {
+    padding: 5px 11px;
+  }
+
+  .navbar-row-2 {
+    gap: 5px;
+  }
+}
+
+
+/* ==========================================================================
+   Màn hình siêu nhỏ — <= 360px
+   Cho phép logo và nội dung xếp dọc để không bao giờ bị tràn ngang.
+   ========================================================================== */
+@media (max-width: 360px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .navbar-logo {
+    width: 110px;
+    max-width: 45vw;
+  }
+
+  .navbar-content {
+    width: 100%;
+    margin-left: 0;
+  }
 }

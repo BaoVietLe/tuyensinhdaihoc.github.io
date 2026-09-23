@@ -1,0 +1,93 @@
+/* ==========================================================================
+   HERO.CSS — Banner đầu trang (slider 3 ảnh + navigation dots)
+   Chiều cao = chiều cao màn hình - chiều cao navbar (81px), luôn vừa khít
+   màn hình máy tính ở MỌI kích cỡ (không kéo scroll dọc ở phần banner).
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  /* 100vh trừ đi 81px của navbar phía trên (navbar nằm trong luồng trang,
+     không fixed) => tổng navbar + hero luôn khớp đúng 1 màn hình desktop. */
+  height: calc(100vh - 81px);
+  min-height: 320px; /* phòng khi màn hình quá thấp (vd. cửa sổ thu nhỏ) */
+  overflow: hidden;
+  background-color: var(--color-secondary); /* màu nền chờ trong lúc ảnh load */
+}
+
+/* ---------- Khối chứa các slide, xếp chồng lên nhau ---------- */
+.hero-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mỗi slide là 1 thẻ <a> bọc quanh ảnh, cả 3 trỏ về cùng 1 liên kết */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease;
+  z-index: 1;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* ảnh phủ kín khung, không méo */
+  object-position: center;
+}
+
+/* ---------- Navigation dots ---------- */
+.hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 5;
+}
+
+.hero-dot {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-dot:hover {
+  transform: scale(1.1);
+}
+
+.hero-dot.is-active {
+  background-color: #FFFFFF;
+}
+
+/* Chấm cam theo màu thương hiệu khi active, thay vì trắng đặc — dễ nhận biết hơn */
+.hero-dot.is-active {
+  background-color: var(--color-main);
+  border-color: var(--color-main);
+}
+
+@media (max-width: 640px) {
+  .hero-dots {
+    bottom: 16px;
+    gap: 10px;
+  }
+}

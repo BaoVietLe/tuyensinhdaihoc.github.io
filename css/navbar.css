@@ -1,0 +1,115 @@
+/* ==========================================================================
+   NAVBAR.CSS — Style riêng cho navbar, dựa trên biến của root.css
+   Navbar: 1440 x 81, căn giữa toàn bộ nội dung theo chiều dọc
+   ========================================================================== */
+
+.navbar {
+  width: 1440px;
+  height: 81px;
+  background-color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  padding: 0 32px; /* khoảng cách 2 bên mép navbar - tinh chỉnh nếu cần */
+  box-sizing: border-box;
+}
+
+/* ---------- Logo ---------- */
+.navbar-logo {
+  width: 184px;
+  height: 51px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* ---------- Khối nội dung bên phải logo (2 hàng) ---------- */
+.navbar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px; /* khoảng cách dòng 1 - dòng 2, ước lượng theo ảnh */
+  margin-left: 48px; /* khoảng cách từ logo đến khối nội dung */
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- Hàng 1 ---------- */
+.navbar-row-1 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-texts-row1 {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Mỗi item text/icon-text trong hàng 1 dùng chung class .section-spacing-hon
+   (khoảng cách ngang 30px, đã khai báo trong root.css) */
+.navbar-texts-row1 > * {
+  white-space: nowrap;
+}
+
+/* Cụm icon + chữ (ví dụ: ✓ Học tại TP. Hồ Chí Minh) */
+.navbar-check-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-icon-text); /* 10px giữa icon và chữ */
+}
+
+.navbar-check-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--color-main);
+}
+
+/* ---------- Nút "Đăng ký tư vấn" ---------- */
+.navbar-btn {
+  margin-left: auto; /* đẩy nút về sát mép phải của hàng 1 */
+  flex-shrink: 0;
+
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-auto); /* = line-height của h3 => chiều cao nút bằng h3 */
+
+  color: #FFFFFF;
+  background-color: var(--color-main);
+  border: none;
+  border-radius: 999px;
+  padding: 0 20px; /* chỉ padding ngang, không thêm padding dọc để giữ đúng chiều cao h3 */
+
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.navbar-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- Hàng 2 ---------- */
+.navbar-row-2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-row-2 a {
+  color: #FFFFFF;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar-row-2 a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Toàn bộ chữ trong navbar dùng định dạng H3 & màu trắng ---------- */
+.navbar .h3,
+.navbar-row-2 a {
+  color: #FFFFFF;
+}

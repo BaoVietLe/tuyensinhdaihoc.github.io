@@ -1,0 +1,203 @@
+/* ==========================================================================
+   ROOT.CSS — Biến CSS dùng chung cho toàn bộ dự án
+   Tương thích với Tailwind CSS (dùng qua arbitrary values hoặc extend theme)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'SVN-Poppins';
+  src: url('/fonts/SVN-Poppins-Light.woff2') format('woff2'),
+       url('/fonts/SVN-Poppins-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SVN-Poppins';
+  src: url('/fonts/SVN-Poppins-Regular.woff2') format('woff2'),
+       url('/fonts/SVN-Poppins-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SVN-Poppins';
+  src: url('/fonts/SVN-Poppins-Bold.woff2') format('woff2'),
+       url('/fonts/SVN-Poppins-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Font ---------- */
+  --font-family-base: 'SVN-Poppins', sans-serif;
+
+  /* ---------- Font size ---------- */
+  --font-size-h1: 40px;
+  --font-size-h2: 25px;
+  --font-size-h3: 15px;
+  --font-size-main: 20px;
+
+  /* ---------- Font weight ---------- */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* ---------- Line height ---------- */
+  --line-height-auto: normal;
+
+  /* ---------- Màu sắc ---------- */
+  --color-main: #F26F33;
+  --color-secondary: #056B75;
+  --color-text: #5F646F;
+
+  /* ---------- Kích thước khối / bo góc ---------- */
+  --shape-height: 50px;
+  --border-radius-base: 15px;
+
+  /* ---------- Khoảng cách ---------- */
+  --spacing-vertical: 35px;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  line-height: var(--line-height-auto);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, .h1 {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-auto);
+}
+
+h2, .h2 {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-auto);
+}
+
+h3, .h3 {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-auto);
+}
+
+p, .main-text {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-main);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-auto);
+}
+
+/* ==========================================================================
+   Utility classes (dùng độc lập, không cần Tailwind)
+   ========================================================================== */
+.text-color {
+  color: var(--color-text);
+}
+
+.text-main-color {
+  color: var(--color-main);
+}
+
+.text-secondary-color {
+  color: var(--color-secondary);
+}
+
+.bg-main-color {
+  background-color: var(--color-main);
+}
+
+.bg-secondary-color {
+  background-color: var(--color-secondary);
+}
+
+.shape {
+  height: var(--shape-height);
+  border-radius: var(--border-radius-base);
+}
+
+.rounded-base {
+  border-radius: var(--border-radius-base);
+}
+
+.stack-vertical > * + * {
+  margin-top: var(--spacing-vertical);
+}
+
+.section-spacing {
+  margin-bottom: var(--spacing-vertical);
+}
+
+/* ==========================================================================
+   Tích hợp với Tailwind CSS
+   --------------------------------------------------------------------------
+   Cách 1 (Tailwind v3 - tailwind.config.js):
+
+   module.exports = {
+     theme: {
+       extend: {
+         fontFamily: {
+           sans: ['SVN-Poppins', 'sans-serif'],
+         },
+         fontSize: {
+           h1: ['40px', { fontWeight: '700', lineHeight: 'normal' }],
+           h2: ['25px', { fontWeight: '700', lineHeight: 'normal' }],
+           h3: ['15px', { fontWeight: '300', lineHeight: 'normal' }],
+           main: ['20px', { fontWeight: '300', lineHeight: 'normal' }],
+         },
+         colors: {
+           main: '#F26F33',
+           secondary: '#056B75',
+           text: '#5F646F',
+         },
+         borderRadius: {
+           base: '15px',
+         },
+         spacing: {
+           section: '35px',
+           shape: '50px',
+         },
+       },
+     },
+   }
+
+   -> Sau đó dùng class Tailwind: text-h1, text-main, bg-main,
+      text-secondary, text-text, rounded-base, h-shape, mt-section, ...
+
+   Cách 2 (Tailwind v4 - dùng trực tiếp biến CSS trong file @theme):
+
+   @import "tailwindcss";
+   @import "./root.css";
+
+   @theme {
+     --font-sans: var(--font-family-base);
+     --color-main: var(--color-main);
+     --color-secondary: var(--color-secondary);
+     --color-text: var(--color-text);
+     --radius-base: var(--border-radius-base);
+     --spacing-section: var(--spacing-vertical);
+   }
+
+   -> Dùng trực tiếp: class="text-main bg-secondary rounded-base"
+      hoặc arbitrary value: class="h-[var(--shape-height)]"
+   ========================================================================== */

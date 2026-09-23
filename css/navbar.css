@@ -1,90 +1,100 @@
 /* ==========================================================================
-   NAVBAR.CSS — Responsive cho desktop / tablet / mobile
-   - Giữ bố cục 2 hàng trên desktop
-   - Hàng 2 dùng cùng kiểu chữ với H3 nhưng IN ĐẬM
-   - Tự co giãn theo chiều rộng màn hình, không tạo overflow ngang
+   NAVBAR.CSS — Style riêng cho navbar, dựa trên biến của root.css
+   Desktop chuẩn: rộng tối đa 1440px (co giãn theo màn hình), cao CỐ ĐỊNH 81px.
+   Dưới ngưỡng NAVBAR_BREAKPOINT (1280px): chuyển sang menu dạng hamburger
+   để không bị vỡ layout trên tablet / điện thoại (không thể nhồi 2 hàng nội
+   dung đầy đủ chữ h3 vào 1 thanh cao 81px trên màn hình hẹp).
    ========================================================================== */
 
 .navbar {
+  position: relative; /* làm điểm neo cho menu mobile (position:absolute) */
   width: 100%;
-  min-height: 81px;
+  max-width: 1440px;
+  height: 81px;
+  margin: 0 auto;       /* tự căn giữa khi màn hình > 1440px */
   background-color: var(--color-secondary);
   display: flex;
   align-items: center;
-  padding: 14px clamp(16px, 2.8vw, 40px);
+  /* padding 2 bên co giãn mượt trong khoảng 1280px–1440px, giữ nguyên 40px ở >=1440px
+     và không nhỏ hơn 20px ở các mốc dưới 1280px (chế độ hamburger) */
+  padding: 0 clamp(20px, 2.8vw, 40px);
   box-sizing: border-box;
+  overflow: visible; /* để menu mobile xổ xuống không bị cắt */
 }
 
+/* ---------- Logo ---------- */
 .navbar-logo {
-  width: clamp(120px, 12.8vw, 184px);
-  height: auto;
-  max-height: 51px;
-  flex: 0 1 auto;
+  width: 184px;
+  height: 51px;
+  flex-shrink: 0;
   object-fit: contain;
 }
 
+/* ---------- Khối nội dung bên phải logo (2 hàng) ---------- */
 .navbar-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(12px, 1.65vw, 24px);
-  margin-left: clamp(20px, 4.15vw, 60px);
-  flex: 1 1 auto;
+  gap: 24px; /* khoảng trống giữa dòng 1 và dòng 2, đo từ ảnh gốc */
+  /* khoảng cách từ logo đến khối nội dung: 60px ở bản desktop chuẩn 1440,
+     co giãn nhẹ ở vùng 1280–1440 để không bị chật */
+  margin-left: clamp(32px, 4.2vw, 60px);
+  flex: 1;
   min-width: 0;
 }
 
+/* ---------- Hàng 1 ---------- */
 .navbar-row-1 {
   display: flex;
   align-items: center;
-  gap: 16px;
   width: 100%;
-  min-width: 0;
 }
 
 .navbar-texts-row1 {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 30px;
-  min-width: 0;
-  flex: 1 1 auto;
+  flex-wrap: nowrap;
 }
 
+/* Mỗi item text/icon-text trong hàng 1 dùng chung class .section-spacing-hon
+   (khoảng cách ngang 30px, đã khai báo trong root.css) */
 .navbar-texts-row1 > * {
   white-space: nowrap;
 }
 
+/* Cụm icon + chữ (ví dụ: ✓ Học tại TP. Hồ Chí Minh) */
 .navbar-check-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-icon-text, 10px);
+  gap: var(--spacing-icon-text); /* 10px giữa icon và chữ, khai báo ở root.css */
 }
 
 .navbar-check-icon {
   width: 18px;
   height: 14px;
-  flex: 0 0 auto;
+  flex-shrink: 0;
   color: var(--color-main);
 }
 
+/* ---------- Nút "Đăng ký tư vấn" ---------- */
 .navbar-btn {
-  margin-left: auto;
-  flex: 0 0 auto;
+  margin-left: auto; /* đẩy nút về sát mép phải của hàng 1 */
+  flex-shrink: 0;
 
   font-family: var(--font-family-base);
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-light);
-  line-height: var(--line-height-auto);
+  line-height: var(--line-height-auto); /* = line-height của h3 => chiều cao nút bằng h3 */
 
   color: #FFFFFF;
   background-color: var(--color-main);
   border: none;
   border-radius: 999px;
+  /* nút cao ~27px = chữ h3 (15px) + padding dọc ~6px mỗi bên */
   padding: 6px 16px;
 
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -93,192 +103,152 @@
   opacity: 0.9;
 }
 
+/* ---------- Hàng 2 ---------- */
 .navbar-row-2 {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 30px;
   width: 100%;
-  padding-left: clamp(0px, 4.85vw, 70px);
-  box-sizing: border-box;
+  /* Đo trực tiếp trên ảnh mẫu: hàng 2 KHÔNG thẳng hàng với hàng 1,
+     nó lùi vào thêm ~70px. Đây là chi tiết thật của ảnh, không phải lỗi. */
+  padding-left: 70px;
 }
 
 .navbar-row-2 a {
   color: #FFFFFF;
   text-decoration: none;
   white-space: nowrap;
-
-  /* Cùng kiểu chữ với H3 nhưng in đậm */
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-h3);
-  font-weight: 700;
-  line-height: var(--line-height-auto);
+  /* Hàng 2 dùng cùng font h3 nhưng IN ĐẬM (bold) — đối chiếu ảnh gốc,
+     hàng 2 rõ ràng đậm hơn hàng 1 */
+  font-weight: var(--font-weight-bold);
 }
 
 .navbar-row-2 a:hover {
   text-decoration: underline;
 }
 
-.navbar .h3 {
+/* ---------- Toàn bộ chữ trong navbar dùng định dạng H3 & màu trắng ---------- */
+.navbar .h3,
+.navbar-row-2 a {
   color: #FFFFFF;
 }
 
+/* ==========================================================================
+   NÚT HAMBURGER (chỉ hiện ở chế độ mobile/tablet, xem media query bên dưới)
+   ========================================================================== */
+.navbar-toggle {
+  display: none; /* mặc định ẩn ở desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.navbar-toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hiệu ứng hamburger -> dấu X khi menu đang mở */
+.navbar.is-open .navbar-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar.is-open .navbar-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar.is-open .navbar-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* ==========================================================================
-   TABLET — 768px đến 1100px
-   Thu gọn khoảng cách và cho hàng 1 tự xuống dòng khi thiếu chỗ.
+   RESPONSIVE
+   >= 1280px  : layout gốc, đầy đủ 2 hàng, co giãn mượt tới tối đa 1440px
+   <  1280px  : gộp toàn bộ nội dung vào menu hamburger (tablet & mobile),
+                vì nội dung chữ h3 đầy đủ không thể vừa 1 thanh cao 81px
+                trên màn hình hẹp mà vẫn giữ đúng kích thước chữ theo yêu cầu.
    ========================================================================== */
-@media (max-width: 1100px) {
-  .navbar {
-    align-items: flex-start;
-  }
-
-  .navbar-logo {
-    width: clamp(110px, 16vw, 160px);
+@media (max-width: 1279px) {
+  .navbar-toggle {
+    display: flex;
   }
 
   .navbar-content {
-    margin-left: clamp(18px, 3vw, 36px);
+    display: none; /* ẩn mặc định, chỉ hiện khi bấm hamburger */
+    position: absolute;
+    top: 81px;
+    left: 0;
+    width: 100%;
+    margin-left: 0;
+    gap: 20px;
+    background-color: var(--color-secondary);
+    padding: 20px clamp(20px, 5vw, 40px) 28px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+    max-height: calc(100vh - 81px);
+    overflow-y: auto;
+    z-index: 100;
+    box-sizing: border-box;
+  }
+
+  .navbar.is-open .navbar-content {
+    display: flex;
+  }
+
+  /* Hàng 1: text và nút xếp dọc, căn trái */
+  .navbar-row-1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .navbar-texts-row1 {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 14px;
-  }
-
-  .navbar-row-1 {
-    align-items: flex-start;
-  }
-
-  .navbar-texts-row1 {
-    gap: 6px 18px;
-  }
-
-  .navbar-btn {
-    padding: 5px 13px;
-  }
-
-  .navbar-row-2 {
-    gap: 7px 18px;
-    padding-left: clamp(0px, 3vw, 34px);
-  }
-}
-
-
-/* ==========================================================================
-   MOBILE — <= 767px
-   Chuyển navbar thành bố cục dọc, tránh chữ/nút bị ép hoặc tràn màn hình.
-   ========================================================================== */
-@media (max-width: 767px) {
-  .navbar {
-    padding: 12px 16px;
-  }
-
-  .navbar-logo {
-    width: 120px;
-    max-width: 34vw;
-  }
-
-  .navbar-content {
-    margin-left: 14px;
-    gap: 12px;
-  }
-
-  .navbar-row-1 {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .navbar-texts-row1 {
     width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
   }
 
+  /* Bỏ margin-right (section-spacing-hon) khi xếp dọc, dùng gap thay thế */
   .navbar-texts-row1 > * {
+    margin-right: 0 !important;
     white-space: normal;
-  }
-
-  .navbar-check-item {
-    gap: 8px;
-  }
-
-  .navbar-check-icon {
-    width: 16px;
-    height: 14px;
   }
 
   .navbar-btn {
     margin-left: 0;
-    font-size: var(--font-size-h3);
-    padding: 6px 14px;
+    align-self: flex-start;
   }
 
+  /* Hàng 2: xếp dọc, căn trái, bỏ thụt lề 70px của bản desktop */
   .navbar-row-2 {
     flex-direction: column;
     align-items: flex-start;
-    gap: 7px;
+    gap: 14px;
     padding-left: 0;
-  }
-
-  .navbar-row-2 a {
-    white-space: normal;
-    font-weight: 700;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 
-
-/* ==========================================================================
-   Màn hình rất nhỏ — <= 480px
-   ========================================================================== */
-@media (max-width: 480px) {
+/* Màn hình điện thoại rất nhỏ: giảm nhẹ padding ngang cho thoáng */
+@media (max-width: 420px) {
   .navbar {
-    padding: 10px 12px;
-  }
-
-  .navbar-logo {
-    width: 92px;
+    padding: 0 16px;
   }
 
   .navbar-content {
-    margin-left: 10px;
-    gap: 10px;
-  }
-
-  .navbar-texts-row1 {
-    gap: 4px;
-  }
-
-  .navbar-check-item {
-    gap: 6px;
-  }
-
-  .navbar-btn {
-    padding: 5px 11px;
-  }
-
-  .navbar-row-2 {
-    gap: 5px;
-  }
-}
-
-
-/* ==========================================================================
-   Màn hình siêu nhỏ — <= 360px
-   Cho phép logo và nội dung xếp dọc để không bao giờ bị tràn ngang.
-   ========================================================================== */
-@media (max-width: 360px) {
-  .navbar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .navbar-logo {
-    width: 110px;
-    max-width: 45vw;
-  }
-
-  .navbar-content {
-    width: 100%;
-    margin-left: 0;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

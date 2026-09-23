@@ -9,7 +9,7 @@
   background-color: var(--color-secondary);
   display: flex;
   align-items: center;
-  padding: 0 32px; /* khoảng cách 2 bên mép navbar - tinh chỉnh nếu cần */
+  padding: 0 40px; /* đo lại từ ảnh gốc: ~40-46px 2 bên */
   box-sizing: border-box;
 }
 
@@ -26,8 +26,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px; /* khoảng cách dòng 1 - dòng 2, ước lượng theo ảnh */
-  margin-left: 48px; /* khoảng cách từ logo đến khối nội dung */
+  gap: 24px; /* đo lại từ ảnh: khoảng trống giữa dòng 1 và dòng 2 là ~24px, không phải 10px */
+  margin-left: 60px; /* khoảng cách từ logo đến khối nội dung, đo lại từ ảnh */
   flex: 1;
   min-width: 0;
 }
@@ -59,7 +59,7 @@
 }
 
 .navbar-check-icon {
-  width: 14px;
+  width: 18px;
   height: 14px;
   flex-shrink: 0;
   color: var(--color-main);
@@ -79,7 +79,9 @@
   background-color: var(--color-main);
   border: none;
   border-radius: 999px;
-  padding: 0 20px; /* chỉ padding ngang, không thêm padding dọc để giữ đúng chiều cao h3 */
+  /* Đo trực tiếp trên ảnh mẫu: nút cao ~27px = chữ h3 (15px) + padding dọc ~6px mỗi bên,
+     KHÔNG phải 0 padding dọc như bản trước (khi đó nút bị quá mảnh so với ảnh) */
+  padding: 6px 16px;
 
   display: inline-flex;
   align-items: center;
@@ -96,6 +98,9 @@
   display: flex;
   align-items: center;
   width: 100%;
+  /* Quan trọng: đo trực tiếp trên ảnh mẫu cho thấy hàng 2 KHÔNG thẳng hàng với
+     hàng 1 - nó lùi vào thêm ~70px. Đây không phải lỗi mà là chi tiết thật của ảnh. */
+  padding-left: 70px;
 }
 
 .navbar-row-2 a {

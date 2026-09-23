@@ -181,7 +181,7 @@
 
   /* ---------- Khoảng cách ---------- */
   --spacing-vertical: 35px;
-   --spacing-horizontal: 30px;
+  --spacing-horizontal: 30px;
 }
 
 /* ==========================================================================
@@ -271,6 +271,9 @@
 
   .section-spacing {
     margin-bottom: var(--spacing-vertical);
+  }
+  .section-spacing-hon {
+    margin-bottom: var(--spacing-horizontal);
   }
 }
 

@@ -108,9 +108,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  /* Đo trực tiếp trên ảnh mẫu: hàng 2 KHÔNG thẳng hàng với hàng 1,
-     nó lùi vào thêm ~70px. Đây là chi tiết thật của ảnh, không phải lỗi. */
-  padding-left: 70px;
+  padding-left: 50px;
 }
 
 .navbar-row-2 a {

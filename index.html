@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/root.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/hero.css">
+  <link rel="stylesheet" href="./css/declare.css">
 </head>
 <body>
 
@@ -81,6 +82,147 @@
     </div>
   </section>
  
+ <!-- ======================================================================
+       KHAI PHÁ TUYÊN NGÔN UEH — I AM WHO I CHOOSE TO BE
+       H1: tiêu đề chính | H2: tiêu đề phụ dạng tab | H3: tab con + toàn bộ
+       văn bản còn lại. Những phần nội dung ảnh gốc chưa cung cấp được đánh
+       dấu rõ bằng class "declare-placeholder" — cần thay bằng nội dung thật.
+       ====================================================================== -->
+  <section class="declare" id="declare">
+    <h1 class="h1 declare-title">
+      KHAI PHÁ TUYÊN NGÔN UEH<br>
+      I AM WHO I CHOOSE TO BE
+    </h1>
+ 
+    <div class="declare-tabs" id="declareTabs">
+      <button type="button" class="declare-tabs-arrow" id="declareTabsPrev" aria-label="Tiêu đề trước">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+ 
+      <div class="declare-tabs-track" id="declareTabsTrack">
+        <button type="button" class="h2 declare-tab is-active" data-panel="panel-1">Vì sao tôi là người tôi chọn tại UEH</button>
+        <button type="button" class="h2 declare-tab" data-panel="panel-2">Học tập không giới hạn, gắn với đa ngành, đa lĩnh vực, gắn với phát triển bền vững</button>
+        <button type="button" class="h2 declare-tab" data-panel="panel-3">Học thật, làm thật, đa dạng loại hình đào tạo</button>
+        <!-- Tiêu đề 4 & 6: ảnh gốc chỉ hiện dạng rút gọn, chưa rõ tên đầy đủ —
+             đang đặt tạm tên hợp lý, cần bạn xác nhận/chỉnh lại -->
+        <button type="button" class="h2 declare-tab" data-panel="panel-4">Học đón đầu tương lai, dẫn dắt xu hướng</button>
+        <button type="button" class="h2 declare-tab" data-panel="panel-5">Bắt đầu hành trình “Tôi là người tôi chọn”</button>
+        <button type="button" class="h2 declare-tab" data-panel="panel-6">Những trải nghiệm định hình bản sắc riêng</button>
+      </div>
+ 
+      <button type="button" class="declare-tabs-arrow" id="declareTabsNext" aria-label="Tiêu đề tiếp theo">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+ 
+    <!-- ============ PANEL 1: có mini-tabs (3 mục) ============ -->
+    <div class="declare-panel is-active" id="panel-1">
+      <div class="declare-minitabs">
+        <div class="declare-minitabs-col">
+          <button type="button" class="h3 declare-minitab is-active" data-target="t1-1">Vì UEH dạy những gì các đại học hàng đầu thế giới đang dạy.</button>
+          <button type="button" class="h3 declare-minitab" data-target="t1-2">Vì UEH trao cho tôi đa dạng lựa chọn để định hình con đường riêng.</button>
+          <button type="button" class="h3 declare-minitab" data-target="t1-3">Vì UEH là môi trường học tập năng động với những trải nghiệm sinh viên đáng nhớ.</button>
+        </div>
+        <div class="declare-minitabs-content">
+          <div class="h3 declare-minitab-text is-active" id="t1-1">
+            <p>Sinh viên UEH học tập các chương trình đào tạo đạt kiểm định quốc tế AUN-QA, FIBAA, được thiết kế đối sánh theo chuẩn Top 200 đại học hàng đầu thế giới. Định hướng quốc tế hóa giúp người học tiếp cận chuẩn đào tạo toàn cầu ngay tại Việt Nam, phát triển tư duy quốc tế và năng lực nghề nghiệp bền vững.</p>
+          </div>
+          <div class="h3 declare-minitab-text" id="t1-2">
+            <p class="declare-placeholder">[Nội dung cần bổ sung — ảnh gốc chưa cung cấp nội dung cho mục này]</p>
+          </div>
+          <div class="h3 declare-minitab-text" id="t1-3">
+            <p class="declare-placeholder">[Nội dung cần bổ sung — ảnh gốc chưa cung cấp nội dung cho mục này]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ============ PANEL 2: văn bản xuôi (không có mini-tabs) ============ -->
+    <div class="declare-panel" id="panel-2">
+      <div class="declare-prose">
+        <p class="h3">Năm 2026, UEH chính thức tuyển sinh 82 chương trình đào tạo đại học chính quy, trong đó có 08 chương trình đào tạo mới tập trung vào các lĩnh vực đang dẫn dắt chuyển đổi kinh tế – đô thị – công nghệ, bao gồm: Kinh tế chính trị quốc tế, Công nghệ Logistics (tích hợp chứng chỉ quốc tế FIATA), Kiến trúc sư Kiến trúc và Thiết kế đô thị thông minh, Luật, Luật Thương mại quốc tế, Sản xuất thông minh, Quản trị vận hành và di chuyển thông minh, Chương trình Cử nhân Tài năng – Công nghệ.</p>
+        <p class="h3">Do đó, các chương trình học được thiết kế với tinh thần đa ngành, liên ngành, xuyên ngành ở 12 lĩnh vực: Kinh doanh và quản lý; Nhân văn; Khoa học xã hội và hành vi; Báo chí và thông tin; Pháp luật; Toán và Thống kê; Máy tính và công nghệ thông tin; Công nghệ kỹ thuật; Kiến trúc và xây dựng; Nông, lâm nghiệp và thủy sản; và Du lịch, khách sạn, thể thao và dịch vụ cá nhân, Dịch vụ vận tải.</p>
+        <p class="h3">Song song đó, trong năm 2026, UEH chính thức triển khai 06 chương trình song bằng quốc tế, mang đến cơ hội học tập và nhận bằng từ các đại học uy tín trên thế giới: Truyền thông số và thiết kế đa phương tiện song bằng UEH – Đại học Saint Joseph, Macao; Quản trị bền vững doanh nghiệp và môi trường song bằng UEH – Koblenz University of Applied Sciences (Hochschule Koblenz), Đức; Chương trình đào tạo nguồn nhân lực quốc tế cử nhân Tài chính – Ngân hàng song bằng UEH – Đại học Rennes, Pháp; Robot và Trí tuệ nhân tạo song bằng UEH – Đại học Kwangwoon, Hàn Quốc (hệ kỹ sư); Điều khiển thông minh và tự động hóa song bằng UEH – Đại học Kwangwoon, Hàn Quốc (hệ kỹ sư); Cử nhân Kiến trúc và thiết kế đô thị thông minh song bằng UEH – Đại học Auckland, New Zealand.</p>
+      </div>
+    </div>
+ 
+    <!-- ============ PANEL 3: có mini-tabs (4 mục, 1 mục ẩn sau "Xem thêm") ============ -->
+    <div class="declare-panel" id="panel-3">
+      <div class="declare-minitabs">
+        <div class="declare-minitabs-col" id="col-panel-3">
+          <button type="button" class="h3 declare-minitab is-active" data-target="t3-1">Giới thiệu chung</button>
+          <button type="button" class="h3 declare-minitab" data-target="t3-2">Chương trình chuẩn</button>
+          <button type="button" class="h3 declare-minitab" data-target="t3-3">Chương trình Tiếng Anh bán phần</button>
+          <button type="button" class="h3 declare-minitab is-hidden" data-target="t3-4">Chương trình Tiếng Anh toàn phần</button>
+          <button type="button" class="declare-minitab-more" aria-expanded="false" data-collapse-target="col-panel-3">
+            <span>Xem thêm</span>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="declare-minitabs-content">
+          <div class="h3 declare-minitab-text is-active" id="t3-1">
+            <p>UEH mang tới đa dạng các loại hình đào tạo dành cho đa dạng nhu cầu và lộ trình học tập của mỗi sinh viên, trọng tâm lấy trải nghiệm thực tiễn làm trung tâm. Các loại hình đào tạo chính quy tại UEH bao gồm:</p>
+            <p>Thông qua đa dạng loại hình đào tạo với lộ trình kiến tạo “Công dân toàn cầu”, các lớp học tại UEH lấy người học làm trung tâm, nuôi dưỡng tư duy “Global Think – Local Act”. Bên cạnh kiến thức lý thuyết, sinh viên được học qua làm việc nhóm, thực địa, dự án thực tế (Live-case), giải quyết các vấn đề xã hội và nghiên cứu khoa học theo phương pháp Project-based Learning, đồng thời ứng dụng linh hoạt các mô hình học tập số như E-learning, Blended/Hybrid learning, VR, AR.</p>
+            <p>Sinh viên UEH vừa kinh tế vừa hiểu công nghệ, vừa học truyền thông vừa vững thiết kế, học quản trị nhưng sẵn sàng khởi nghiệp. Nền tảng kiến thức liên ngành ấy chính là hành trang để Gen Z tự tin thích ứng và chinh phục thị trường lao động toàn cầu.</p>
+          </div>
+          <div class="h3 declare-minitab-text" id="t3-2">
+            <p class="declare-placeholder">[Nội dung cần bổ sung — ảnh gốc chưa cung cấp nội dung cho mục này]</p>
+          </div>
+          <div class="h3 declare-minitab-text" id="t3-3">
+            <p class="declare-placeholder">[Nội dung cần bổ sung — ảnh gốc chưa cung cấp nội dung cho mục này]</p>
+          </div>
+          <div class="h3 declare-minitab-text" id="t3-4">
+            <p class="declare-placeholder">[Nội dung cần bổ sung — ảnh gốc chưa cung cấp nội dung cho mục này]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ============ PANEL 4: chưa có ảnh minh họa nội dung — để văn bản xuôi tạm ============ -->
+    <div class="declare-panel" id="panel-4">
+      <div class="declare-prose">
+        <p class="h3 declare-placeholder">[Nội dung cần bổ sung — ảnh gốc chưa cung cấp nội dung cho tiêu đề phụ này. Nếu tiêu đề phụ này cũng có bố cục mini-tab, cho tôi biết để dựng đúng cấu trúc.]</p>
+      </div>
+    </div>
+ 
+    <!-- ============ PANEL 5: có mini-tabs (2 mục) ============ -->
+    <div class="declare-panel" id="panel-5">
+      <div class="declare-minitabs">
+        <div class="declare-minitabs-col">
+          <button type="button" class="h3 declare-minitab" data-target="t5-1">Giới thiệu chung</button>
+          <button type="button" class="h3 declare-minitab is-active" data-target="t5-2">Bắt đầu từ việc hiểu chính mình</button>
+        </div>
+        <div class="declare-minitabs-content">
+          <div class="h3 declare-minitab-text" id="t5-1">
+            <p>“I am who I choose to be” – mỗi người học đều có quyền chủ động lựa chọn con đường phát triển của chính mình. Và tại UEH, bạn không chỉ được lựa chọn, mà còn được trao đủ năng lực, môi trường và cơ hội để biến lựa chọn ấy thành hiện thực.</p>
+            <p>Dựa trên ba giá trị cốt lõi: Unbounded Learning – Empowered Growth – Holistic Citizenship (Học tập không giới hạn – Trao quyền phát triển suốt đời – Hoàn thiện năng lực công dân toàn cầu).</p>
+            <p>UEH đồng hành cùng bạn không chỉ trong học tập, mà trong hành trình khai mở bản sắc cá nhân, giúp bạn trở thành phiên bản tốt nhất của chính mình giữa một thế giới không ngừng biến đổi.</p>
+          </div>
+          <div class="h3 declare-minitab-text is-active" id="t5-2">
+            <p>Hành trình “chọn là người bạn chọn” tại UEH bắt đầu bằng việc hiểu bản thân. UEH cung cấp công cụ trắc nghiệm khám phá tiềm năng – sở thích nghề nghiệp, hoàn toàn miễn phí, được hơn 60.000 học sinh THPT sử dụng mỗi năm.</p>
+            <p>Công cụ tích hợp hai phương pháp trắc nghiệm uy tín Holland và MBTI, giúp bạn:</p>
+            <ul class="h3">
+              <li>Hiểu tính cách, thói quen và điểm mạnh của bản thân</li>
+              <li>Xác định khuynh hướng nghề nghiệp phù hợp</li>
+              <li>Khám phá những người nổi tiếng cùng nhóm tính cách</li>
+              <li>Nhận gợi ý các ngành học tương ứng theo danh mục đào tạo của Bộ GD&amp;ĐT</li>
+              <li>Mở rộng lựa chọn đến từng bậc, hệ đào tạo: Đại học chính quy, Vừa làm vừa học, Sau đại học</li>
+            </ul>
+            <p>Khám phá bản thân ngay tại: <a href="https://hieuveban.ueh.edu.vn/" target="_blank" rel="noopener">https://hieuveban.ueh.edu.vn/</a></p>
+            <p>Hoặc Zalo Mini App: <a href="https://zalo.me/s/1883841182404547642/" target="_blank" rel="noopener">https://zalo.me/s/1883841182404547642/</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ============ PANEL 6: chưa có ảnh minh họa nội dung — để văn bản xuôi tạm ============ -->
+    <div class="declare-panel" id="panel-6">
+      <div class="declare-prose">
+        <p class="h3 declare-placeholder">[Nội dung cần bổ sung — ảnh gốc chưa cung cấp nội dung cho tiêu đề phụ này. Nếu tiêu đề phụ này cũng có bố cục mini-tab, cho tôi biết để dựng đúng cấu trúc.]</p>
+      </div>
+    </div>
+  </section>
+ 
   <script>
     // Bật/tắt menu mobile khi bấm nút hamburger
     (function () {
@@ -147,6 +289,69 @@
       });
  
       startAutoplay();
+    })();
+ 
+    // Khối "Tuyên ngôn UEH": chuyển tiêu đề phụ (H2), mini-tab, và nút Xem thêm
+    (function () {
+      var section = document.getElementById('declare');
+      if (!section) return;
+ 
+      var track = document.getElementById('declareTabsTrack');
+      var prevBtn = document.getElementById('declareTabsPrev');
+      var nextBtn = document.getElementById('declareTabsNext');
+      var tabs = section.querySelectorAll('.declare-tab');
+      var panels = section.querySelectorAll('.declare-panel');
+ 
+      // 1) Chuyển tiêu đề phụ (H2) + panel nội dung tương ứng
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) { t.classList.remove('is-active'); });
+          panels.forEach(function (p) { p.classList.remove('is-active'); });
+ 
+          tab.classList.add('is-active');
+          document.getElementById(tab.dataset.panel).classList.add('is-active');
+ 
+          // cuộn tiêu đề vừa chọn vào giữa vùng nhìn thấy
+          tab.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+        });
+      });
+ 
+      // 2) Nút mũi tên trái/phải: cuộn thanh tiêu đề phụ
+      function scrollTabs(dir) {
+        track.scrollBy({ left: dir * track.clientWidth * 0.6, behavior: 'smooth' });
+      }
+      prevBtn.addEventListener('click', function () { scrollTabs(-1); });
+      nextBtn.addEventListener('click', function () { scrollTabs(1); });
+ 
+      // 3) Mini-tab bên trong mỗi panel: chuyển nội dung con tương ứng
+      section.querySelectorAll('.declare-minitab').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var col = btn.closest('.declare-minitabs-col');
+          var content = col.nextElementSibling;
+ 
+          col.querySelectorAll('.declare-minitab').forEach(function (b) {
+            b.classList.remove('is-active');
+          });
+          content.querySelectorAll('.declare-minitab-text').forEach(function (t) {
+            t.classList.remove('is-active');
+          });
+ 
+          btn.classList.add('is-active');
+          document.getElementById(btn.dataset.target).classList.add('is-active');
+        });
+      });
+ 
+      // 4) Nút "Xem thêm": hiện toàn bộ mini-tab đang bị ẩn trong cột
+      section.querySelectorAll('.declare-minitab-more').forEach(function (moreBtn) {
+        moreBtn.addEventListener('click', function () {
+          var col = document.getElementById(moreBtn.dataset.collapseTarget);
+          col.querySelectorAll('.declare-minitab.is-hidden').forEach(function (hidden) {
+            hidden.classList.remove('is-hidden');
+          });
+          moreBtn.setAttribute('aria-expanded', 'true');
+          moreBtn.style.display = 'none';
+        });
+      });
     })();
   </script>
  

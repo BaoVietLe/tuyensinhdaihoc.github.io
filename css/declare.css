@@ -120,6 +120,21 @@
   max-width: 1200px;
 }
 
+/* Toàn bộ chữ trong khối "Tuyên ngôn UEH" phải luôn là cỡ H3 (15px, weight light),
+   BẤT KỂ nằm trong thẻ nào (p, li, a...). root.css có rule global "p, .main-text"
+   đặt font-size 20px thẳng lên mọi thẻ <p> — rule đó có độ ưu tiên ngang bằng và
+   nằm SAU trong cascade nên sẽ đè lên font-size kế thừa từ .h3 của thẻ cha nếu
+   bản thân thẻ con (p, li, a) không tự mang class .h3. Khai báo lại ở đây để
+   đảm bảo toàn bộ nội dung (dù có/không có mini-tabs) luôn đồng nhất 1 cỡ chữ. */
+.declare-panel p,
+.declare-panel li,
+.declare-panel a {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-auto);
+}
+
 .declare-prose p {
   text-align: justify;
 }

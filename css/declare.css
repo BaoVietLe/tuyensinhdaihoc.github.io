@@ -124,15 +124,18 @@
    BẤT KỂ nằm trong thẻ nào (p, li, a...). root.css có rule global "p, .main-text"
    đặt font-size 20px thẳng lên mọi thẻ <p> — rule đó có độ ưu tiên ngang bằng và
    nằm SAU trong cascade nên sẽ đè lên font-size kế thừa từ .h3 của thẻ cha nếu
-   bản thân thẻ con (p, li, a) không tự mang class .h3. Khai báo lại ở đây để
-   đảm bảo toàn bộ nội dung (dù có/không có mini-tabs) luôn đồng nhất 1 cỡ chữ. */
+   bản thân thẻ con (p, li, a) không tự mang class .h3. Dùng !important ở đây để
+   ĐẢM BẢO chắc chắn không bị bất kỳ rule global nào (hiện tại hoặc sau này) ghi
+   đè nữa — đây là rule "chốt" riêng cho khối này, có phạm vi rất hẹp (chỉ trong
+   .declare-panel) nên an toàn khi dùng !important. */
 .declare-panel p,
 .declare-panel li,
-.declare-panel a {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-h3);
-  font-weight: var(--font-weight-light);
-  line-height: var(--line-height-auto);
+.declare-panel a,
+.declare-panel span {
+  font-family: var(--font-family-base) !important;
+  font-size: var(--font-size-h3) !important;
+  font-weight: var(--font-weight-light) !important;
+  line-height: var(--line-height-auto) !important;
 }
 
 .declare-prose p {
@@ -149,12 +152,20 @@
 .declare-minitabs-col {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 16px;
-  /* 518px là kích thước gốc đo trên màn hình thiết kế 1440px;
-     co giãn theo % chiều rộng và luôn có mức tối thiểu/tối đa hợp lý
-     để không bị vỡ ở bất kỳ màn hình desktop nào. */
-  flex: 0 0 clamp(280px, 36vw, 518px);
-  max-width: 518px;
+  /* Chiều rộng co theo đúng chữ DÀI NHẤT trong khối mini-tab của từng tiêu đề
+     phụ (mỗi tiêu đề phụ có bộ mini-tab riêng, độ dài chữ khác nhau nên không
+     nên dùng 1 chiều rộng cố định chung cho tất cả). Cơ chế: cột dùng
+     width:fit-content (co khít theo nội dung rộng nhất bên trong), còn từng
+     nút mini-tab bên trong dùng width:100% để tất cả các nút bằng nhau,
+     bằng đúng độ rộng của nút chứa chữ dài nhất.
+     518px chỉ còn vai trò làm TRẦN tối đa (đúng số đo gốc trên màn 1440px),
+     không còn là chiều rộng ép buộc cho những tiêu đề phụ có chữ ngắn hơn. */
+  width: fit-content;
+  min-width: 200px;
+  max-width: min(518px, 42vw);
+  flex: 0 0 auto;
 }
 
 .declare-minitab.is-hidden {

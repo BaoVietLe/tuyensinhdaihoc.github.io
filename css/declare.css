@@ -1,0 +1,293 @@
+/* ==========================================================================
+   DECLARE.CSS — Khối "KHAI PHÁ TUYÊN NGÔN UEH / I AM WHO I CHOOSE TO BE"
+   Cấu trúc: H1 (tiêu đề chính) > thanh tiêu đề phụ H2 dạng tab (có nút mũi
+   tên trái/phải để cuộn khi không đủ chỗ) > nội dung từng tab: hoặc văn bản
+   xuôi (H3), hoặc bố cục mini-tab dọc (H3) + nội dung tương ứng bên phải.
+   Khoảng cách ngang dùng var(--spacing-horizontal) = 30px,
+   khoảng cách dọc dùng var(--spacing-vertical) = 35px (đúng quy định root.css).
+   ========================================================================== */
+
+.declare {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--spacing-vertical) clamp(20px, 3.5vw, 40px);
+  box-sizing: border-box;
+}
+
+/* ---------- H1 ---------- */
+.declare-title {
+  text-align: center;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-vertical); /* 35px, đúng .section-spacing */
+}
+
+/* ==========================================================================
+   THANH TIÊU ĐỀ PHỤ (H2) DẠNG TAB
+   ========================================================================== */
+.declare-tabs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--spacing-vertical); /* 35px xuống phần nội dung */
+  border-bottom: 1px solid #E3E7E8;
+}
+
+.declare-tabs-arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--color-secondary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.declare-tabs-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.declare-tabs-arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+/* Track cuộn ngang, ẩn thanh cuộn cho gọn (vẫn cuộn được bằng JS / chạm / lăn chuột) */
+.declare-tabs-track {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-horizontal); /* 30px giữa các tiêu đề phụ, đúng quy định */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.declare-tabs-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tiêu đề phụ (H2) khi KHÔNG active: bị truncate (1 dòng, có "...") để
+   nhiều tiêu đề cùng vừa trên 1 màn hình desktop */
+.declare-tab {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: clamp(110px, 10vw, 170px);
+  padding-bottom: 12px;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, max-width 0.3s ease;
+}
+
+/* Tiêu đề phụ đang active: hiện đầy đủ chữ, không truncate, có gạch chân */
+.declare-tab.is-active {
+  color: var(--color-secondary);
+  border-bottom-color: var(--color-main);
+  /* Tiêu đề phụ đang chọn luôn hiện ĐẦY ĐỦ chữ, không giới hạn max-width.
+     Nếu quá dài khiến hàng tràn, .declare-tabs-track (overflow-x:auto) và
+     2 nút mũi tên sẽ xử lý việc cuộn — đúng hành vi trong ảnh mẫu. */
+  max-width: none;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   NỘI DUNG TỪNG TIÊU ĐỀ PHỤ
+   ========================================================================== */
+.declare-panel {
+  display: none;
+}
+.declare-panel.is-active {
+  display: block;
+}
+
+/* ---- Dạng 1: văn bản xuôi (không minh họa tabs) ---- */
+.declare-prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-vertical); /* 35px giữa các đoạn văn */
+  max-width: 1200px;
+}
+
+.declare-prose p {
+  text-align: justify;
+}
+
+/* ---- Dạng 2: bố cục chia mini-tab (dọc, bên trái) + nội dung (bên phải) ---- */
+.declare-minitabs {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-horizontal); /* 30px giữa cột tab và cột nội dung */
+}
+
+.declare-minitabs-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* 518px là kích thước gốc đo trên màn hình thiết kế 1440px;
+     co giãn theo % chiều rộng và luôn có mức tối thiểu/tối đa hợp lý
+     để không bị vỡ ở bất kỳ màn hình desktop nào. */
+  flex: 0 0 clamp(280px, 36vw, 518px);
+  max-width: 518px;
+}
+
+.declare-minitab.is-hidden {
+  display: none;
+}
+
+/* Mỗi ô mini-tab: dùng chung .shape của root.css (height 50px, radius 15px) */
+.declare-minitab {
+  width: 100%;
+  height: var(--shape-height); /* 50px */
+  line-height: var(--shape-height); /* căn giữa chữ 1 dòng theo chiều dọc, KHÔNG dùng flex ở
+                                        trạng thái này vì flex làm text-overflow:ellipsis mất tác dụng */
+  border-radius: var(--border-radius-base); /* 15px */
+  border: none;
+  background-color: #F2F4F5;
+  color: var(--color-text);
+  display: block;
+  text-align: left;
+  padding: 0 24px;
+  cursor: pointer;
+  font-weight: var(--font-weight-regular);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Khi active: cho phép xuống dòng đầy đủ (không truncate), lúc này mới cần flex
+   để căn giữa nội dung nhiều dòng theo chiều dọc trong khối cao tự do */
+.declare-minitab.is-active {
+  background-color: var(--color-secondary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+  white-space: normal;
+  height: auto;
+  min-height: var(--shape-height);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.declare-minitab:hover:not(.is-active) {
+  background-color: #E7ECED;
+}
+
+/* Nút "Xem thêm" — cùng hình dạng .shape, style nhẹ để phân biệt với mini-tab */
+.declare-minitab-more {
+  width: 100%;
+  height: var(--shape-height);
+  border-radius: var(--border-radius-base);
+  border: 1px dashed #C7CDCF;
+  background-color: #FFFFFF;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+}
+
+.declare-minitab-more svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.declare-minitab-more[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.declare-minitabs-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.declare-minitab-text {
+  display: none;
+}
+.declare-minitab-text.is-active {
+  display: block;
+}
+
+.declare-minitab-text p {
+  text-align: justify;
+  margin-bottom: 16px;
+}
+.declare-minitab-text p:last-child {
+  margin-bottom: 0;
+}
+
+.declare-minitab-text ul {
+  margin: 12px 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.declare-minitab-text a {
+  color: var(--color-main);
+}
+
+/* Placeholder cho nội dung chưa được cung cấp — chỉ mang tính đánh dấu,
+   không phải nội dung chính thức, cần bạn thay thế trước khi lên trang. */
+.declare-placeholder {
+  color: #B0453A;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Tablet / laptop nhỏ: giảm khoảng đệm, tab truncate ngắn hơn 1 chút */
+@media (max-width: 1024px) {
+  .declare-tab {
+    max-width: clamp(90px, 16vw, 140px);
+  }
+  .declare-tab.is-active {
+    max-width: min(480px, 60vw);
+  }
+}
+
+/* Dưới 900px: cột mini-tab và nội dung xếp chồng dọc thay vì 2 cột,
+   để không bị bóp méo trên tablet đứng / điện thoại. */
+@media (max-width: 900px) {
+  .declare-minitabs {
+    flex-direction: column;
+  }
+  .declare-minitabs-col {
+    flex: 1 1 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .declare-tabs-arrow {
+    width: 28px;
+    height: 28px;
+  }
+  .declare-tab {
+    max-width: 120px;
+  }
+  .declare-tab.is-active {
+    max-width: 70vw;
+  }
+}

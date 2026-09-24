@@ -94,7 +94,7 @@
 /* Tiêu đề phụ đang active: hiện đầy đủ chữ, không truncate, có gạch chân */
 .declare-tab.is-active {
   color: var(--color-secondary);
-  border-bottom-color: var(--color-main);
+  border-bottom-color: var(--color-secondary);
   /* Tiêu đề phụ đang chọn luôn hiện ĐẦY ĐỦ chữ, không giới hạn max-width.
      Nếu quá dài khiến hàng tràn, .declare-tabs-track (overflow-x:auto) và
      2 nút mũi tên sẽ xử lý việc cuộn — đúng hành vi trong ảnh mẫu. */

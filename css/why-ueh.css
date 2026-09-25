@@ -175,19 +175,17 @@
   flex-wrap: wrap;
 }
 
-.ueh-journey-logo {
+.ueh-journey-title {
   display: inline-flex;
-  flex-direction: column;
-  line-height: 0.9;
-  color: var(--color-main);
-  font-weight: var(--font-weight-bold);
+  align-items: center; /* Căn giữa ảnh và chữ theo chiều dọc */
+  gap: 10px;           /* Khoảng cách giữa logo và chữ */
 }
 
-.ueh-journey-logo span {
-  font-size: 11px;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-secondary);
-  letter-spacing: 1px;
+/* Định dạng kích thước cho hình ảnh logo */
+.ueh-journey-logo-img {
+  height: 2.5rem;      /* Điều chỉnh chiều cao logo cho vừa vặn với kích thước chữ h1 */
+  width: auto;         /* Tự động điều chỉnh chiều rộng để giữ đúng tỷ lệ ảnh */
+  object-fit: contain;
 }
 
 .ueh-journey-content {

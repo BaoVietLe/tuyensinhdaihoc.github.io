@@ -1,319 +1,314 @@
 /* ==========================================================================
-   WHY-UEH.CSS — Khối "Tại sao chọn UEH?"
-   Đo lại chính xác theo toạ độ pixel trên ảnh gốc (canvas thiết kế 1440px):
-   - Tiêu đề H1 CĂN GIỮA (không phải căn phải)
-   - Cột trái = tiêu đề H2 (xếp TRÊN) + ảnh/ribbon (xếp DƯỚI), rộng ~351px ở 1440px
-   - Cột phải = CHỈ danh sách bullet (H3), căn ngang hàng với đỉnh của H2, KHÔNG
-     có tiêu đề riêng và KHÔNG căn giữa theo chiều dọc
-   - Container thụt lề 2 bên ~100px ở màn 1440px (không phải 40px như các khối khác)
-   Mỗi khối vẫn cao tối thiểu 1 màn hình (giữ đúng yêu cầu "vừa màn hình desktop"),
-   nội dung thật (đã đo) ngắn hơn 1 màn hình nên được CĂN GIỮA theo chiều dọc
-   trong khối; nếu sau này nội dung dài hơn, danh sách bên phải tự cuộn riêng,
-   cột trái vẫn đứng yên — đúng yêu cầu "cột trái cố định".
+   WHY-UEH.CSS — Section "Tại sao chọn UEH?" + "UEH - Nơi mọi hành trình..."
+   Dùng biến/màu từ root.css. Đo màu trực tiếp từ ảnh mẫu:
+   - H1 tiêu đề chính  = var(--color-secondary)
+   - H2 + text cột phải = var(--color-text)
+   - Ribbon cam         = var(--color-main)
+   - Ribbon xanh teal   = var(--color-secondary)
    ========================================================================== */
 
-.why-ueh {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 clamp(24px, 7vw, 100px); /* đo từ ảnh gốc: ~100px thụt lề 2 bên ở 1440px */
+.why-ueh-section,
+.ueh-journey-section {
+  background-color: #FFFFFF;
+  padding: 0 40px; /* đồng bộ padding ngang với navbar */
   box-sizing: border-box;
 }
 
 .why-ueh-title {
-  text-align: center; /* đo lại: tiêu đề nằm giữa trang, không lệch phải */
+  text-align: center;
   color: var(--color-secondary);
-  padding-top: var(--spacing-vertical); /* 35px */
-  margin-bottom: 0;
+  padding-top: var(--spacing-vertical);
+  padding-bottom: var(--spacing-vertical);
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 /* ==========================================================================
-   1 KHỐI NỘI DUNG
+   MỖI KHỐI NỘI DUNG (block1, block2, block3)
+   Cột trái "sticky" (đứng yên khi cuộn), cột phải cuộn bình thường.
    ========================================================================== */
 .why-ueh-block {
-  display: flex;
-  align-items: center; /* căn giữa cả hàng theo chiều dọc trong không gian 1 màn hình */
-  justify-content: center;
-  min-height: 100vh; /* luôn vừa tối thiểu 1 màn hình, dù màn hình desktop cỡ nào */
-  box-sizing: border-box;
-  padding: var(--spacing-vertical) 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 60px;
+  align-items: start;
+  min-height: 100vh; /* mỗi khối vừa 1 màn hình desktop */
+  padding-bottom: var(--spacing-vertical);
 }
 
-.why-ueh-row {
-  display: flex;
-  align-items: flex-start; /* cột phải bắt đầu ngang hàng đỉnh cột trái, không center riêng */
-  gap: clamp(32px, 3.5vw, 51px); /* đo từ ảnh: khoảng cách giữa cột trái và cột phải ~48-51px */
-  width: 100%;
-}
-
-/* ---------- Cột trái: tiêu đề H2 (trên) + ảnh/ribbon (dưới) ---------- */
 .why-ueh-left {
-  flex: 0 0 clamp(240px, 24.4vw, 351px); /* 351px là số đo gốc ở màn 1440px */
+  position: sticky;
+  top: 24px; /* đứng yên khi cuộn qua nội dung cột phải */
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-vertical);
 }
 
-.why-ueh-heading {
-  color: var(--color-secondary);
-  margin-bottom: 14px; /* khoảng cách rất sát giữa tiêu đề và ảnh, đúng ảnh gốc */
+.why-ueh-left .h2 {
+  color: var(--color-text);
 }
 
-.why-ueh-media {
+/* ---------- Khối ảnh + ribbon ---------- */
+.why-ueh-image-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 351 / 300; /* tỉ lệ ảnh trung bình đo từ 2 khối mẫu */
-  flex-shrink: 0;
-  /* KHÔNG dùng overflow:hidden ở đây: khối 3 cần chữ ribbon trái tràn ra
-     ngoài khung ảnh (xem .why-ueh-side-label). Ảnh và ribbon nội bộ vốn đã
-     nằm gọn trong khung nhờ kích thước cố định nên không cần clip. */
+  aspect-ratio: 340 / 320;
+  overflow: hidden;
+  border-radius: var(--border-radius-base);
 }
 
-.why-ueh-media img {
-  display: block;
+.why-ueh-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* Ribbon dán cạnh PHẢI ảnh, cao hết chiều cao ảnh, chia 2 phần theo đúng tỉ lệ
-   đo được: khối chữ ngắn (teal) chiếm ~38% trên, khối chữ dài (cam) ~62% dưới */
-.why-ueh-ribbons {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: clamp(30px, 3vw, 40px);
-  display: flex;
-  flex-direction: column;
-}
-
+/* Ribbon kiểu 1 (block 1 & 2): 2 dải đứng xếp chồng bên phải ảnh */
 .why-ueh-ribbon {
+  position: absolute;
+  right: 0;
+  width: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #FFFFFF;
   font-family: var(--font-family-base);
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
+  text-align: center;
   white-space: nowrap;
-  padding: 8px 0;
+  padding: 10px 0;
 }
 
-.why-ueh-ribbon--top {
-  flex: 0 0 38%;
+.why-ueh-ribbon.ribbon-top {
+  top: 0;
+  height: 45%;
+  background-color: var(--color-main);
+}
+
+.why-ueh-ribbon.ribbon-bottom {
+  bottom: 0;
+  height: 55%;
   background-color: var(--color-secondary);
 }
-.why-ueh-ribbon--bottom {
-  flex: 1;
+
+/* Ribbon kiểu 2 (block 3): dải dọc bên trái (full height) + banner góc phải trên */
+.why-ueh-ribbon.ribbon-left-full {
+  left: 0;
+  right: auto;
+  top: 0;
+  height: 100%;
+  background-color: var(--color-secondary);
+}
+
+.why-ueh-ribbon.ribbon-corner {
+  position: absolute;
+  top: 18px;
+  right: -63px;
+  width: 160px;
+  height: 34px;
+  writing-mode: horizontal-tb;
+  transform: rotate(90deg);
+  transform-origin: center;
   background-color: var(--color-main);
 }
 
-/* ---------- Bố cục ribbon RIÊNG cho khối 3 (khác hẳn khối 1 & 2) ----------
-   Đo từ ảnh: chữ teal "MỞ CỬA TƯƠNG LAI" nằm NGOÀI cạnh trái ảnh, ở đoạn dưới
-   (không phải full height); ô cam "RỘNG MỞ KẾT NỐI" là 1 ô NGẮN, không hết
-   chiều cao, nằm lệch về phía trên bên phải ảnh (không chạm mép trên/dưới). */
-.why-ueh-media--alt {
-  margin-left: 24px; /* chừa chỗ cho chữ teal bên ngoài cạnh trái */
-}
-
-.why-ueh-side-label {
-  position: absolute;
-  left: -24px;
-  bottom: 0;
-  height: auto; /* để chữ tự chiếm đúng không gian cần, tránh tràn/kẹt chữ */
-  width: 20px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 4px;
-  color: var(--color-secondary);
-  font-family: var(--font-family-base);
-  font-size: 11.5px;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.2px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  white-space: nowrap;
-}
-
-.why-ueh-ribbon-top-right {
-  position: absolute;
-  top: 22%;
-  right: 0;
-  height: 32%;
-  width: clamp(30px, 3vw, 40px);
-  background-color: var(--color-main);
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-family-base);
-  font-size: 12.5px;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.4px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  white-space: nowrap;
-  padding: 8px 0;
-}
-
-/* ---------- Cột phải: CHỈ danh sách bullet (H3), không có tiêu đề riêng ---------- */
-.why-ueh-content {
-  flex: 1;
-  min-width: 0;
-  max-height: calc(100vh - 2 * var(--spacing-vertical));
-  overflow-y: auto; /* tự cuộn riêng nếu nội dung dài hơn 1 màn hình, cột trái không đổi */
-  padding-right: 8px;
+/* ---------- Cột phải: danh sách nội dung ---------- */
+.why-ueh-right {
+  padding-top: 4px;
 }
 
 .why-ueh-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  list-style: none;
+  gap: 18px;
+  color: var(--color-text);
 }
 
 .why-ueh-list li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 18px;
 }
 
 .why-ueh-list li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--color-text);
 }
 
-/* Mục con in đậm, có gạch chân (vd. "Chương trình Học kỳ doanh nghiệp") */
-.why-ueh-list .why-ueh-sublabel {
+.why-ueh-list li.list-heading {
   font-weight: var(--font-weight-bold);
   text-decoration: underline;
+  padding-left: 18px;
+  margin-top: 8px;
 }
 
-/* Toàn bộ chữ trong khối này phải luôn đúng cỡ H3 (15px, weight light),
-   bất kể nằm trong thẻ nào — xem giải thích chi tiết trong declare.css */
-.why-ueh-block p,
-.why-ueh-block li,
-.why-ueh-block a,
-.why-ueh-block span:not(.why-ueh-logo span) {
-  font-family: var(--font-family-base) !important;
-  font-size: var(--font-size-h3) !important;
-  font-weight: var(--font-weight-light) !important;
-  line-height: var(--line-height-auto) !important;
+.why-ueh-list li.list-heading::before {
+  content: '•';
 }
-.why-ueh-list .why-ueh-sublabel {
-  font-weight: var(--font-weight-bold) !important;
-}
+
 
 /* ==========================================================================
-   KHỐI 4: "UEH - Nơi mọi hành trình bền vững bắt đầu!" (video + văn bản)
-   Tiêu đề nằm TRÊN, kéo dài hết chiều ngang khối (không nằm trong cột phải)
+   SECTION "UEH - NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU!"
+   Giữ nguyên (không sticky), nằm sau 3 block phía trên.
    ========================================================================== */
-.why-ueh-block--video-inner {
-  width: 100%;
+.ueh-journey-section {
+  padding-top: var(--spacing-vertical);
+  padding-bottom: calc(var(--spacing-vertical) * 2);
 }
 
-.why-ueh-block--video .why-ueh-row {
+.ueh-journey-title {
+  max-width: 1440px;
+  margin: 0 auto var(--spacing-vertical) auto;
+  display: flex;
   align-items: center;
+  gap: 12px;
+  color: var(--color-text);
+  flex-wrap: wrap;
 }
 
-.why-ueh-block--video .why-ueh-left {
-  flex: 0 0 clamp(320px, 46vw, 659px); /* 659px là số đo gốc ở màn 1440px */
+.ueh-journey-logo {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0.9;
+  color: var(--color-main);
+  font-weight: var(--font-weight-bold);
 }
 
-/* Khung video giữ đúng tỉ lệ gốc 659x228 ở mọi kích thước màn hình desktop */
-.why-ueh-video-frame {
+.ueh-journey-logo span {
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary);
+  letter-spacing: 1px;
+}
+
+.ueh-journey-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 659px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Khung video 659x228 theo đúng yêu cầu (max ở màn hình 1440px) */
+.ueh-journey-video {
   position: relative;
   width: 100%;
+  max-width: 659px;
   aspect-ratio: 659 / 228;
   border-radius: var(--border-radius-base);
   overflow: hidden;
-  background-color: #000000;
+  background-color: #000;
 }
 
-.why-ueh-video-frame iframe {
-  position: absolute;
-  inset: 0;
+.ueh-journey-video img,
+.ueh-journey-video iframe {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border: none;
+  display: block;
 }
 
-.why-ueh-block--video .why-ueh-content {
-  max-height: none;
-}
-
-.why-ueh-video-title {
+.ueh-journey-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-  flex-wrap: wrap;
-  color: var(--color-secondary);
-  margin-bottom: var(--spacing-vertical); /* 35px xuống hàng video+chữ */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-.why-ueh-video-title .why-ueh-logo {
-  display: inline-flex;
-  flex-direction: column;
-  line-height: 1;
+.ueh-journey-play svg {
+  width: 20px;
+  height: 20px;
   color: var(--color-main);
-}
-.why-ueh-video-title .why-ueh-logo span {
-  font-size: 12px !important;
-  font-weight: var(--font-weight-medium) !important;
-  letter-spacing: 1px;
-  color: var(--color-secondary);
+  margin-left: 3px;
 }
 
-.why-ueh-video-text p {
-  text-align: justify;
+.ueh-journey-text {
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-vertical);
 }
-.why-ueh-video-text p + p {
-  margin-top: 16px;
-}
+
 
 /* ==========================================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET (≤ 1024px)
    ========================================================================== */
-@media (max-width: 1100px) {
-  .why-ueh-left {
-    flex-basis: clamp(200px, 30vw, 300px);
-  }
-}
-
-/* Dưới 900px: bỏ ràng buộc "vừa 1 màn hình" (bất khả thi khi ảnh + chữ dài
-   xếp ngang trên màn hẹp), chuyển thành xếp dọc, cuộn tự nhiên theo trang. */
-@media (max-width: 900px) {
-  .why-ueh-title {
-    text-align: center;
+@media (max-width: 1024px) {
+  .why-ueh-section,
+  .ueh-journey-section {
+    padding: 0 24px;
   }
 
   .why-ueh-block {
-    min-height: 0;
-    height: auto;
-    padding: var(--spacing-vertical) 0;
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
   }
 
-  .why-ueh-row {
-    flex-direction: column;
+  .ueh-journey-content {
+    grid-template-columns: 1fr;
+  }
+
+  .ueh-journey-video {
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE — MOBILE & TABLET DỌC (≤ 768px)
+   Bỏ sticky, cột trái xếp trên cột phải, mỗi khối không ép min-height 100vh.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .why-ueh-section,
+  .ueh-journey-section {
+    padding: 0 20px;
+  }
+
+  .why-ueh-title {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .why-ueh-block {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 20px;
+    padding-bottom: 32px;
   }
 
   .why-ueh-left {
-    flex-basis: auto;
-    width: 100%;
+    position: static;
+    gap: 16px;
   }
 
-  .why-ueh-media--alt {
-    margin-left: 30px;
+  .why-ueh-image-wrap {
+    aspect-ratio: 4 / 3;
   }
 
-  .why-ueh-content {
-    max-height: none;
-    overflow-y: visible;
-    padding-right: 0;
+  .ueh-journey-content {
+    gap: 24px;
+  }
+
+  .ueh-journey-title {
+    text-align: left;
   }
 }

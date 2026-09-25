@@ -171,7 +171,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--secondary-color);
+  color: var(--color-secondary);
   flex-wrap: wrap;
 }
 
@@ -183,7 +183,7 @@
 
 /* Định dạng kích thước cho hình ảnh logo */
 .ueh-journey-logo-img {
-  height: 2.5rem;      /* Điều chỉnh chiều cao logo cho vừa vặn với kích thước chữ h1 */
+  height: 2rem;      /* Điều chỉnh chiều cao logo cho vừa vặn với kích thước chữ h1 */
   width: auto;         /* Tự động điều chỉnh chiều rộng để giữ đúng tỷ lệ ảnh */
   object-fit: contain;
 }

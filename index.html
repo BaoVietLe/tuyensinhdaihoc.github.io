@@ -386,20 +386,12 @@
   <!-- ============ HỌC GÌ Ở UEH? ============ -->
   <section class="programs" id="hoc-gi-o-ueh" aria-labelledby="programs-title" data-programs>
  
-    <!-- Hình người giữ chỗ cho thẻ (thay bằng ảnh thật: style="--photo:url(assets/programs/xxx.png)" trên .pc-art) -->
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-      <symbol id="pc-person" viewBox="0 0 100 120">
-        <circle cx="52" cy="34" r="19"/>
-        <path d="M6 120c0-31 19-48 46-48s46 17 46 48z"/>
-      </symbol>
-    </svg>
- 
     <div class="programs__inner">
  
       <!-- ===== CỘT TRÁI: nội dung chương trình đang chọn ===== -->
       <div class="programs__main">
         <header class="programs__head">
-          <h2 class="h1 programs__title" id="programs-title">HỌC GÌ Ở UEH?</h2>
+          <h2 class="h1 programs__title" id="programs-title">Học gì ở UEH?</h2>
           <p class="h3 programs__hint">Nhấn vào từng thẻ để xem chi tiết →</p>
         </header>
  
@@ -528,74 +520,42 @@
           <div class="programs__cards" role="tablist" aria-label="Các chương trình đào tạo">
  
             <button type="button" class="program-card" role="tab" id="tab-chuan" aria-selected="true" aria-controls="panel-chuan">
-              <span class="pc-art pc-art--chuan">
-                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
-                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
-                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Chuẩn</span></span>
-              </span>
+              <span class="pc-art"><img src="assets/programs/card-chuan.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Chuẩn</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-banphan" aria-selected="false" aria-controls="panel-banphan" tabindex="-1">
-              <span class="pc-art pc-art--banphan">
-                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
-                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
-                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Tiếng Anh<br>Bán phần</span></span>
-              </span>
+              <span class="pc-art"><img src="assets/programs/card-ban-phan.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Tiếng Anh bán phần</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-toanphan" aria-selected="false" aria-controls="panel-toanphan" tabindex="-1">
-              <span class="pc-art pc-art--toanphan">
-                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
-                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
-                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Tiếng Anh<br>Toàn phần</span></span>
-              </span>
+              <span class="pc-art"><img src="assets/programs/card-toan-phan.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Tiếng Anh toàn phần</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-asia" aria-selected="false" aria-controls="panel-asia" tabindex="-1">
-              <span class="pc-art pc-art--asia">
-                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
-                <span class="pc-logo pc-logo--right">UEH<i>ISB</i></span>
-                <span class="pc-copy"><span class="pc-kicker">Cử nhân</span><span class="pc-title">ASIA<br>CO-OP</span><span class="pc-sub">Mô hình học tập<br>qua trải nghiệm</span></span>
-              </span>
+              <span class="pc-art"><img src="assets/programs/card-asia-coop.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Asia Co-op</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-isb" aria-selected="false" aria-controls="panel-isb" tabindex="-1">
-              <span class="pc-art pc-art--isb">
-                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
-                <span class="pc-logo pc-logo--right">UEH<i>ISB</i></span>
-                <span class="pc-copy"><span class="pc-kicker">Cử nhân</span><span class="pc-title">Tài năng<br>UEH.ISB</span><span class="pc-sub">Mô hình tài năng<br>dành cho học sinh giỏi</span></span>
-              </span>
+              <span class="pc-art"><img src="assets/programs/card-ueh-isb.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">UEH ISB</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-songnganh" aria-selected="false" aria-controls="panel-songnganh" tabindex="-1">
-              <span class="pc-art pc-art--songnganh">
-                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
-                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
-                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Song ngành<br>Tích hợp</span></span>
-              </span>
+              <span class="pc-art"><img src="assets/programs/card-song-nganh.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Song ngành tích hợp</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-songbang" aria-selected="false" aria-controls="panel-songbang" tabindex="-1">
-              <span class="pc-art pc-art--songbang">
-                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
-                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
-                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Song bằng<br>Quốc tế</span></span>
-              </span>
+              <span class="pc-art"><img src="assets/programs/card-song-bang.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Song bằng quốc tế</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-traodoi" aria-selected="false" aria-controls="panel-traodoi" tabindex="-1">
-              <span class="pc-art pc-art--traodoi">
-                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
-                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
-                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Trao đổi &amp;<br>Liên kết<br>Quốc tế</span></span>
-              </span>
+              <span class="pc-art"><img src="assets/programs/card-trao-doi.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Trao đổi và liên kết quốc tế</span>
             </button>
  

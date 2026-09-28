@@ -132,12 +132,111 @@
   font-weight: var(--font-weight-bold);
   text-decoration: underline;
 }
-
+/* ==========================================================================
+   SECTION "UEH - NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU!"
+   Giữ nguyên (không sticky), nằm sau 3 block phía trên.
+   ========================================================================== */
+.ueh-journey-section {
+  padding-top: var(--spacing-vertical);
+  padding-bottom: calc(var(--spacing-vertical) * 2);
+}
+ 
+.ueh-journey-title {
+  max-width: 1440px;
+  margin: 0 auto var(--spacing-vertical) auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-text);
+  flex-wrap: wrap;
+}
+ 
+.ueh-journey-logo {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0.9;
+  color: var(--color-main);
+  font-weight: var(--font-weight-bold);
+}
+ 
+.ueh-journey-logo span {
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary);
+  letter-spacing: 1px;
+}
+ 
+.ueh-journey-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 659px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+ 
+/* Khung video 659x228 theo đúng yêu cầu (max ở màn hình 1440px) */
+.ueh-journey-video {
+  position: relative;
+  width: 100%;
+  max-width: 659px;
+  aspect-ratio: 659 / 228;
+  border-radius: var(--border-radius-base);
+  overflow: hidden;
+  background-color: #000;
+}
+ 
+.ueh-journey-video img,
+.ueh-journey-video iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  display: block;
+}
+ 
+.ueh-journey-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+ 
+.ueh-journey-play svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-main);
+  margin-left: 3px;
+}
+ 
+.ueh-journey-text {
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-vertical);
+}
+ 
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 1100px) {
   .taisao-block-item { grid-template-columns: clamp(200px, 30vw, 300px) minmax(0, 1fr); }
+   .ueh-journey-content {
+    grid-template-columns: 1fr;
+  }
+ 
+  .ueh-journey-video {
+    max-width: 100%;
+  }
+}
 }
 
 @media (max-width: 900px) {

@@ -349,25 +349,44 @@
   </div>
 </section>
  
-  <!-- ============ UEH - NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU! ============ -->
-  <section class="ueh-journey-section">
-<h1 class="h1 ueh-journey-title">
-  <img class="ueh-journey-logo-img" src="img/ueh-logo-xanh.png" alt="UEH University Logo">
-  - NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU!
-</h1>
-    <div class="ueh-journey-content">
-      <div class="ueh-journey-video">
-        <img src="assets/journey-photo.jpg" alt="Video giới thiệu UEH">
-        <span class="ueh-journey-play">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </span>
+  <!-- ==========================================================================
+     "UEH - NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU!" — chuẩn root.css
+     - Cụm logo + chữ là 1 thẻ H1 (class .h1: 40px bold, màu --color-secondary)
+     - Logo UEH University là ẢNH 79x46px (ở màn 1440px, co theo màn nhỏ hơn)
+     - Văn bản: class .h3 gắn TRỰC TIẾP lên từng <p> (root.css có rule global
+       "p" = 20px, class .h3 gắn thẳng lên thẻ mới thắng được)
+     - Video YouTube: khung tỉ lệ 659:228 như ảnh mẫu; bấm phát thì nạp iframe
+       YouTube và khung tự nới sang 16:9 để không bị cắt thanh điều khiển.
+     ========================================================================== -->
+<section class="section-hanhtrinh" id="hanh-trinh-ben-vung">
+  <div class="hanhtrinh-container">
+
+    <h1 class="h1 text-secondary-color hanhtrinh-title">
+      <img src="assets/logo-ueh-university.png" alt="UEH University" class="hanhtrinh-logo" width="79" height="46">
+      <span>- NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU!</span>
+    </h1>
+
+    <div class="hanhtrinh-row">
+      <!-- Thay VIDEO_ID (2 chỗ: href và data-video-id) bằng ID video YouTube thật.
+           Ảnh bìa: dùng https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg hoặc ảnh riêng -->
+      <div class="hanhtrinh-video" id="hanhtrinhVideo">
+        <a class="hanhtrinh-video__poster" href="https://www.youtube.com/watch?v=VIDEO_ID"
+           data-video-id="VIDEO_ID" aria-label="Phát video: UEH - Nơi mọi hành trình bền vững bắt đầu">
+          <img src="assets/video-poster.jpg" alt="" class="hanhtrinh-video__img">
+          <span class="hanhtrinh-video__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          </span>
+        </a>
       </div>
-      <div class="ueh-journey-text h3">
-        <h3>UEH là nơi gặp gỡ của tri thức Đa ngành và những con người lựa chọn hành động Bền vững. Giáo dục tiệm cận thế giới với tư duy đa ngành, liên ngành, đa lĩnh vực, UEH trao quyền cho bạn dám mơ giấc mơ của riêng mình, sẵn sàng đặt chân tới bất cứ đâu và sống vì lý tưởng cộng đồng của bản thân. Tại nơi này, dù là bất kỳ ai, mọi hạt giống dũng cảm sẽ được gieo trồng, mọi nội lực đều được nuôi dưỡng và những hoài bão luôn được ấp ủ.</h3>
-        <h3>Chặng con đường nào là dễ dàng, mồ hôi sẽ tuôn và còn đó nhiều đêm dài thức trắng. Nhưng nó chắc chắn là vẻ đẹp của hành trình nỗ lực không giới hạn. Để khi bước ra khỏi cánh cổng tri thức, bạn có hành trang là trí – nhân – tâm để sẵn sàng vươn tới mọi chân trời mới.</h3>
+
+      <div class="hanhtrinh-text">
+        <p class="h3">UEH là nơi gặp gỡ của tri thức Đa ngành và những con người lựa chọn hành động Bền vững. Giáo dục tiệm cận thế giới với tư duy đa ngành, liên ngành, đa lĩnh vực, UEH trao quyền cho bạn dám mơ giấc mơ của riêng mình, sẵn sàng đặt chân tới bất cứ đâu và sống vì lý tưởng cộng đồng của bản thân. Tại nơi này, dù là bất kỳ ai, mọi hạt giống dũng cảm sẽ được gieo trồng, mọi nội lực đều được nuôi dưỡng và những hoài bão luôn được ấp ủ.</p>
+        <p class="h3">Chẳng con đường nào là dễ dàng, mồ hôi sẽ tuôn và còn đó nhiều đêm dài thức trắng. Nhưng nó chắc chắn là vẻ đẹp của hành trình nỗ lực không giới hạn. Để khi bước ra khỏi cánh cổng tri thức, bạn có hành trang là trí – nhân – tâm để sẵn sàng vươn tới mọi chân trời mới.</p>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
   <script>
     // Bật/tắt menu mobile khi bấm nút hamburger
     (function () {
@@ -499,6 +518,24 @@
       });
     })();
     
+      // Khung video: bấm ảnh bìa -> nạp iframe YouTube (autoplay), khung chuyển sang 16:9
+  (function () {
+    var box = document.getElementById('hanhtrinhVideo');
+    if (!box) return;
+    var poster = box.querySelector('.hanhtrinh-video__poster');
+    poster.addEventListener('click', function (e) {
+      e.preventDefault();
+      var id = poster.getAttribute('data-video-id');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+      iframe.title = 'UEH - Nơi mọi hành trình bền vững bắt đầu';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.className = 'hanhtrinh-video__iframe';
+      box.classList.add('is-playing');
+      box.replaceChild(iframe, poster);
+    });
+  })();
   </script>
  
 </body>

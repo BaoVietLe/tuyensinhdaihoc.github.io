@@ -520,42 +520,42 @@
           <div class="programs__cards" role="tablist" aria-label="Các chương trình đào tạo">
  
             <button type="button" class="program-card" role="tab" id="tab-chuan" aria-selected="true" aria-controls="panel-chuan">
-              <span class="pc-art"><img src="assets/programs/card-chuan.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
+              <span class="pc-art"><img src="img/hoc-gi-ueh-1.png" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Chuẩn</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-banphan" aria-selected="false" aria-controls="panel-banphan" tabindex="-1">
-              <span class="pc-art"><img src="assets/programs/card-ban-phan.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
+              <span class="pc-art"><img src="img/hoc-gi-ueh-2.png" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Tiếng Anh bán phần</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-toanphan" aria-selected="false" aria-controls="panel-toanphan" tabindex="-1">
-              <span class="pc-art"><img src="assets/programs/card-toan-phan.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
+              <span class="pc-art"><img src="img/hoc-gi-ueh-3.png" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Tiếng Anh toàn phần</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-asia" aria-selected="false" aria-controls="panel-asia" tabindex="-1">
-              <span class="pc-art"><img src="assets/programs/card-asia-coop.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
+              <span class="pc-art"><img src="img/hoc-gi-ueh-4.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Asia Co-op</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-isb" aria-selected="false" aria-controls="panel-isb" tabindex="-1">
-              <span class="pc-art"><img src="assets/programs/card-ueh-isb.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
+              <span class="pc-art"><img src="img/hoc-gi-ueh-5.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">UEH ISB</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-songnganh" aria-selected="false" aria-controls="panel-songnganh" tabindex="-1">
-              <span class="pc-art"><img src="assets/programs/card-song-nganh.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
+              <span class="pc-art"><img src="img/hoc-gi-ueh-6.png" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Song ngành tích hợp</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-songbang" aria-selected="false" aria-controls="panel-songbang" tabindex="-1">
-              <span class="pc-art"><img src="assets/programs/card-song-bang.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
+              <span class="pc-art"><img src="img/hoc-gi-ueh-7.png" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Song bằng quốc tế</span>
             </button>
  
             <button type="button" class="program-card" role="tab" id="tab-traodoi" aria-selected="false" aria-controls="panel-traodoi" tabindex="-1">
-              <span class="pc-art"><img src="assets/programs/card-trao-doi.jpg" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
+              <span class="pc-art"><img src="img/hoc-gi-ueh-8.png" alt="" width="400" height="240" loading="lazy" draggable="false"></span>
               <span class="pc-label">Trao đổi và liên kết quốc tế</span>
             </button>
  
@@ -715,10 +715,10 @@
       box.replaceChild(iframe, poster);
     });
   })();
-  /* ==========================================================================
+/* ==========================================================================
    PROGRAMS.JS — Section "Học gì ở UEH?"
    1. Chọn thẻ -> đổi nội dung cột trái (tab pattern, hỗ trợ bàn phím).
-   2. Cột phải cuộn riêng (rê chuột + lăn chuột + kéo chuột); hết thẻ thì trang mới cuộn tiếp.
+   2. Cột phải chỉ hiện 4 thẻ, cuộn riêng (lăn chuột + kéo chuột); hết thẻ thì trang mới cuộn tiếp.
    3. Accordion (Trao đổi & Liên kết quốc tế).
    ========================================================================== */
 (() => {
@@ -730,8 +730,17 @@
   const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
   const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
   const viewport = root.querySelector('.programs__viewport');
+  const cardsEl = root.querySelector('.programs__cards');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let current = Math.max(0, tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true'));
+
+  /* Số thẻ mỗi hàng: 2 (desktop rộng) hoặc 1 (thẻ phóng to); dải ngang mobile coi như 1 */
+  const isStrip = () => getComputedStyle(viewport).overflowY !== 'auto';
+  const columns = () => {
+    if (isStrip()) return 1;
+    const cols = getComputedStyle(cardsEl).gridTemplateColumns;
+    return cols === 'none' ? 1 : cols.split(' ').length;
+  };
 
   /* ---------- 1. Chọn chương trình ---------- */
   function select(index, { focus = false, reveal = true } = {}) {
@@ -744,20 +753,30 @@
     });
     current = index;
     if (focus) tabs[index].focus({ preventScroll: true });
-    if (reveal) {
-      tabs[index].scrollIntoView({
-        block: 'nearest',
-        inline: 'nearest',
-        behavior: reduceMotion.matches ? 'auto' : 'smooth',
-      });
+    if (reveal) revealTab(tabs[index]);
+  }
+
+  /* Đưa thẻ vào vùng nhìn thấy của cột phải mà KHÔNG làm nhảy cả trang */
+  function revealTab(tab) {
+    const v = viewport.getBoundingClientRect();
+    const t = tab.getBoundingClientRect();
+    let top = 0;
+    let left = 0;
+    if (t.top < v.top) top = t.top - v.top;
+    else if (t.bottom > v.bottom) top = t.bottom - v.bottom;
+    if (t.left < v.left) left = t.left - v.left;
+    else if (t.right > v.right) left = t.right - v.right;
+    if (top || left) {
+      viewport.scrollBy({ top, left, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
     }
   }
 
   tabs.forEach((tab, i) => {
     tab.addEventListener('click', () => select(i));
     tab.addEventListener('keydown', (e) => {
-      // Lưới 2 cột: trái/phải = ±1, lên/xuống = ±2
-      const step = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: 2, ArrowUp: -2 }[e.key];
+      // Trái/phải = ±1; lên/xuống = ± số thẻ mỗi hàng
+      const rowStep = columns();
+      const step = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: rowStep, ArrowUp: -rowStep }[e.key];
       if (step !== undefined) {
         e.preventDefault();
         const next = i + step;
@@ -774,22 +793,13 @@
 
   select(current, { reveal: false });
 
-  /* ---------- 2. Cột phải: cuộn + kéo chuột ---------- */
-  function updateScrollState() {
-    const vertical = viewport.scrollHeight - viewport.clientHeight;
-    const horizontal = viewport.scrollWidth - viewport.clientWidth;
-    root.dataset.scrollable = String(vertical > 1 || horizontal > 1);
-  }
-  updateScrollState();
-  window.addEventListener('resize', updateScrollState, { passive: true });
-  if ('ResizeObserver' in window) new ResizeObserver(updateScrollState).observe(viewport);
-
+  /* ---------- 2. Cột phải: kéo chuột để cuộn ---------- */
   let drag = null;
   let suppressClick = false;
 
   viewport.addEventListener('pointerdown', (e) => {
     if (e.pointerType !== 'mouse' || e.button !== 0) return;
-    const vertical = getComputedStyle(viewport).overflowY === 'auto';
+    const vertical = !isStrip();
     drag = {
       vertical,
       start: vertical ? e.clientY : e.clientX,
@@ -830,8 +840,7 @@
   /* ---------- 3. Accordion ---------- */
   function setAccordion(item, open) {
     item.classList.toggle('is-open', open);
-    const trigger = item.querySelector('.acc-trigger');
-    trigger.setAttribute('aria-expanded', String(open));
+    item.querySelector('.acc-trigger').setAttribute('aria-expanded', String(open));
     item.querySelector('.acc-panel').setAttribute('aria-hidden', String(!open));
   }
 

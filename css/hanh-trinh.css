@@ -21,10 +21,15 @@
 .hanhtrinh-title {
   display: flex;
   align-items: center;
+  justify-content: center; /* Căn giữa các phần tử con (logo và chữ) theo chiều ngang */
   gap: clamp(12px, 1.5vw, 24px);
+  margin-left: auto;       /* Phối hợp với margin-right để căn giữa chính nó */
+  margin-right: auto;      /* Phối hợp với margin-left để căn giữa chính nó */
   margin-bottom: clamp(30px, 4vw, 45px);
   font-size: clamp(24px, 3.1vw, var(--font-size-h1));
   text-align: center;
+  width: max-content;      /* Thu gọn chiều rộng vừa bằng nội dung để căn giữa chuẩn xác */
+  max-width: 100%;         /* Đảm bảo không bị tràn màn hình trên thiết bị di động */
 }
 
 .hanhtrinh-logo {

@@ -1,16 +1,12 @@
 /* ==========================================================================
-   HANH-TRINH.CSS — UI/UX Tối giản (Xếp dọc, Ẩn văn bản)
+   HANH-TRINH.CSS — Bố cục Editorial (Grid 2 cột thanh lịch)
    ========================================================================== */
 
 .section-hanhtrinh {
   --hanhtrinh-gutter: clamp(24px, 7vw, 100px);
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
   padding: var(--spacing-vertical) 0;
+  box-sizing: border-box;
 }
 
 .hanhtrinh-container {
@@ -21,150 +17,132 @@
   box-sizing: border-box;
 }
 
-/* ---------- H1: Căn giữa cho bố cục xếp dọc ---------- */
+/* ---------- Tiêu đề ---------- */
 .hanhtrinh-title {
   display: flex;
   align-items: center;
-  justify-content: center; /* Bố cục dọc nên H1 để ở giữa là đẹp nhất */
-  flex-wrap: wrap; /* Tránh vỡ layout nếu màn nhỏ */
-  gap: calc(var(--spacing-icon-text) * 1.5);
-  margin-bottom: var(--spacing-vertical);
-  font-size: min(var(--font-size-h1), 3.1vw);
-  text-align: center;
+  gap: clamp(12px, 1.5vw, 24px);
+  margin-bottom: clamp(30px, 4vw, 45px);
+  font-size: clamp(24px, 3.1vw, var(--font-size-h1));
 }
 
 .hanhtrinh-logo {
-  display: block;
   flex: 0 0 auto;
-  width: clamp(48px, 5.49vw, 79px);
+  width: clamp(50px, 5.5vw, 79px);
   height: auto;
   aspect-ratio: 79 / 46;
 }
 
-/* ---------- Layout Xếp chồng (Stacked) ---------- */
-.hanhtrinh-layout-stacked {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-vertical); /* Khoảng cách giữa Video và Thanh nhấn */
+/* ---------- Bố cục lưới 2 cột ---------- */
+.hanhtrinh-grid {
+  display: grid;
+  /* Chia tỉ lệ: Video chiếm khoảng 58%, Chữ chiếm 42% */
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(30px, 4vw, 60px);
+  align-items: center; /* Căn giữa theo chiều dọc để khối video và chữ cân bằng */
 }
 
-/* ---------- Khung video: 1 hàng ở giữa ---------- */
+/* ---------- Cột Video ---------- */
 .hanhtrinh-video {
   position: relative;
   width: 100%;
-  max-width: 900px; /* Khống chế max-width để video không bị khổng lồ trên desktop */
-  aspect-ratio: 659 / 228;
+  aspect-ratio: 16 / 9; /* Dùng 16:9 chuẩn để không bị viền đen trên YouTube */
   border-radius: var(--border-radius-base);
   overflow: hidden;
   background-color: var(--color-secondary);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Thêm đổ bóng nhẹ tăng chiều sâu */
-}
-.hanhtrinh-video.is-playing {
-  aspect-ratio: 16 / 9;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ tạo chiều sâu */
 }
 
-.hanhtrinh-video__poster {
-  display: block;
-  position: absolute;
-  inset: 0;
-  cursor: pointer;
-}
-.hanhtrinh-video__img {
+.hanhtrinh-video__poster,
+.hanhtrinh-video__img,
+.hanhtrinh-video__iframe {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  inset: 0;
+  border: 0;
+  cursor: pointer;
 }
+
 .hanhtrinh-video__play {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-main);
-  color: #FFFFFF;
-  transition: transform 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-main);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
-.hanhtrinh-video__play svg { width: 28px; height: 28px; }
-.hanhtrinh-video__poster:hover .hanhtrinh-video__play {
-  transform: translate(-50%, -50%) scale(1.08);
+
+.hanhtrinh-video__play svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 4px; /* Căn chỉnh icon tam giác cho cân tâm */
 }
-.hanhtrinh-video__iframe {
+
+.hanhtrinh-video:hover .hanhtrinh-video__play {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: #FFFFFF;
+}
+
+/* ---------- Cột Chữ ---------- */
+.hanhtrinh-text-box {
+  position: relative;
+  padding-left: 24px; 
+}
+
+/* Thanh line trang trí bên trái để neo giữ thị giác */
+.hanhtrinh-text-box::before {
+  content: "";
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background-color: var(--color-main); /* Dùng màu cam hoặc xanh tùy root */
+  border-radius: 4px;
 }
 
-/* ---------- Khối chữ Ẩn/Hiện (Details/Summary) ---------- */
-.hanhtrinh-details {
-  width: 100%;
-  max-width: 800px; /* Giới hạn độ rộng chữ để tạo cảm giác đọc thoải mái nhất (chuẩn UI/UX) */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-/* Thanh bấm "Đọc thông điệp" */
-.hanhtrinh-summary {
-  list-style: none; /* Ẩn mũi tên mặc định của trình duyệt */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: calc(var(--spacing-icon-text) * 1.5) 0;
-  cursor: pointer;
-  color: var(--color-secondary); /* Màu chữ xanh theo guideline */
-  transition: opacity 0.2s ease;
-}
-.hanhtrinh-summary::-webkit-details-marker {
-  display: none; /* Ẩn mũi tên mặc định trên Safari */
-}
-.hanhtrinh-summary:hover {
-  opacity: 0.8;
-}
-.icon-toggle {
-  transition: transform 0.3s ease; /* Hiệu ứng xoay mũi tên */
-}
-.hanhtrinh-details[open] .icon-toggle {
-  transform: rotate(180deg); /* Khi mở ra mũi tên xoay ngược lại */
-}
-
-/* Khối nội dung chữ sau khi xổ xuống */
-.hanhtrinh-text {
-  padding: var(--spacing-icon-text) 0 calc(var(--spacing-vertical) * 1.5) 0;
-  animation: fadeInDown 0.4s ease forwards; /* Animation trượt nhẹ xuống */
-}
-.hanhtrinh-text p {
-  text-align: justify;
-  text-indent: var(--spacing-icon-text);
+.hanhtrinh-text-box p {
   margin: 0;
-  color: var(--text-color); /* Hoặc biến màu chữ tùy file root của bạn */
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  text-align: left; /* KHÔNG dùng justify trên web hiện đại để tránh các khe hở làm rách chữ */
+  line-height: 1.7; /* Dãn dòng rộng hơn giúp mắt đọc thoải mái */
+  opacity: 0.85; /* Giảm độ tương phản của chữ đen một chút cho dịu mắt */
 }
 
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-
-@media (max-width: 900px) {
-  .hanhtrinh-title {
-    font-size: clamp(22px, 5.4vw, var(--font-size-h1));
+@media (max-width: 1024px) {
+  .hanhtrinh-grid {
+    grid-template-columns: 1fr; /* Xuống 1 cột */
+    gap: 32px;
   }
-  .hanhtrinh-logo { width: clamp(52px, 10vw, 79px); }
-  .hanhtrinh-video { aspect-ratio: 16 / 9; } /* Trải nghiệm mobile nên để luôn 16:9 */
+  
+  .hanhtrinh-text-box {
+    padding-left: 0;
+  }
+  
+  .hanhtrinh-text-box::before {
+    display: none; /* Bỏ vạch kẻ bên trái trên mobile */
+  }
 }
 
 @media (max-width: 600px) {
-  .hanhtrinh-video__play { width: 48px; height: 48px; }
-  .hanhtrinh-video__play svg { width: 24px; height: 24px; }
-  .hanhtrinh-text p { text-align: left; } /* Mobile không nên justify sẽ bị rỗng chữ */
+  .hanhtrinh-title {
+    flex-direction: column; /* Rớt dòng logo và chữ trên điện thoại */
+    align-items: flex-start;
+  }
+  .hanhtrinh-video__play {
+    width: 48px;
+    height: 48px;
+  }
 }

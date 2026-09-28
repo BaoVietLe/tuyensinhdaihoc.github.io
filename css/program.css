@@ -62,7 +62,7 @@
 }
 
 .programs__title {
-  color: var(--color-secondary-dark);
+  color: var(--color-secondary);
   font-size: clamp(28px, 5vw, var(--font-size-h1));
 }
 

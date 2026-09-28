@@ -245,111 +245,152 @@
       </div>
     </div>
   </section>
-  <!-- ============ TẠI SAO CHỌN UEH? ============ -->
-<!-- ==========================================================================
-     TẠI SAO CHỌN UEH? — chuẩn root.css
-     - Chữ dùng class .h1 / .h2 / .h3 của root.css (KHÔNG khai báo lại font-size,
-       weight, màu bằng mã hex). Thẻ <p>/<li> LUÔN gắn class="h3" trực tiếp, vì
-       root.css có rule global "p" = 20px, class .h3 gắn thẳng lên thẻ mới thắng.
-     - Màu: --color-main (cam), --color-secondary (xanh rêu), --color-text (xám).
-     - Khoảng cách: --spacing-vertical (35px), --spacing-horizontal (30px),
-       --spacing-icon-text (10px). Bo góc: --border-radius-base (15px).
-     - Bố cục theo ảnh mẫu: cột trái = H2 + ảnh + nhãn; cột phải = chỉ danh sách.
-     ========================================================================== -->
-<section class="section-taisao" id="tai-sao-chon-ueh">
-  <div class="container-full">
+  <section class="section-taisao" id="tai-sao-chon-ueh">
+    <div class="container-full">
+      
+      <!-- Section Title -->
+      <h2 class="taisao-title">TẠI SAO CHỌN <span class="color_f26f33">UEH?</span></h2>
 
-    <h1 class="h1 text-secondary-color taisao-title">TẠI SAO CHỌN UEH?</h1>
-
-    <!-- ============ MỤC 1 ============ -->
-    <div class="taisao-block-item" id="taisao-item-1">
-      <div class="taisao-left">
-        <h2 class="h2 text-color taisao-heading">CHẤT LƯỢNG ĐƯỢC CÔNG NHẬN BẰNG XẾP HẠNG TOÀN CẦU</h2>
+      <!-- ==========================================================================
+           MỤC 1: XẾP HẠNG TOÀN CẦU (taisao_1.jpg)
+           ========================================================================== -->
+      <div class="taisao-block-item" id="taisao-item-1">
+        <!-- Visual Box: Ảnh sinh viên + Tabs Dọc Bên Phải -->
         <div class="taisao-visual-container">
           <div class="taisao-image-box">
             <img src="img/tai-sao-ueh-1.jpg" alt="Tại sao chọn UEH - Công nhận chất lượng" class="taisao-image" id="taisaoImage1">
           </div>
           <div class="taisao-tabs-sidebar">
-            <div class="h3 taisao-tab">CÔNG NHẬN</div>
-            <div class="h3 taisao-tab tab-orange">CỘNG ĐỒNG QUỐC TẾ</div>
+            <button class="taisao-tab-btn active" data-tab="cong-nhan-1">
+              <span>CÔNG NHẬN</span>
+            </button>
+            <button class="taisao-tab-btn tab-orange" data-tab="cong-dong-1">
+              <span>CỘNG ĐỒNG QUỐC TẾ</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Details 1 -->
+        <div class="taisao-detail-container">
+          <div class="taisao-detail-heading">
+            <h3>CHẤT LƯỢNG ĐƯỢC<br>CÔNG NHẬN BẰNG<br>XẾP HẠNG TOÀN CẦU</h3>
+          </div>
+          <div class="taisao-divider-line"></div>
+          <div class="taisao-detail-content">
+            <ul class="taisao-ranking-list">
+              <li><span class="bullet">•</span> <span>TOP <strong>501 – 600</strong> ĐẠI HỌC TỐT NHẤT THẾ GIỚI <em>(THE WUR, 2026)</em></span></li>
+              <li><span class="bullet">•</span> <span>TOP <strong>136</strong> ĐẠI HỌC TỐT NHẤT CHÂU Á <em>(THE AUR, 2025)</em></span></li>
+              <li><span class="bullet">•</span> <span>TOP <strong>650</strong> ĐẠI HỌC THẾ GIỚI VỀ BỀN VỮNG <em>(QS WUR Sustainability, 2025)</em></span></li>
+              <li><span class="bullet">•</span> <span>TOP <strong>1</strong> ĐÀO TẠO LĨNH VỰC KINH DOANH QUẢN LÝ VÀ KẾ TOÁN TẠI VIỆT NAM <em>(SCImago Institutions Rankings, 2025)</em></span></li>
+              <li><span class="bullet">•</span> <span>TOP <strong>2</strong> ĐÀO TẠO LĨNH VỰC NGHỆ THUẬT VÀ NHÂN VĂN, KINH TẾ HỌC, KINH TẾ LƯỢNG VÀ TÀI CHÍNH <em>(SCImago Institutions Rankings, 2025)</em></span></li>
+              <li><span class="bullet">•</span> <span>TOP <strong>3</strong> ĐÀO TẠO LĨNH VỰC KHOA HỌC XÃ HỘI <em>(SCImago Institutions Rankings, 2025)</em></span></li>
+              <li><span class="bullet">•</span> <span>TOP <strong>251 – 300</strong> ĐẠI HỌC THẾ GIỚI LĨNH VỰC KINH TẾ VÀ KINH TẾ LƯỢNG <em>(QS WUR by Subject, 2025)</em></span></li>
+              <li><span class="bullet">•</span> <span>TOP <strong>301+</strong> ĐẠI HỌC THẾ GIỚI LĨNH VỰC KINH TẾ, KINH DOANH <em>(THE WUR by Subject, 2026)</em></span></li>
+              <li><span class="bullet">•</span> <span>TOP <strong>401+</strong> ĐẠI HỌC THẾ GIỚI LĨNH VỰC KHOA HỌC XÃ HỘI <em>(THE WUR by Subject, 2026)</em></span></li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <ul class="taisao-list">
-        <li class="h3">TOP 501 – 600 ĐẠI HỌC TỐT NHẤT THẾ GIỚI (THE WUR, 2026)</li>
-        <li class="h3">TOP 136 ĐẠI HỌC TỐT NHẤT CHÂU Á (THE AUR, 2025)</li>
-        <li class="h3">TOP 650 ĐẠI HỌC THẾ GIỚI VỀ BỀN VỮNG (QS WUR Sustainability, 2025)</li>
-        <li class="h3">TOP 1 ĐÀO TẠO LĨNH VỰC KINH DOANH QUẢN LÝ VÀ KẾ TOÁN TẠI VIỆT NAM (SCImago Institutions Rankings, 2025)</li>
-        <li class="h3">TOP 2 ĐÀO TẠO LĨNH VỰC NGHỆ THUẬT VÀ NHÂN VĂN, KINH TẾ HỌC, KINH TẾ LƯỢNG VÀ TÀI CHÍNH (SCImago Institutions Rankings, 2025)</li>
-        <li class="h3">TOP 3 ĐÀO TẠO LĨNH VỰC KHOA HỌC XÃ HỘI (SCImago Institutions Rankings, 2025)</li>
-        <li class="h3">TOP 251 – 300 ĐẠI HỌC THẾ GIỚI LĨNH VỰC KINH TẾ VÀ KINH TẾ LƯỢNG (QS WUR by Subject, 2025)</li>
-        <li class="h3">TOP 301+ ĐẠI HỌC THẾ GIỚI LĨNH VỰC KINH TẾ, KINH DOANH (THE WUR by Subject, 2026)</li>
-        <li class="h3">TOP 401+ ĐẠI HỌC THẾ GIỚI LĨNH VỰC KHOA HỌC XÃ HỘI (THE WUR by Subject, 2026)</li>
-      </ul>
-    </div>
-
-    <!-- ============ MỤC 2 ============ -->
-    <div class="taisao-block-item" id="taisao-item-2">
-      <div class="taisao-left">
-        <h2 class="h2 text-color taisao-heading">ĐƯỢC ĐỒNG HÀNH, CHỨNG NHẬN VÀ TIN CẬY BỞI MẠNG LƯỚI HIỆP HỘI, TỔ CHỨC GIÁO DỤC VÀ DOANH NGHIỆP HÀNG ĐẦU</h2>
-        <div class="taisao-visual-container">
+      <!-- ==========================================================================
+           MỤC 2: HIỆP HỘI NGHỀ NGHIỆP & TỔ CHỨC GIÁO DỤC (taisao_2.jpg)
+           ========================================================================== -->
+      <div class="taisao-block-item" id="taisao-item-2">
+        <!-- Visual Box: Tabs Dọc Bên Trái + Ảnh Bên Phải -->
+        <div class="taisao-visual-container layout-reverse">
+          <div class="taisao-tabs-sidebar sidebar-left">
+            <button class="taisao-tab-btn tab-orange" data-tab="hiep-hoi-2">
+              <span>HIỆP HỘI NGHỀ NGHIỆP</span>
+            </button>
+            <button class="taisao-tab-btn active" data-tab="cong-nhan-2">
+              <span>CÔNG NHẬN</span>
+            </button>
+          </div>
           <div class="taisao-image-box">
             <img src="img/tai-sao-ueh-2.jpg" alt="Tại sao chọn UEH - Hiệp hội nghề nghiệp và đối tác" class="taisao-image" id="taisaoImage2">
           </div>
-          <div class="taisao-tabs-sidebar">
-            <div class="h3 taisao-tab">CÔNG NHẬN</div>
-            <div class="h3 taisao-tab tab-orange">HIỆP HỘI NGHỀ NGHIỆP</div>
+        </div>
+
+        <!-- Details 2 -->
+        <div class="taisao-detail-container">
+          <div class="taisao-detail-heading">
+            <h3>ĐƯỢC ĐỒNG HÀNH,<br>CHỨNG NHẬN VÀ TIN CẬY<br>BỞI MẠNG LƯỚI HIỆP HỘI,<br>TỔ CHỨC GIÁO DỤC VÀ<br>DOANH NGHIỆP HÀNG ĐẦU</h3>
+          </div>
+          <div class="taisao-divider-line"></div>
+          <div class="taisao-detail-content">
+            <h4 class="taisao-subhead-orange">HIỆP HỘI</h4>
+            <ul class="taisao-ranking-list">
+              <li><span class="bullet">•</span> <span>Hiệp hội Kế toán Công chứng Úc (CPA);</span></li>
+              <li><span class="bullet">•</span> <span>Viện CFA Hoa Kỳ;</span></li>
+              <li><span class="bullet">•</span> <span>Viện kế toán công chứng Anh và xứ Wales (ICAEW);</span></li>
+              <li><span class="bullet">•</span> <span>Hiệp hội Kế toán công chứng Anh quốc (ACCA);</span></li>
+              <li><span class="bullet">•</span> <span>Hiệp hội Kế toán quản trị công chứng Anh quốc (CIMA);</span></li>
+              <li><span class="bullet">•</span> <span>Hiệp hội các chuyên gia phân tích kỹ thuật thị trường (Market Technicians Association – MTA);</span></li>
+              <li><span class="bullet">•</span> <span>Hiệp hội chuyên gia định phí bảo hiểm Hoa Kỳ (Society of Actuaries – SOA);</span></li>
+              <li><span class="bullet">•</span> <span>Hiệp hội chuyên gia định phí bảo hiểm Anh Quốc (Institute and Faculty of Actuaries – IFoA).</span></li>
+              <li><span class="bullet">•</span> <span>Liên đoàn các Hiệp hội Giao nhận Vận tải Quốc tế (FIATA)</span></li>
+            </ul>
+            <div class="taisao-highlight-orange">
+              +125 TỔ CHỨC GIÁO DỤC TRONG VÀ NGOÀI NƯỚC
+            </div>
           </div>
         </div>
       </div>
 
-      <ul class="taisao-list">
-        <li class="h3">Hiệp hội Kế toán Công chứng Úc (CPA);</li>
-        <li class="h3">Viện CFA Hoa Kỳ;</li>
-        <li class="h3">Viện kế toán công chứng Anh và xứ Wales (ICAEW);</li>
-        <li class="h3">Hiệp hội Kế toán công chứng Anh quốc (ACCA);</li>
-        <li class="h3">Hiệp hội Kế toán quản trị công chứng Anh quốc (CIMA);</li>
-        <li class="h3">Hiệp hội các chuyên gia phân tích kỹ thuật thị trường (Market Technicians Association – MTA);</li>
-        <li class="h3">Hiệp hội chuyên gia định phí bảo hiểm Hoa Kỳ (Society of Actuaries – SOA);</li>
-        <li class="h3">Hiệp hội chuyên gia định phí bảo hiểm Anh Quốc (Institute and Faculty of Actuaries – IFoA).</li>
-        <li class="h3">Liên đoàn các Hiệp hội Giao nhận Vận tải Quốc tế (FIATA) +125 TỔ CHỨC GIÁO DỤC TRONG VÀ NGOÀI NƯỚC</li>
-      </ul>
-    </div>
-
-    <!-- ============ MỤC 3 (nhãn bố trí khác: cam ngắn bên phải, xanh rêu ngoài cạnh trái) ============ -->
-    <div class="taisao-block-item" id="taisao-item-3">
-      <div class="taisao-left">
-        <h2 class="h2 text-color taisao-heading">RỘNG MỞ CƠ HỘI NGHỀ NGHIỆP CÙNG UEH</h2>
-        <div class="taisao-visual-container taisao-visual--alt">
-          <div class="taisao-tabs-sidebar sidebar-left">
-            <div class="h3 taisao-tab">MỞ CỬA TƯƠNG LAI</div>
-          </div>
+      <!-- ==========================================================================
+           MỤC 3: RỘNG MỞ CƠ HỘI NGHỀ NGHIỆP (taisao_3.jpg)
+           ========================================================================== -->
+      <div class="taisao-block-item" id="taisao-item-3">
+        <!-- Visual Box: Ảnh sinh viên + Tabs Dọc Bên Phải -->
+        <div class="taisao-visual-container">
           <div class="taisao-image-box">
             <img src="img/tai-sao-ueh-3.jpg" alt="Tại sao chọn UEH - Rộng mở cơ hội nghề nghiệp" class="taisao-image" id="taisaoImage3">
           </div>
-          <div class="taisao-tabs-sidebar sidebar-right">
-            <div class="h3 taisao-tab tab-orange">RỘNG MỞ KẾT NỐI</div>
+          <div class="taisao-tabs-sidebar">
+            <button class="taisao-tab-btn tab-orange" data-tab="rong-mo-3">
+              <span>RỘNG MỞ KẾT NỐI</span>
+            </button>
+            <button class="taisao-tab-btn active" data-tab="mo-cua-3">
+              <span>MỞ CỬA TƯƠNG LAI</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Details 3 -->
+        <div class="taisao-detail-container">
+          <div class="taisao-detail-heading">
+            <h3>RỘNG MỞ CƠ HỘI<br>NGHỀ NGHIỆP CÙNG UEH</h3>
+          </div>
+          <div class="taisao-divider-line"></div>
+          <div class="taisao-detail-content">
+            <p class="taisao-lead-text"><strong>500+</strong> DOANH NGHIỆP ĐỐI TÁC</p>
+            <p class="taisao-lead-text">MẠNG LƯỚI <strong>280.000+</strong> CỰU SINH VIÊN RỘNG KHẮP</p>
+            
+            <div class="taisao-group">
+              <h4 class="taisao-subhead-orange">“Chương trình Học kỳ doanh nghiệp”</h4>
+              <p>UEH phối hợp với mạng lưới hơn 500 doanh nghiệp đối tác trong và ngoài nước sẽ đồng hành cùng sinh viên trong học kỳ làm việc thực tế,</p>
+            </div>
+
+            <div class="taisao-group">
+              <h4 class="taisao-subhead-orange">“Tham quan doanh nghiệp”</h4>
+              <p>Sinh viên được trải nghiệm tham quan các doanh nghiệp, tập đoàn lớn là đối tác của UEH, lắng nghe những chia sẻ và kinh nghiệm thực tiễn từ doanh nghiệp và các nhà quản lý</p>
+            </div>
+
+            <div class="taisao-group">
+              <h4 class="taisao-subhead-orange">“UEH Career Fair”</h4>
+              <p>Hoạt động thường niên do Đại học Kinh tế Thành phố Hồ Chí Minh (UEH) tổ chức nhằm định hướng nghề nghiệp, trau dồi các kỹ năng hội nhập thực tiễn cho sinh viên và là cơ hội các doanh nghiệp tìm kiếm nguồn nhân lực trẻ, các ứng viên tiềm năng, chương trình được tổ chức 02 lần/năm.</p>
+            </div>
+
+            <div class="taisao-group">
+              <h4 class="taisao-subhead-orange">Cổng thông tin việc làm UEH</h4>
+              <p>Nơi chia sẻ nhiều cơ hội tương lai cho đến người học UEH, các bạn có thể ứng tuyển nhiều vị trí công việc khác nhau trong các lĩnh vực như: tài chính, kinh doanh, viễn thông, dịch vụ, xây dựng, công nghệ, thiết kế…</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <ul class="taisao-list">
-        <li class="h3">500+ DOANH NGHIỆP ĐỐI TÁC</li>
-        <li class="h3">MẠNG LƯỚI 280.000+ CỰU SINH VIÊN RỘNG KHẮP</li>
-        <li class="h3 taisao-sublabel">“Chương trình Học kỳ doanh nghiệp”</li>
-        <li class="h3">UEH phối hợp với mạng lưới hơn 500 doanh nghiệp đối tác trong và ngoài nước sẽ đồng hành cùng sinh viên trong học kỳ làm việc thực tế,</li>
-        <li class="h3 taisao-sublabel">“Tham quan doanh nghiệp”</li>
-        <li class="h3">Sinh viên được trải nghiệm tham quan các doanh nghiệp, tập đoàn lớn là đối tác của UEH, lắng nghe những chia sẻ và kinh nghiệm thực tiễn từ doanh nghiệp và các nhà quản lý</li>
-        <li class="h3 taisao-sublabel">“UEH Career Fair”</li>
-        <li class="h3">Hoạt động thường niên do Đại học Kinh tế Thành phố Hồ Chí Minh (UEH) tổ chức nhằm định hướng nghề nghiệp, trau dồi các kỹ năng hội nhập thực tiễn cho sinh viên và là cơ hội các doanh nghiệp tìm kiếm nguồn nhân lực trẻ, các ứng viên tiềm năng, chương trình được tổ chức 02 lần/năm.</li>
-        <li class="h3 taisao-sublabel">Cổng thông tin việc làm UEH</li>
-        <li class="h3">Nơi chia sẻ nhiều cơ hội tương lai cho đến người học UEH, các bạn có thể ứng tuyển nhiều vị trí công việc khác nhau trong các lĩnh vực như: tài chính, kinh doanh, viễn thông, dịch vụ, xây dựng, công nghệ, thiết kế…</li>
-      </ul>
     </div>
-
-  </div>
-</section>
+  </section>
 <section class="section-hanhtrinh" id="hanh-trinh-ben-vung">
   <div class="hanhtrinh-container">
 

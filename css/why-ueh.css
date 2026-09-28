@@ -246,4 +246,11 @@
     min-height: 0;
   }
   .taisao-list { max-height: none; overflow-y: visible; padding-right: 0; }
+    .ueh-journey-content {
+    gap: 24px;
+  }
+ 
+  .ueh-journey-title {
+    text-align: left;
+  }
 }

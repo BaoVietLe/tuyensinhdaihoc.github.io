@@ -1,312 +1,150 @@
 /* ==========================================================================
-   WHY-UEH.CSS — Section "Tại sao chọn UEH?" + "UEH - Nơi mọi hành trình..."
-   Dùng biến/màu từ root.css. Đo màu trực tiếp từ ảnh mẫu:
-   - H1 tiêu đề chính  = var(--color-secondary)
-   - H2 + text cột phải = var(--color-text)
-   - Ribbon cam         = var(--color-main)
-   - Ribbon xanh teal   = var(--color-secondary)
+   WHY-UEH.CSS — "Tại sao chọn UEH?" — chỉ dùng biến/class của root.css
+   Không khai báo lại font-size / font-weight / màu chữ chính: chữ do .h1 .h2 .h3
+   và .text-color / .text-secondary-color (root.css) đảm nhiệm.
    ========================================================================== */
 
-.why-ueh-section,
-.ueh-journey-section {
-  background-color: #FFFFFF;
-  padding: 0 40px; /* đồng bộ padding ngang với navbar */
+.section-taisao {
+  --taisao-gutter: clamp(24px, 7vw, 100px); /* thụt lề 2 bên, đo từ ảnh mẫu ~100px ở 1440px */
+  --taisao-tab-w: 40px;                     /* bề rộng dải nhãn dọc */
+  width: 100%;
+}
+
+.container-full {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--taisao-gutter);
   box-sizing: border-box;
 }
 
-.why-ueh-title {
+.taisao-title {
   text-align: center;
-  color: var(--color-secondary);
   padding-top: var(--spacing-vertical);
-  padding-bottom: var(--spacing-vertical);
-  max-width: 1440px;
-  margin: 0 auto;
 }
 
-/* ==========================================================================
-   MỖI KHỐI NỘI DUNG (block1, block2, block3)
-   Cột trái "sticky" (đứng yên khi cuộn), cột phải cuộn bình thường.
-   ========================================================================== */
-.why-ueh-block {
-  max-width: 1440px;
-  margin: 0 auto;
+/* ---------- 1 mục: luôn cao tối thiểu 1 màn hình desktop ----------
+   Dùng grid: align-items:start giữ 2 cột thẳng đỉnh (đúng ảnh mẫu), còn
+   align-content:center căn giữa CẢ HÀNG theo chiều dọc trong màn hình. */
+.taisao-block-item {
   display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 60px;
+  grid-template-columns: clamp(240px, 24.4vw, 351px) minmax(0, 1fr); /* 351px @1440 */
+  column-gap: clamp(var(--spacing-horizontal), 3.5vw, calc(var(--spacing-horizontal) * 1.7));
   align-items: start;
-  min-height: 100vh; /* mỗi khối vừa 1 màn hình desktop */
-  padding-bottom: var(--spacing-vertical);
+  align-content: center;
+  min-height: 100vh;
+  padding: var(--spacing-vertical) 0;
+  box-sizing: border-box;
 }
 
-.why-ueh-left {
-  position: sticky;
-  top: 24px; /* đứng yên khi cuộn qua nội dung cột phải */
+/* ---------- Cột trái: H2 (trên) + ảnh & nhãn (dưới) ---------- */
+.taisao-left {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-vertical);
 }
 
-.why-ueh-left .h2 {
-  color: var(--color-text);
+.taisao-heading {
+  margin-bottom: var(--spacing-icon-text);
 }
 
-/* ---------- Khối ảnh + ribbon ---------- */
-.why-ueh-image-wrap {
-  position: relative;
+.taisao-visual-container {
+  display: flex;
+  align-items: stretch;
   width: 100%;
-  aspect-ratio: 340 / 320;
-  overflow: hidden;
-  border-radius: var(--border-radius-base);
+  aspect-ratio: 351 / 300;
 }
 
-.why-ueh-photo {
+.taisao-image-box {
+  flex: 1;
+  min-width: 0;
+  border-radius: 0 0 0 var(--border-radius-base);
+  overflow: hidden;
+}
+.taisao-image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* Ribbon kiểu 1 (block 1 & 2): 2 dải đứng xếp chồng bên phải ảnh */
-.why-ueh-ribbon {
-  position: absolute;
-  right: 0;
-  width: 34px;
+/* ---------- Nhãn dọc (H3 in đậm) ---------- */
+.taisao-tabs-sidebar {
+  flex: 0 0 var(--taisao-tab-w);
+  display: flex;
+  flex-direction: column;
+}
+
+.taisao-tab {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  font-family: var(--font-family-base);
-  font-size: 13px;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.5px;
   writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  text-align: center;
+  transform: rotate(180deg);            /* chữ đọc từ dưới lên */
   white-space: nowrap;
-  padding: 10px 0;
+  font-weight: var(--font-weight-bold); /* H3 có bold */
+  color: var(--color-secondary);
+  padding: var(--spacing-icon-text) 0;
 }
-
-.why-ueh-ribbon.ribbon-top {
-  top: 0;
-  height: 45%;
+.taisao-tab.tab-orange {
+  flex: 0 0 auto;                       /* ô cam ôm theo độ dài chữ, dán đáy ảnh */
   background-color: var(--color-main);
+  color: #FFFFFF;
+}
+.taisao-tabs-sidebar { justify-content: space-between; }
+
+/* Mục 3: xanh rêu nằm NGOÀI cạnh trái (sát đáy), ô cam ngắn lệch lên phía trên bên phải */
+.taisao-visual--alt .sidebar-left {
+  justify-content: flex-end;
+}
+.taisao-visual--alt .sidebar-left .taisao-tab {
+  flex: 0 0 auto;
+}
+.taisao-visual--alt .sidebar-right {
+  justify-content: flex-start;
+  padding-top: 22%;
+}
+.taisao-visual--alt .taisao-image-box {
+  border-radius: var(--border-radius-base) 0 0 var(--border-radius-base);
 }
 
-.why-ueh-ribbon.ribbon-bottom {
-  bottom: 0;
-  height: 55%;
-  background-color: var(--color-secondary);
-}
-
-/* Ribbon kiểu 2 (block 3): dải dọc bên trái (full height) + banner góc phải trên */
-.why-ueh-ribbon.ribbon-left-full {
-  left: 0;
-  right: auto;
-  top: 0;
-  height: 100%;
-  background-color: var(--color-secondary);
-}
-
-.why-ueh-ribbon.ribbon-corner {
-  position: absolute;
-  top: 18px;
-  right: -63px;
-  width: 160px;
-  height: 34px;
-  writing-mode: horizontal-tb;
-  transform: rotate(90deg);
-  transform-origin: center;
-  background-color: var(--color-main);
-}
-
-/* ---------- Cột phải: danh sách nội dung ---------- */
-.why-ueh-right {
-  padding-top: 4px;
-}
-
-.why-ueh-list {
+/* ---------- Cột phải: chỉ danh sách H3; tự cuộn riêng nếu dài hơn màn hình ---------- */
+.taisao-list {
+  min-width: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  color: var(--color-text);
+  gap: calc(var(--spacing-vertical) * 0.4);
+  max-height: calc(100vh - 2 * var(--spacing-vertical));
+  overflow-y: auto;
+  padding-right: var(--spacing-icon-text);
 }
-
-.why-ueh-list li {
+.taisao-list li {
   position: relative;
-  padding-left: 18px;
+  padding-left: calc(var(--spacing-icon-text) * 2);
 }
-
-.why-ueh-list li::before {
-  content: '•';
+.taisao-list li::before {
+  content: "•";
   position: absolute;
   left: 0;
-  color: var(--color-text);
 }
-
-.why-ueh-list li.list-heading {
+.taisao-list .taisao-sublabel {
   font-weight: var(--font-weight-bold);
   text-decoration: underline;
-  padding-left: 18px;
-  margin-top: 8px;
 }
-
-.why-ueh-list li.list-heading::before {
-  content: '•';
-}
-
 
 /* ==========================================================================
-   SECTION "UEH - NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU!"
-   Giữ nguyên (không sticky), nằm sau 3 block phía trên.
+   RESPONSIVE
    ========================================================================== */
-.ueh-journey-section {
-  padding-top: var(--spacing-vertical);
-  padding-bottom: calc(var(--spacing-vertical) * 2);
+@media (max-width: 1100px) {
+  .taisao-block-item { grid-template-columns: clamp(200px, 30vw, 300px) minmax(0, 1fr); }
 }
 
-.ueh-journey-title {
-  max-width: 1440px;
-  margin: 0 auto var(--spacing-vertical) auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--color-secondary);
-  flex-wrap: wrap;
-}
-
-.ueh-journey-title {
-  display: inline-flex;
-  align-items: center; /* Căn giữa ảnh và chữ theo chiều dọc */
-  gap: 10px;           /* Khoảng cách giữa logo và chữ */
-}
-
-/* Định dạng kích thước cho hình ảnh logo */
-.ueh-journey-logo-img {
-  height: 2rem;      /* Điều chỉnh chiều cao logo cho vừa vặn với kích thước chữ h1 */
-  width: auto;         /* Tự động điều chỉnh chiều rộng để giữ đúng tỷ lệ ảnh */
-  object-fit: contain;
-}
-
-.ueh-journey-content {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 659px 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-/* Khung video 659x228 theo đúng yêu cầu (max ở màn hình 1440px) */
-.ueh-journey-video {
-  position: relative;
-  width: 100%;
-  max-width: 659px;
-  aspect-ratio: 659 / 228;
-  border-radius: var(--border-radius-base);
-  overflow: hidden;
-  background-color: #000;
-}
-
-.ueh-journey-video img,
-.ueh-journey-video iframe {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: none;
-  display: block;
-}
-
-.ueh-journey-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.ueh-journey-play svg {
-  width: 20px;
-  height: 20px;
-  color: var(--color-main);
-  margin-left: 3px;
-}
-
-.ueh-journey-text {
-  color: var(--color-text);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-vertical);
-}
-
-
-/* ==========================================================================
-   RESPONSIVE — TABLET (≤ 1024px)
-   ========================================================================== */
-@media (max-width: 1024px) {
-  .why-ueh-section,
-  .ueh-journey-section {
-    padding: 0 24px;
-  }
-
-  .why-ueh-block {
-    grid-template-columns: 300px 1fr;
-    gap: 32px;
-  }
-
-  .ueh-journey-content {
+@media (max-width: 900px) {
+  .taisao-block-item {
     grid-template-columns: 1fr;
+    row-gap: var(--spacing-vertical);
+    min-height: 0;
   }
-
-  .ueh-journey-video {
-    max-width: 100%;
-  }
-}
-
-
-/* ==========================================================================
-   RESPONSIVE — MOBILE & TABLET DỌC (≤ 768px)
-   Bỏ sticky, cột trái xếp trên cột phải, mỗi khối không ép min-height 100vh.
-   ========================================================================== */
-@media (max-width: 768px) {
-  .why-ueh-section,
-  .ueh-journey-section {
-    padding: 0 20px;
-  }
-
-  .why-ueh-title {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-
-  .why-ueh-block {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    gap: 20px;
-    padding-bottom: 32px;
-  }
-
-  .why-ueh-left {
-    position: static;
-    gap: 16px;
-  }
-
-  .why-ueh-image-wrap {
-    aspect-ratio: 4 / 3;
-  }
-
-  .ueh-journey-content {
-    gap: 24px;
-  }
-
-  .ueh-journey-title {
-    text-align: left;
-  }
+  .taisao-list { max-height: none; overflow-y: visible; padding-right: 0; }
 }

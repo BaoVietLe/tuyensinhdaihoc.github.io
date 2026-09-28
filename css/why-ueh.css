@@ -1,114 +1,95 @@
 /* ==========================================================================
-WHY-UEH.CSS — Cấu hình Layout Full-Screen & Chữ Toàn Bộ Trắng
+   WHY-UEH.CSS — Cấu hình Layout Bình Thường & Cột Trái Cố Định
    Đồng bộ chuẩn biến Design Tokens trong root.css
    ========================================================================== */
 
 @layer components {
-  /* --------------------------------------------------------------------------
-     1. Khối bao Section tổng
-     -------------------------------------------------------------------------- */
+  /* Khối bao Section tổng - Background Xanh, Chữ Trắng */
   .section-taisao {
     background-color: var(--color-secondary);
-    color: #ffffff; /* Tất cả text trong section bắt buộc là màu trắng */
+    color: #ffffff;
     width: 100%;
     position: relative;
-    padding: 20px 0;
+    padding: 60px 0;
   }
 
   .section-taisao .container-full {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 40px;
   }
 
-  /* --------------------------------------------------------------------------
-     2. Tiêu đề H1 lớn nhất
-     -------------------------------------------------------------------------- */
+  /* Tiêu đề H1 lớn nhất ở đầu section */
   .taisao-header {
     text-align: center;
-    padding: 20px 0 10px 0;
+    margin-bottom: 60px;
   }
 
   .taisao-main-title {
     font-size: var(--font-size-h1);
-    font-weight: var(--font-weight-black);
     color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     margin: 0;
   }
 
   /* --------------------------------------------------------------------------
-     3. Khối Bao Từng Mục (Cao đúng 100vh)
+     LOGIC STICKY (Cho các mục 1, 2, 3)
+     Mỗi block có chiều cao bằng 100vh để tạo khoảng trống cuộn cho cột phải.
      -------------------------------------------------------------------------- */
-  .taisao-block-item {
+  .taisao-block-item.is-sticky {
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Căn giữa nội dung theo chiều dọc nếu màn hình cao */
-    min-height: calc(100vh - 80px); /* Đảm bảo mỗi phần vừa màn hình Desktop */
-    padding: 40px 0;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px 0;
+    gap: 50px;
   }
 
-  /* Tiêu đề H2 & H1 (Phần 4) trải dài 1 dòng phía trên lưới */
-  .taisao-heading-full,
-  .taisao-benvung-title {
-    width: 100%;
-    text-align: left;
+  /* Cột Trái: Cố định khi lướt */
+  .taisao-left-col {
+    width: 45%;
+    position: sticky;
+    top: 15vh; /* Vị trí giữ cố định trên màn hình */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Cột Phải: Lướt dọc theo chiều cao 100vh */
+  .taisao-right-col {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc của 100vh */
+    min-height: 100vh;
+  }
+
+  /* --------------------------------------------------------------------------
+     GIAO DIỆN CỘT TRÁI (Tiêu đề H2, Khối Ảnh, Tabs)
+     -------------------------------------------------------------------------- */
+  .taisao-heading-left {
     font-size: var(--font-size-h2);
-    font-weight: var(--font-weight-bold);
     color: #ffffff;
     text-transform: uppercase;
-    white-space: nowrap; /* Ép buộc luôn nằm trên 1 dòng */
-    margin-bottom: 30px;
-    line-height: 1.2;
+    line-height: 1.4;
+    margin: 0;
   }
 
-  .taisao-benvung-title {
-    font-size: var(--font-size-h1);
-    font-weight: var(--font-weight-black);
-  }
-
-  /* --------------------------------------------------------------------------
-     4. Lưới Nội Dung Trái/Phải (Bên dưới tiêu đề)
-     -------------------------------------------------------------------------- */
-  .taisao-grid-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-horizontal);
-    align-items: start; /* Để Sticky hoạt động được */
-  }
-
-  /* Cột Trái: Cố định khi cuộn qua nội dung Cột Phải */
-  .taisao-left-col {
-    position: sticky;
-    top: 120px; /* Cách top trình duyệt một khoảng khi sticky */
-    z-index: 2;
-  }
-
-  .taisao-right-col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* --------------------------------------------------------------------------
-     5. Cột Trái (Hình ảnh, Nút Tabs, Khung Video)
-     -------------------------------------------------------------------------- */
   .taisao-visual-container {
     display: flex;
     align-items: stretch;
-    gap: 12px;
-    max-height: 280px;
+    gap: 15px;
   }
 
+  /* Layout tabs nằm bên phải hoặc bên trái ảnh */
+  .taisao-visual-container.layout-normal {
+    flex-direction: row;
+  }
   .taisao-visual-container.layout-reverse {
     flex-direction: row-reverse;
   }
 
   .taisao-image-box {
     flex: 1;
-    border-radius: var(--border-radius-base);
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   }
 
   .taisao-image {
@@ -116,52 +97,114 @@ WHY-UEH.CSS — Cấu hình Layout Full-Screen & Chữ Toàn Bộ Trắng
     height: 100%;
     object-fit: cover;
     display: block;
+    /* Không sử dụng hiệu ứng hover theo yêu cầu "bình thường, không hiệu ứng" */
   }
 
   .taisao-tabs-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    width: 130px;
+    gap: 10px;
+    width: 45px; /* Giữ tabs hẹp giống thiết kế gốc */
     flex-shrink: 0;
   }
 
   .taisao-tab-btn {
     flex: 1;
     font-size: var(--font-size-h3);
-    font-weight: var(--font-weight-bold);
-    color: #ffffff; /* Chữ trắng */
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
+    color: #ffffff;
+    background-color: var(--color-secondary); 
+    border: 1px solid rgba(255,255,255,0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 8px 5px;
+    padding: 10px 5px;
     margin: 0;
-    line-height: 1.2;
+    writing-mode: vertical-rl; /* Chữ xoay dọc giống ảnh mẫu */
+    transform: rotate(180deg); /* Lật chữ đọc từ dưới lên */
     text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
   }
 
   .taisao-tab-btn.tab-orange {
-    background-color: rgba(242, 111, 51, 0.3);
-  }
-
-  .taisao-tab-btn.active {
     background-color: var(--color-main);
-    box-shadow: 0 4px 12px rgba(242, 111, 51, 0.4);
+    border-color: var(--color-main);
   }
 
-  /* Khung Video chuẩn 659x228 trên tối đa 1440px */
+  /* --------------------------------------------------------------------------
+     GIAO DIỆN CỘT PHẢI (Văn bản H3)
+     -------------------------------------------------------------------------- */
+  .taisao-right-text {
+    font-size: var(--font-size-h3);
+    color: #ffffff;
+    line-height: 1.8;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .taisao-right-text strong {
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .taisao-ranking-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .taisao-ranking-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .taisao-ranking-list .bullet {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  /* --------------------------------------------------------------------------
+     PHẦN 4: KHỐI GIỮ NGUYÊN (Không Sticky)
+     -------------------------------------------------------------------------- */
+  .taisao-block-item.block-normal {
+    display: block; /* Trở về layout chuẩn tĩnh */
+    padding: 80px 0 20px 0;
+  }
+
+  .taisao-full-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .taisao-benvung-title {
+    font-size: var(--font-size-h1);
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .taisao-grid-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+  }
+
+  .taisao-col-video {
+    width: 45%;
+  }
+
+  .taisao-col-text {
+    width: 55%;
+  }
+
+  /* Khung Video: max width 659px, height 228px chuẩn màn Desktop */
   .taisao-video-container {
     width: 100%;
     max-width: 659px;
     height: 228px;
-    border-radius: var(--border-radius-base);
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     background-color: #000;
   }
 
@@ -171,137 +214,46 @@ WHY-UEH.CSS — Cấu hình Layout Full-Screen & Chữ Toàn Bộ Trắng
     border: none;
   }
 
-  /* --------------------------------------------------------------------------
-     6. Cột Phải (Văn bản H3 - 100% Màu Trắng, chỉ dùng Bold)
-     -------------------------------------------------------------------------- */
-  .taisao-right-text {
-    font-size: var(--font-size-h3);
-    font-weight: var(--font-weight-regular);
-    color: #ffffff; /* Tất cả text trắng */
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .taisao-ranking-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .taisao-ranking-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: var(--font-size-h3);
-  }
-
-  .taisao-ranking-list .bullet {
-    color: #ffffff; /* Đã chuyển sang trắng */
-    font-weight: var(--font-weight-bold);
-  }
-
-  /* Tất cả thẻ strong mặc định chữ trắng, đậm */
-  .taisao-right-text strong {
-    color: #ffffff;
-    font-weight: var(--font-weight-bold);
-  }
-
-  .taisao-subhead {
-    display: block;
-    color: #ffffff;
-    font-size: var(--font-size-h3);
-    text-transform: uppercase;
-    margin: 15px 0 6px 0;
-  }
-
-  .taisao-lead-text {
-    font-size: 16px;
-    color: #ffffff;
-    margin-bottom: 8px;
-  }
-
-  .taisao-group {
-    margin-bottom: 12px;
-  }
-
-  .taisao-group p {
-    font-size: var(--font-size-h3);
-    color: #ffffff;
-    margin: 0;
-  }
-
-  /* Nền highlight giữ màu, nhưng chữ bên trong buộc phải trắng */
-  .taisao-highlight-orange {
-    display: inline-block;
-    background-color: var(--color-main);
-    color: #ffffff; 
-    font-size: var(--font-size-h3);
-    padding: 10px 18px;
-    border-radius: var(--border-radius-base);
-    margin-top: 15px;
-  }
-
-  .taisao-benvung-desc {
-    font-size: var(--font-size-h3);
-    line-height: 1.6;
-    color: #ffffff;
-  }
-
-  .margin-top-20 {
-    margin-top: 20px;
-  }
 }
 
 /* ==========================================================================
-   7. RESPONSIVE DESIGN
+   RESPONSIVE (Màn hình nhỏ sẽ hủy sticky và xếp chồng dọc)
    ========================================================================== */
-
-/* Laptop nhỏ & Tablet ngang (<= 1024px) */
-@media (max-width: 1024px) {
-  .taisao-block-item {
-    min-height: auto;
-    padding: 50px 0;
-  }
-
-  /* Trên màn nhỏ, thả lỏng 1 dòng để tránh bị cắt chữ ngang */
-  .taisao-heading-full,
-  .taisao-benvung-title {
-    white-space: normal; 
-  }
-
-  .taisao-grid-content {
-    grid-template-columns: 1fr;
+@media (max-width: 992px) {
+  .taisao-block-item.is-sticky {
+    flex-direction: column;
+    min-height: auto; /* Hủy 100vh trên tablet/mobile */
     gap: 30px;
+    padding: 40px 0;
+  }
+
+  .taisao-left-col, .taisao-right-col,
+  .taisao-col-video, .taisao-col-text {
+    width: 100%;
   }
 
   .taisao-left-col {
-    position: static; /* Tắt sticky trên mobile để cuộn tự nhiên */
+    position: static; /* Hủy hiệu ứng sticky trên mobile */
   }
 
-  .taisao-video-container {
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 659 / 228;
+  .taisao-right-col {
+    min-height: auto;
   }
-}
 
-/* Mobile (<= 576px) */
-@media (max-width: 576px) {
-  .taisao-visual-container,
-  .taisao-visual-container.layout-reverse {
+  .taisao-grid-content {
     flex-direction: column;
-    max-height: none;
+    gap: 30px;
   }
 
+  /* Xoay lại chữ tabs ngang trên mobile cho dễ đọc */
   .taisao-tabs-sidebar {
     width: 100%;
     flex-direction: row;
   }
 
-  .taisao-image-box {
-    height: 220px;
+  .taisao-tab-btn {
+    writing-mode: horizontal-tb;
+    transform: none;
+    padding: 10px;
   }
 }

@@ -382,6 +382,59 @@
     </div>
   </div>
 </section>
+  <section class="hocgi-section" id="hoc-gi-o-ueh">
+  <div class="hocgi-container">
+    
+    <!-- CỘT BÊN TRÁI (Cố định - Sticky) -->
+    <div class="hocgi-left">
+      <!-- Tiêu đề H1 chính -->
+      <h1 class="hocgi-main-title">Học gì ở UEH?</h1>
+      
+      <!-- Khối hiển thị chi tiết (thay đổi linh hoạt khi click/hover card) -->
+      <div class="hocgi-content-display" id="hocgiContent">
+        <h2 class="hocgi-program-title" id="programTitle">Chương trình Chuẩn</h2>
+        <div class="hocgi-program-body" id="programBody">
+          <h3 class="hocgi-desc">Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA, FIBAA...); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2</h3>
+<section class="ueh-hocgi-section" id="hoc-gi-ueh">
+  <div class="ueh-hocgi-container">
+    
+    <!-- CỘT BÊN TRÁI: Cố định (Sticky) hiển thị chi tiết -->
+    <div class="ueh-left-col">
+      <div class="ueh-header-meta">
+        <h1 class="ueh-h1">Học gì ở UEH?</h1>
+        <span class="ueh-hint-text">Nhấn vào từng thẻ để xem chi tiết &rarr;</span>
+      </div>
+
+      <!-- Cụm nội dung chi tiết (Thay đổi động theo Card) -->
+      <div class="ueh-detail-box" id="uehDetailBox">
+        <h2 class="ueh-h2" id="programTitle">Chương trình Chuẩn</h2>
+        
+        <div class="ueh-content-body">
+          <h3 class="ueh-h3-desc" id="programDesc">
+            Chương trình Chuẩn tại UEH được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA, FIBAA), thiết kế tiệm cận TOP 200 Đại học hàng đầu thế giới và rà soát định kỳ 2-5 năm/lần.
+          </h3>
+          
+          <div class="ueh-extra-info" id="programExtra">
+            <p><strong>Loại hình đào tạo:</strong> Giảng dạy hoàn toàn bằng tiếng Việt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CỘT BÊN PHẢI: Cuộn danh sách 8 Card (Grid 2 cột) -->
+    <div class="ueh-right-col">
+      <div class="ueh-cards-grid" id="uehCardsGrid">
+        <!-- 8 Cards được render tự động qua JS -->
+      </div>
+      
+      <!-- Hướng dẫn cuộn dọc dạng chữ đứng bên phải -->
+      <div class="ueh-scroll-guide">
+        <span>Cuộn để xem thêm nhiều chương trình &rarr;</span>
+      </div>
+    </div>
+
+  </div>
+</section>
   <script>
     // Bật/tắt menu mobile khi bấm nút hamburger
     (function () {
@@ -531,6 +584,135 @@
       box.replaceChild(iframe, poster);
     });
   })();
+    document.addEventListener("DOMContentLoaded", () => {
+  // Dữ liệu 8 chương trình đào tạo
+  const programsData = [
+    {
+      id: "chuan",
+      title: "Chương trình Chuẩn",
+      cardLabel: "Chuẩn",
+      image: "img/card-chuan.jpg",
+      desc: "Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA, FIBAA), hoặc thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và rà soát định kỳ 2-5 năm/lần.",
+      extra: `<p><strong>Loại hình đào tạo:</strong> Giảng dạy hoàn toàn bằng tiếng Việt.</p>`
+    },
+    {
+      id: "tieng-anh-ban-phan",
+      title: "Chương trình Tiếng Anh bán phần",
+      cardLabel: "Tiếng Anh bán phần",
+      image: "img/card-ta-banphan.jpg",
+      desc: "Chương trình Tiếng Anh Bán phần tại UEH mang đến môi trường học tập hội nhập quốc tế, giúp sinh viên làm quen với các thuật ngữ chuyên ngành bằng tiếng Anh với tối thiểu 15 tín chỉ môn học bằng tiếng Anh.",
+      extra: `
+        <p><strong>Loại hình đào tạo:</strong> Giảng dạy kết hợp tiếng Việt và tiếng Anh.</p>
+        <p><strong>Điều kiện đầu vào:</strong> IELTS từ 5.0 hoặc tương đương.</p>
+      `
+    },
+    {
+      id: "tieng-anh-toan-phan",
+      title: "Chương trình Tiếng Anh toàn phần",
+      cardLabel: "Tiếng Anh toàn phần",
+      image: "img/card-ta-toanphan.jpg",
+      desc: "Chương trình Tiếng Anh Toàn phần tại UEH giúp sinh viên thụ hưởng chất lượng giáo dục tiệm cận các trường đại học quốc tế hàng đầu, sẵn sàng làm việc trong môi trường toàn cầu.",
+      extra: `
+        <p><strong>Loại hình đào tạo:</strong> Được giảng dạy toàn bộ bằng tiếng Anh (trừ các môn Lý luận chính trị, GDTC, GDQP).</p>
+        <p><strong>Điều kiện đầu vào:</strong> IELTS Academic từ 5.5 trở lên hoặc TOEFL iBT/TOEIC tương đương.</p>
+      `
+    },
+    {
+      id: "asia-coop",
+      title: "Chương trình Cử nhân ASIA Co-op",
+      cardLabel: "Asia Co-op",
+      image: "img/card-asia.jpg",
+      desc: "Chương trình đào tạo giảng dạy hoàn toàn bằng tiếng Anh, tích lũy kinh nghiệm làm việc thực tiễn tại các tập đoàn ASIA++ ngay trong quá trình học tập.",
+      extra: `<p><strong>Lộ trình đào tạo:</strong> Sau 02 học kỳ, sinh viên xét vào ngành Marketing hoặc Tài chính ứng dụng.</p>`
+    },
+    {
+      id: "ueh-isb",
+      title: "Chương trình Cử nhân Tài năng UEH.ISB",
+      cardLabel: "UEH ISB",
+      image: "img/card-isb.jpg",
+      desc: "Chương trình chính quy 100% tiếng Anh do UEH cấp bằng Honours, đạt kiểm định quốc tế FIBAA (Thụy Sĩ), phát triển toàn diện năng lực người học trong môi trường năng động.",
+      extra: `<p><strong>Lộ trình đào tạo:</strong> Xét tuyển chuyên ngành Kinh doanh quốc tế, Quản trị kinh doanh, Marketing, Tài chính ứng dụng, Kế toán sau 2 học kỳ.</p>`
+    },
+    {
+      id: "song-nganh",
+      title: "Chương trình Song ngành tích hợp",
+      cardLabel: "Song ngành tích hợp",
+      image: "img/card-songnganh.jpg",
+      desc: "Chương trình đào tạo tối ưu giúp sinh viên nhận 2 bằng Cử nhân trong thời gian rút ngắn từ 2 đến 2.5 năm, mở rộng tư duy liên ngành và bứt phá lợi thế cạnh tranh.",
+      extra: `<p><strong>Cơ hội:</strong> Tích hợp 39 chương trình song ngành hàng đầu tại UEH.</p>`
+    },
+    {
+      id: "song-bang",
+      title: "Chương trình Song bằng quốc tế",
+      cardLabel: "Song bằng quốc tế",
+      image: "img/card-songbang.jpg",
+      desc: "Chương trình phối hợp với các Đại học đối tác uy tín trên thế giới, nhận đồng thời bằng của UEH và bằng của Đại học đối tác quốc tế.",
+      extra: `<p><strong>Trải nghiệm:</strong> Học tập toàn cầu ngay tại Việt Nam với bằng cấp quốc tế.</p>`
+    },
+    {
+      id: "trao-doi-lien-ket",
+      title: "Chương trình Trao đổi & Liên kết quốc tế",
+      cardLabel: "Trao đổi & Liên kết quốc tế",
+      image: "img/card-traodoi.jpg",
+      desc: "Chương trình hợp tác đào tạo giữa UEH và các đối tác đại học quốc tế, giúp sinh viên trải nghiệm nền văn hóa mới và giao lưu sinh viên toàn cầu.",
+      extra: `<p><strong>Các hình thức:</strong> Summer camp, Giao lưu sinh viên quốc tế (Singapore, Thái Lan, Nhật Bản) và chuyển tiếp liên kết.</p>`
+    }
+  ];
+
+  const cardsGrid = document.getElementById("uehCardsGrid");
+  const detailBox = document.getElementById("uehDetailBox");
+  const programTitle = document.getElementById("programTitle");
+  const programDesc = document.getElementById("programDesc");
+  const programExtra = document.getElementById("programExtra");
+
+  // 1. Render 8 Cards vào DOM
+  function renderCards() {
+    cardsGrid.innerHTML = programsData.map((item, index) => `
+      <div class="ueh-card-item ${index === 0 ? 'active' : ''}" data-id="${item.id}">
+        <div class="ueh-card-thumb">
+          <img src="${item.image}" alt="${item.title}" onerror="this.src='[https://via.placeholder.com/200x120?text=$](https://via.placeholder.com/200x120?text=$){encodeURIComponent(item.cardLabel)}'">
+        </div>
+        <span class="ueh-card-title-text">${item.cardLabel}</span>
+      </div>
+    `).join('');
+  }
+
+  // 2. Cập nhật nội dung cột trái khi chuyển đổi Card
+  function updateDetailContent(program) {
+    // Hiệu ứng mờ dần ra
+    detailBox.classList.add("fade-out");
+
+    setTimeout(() => {
+      programTitle.textContent = program.title;
+      programDesc.textContent = program.desc;
+      programExtra.innerHTML = program.extra;
+
+      // Hiệu ứng hiện lại
+      detailBox.classList.remove("fade-out");
+    }, 200);
+  }
+
+  // 3. Đăng ký sự kiện Click cho từng Card
+  function attachCardEvents() {
+    const cardElements = document.querySelectorAll(".ueh-card-item");
+    cardElements.forEach(card => {
+      card.addEventListener("click", function() {
+        const programId = this.getAttribute("data-id");
+        const selectedProgram = programsData.find(p => p.id === programId);
+
+        if (selectedProgram) {
+          cardElements.forEach(c => c.classList.remove("active"));
+          this.classList.add("active");
+          updateDetailContent(selectedProgram);
+        }
+      });
+    });
+  }
+
+  // Khởi chạy
+  renderCards();
+  attachCardEvents();
+});
   </script>
  
 </body>

@@ -12,33 +12,30 @@
   --pad-l: clamp(24px, 7.01vw, 101px);            /* 101px @1440 */
   --pad-r: clamp(24px, 4.375vw, 63px);            /* 63px  @1440 */
 
-  /* Chế độ mặc định (desktop rộng): 2 thẻ/hàng, chỉ thấy 4 thẻ (2 hàng), thẻ 200x120 @1440 */
-  --cols: 2;
-  --rows-visible: 2;
-  --card-w: clamp(150px, 13.889vw, 200px);
+  /* 1 thẻ/hàng. Chiều rộng thẻ = chiều rộng 2 thẻ cũ (2x200 + 6 = 406px @1440), chiều cao theo tỉ lệ 5:3 */
+  --cols: 1;
+  --cap-h: clamp(26px, 2.083vw, 30px);            /* chỗ cho chú thích dưới thẻ (30px @1440) */
+  --avail: calc(100svh - var(--edge) * 2);        /* chiều cao còn lại của 1 màn hình */
+  --card-w-by-width: clamp(200px, 28.194vw, 406px);
+  /* Đủ nhỏ để luôn có ít nhất 3 thẻ trong 1 màn hình (thấp thì thẻ tự nhỏ lại) */
+  --card-w-by-height: calc((var(--avail) / 3 - var(--cap-h)) / 0.6);
+  --card-w: max(200px, min(var(--card-w-by-width), var(--card-w-by-height)));
   --card-h: calc(var(--card-w) * 0.6);
-  --card-gap-x: calc(var(--card-w) * 0.03);       /* 6px @200 */
-  --cap-h: calc(var(--card-w) * 0.15);            /* 30px @200: chỗ cho chú thích */
-  --pitch: calc(var(--card-h) + var(--cap-h));    /* 150px @200 */
-  --win-h: calc(var(--pitch) * var(--rows-visible));
+  --card-gap-x: 0px;
+  --pitch: calc(var(--card-h) + var(--cap-h));
+  /* Cửa sổ cuộn: vừa khít màn hình, nhưng luôn hiển thị từ 3 đến 4 thẻ */
+  --win-h: clamp(calc(var(--pitch) * 3), var(--avail), calc(var(--pitch) * 4));
 
   background-color: #FFFFFF;
   padding: var(--edge) 0;
-}
-
-/* Desktop hẹp / tablet ngang: thẻ sẽ quá nhỏ -> 1 thẻ/hàng, phóng to thẻ,
-   vẫn chỉ thấy 4 thẻ (4 hàng), cuộn để xem tiếp. */
-@media (min-width: 769px) and (max-width: 1079px) {
-  .programs {
-    --cols: 1;
-    --rows-visible: 4;
-    --card-w: clamp(170px, 22vw, 240px);
-    /* màn hình thấp: giảm số hàng hiển thị (tối thiểu 2) để không tràn khỏi màn hình */
-    --win-h: max(calc(var(--pitch) * 2), min(calc(var(--pitch) * 4), calc(100svh - var(--edge) * 2)));
-  }
+  box-sizing: border-box;
+  min-height: 100svh;                             /* nguyên section vừa 1 màn hình desktop */
+  display: flex;
+  align-items: center;
 }
 
 .programs__inner {
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding-inline: var(--pad-l) var(--pad-r);
@@ -62,12 +59,12 @@
 }
 
 .programs__title {
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   font-size: clamp(28px, 5vw, var(--font-size-h1));
 }
 
 .programs__hint {
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   white-space: nowrap;
 }
 
@@ -76,7 +73,7 @@
 }
 
 .program-panel__title {
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   margin: 0;
 }
 
@@ -124,11 +121,11 @@
 
 .program-panel__body a:hover,
 .program-panel__body a:focus-visible {
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
 }
 
 .program-panel__body .lbl {
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
 }
 
 .program-panel__body .more-link {
@@ -193,7 +190,7 @@
   font-family: var(--font-family-base);
   font-size: 16px;
   font-weight: var(--font-weight-light);
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
 }
 
 .acc-trigger::after {
@@ -298,7 +295,7 @@
   width: 100%;
   height: var(--cap-h);
   font-family: var(--font-family-base);
-  font-size: clamp(11px, calc(var(--card-w) * 0.075), 15px);
+  font-size: clamp(12px, 1.042vw, 15px);
   font-weight: var(--font-weight-light);
   color: var(--color-text);
   white-space: nowrap;
@@ -383,6 +380,8 @@
     --pad-l: 20px;
     --pad-r: 20px;
     --card-w: 148px;
+    min-height: 0;
+    display: block;
   }
 
   .programs__inner {

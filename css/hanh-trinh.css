@@ -7,6 +7,7 @@
   width: 100%;
   padding: var(--spacing-vertical) 0;
   box-sizing: border-box;
+  background-color: rgba(217, 217, 217, 0.21); /* Thêm màu nền 21% opacity */
 }
 
 .hanhtrinh-container {

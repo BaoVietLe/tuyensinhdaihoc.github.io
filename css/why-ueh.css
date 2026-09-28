@@ -20,7 +20,14 @@
 
 .taisao-title {
   text-align: center;
-  padding-top: var(--spacing-vertical);
+  /* Thêm padding để text không bị dính mép khi có background */
+  padding: var(--spacing-vertical) var(--taisao-gutter); 
+  
+  /* Đổi background sang màu xanh. 
+     Lưu ý: Trong code của bạn có class dùng var(--color-secondary), 
+     hãy chắc chắn tên biến đúng với root.css của bạn */
+  background-color: var(--color-secondary); /* hoặc var(--secondary-color) */
+  color: #FFFFFF;
 }
 
 /* ---------- 1 mục: luôn cao tối thiểu 1 màn hình desktop ----------
@@ -35,6 +42,11 @@
   min-height: 100vh;
   padding: var(--spacing-vertical) 0;
   box-sizing: border-box;
+}
+.taisao-block-item:first-of-type {
+  min-height: auto; /* Bỏ ép buộc cao 100vh để nội dung đẩy sát lên trên */
+  align-content: start; /* Căn nội dung lên trên thay vì nằm giữa 100vh */
+  padding-top: calc(var(--spacing-vertical) * 0.8); /* Thu hẹp lại khoảng cách padding-top */
 }
 
 /* ---------- Cột trái: H2 (trên) + ảnh & nhãn (dưới) ---------- */

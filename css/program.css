@@ -1,0 +1,168 @@
+/* ==========================================================================
+   HỌC GÌ Ở UEH - KẾT HỢP ROOT.CSS
+   ========================================================================== */
+
+.hocgi-section {
+  width: 100%;
+  background-color: transparent;
+  /* Kế thừa padding/margin từ root */
+  padding: var(--spacing-vertical) 0;
+}
+
+.hocgi-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-horizontal);
+  display: grid;
+  /* Chia lưới: Trái linh hoạt, Phải cố định kích thước chứa 2 card (200px * 2 + gap) */
+  grid-template-columns: 1fr 440px;
+  gap: var(--spacing-horizontal);
+  position: relative;
+}
+
+/* ---------- Cột Trái (Sticky) ---------- */
+.hocgi-left-col {
+  position: sticky;
+  top: 100px; /* Cố định khi cuộn */
+  height: fit-content;
+  align-self: start;
+}
+
+.hocgi-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.hocgi-title-margin {
+  margin-bottom: var(--spacing-icon-text);
+}
+
+.hocgi-hint-text {
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Style H2 gạch chân thương hiệu */
+.hocgi-h2-underline {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: var(--spacing-vertical);
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--color-secondary); /* Dùng màu xanh UEH từ root */
+}
+
+/* Khoảng cách cho đoạn mô tả (H3) */
+.hocgi-desc-margin {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.hocgi-extra-info p strong {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary);
+}
+
+/* Hiệu ứng chuyển cảnh */
+.hocgi-detail-box {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.hocgi-detail-box.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ---------- Cột Phải (Cards) ---------- */
+.hocgi-right-col {
+  position: relative;
+  padding-right: 30px;
+}
+
+.hocgi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 200px); /* Kích thước chuẩn 200px */
+  gap: 20px 16px;
+}
+
+.hocgi-card-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hocgi-card-thumb {
+  width: 100%;
+  height: 120px; /* Kích thước chuẩn 120px */
+  border-radius: var(--border-radius-base); /* Kế thừa bo góc 15px từ root */
+  overflow: hidden;
+  background-color: #eee;
+  transition: all 0.3s ease;
+  
+  /* Mặc định mờ và xám */
+  opacity: 0.6;
+  filter: grayscale(40%);
+}
+
+.hocgi-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hocgi-card-title-text {
+  margin-top: var(--spacing-icon-text);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Trạng thái Active / Hover cho Card */
+.hocgi-card-item:hover .hocgi-card-thumb,
+.hocgi-card-item.active .hocgi-card-thumb {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(5, 107, 117, 0.15); /* Bóng đổ ám màu secondary */
+  border: 2px solid var(--color-secondary); /* Viền thẻ màu xanh UEH */
+}
+
+.hocgi-card-item.active .hocgi-card-title-text {
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Hướng dẫn cuộn dọc */
+.hocgi-scroll-guide {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: 12px;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .hocgi-container {
+    grid-template-columns: 1fr; /* Xuống 1 cột */
+    gap: var(--spacing-vertical);
+  }
+  .hocgi-left-col {
+    position: static;
+  }
+  .hocgi-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+  .hocgi-card-thumb {
+    height: 100px;
+  }
+  .hocgi-scroll-guide {
+    display: none;
+  }
+}

@@ -349,25 +349,22 @@
 
   </div>
 </section>
-<!-- ==========================================================================
-     "UEH - NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU!"
-     - Cập nhật UI/UX: Xếp dọc (Video 1 hàng, Chữ 1 hàng).
-     - Áp dụng Accordion (Thẻ Details/Summary) để ẩn chữ, click mới hiện.
-     ========================================================================== -->
 <section class="section-hanhtrinh" id="hanh-trinh-ben-vung">
   <div class="hanhtrinh-container">
 
-    <!-- TIÊU ĐỀ: Đã được căn giữa để phù hợp với bố cục xếp dọc -->
+    <!-- Tiêu đề: Giữ nguyên cấu trúc, căn trái thanh lịch -->
     <h1 class="h1 text-secondary-color hanhtrinh-title">
       <img src="img/ueh-logo-xanh.png" alt="UEH University" class="hanhtrinh-logo" width="79" height="46">
       <span>- NƠI MỌI HÀNH TRÌNH BỀN VỮNG BẮT ĐẦU!</span>
     </h1>
 
-    <div class="hanhtrinh-layout-stacked">
-      <!-- CỘT 1: VIDEO (Căn giữa, giới hạn max-width để không bị quá to trên màn 1440px) -->
+    <!-- Bố cục lưới 2 cột -->
+    <div class="hanhtrinh-grid">
+      
+      <!-- Cột Video -->
       <div class="hanhtrinh-video" id="hanhtrinhVideo">
         <a class="hanhtrinh-video__poster" href="https://www.youtube.com/watch?v=VIDEO_ID"
-           data-video-id="VIDEO_ID" aria-label="Phát video: UEH - Nơi mọi hành trình bền vững bắt đầu">
+           data-video-id="VIDEO_ID" aria-label="Phát video: UEH">
           <img src="img/video-poster.jpg" alt="" class="hanhtrinh-video__img">
           <span class="hanhtrinh-video__play" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
@@ -375,20 +372,14 @@
         </a>
       </div>
 
-      <!-- CỘT 2: KHỐI CHỮ ẨN/HIỆN (Dùng HTML5 thuần, không cần JS) -->
-      <details class="hanhtrinh-details">
-        <summary class="hanhtrinh-summary">
-          <span class="h3">Đọc thông điệp hành trình UEH</span>
-          <svg class="icon-toggle" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="hanhtrinh-text">
-          <p class="h3">UEH là nơi gặp gỡ của tri thức Đa ngành và những con người lựa chọn hành động Bền vững. Giáo dục tiệm cận thế giới với tư duy đa ngành, liên ngành, đa lĩnh vực, UEH trao quyền cho bạn dám mơ giấc mơ của riêng mình, sẵn sàng đặt chân tới bất cứ đâu và sống vì lý tưởng cộng đồng của bản thân. Tại nơi này, dù là bất kỳ ai, mọi hạt giống dũng cảm sẽ được gieo trồng, mọi nội lực đều được nuôi dưỡng và những hoài bão luôn được ấp ủ. Chẳng con đường nào là dễ dàng, mồ hôi sẽ tuôn và còn đó nhiều đêm dài thức trắng. Nhưng nó chắc chắn là vẻ đẹp của hành trình nỗ lực không giới hạn. Để khi bước ra khỏi cánh cổng tri thức, bạn có hành trang là trí – nhân – tâm để sẵn sàng vươn tới mọi chân trời mới.</p>
-        </div>
-      </details>
-    </div>
+      <!-- Cột Chữ -->
+      <div class="hanhtrinh-text-box">
+        <p class="h3">
+          UEH là nơi gặp gỡ của tri thức Đa ngành và những con người lựa chọn hành động Bền vững. Giáo dục tiệm cận thế giới với tư duy đa ngành, liên ngành, đa lĩnh vực, UEH trao quyền cho bạn dám mơ giấc mơ của riêng mình, sẵn sàng đặt chân tới bất cứ đâu và sống vì lý tưởng cộng đồng của bản thân. Tại nơi này, dù là bất kỳ ai, mọi hạt giống dũng cảm sẽ được gieo trồng, mọi nội lực đều được nuôi dưỡng và những hoài bão luôn được ấp ủ. Chẳng con đường nào là dễ dàng, mồ hôi sẽ tuôn và còn đó nhiều đêm dài thức trắng. Nhưng nó chắc chắn là vẻ đẹp của hành trình nỗ lực không giới hạn. Để khi bước ra khỏi cánh cổng tri thức, bạn có hành trang là trí – nhân – tâm để sẵn sàng vươn tới mọi chân trời mới.
+        </p>
+      </div>
 
+    </div>
   </div>
 </section>
   <script>

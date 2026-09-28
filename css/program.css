@@ -8,7 +8,7 @@
    ========================================================================== */
 
 .programs {
-  --edge: 30px;                                   /* lề trên/dưới của section */
+  --edge: var(--spacing-vertical);                /* lề trên/dưới của section = 35px (root.css) */
   --pad-l: clamp(24px, 7.01vw, 101px);            /* 101px @1440 */
   --pad-r: clamp(24px, 4.375vw, 63px);            /* 63px  @1440 */
 
@@ -41,7 +41,7 @@
   padding-inline: var(--pad-l) var(--pad-r);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: clamp(20px, 3vw, 43px);
+  column-gap: var(--spacing-horizontal);          /* khoảng cách ngang giữa cột trái và cột thẻ = 30px (root.css) */
   align-items: start;
 }
 
@@ -55,7 +55,7 @@
   align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
-  column-gap: 20px;
+  column-gap: var(--spacing-horizontal);
 }
 
 .programs__title {
@@ -111,7 +111,7 @@
 }
 
 .program-panel__body > * + * {
-  margin-top: 25px;
+  margin-top: var(--spacing-vertical);           /* khoảng cách dọc giữa các khối nội dung = 35px (root.css) */
 }
 
 .program-panel__body a {
@@ -121,11 +121,11 @@
 
 .program-panel__body a:hover,
 .program-panel__body a:focus-visible {
-  color: var(--color-secondary-dark);
+  color: var(--color-secondary);
 }
 
 .program-panel__body .lbl {
-  color: var(--color-secondary-dark);
+  color: var(--color-secondary);
 }
 
 .program-panel__body .more-link {
@@ -190,7 +190,7 @@
   font-family: var(--font-family-base);
   font-size: 16px;
   font-weight: var(--font-weight-light);
-  color: var(--color-secondary-dark);
+  color: var(--color-secondary);
 }
 
 .acc-trigger::after {
@@ -240,7 +240,7 @@
 .programs__side {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 1.4vw, 20px);
+  gap: var(--spacing-horizontal);                 /* thẻ <-> chữ dọc hướng dẫn = 30px (root.css) */
 }
 
 .programs__viewport {

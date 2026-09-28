@@ -383,59 +383,229 @@
     </div>
   </div>
 </section>
-  <section class="hocgi-section" id="hoc-gi-o-ueh">
-  <div class="hocgi-container">
-    
-    <!-- CỘT BÊN TRÁI (Cố định - Sticky) -->
-    <div class="hocgi-left">
-      <!-- Tiêu đề H1 chính -->
-      <h1 class="hocgi-main-title">Học gì ở UEH?</h1>
-      
-      <!-- Khối hiển thị chi tiết (thay đổi linh hoạt khi click/hover card) -->
-      <div class="hocgi-content-display" id="hocgiContent">
-        <h2 class="hocgi-program-title" id="programTitle">Chương trình Chuẩn</h2>
-        <div class="hocgi-program-body" id="programBody">
-          <h3 class="hocgi-desc">Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA, FIBAA...); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2</h3>
-<section class="ueh-hocgi-section" id="hoc-gi-ueh">
-  <div class="ueh-hocgi-container">
-    
-    <!-- CỘT BÊN TRÁI: Cố định (Sticky) hiển thị chi tiết -->
-    <div class="ueh-left-col">
-      <div class="ueh-header-meta">
-        <h1 class="ueh-h1">Học gì ở UEH?</h1>
-        <span class="ueh-hint-text">Nhấn vào từng thẻ để xem chi tiết &rarr;</span>
-      </div>
-
-      <!-- Cụm nội dung chi tiết (Thay đổi động theo Card) -->
-      <div class="ueh-detail-box" id="uehDetailBox">
-        <h2 class="ueh-h2" id="programTitle">Chương trình Chuẩn</h2>
-        
-        <div class="ueh-content-body">
-          <h3 class="ueh-h3-desc" id="programDesc">
-            Chương trình Chuẩn tại UEH được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA, FIBAA), thiết kế tiệm cận TOP 200 Đại học hàng đầu thế giới và rà soát định kỳ 2-5 năm/lần.
-          </h3>
-          
-          <div class="ueh-extra-info" id="programExtra">
-            <p><strong>Loại hình đào tạo:</strong> Giảng dạy hoàn toàn bằng tiếng Việt.</p>
-          </div>
+  <!-- ============ HỌC GÌ Ở UEH? ============ -->
+  <section class="programs" id="hoc-gi-o-ueh" aria-labelledby="programs-title" data-programs>
+ 
+    <!-- Hình người giữ chỗ cho thẻ (thay bằng ảnh thật: style="--photo:url(assets/programs/xxx.png)" trên .pc-art) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="pc-person" viewBox="0 0 100 120">
+        <circle cx="52" cy="34" r="19"/>
+        <path d="M6 120c0-31 19-48 46-48s46 17 46 48z"/>
+      </symbol>
+    </svg>
+ 
+    <div class="programs__inner">
+ 
+      <!-- ===== CỘT TRÁI: nội dung chương trình đang chọn ===== -->
+      <div class="programs__main">
+        <header class="programs__head">
+          <h2 class="h1 programs__title" id="programs-title">Học gì ở UEH?</h2>
+          <p class="h3 programs__hint">Nhấn vào từng thẻ để xem chi tiết →</p>
+        </header>
+ 
+        <div class="programs__detail">
+ 
+          <!-- 1. Chuẩn -->
+          <article class="program-panel" id="panel-chuan" role="tabpanel" aria-labelledby="tab-chuan">
+            <h3 class="h2 program-panel__title"><span>Chương trình Chuẩn</span></h3>
+            <div class="program-panel__body h3">
+              <p>Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA (Mạng lưới Đảm bảo chất lượng các trường đại học ASEAN), FIBAA (Bộ tiêu chuẩn kiểm định chất lượng quốc tế của châu Âu)…); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2 – 5 năm/lần.</p>
+              <p><span class="lbl">Loại hình đào tạo:</span> Giảng dạy hoàn toàn bằng tiếng Việt</p>
+            </div>
+          </article>
+ 
+          <!-- 2. Tiếng Anh bán phần -->
+          <article class="program-panel" id="panel-banphan" role="tabpanel" aria-labelledby="tab-banphan" hidden>
+            <h3 class="h2 program-panel__title"><span>Chương trình Tiếng Anh bán phần</span></h3>
+            <div class="program-panel__body h3">
+              <p>Chương trình Tiếng Anh Bán phần tại UEH mang đến môi trường học tập hội nhập quốc tế, giúp sinh viên làm quen với các thuật ngữ chuyên ngành bằng tiếng Anh. Theo đó, chương trình giảng dạy tối thiểu 15 tín chỉ môn học bằng tiếng Anh, kết hợp cùng đội ngũ giảng viên có chuyên môn sâu và từng tu nghiệp tại nước ngoài. Bạn có thể xem chi tiết điều kiện đầu vào tại <a href="#">Chương trình tiếng Anh bán phần UEH</a>.</p>
+              <p><span class="lbl">Loại hình đào tạo:</span> Giảng dạy hoàn toàn bằng tiếng Việt<br><span class="lbl">Điều kiện đầu vào:</span> IELTS từ 5.0 hoặc tương đương.</p>
+            </div>
+          </article>
+ 
+          <!-- 3. Tiếng Anh toàn phần -->
+          <article class="program-panel" id="panel-toanphan" role="tabpanel" aria-labelledby="tab-toanphan" hidden>
+            <h3 class="h2 program-panel__title"><span>Chương trình Tiếng Anh toàn phần</span></h3>
+            <div class="program-panel__body h3">
+              <p>Chương trình Tiếng Anh Toàn phần tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA (Mạng lưới Đảm bảo chất lượng các trường đại học ASEAN), FIBAA (Bộ tiêu chuẩn kiểm định chất lượng quốc tế của châu Âu)…); hoặc các chương trình đào tạo được thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và được rà soát chất lượng định kỳ 2 – 5 năm/lần.</p>
+              <p><span class="lbl">Loại hình đào tạo:</span> Được giảng dạy toàn bộ bằng tiếng Anh, trừ 11 tín chỉ Lý luận chính trị, Giáo dục thể chất, Giáo dục quốc phòng được giảng dạy bằng tiếng Việt.<br><span class="lbl">Điều kiện đầu vào:</span> IELTS Academic từ 5.5 (hoặc TOEFL iBT từ 62 hoặc TOEIC 4 kỹ năng từ 670 trong đó điểm các kỹ năng Speaking từ 140, Writing từ 140) trở lên.</p>
+            </div>
+          </article>
+ 
+          <!-- 4. Asia Co-op -->
+          <article class="program-panel" id="panel-asia" role="tabpanel" aria-labelledby="tab-asia" hidden>
+            <h3 class="h2 program-panel__title"><span>Chương trình Cử nhân ASIA Co-op</span></h3>
+            <div class="program-panel__body h3">
+              <p>Chương trình đào tạo được giảng dạy hoàn toàn bằng tiếng Anh, mang đến cho sinh viên nền tảng kiến thức từ tổng quan đến chuyên sâu, đồng thời mở ra những cơ hội thực hành nghề nghiệp và tích lũy kinh nghiệm làm việc thực tiễn tại các tập đoàn ASIA++ ngay trong quá trình học tập. Tham gia chương trình này, người học không chỉ được trải nghiệm các môn học bổ ích tại những trường đối tác nước ngoài uy tín mà còn có cơ hội học tập thực tế tại các doanh nghiệp lớn thuộc khu vực Châu Á.</p>
+              <p><span class="lbl">Lộ trình đào tạo ngành:</span> Sau 02 học kỳ, sinh viên được xét vào một trong 02 ngành Marketing và Tài chính ứng dụng theo nguyện vọng, chỉ tiêu, điểm GPA của 02 học kỳ.</p>
+            </div>
+          </article>
+ 
+          <!-- 5. UEH ISB -->
+          <article class="program-panel" id="panel-isb" role="tabpanel" aria-labelledby="tab-isb" hidden>
+            <h3 class="h2 program-panel__title"><span>Chương trình Cử nhân Tài năng UEH.ISB</span></h3>
+            <div class="program-panel__body h3">
+              <p>Chương trình chính quy 100% tiếng Anh do UEH cấp bằng Honours, đạt kiểm định quốc tế FIBAA (Thụy Sĩ), hướng đến mục tiêu phát triển toàn diện năng lực người học trong một môi trường năng động và giàu thử thách. Suốt quá trình học tập, sinh viên được rèn luyện các kỹ năng mềm thiết yếu thông qua nhiều hình thức triển khai đa dạng và linh hoạt. Không chỉ dừng lại ở kiến thức chuyên môn, chương trình còn mở ra cơ hội lớn để sinh viên tham gia trao đổi tại các trường quốc tế uy tín, tạo bệ phóng vững chắc để trở thành nhân sự chất lượng cao tại các tập đoàn lớn ở Việt Nam và trên toàn cầu.</p>
+              <p><span class="lbl">Lộ trình đào tạo ngành:</span> Sinh viên chương trình Cử nhân tài năng ISB – Kinh doanh được xét vào một trong các ngành Kinh doanh quốc tế, Quản trị kinh doanh, Marketing, Tài chính ứng dụng, Kế toán sau 02 học kỳ theo nguyện vọng, chỉ tiêu, điểm GPA của 02 học kỳ.</p>
+            </div>
+          </article>
+ 
+          <!-- 6. Song ngành tích hợp -->
+          <article class="program-panel" id="panel-songnganh" role="tabpanel" aria-labelledby="tab-songnganh" hidden>
+            <h3 class="h2 program-panel__title"><span>Chương trình Song ngành tích hợp</span></h3>
+            <div class="program-panel__body h3">
+              <p>Chương trình đào tạo được thiết kế tối ưu, giúp sinh viên nhận 2 bằng Cử nhân trong khi rút ngắn từ 2 đến 2,5 năm thời gian đào tạo, mở rộng tư duy liên ngành và bứt phá lợi thế cạnh tranh.</p>
+              <div class="lbl-block">
+                <p class="lbl">39 chương trình song ngành tích hợp hiện có tại UEH:</p>
+                <ul class="bullets">
+                  <li>Bảo hiểm - Tài chính</li>
+                  <li>Kinh doanh nông nghiệp – Logistics quản lý chuỗi cung ứng</li>
+                  <li>Kinh doanh nông nghiệp – Kinh doanh quốc tế</li>
+                </ul>
+              </div>
+              <p style="margin-top:16px"><a class="more-link" href="#">Xem thêm các chương trình tại đây →</a></p>
+            </div>
+          </article>
+ 
+          <!-- 7. Song bằng quốc tế -->
+          <article class="program-panel" id="panel-songbang" role="tabpanel" aria-labelledby="tab-songbang" hidden>
+            <h3 class="h2 program-panel__title"><span>Chương trình Song bằng quốc tế</span></h3>
+            <div class="program-panel__body h3">
+              <p>Là chương trình UEH phối hợp với các Đại học đối tác trên thế giới xây dựng chương trình giảng dạy hoàn toàn bằng tiếng Anh, mang đến trải nghiệm học tập toàn cầu ngay tại Việt Nam.</p>
+              <p><span class="lbl">Lộ trình đào tạo ngành:</span> Sinh viên chương trình Cử nhân tài năng ISB – Kinh doanh được xét vào một trong các ngành Kinh doanh quốc tế, Quản trị kinh doanh, Marketing, Tài chính ứng dụng, Kế toán sau 02 học kỳ theo nguyện vọng, chỉ tiêu, điểm GPA của 02 học kỳ.</p>
+            </div>
+          </article>
+ 
+          <!-- 8. Trao đổi và Liên kết quốc tế -->
+          <article class="program-panel" id="panel-traodoi" role="tabpanel" aria-labelledby="tab-traodoi" hidden>
+            <h3 class="h2 program-panel__title"><span>Chương trình Trao đổi và Liên kết quốc tế</span></h3>
+            <div class="program-panel__body h3">
+              <p>Chương trình hợp tác đào tạo giữa UEH và các đối tác đại học ở trong nước và thế giới giúp sinh viên học tập ở môi trường đại học hiện đại, quốc tế, được trải nghiệm nền văn hóa mới và nhận bằng cấp quốc tế.</p>
+              <div class="acc">
+                <div class="acc-item is-open">
+                  <div class="acc-head">
+                    <button type="button" class="acc-trigger" id="acc-trigger-1" aria-expanded="true" aria-controls="acc-panel-1">Chương trình trao đổi trong nước</button>
+                    <a class="acc-more" href="#">Xem thêm các chương trình →</a>
+                  </div>
+                  <div class="acc-panel" id="acc-panel-1" role="region" aria-labelledby="acc-trigger-1">
+                    <div>
+                      <ul class="bullets">
+                        <li>Summer camp</li>
+                        <li>Giao lưu sinh viên quốc tế Trường Ngee Ann Polytechnic, Singapore tại UEH – Mekong</li>
+                        <li>Giao lưu sinh viên quốc tế Trường Đại học Khon Kaen, Thái Lan và Trường Đại học Tokyo Keizai, Nhật Bản</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <button type="button" class="acc-trigger" id="acc-trigger-2" aria-expanded="false" aria-controls="acc-panel-2">Chương trình trao đổi quốc tế</button>
+                    <a class="acc-more" href="#">Xem thêm các chương trình →</a>
+                  </div>
+                  <div class="acc-panel" id="acc-panel-2" role="region" aria-labelledby="acc-trigger-2" aria-hidden="true">
+                    <div><p class="acc-note">Nội dung đang được cập nhật.</p></div>
+                  </div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <button type="button" class="acc-trigger" id="acc-trigger-3" aria-expanded="false" aria-controls="acc-panel-3">Chương trình liên kết quốc tế</button>
+                    <a class="acc-more" href="#">Xem thêm các chương trình →</a>
+                  </div>
+                  <div class="acc-panel" id="acc-panel-3" role="region" aria-labelledby="acc-trigger-3" aria-hidden="true">
+                    <div><p class="acc-note">Nội dung đang được cập nhật.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+ 
         </div>
       </div>
-    </div>
-
-    <!-- CỘT BÊN PHẢI: Cuộn danh sách 8 Card (Grid 2 cột) -->
-    <div class="ueh-right-col">
-      <div class="ueh-cards-grid" id="uehCardsGrid">
-        <!-- 8 Cards được render tự động qua JS -->
+ 
+      <!-- ===== CỘT PHẢI: 8 thẻ (cuộn riêng) ===== -->
+      <div class="programs__side">
+        <div class="programs__viewport">
+          <div class="programs__cards" role="tablist" aria-label="Các chương trình đào tạo">
+ 
+            <button type="button" class="program-card" role="tab" id="tab-chuan" aria-selected="true" aria-controls="panel-chuan">
+              <span class="pc-art pc-art--chuan">
+                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
+                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
+                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Chuẩn</span></span>
+              </span>
+              <span class="pc-label">Chuẩn</span>
+            </button>
+ 
+            <button type="button" class="program-card" role="tab" id="tab-banphan" aria-selected="false" aria-controls="panel-banphan" tabindex="-1">
+              <span class="pc-art pc-art--banphan">
+                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
+                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
+                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Tiếng Anh<br>Bán phần</span></span>
+              </span>
+              <span class="pc-label">Tiếng Anh bán phần</span>
+            </button>
+ 
+            <button type="button" class="program-card" role="tab" id="tab-toanphan" aria-selected="false" aria-controls="panel-toanphan" tabindex="-1">
+              <span class="pc-art pc-art--toanphan">
+                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
+                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
+                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Tiếng Anh<br>Toàn phần</span></span>
+              </span>
+              <span class="pc-label">Tiếng Anh toàn phần</span>
+            </button>
+ 
+            <button type="button" class="program-card" role="tab" id="tab-asia" aria-selected="false" aria-controls="panel-asia" tabindex="-1">
+              <span class="pc-art pc-art--asia">
+                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
+                <span class="pc-logo pc-logo--right">UEH<i>ISB</i></span>
+                <span class="pc-copy"><span class="pc-kicker">Cử nhân</span><span class="pc-title">ASIA<br>CO-OP</span><span class="pc-sub">Mô hình học tập<br>qua trải nghiệm</span></span>
+              </span>
+              <span class="pc-label">Asia Co-op</span>
+            </button>
+ 
+            <button type="button" class="program-card" role="tab" id="tab-isb" aria-selected="false" aria-controls="panel-isb" tabindex="-1">
+              <span class="pc-art pc-art--isb">
+                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
+                <span class="pc-logo pc-logo--right">UEH<i>ISB</i></span>
+                <span class="pc-copy"><span class="pc-kicker">Cử nhân</span><span class="pc-title">Tài năng<br>UEH.ISB</span><span class="pc-sub">Mô hình tài năng<br>dành cho học sinh giỏi</span></span>
+              </span>
+              <span class="pc-label">UEH ISB</span>
+            </button>
+ 
+            <button type="button" class="program-card" role="tab" id="tab-songnganh" aria-selected="false" aria-controls="panel-songnganh" tabindex="-1">
+              <span class="pc-art pc-art--songnganh">
+                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
+                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
+                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Song ngành<br>Tích hợp</span></span>
+              </span>
+              <span class="pc-label">Song ngành tích hợp</span>
+            </button>
+ 
+            <button type="button" class="program-card" role="tab" id="tab-songbang" aria-selected="false" aria-controls="panel-songbang" tabindex="-1">
+              <span class="pc-art pc-art--songbang">
+                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
+                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
+                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Song bằng<br>Quốc tế</span></span>
+              </span>
+              <span class="pc-label">Song bằng quốc tế</span>
+            </button>
+ 
+            <button type="button" class="program-card" role="tab" id="tab-traodoi" aria-selected="false" aria-controls="panel-traodoi" tabindex="-1">
+              <span class="pc-art pc-art--traodoi">
+                <svg class="pc-person" aria-hidden="true"><use href="#pc-person"/></svg>
+                <span class="pc-logo">UEH<small>UNIVERSITY</small></span>
+                <span class="pc-copy"><span class="pc-kicker">Chương trình</span><span class="pc-title">Trao đổi &amp;<br>Liên kết<br>Quốc tế</span></span>
+              </span>
+              <span class="pc-label">Trao đổi và liên kết quốc tế</span>
+            </button>
+ 
+          </div>
+        </div>
+        <p class="programs__scroll-hint" aria-hidden="true">Cuộn để xem thêm nhiều chương trình →</p>
       </div>
-      
-      <!-- Hướng dẫn cuộn dọc dạng chữ đứng bên phải -->
-      <div class="ueh-scroll-guide">
-        <span>Cuộn để xem thêm nhiều chương trình &rarr;</span>
-      </div>
+ 
     </div>
-
-  </div>
-</section>
+  </section>
   <script>
     // Bật/tắt menu mobile khi bấm nút hamburger
     (function () {
@@ -585,135 +755,142 @@
       box.replaceChild(iframe, poster);
     });
   })();
-    document.addEventListener("DOMContentLoaded", () => {
-  // Dữ liệu 8 chương trình đào tạo
-  const programsData = [
-    {
-      id: "chuan",
-      title: "Chương trình Chuẩn",
-      cardLabel: "Chuẩn",
-      image: "img/card-chuan.jpg",
-      desc: "Chương trình Chuẩn tại UEH là các chương trình được kiểm định chất lượng bởi các tổ chức quốc tế (AUN-QA, FIBAA), hoặc thiết kế dựa trên TOP 200 Đại học hàng đầu thế giới; tham vấn bởi các chuyên gia hiệp hội nghề nghiệp quốc tế và rà soát định kỳ 2-5 năm/lần.",
-      extra: `<p><strong>Loại hình đào tạo:</strong> Giảng dạy hoàn toàn bằng tiếng Việt.</p>`
-    },
-    {
-      id: "tieng-anh-ban-phan",
-      title: "Chương trình Tiếng Anh bán phần",
-      cardLabel: "Tiếng Anh bán phần",
-      image: "img/card-ta-banphan.jpg",
-      desc: "Chương trình Tiếng Anh Bán phần tại UEH mang đến môi trường học tập hội nhập quốc tế, giúp sinh viên làm quen với các thuật ngữ chuyên ngành bằng tiếng Anh với tối thiểu 15 tín chỉ môn học bằng tiếng Anh.",
-      extra: `
-        <p><strong>Loại hình đào tạo:</strong> Giảng dạy kết hợp tiếng Việt và tiếng Anh.</p>
-        <p><strong>Điều kiện đầu vào:</strong> IELTS từ 5.0 hoặc tương đương.</p>
-      `
-    },
-    {
-      id: "tieng-anh-toan-phan",
-      title: "Chương trình Tiếng Anh toàn phần",
-      cardLabel: "Tiếng Anh toàn phần",
-      image: "img/card-ta-toanphan.jpg",
-      desc: "Chương trình Tiếng Anh Toàn phần tại UEH giúp sinh viên thụ hưởng chất lượng giáo dục tiệm cận các trường đại học quốc tế hàng đầu, sẵn sàng làm việc trong môi trường toàn cầu.",
-      extra: `
-        <p><strong>Loại hình đào tạo:</strong> Được giảng dạy toàn bộ bằng tiếng Anh (trừ các môn Lý luận chính trị, GDTC, GDQP).</p>
-        <p><strong>Điều kiện đầu vào:</strong> IELTS Academic từ 5.5 trở lên hoặc TOEFL iBT/TOEIC tương đương.</p>
-      `
-    },
-    {
-      id: "asia-coop",
-      title: "Chương trình Cử nhân ASIA Co-op",
-      cardLabel: "Asia Co-op",
-      image: "img/card-asia.jpg",
-      desc: "Chương trình đào tạo giảng dạy hoàn toàn bằng tiếng Anh, tích lũy kinh nghiệm làm việc thực tiễn tại các tập đoàn ASIA++ ngay trong quá trình học tập.",
-      extra: `<p><strong>Lộ trình đào tạo:</strong> Sau 02 học kỳ, sinh viên xét vào ngành Marketing hoặc Tài chính ứng dụng.</p>`
-    },
-    {
-      id: "ueh-isb",
-      title: "Chương trình Cử nhân Tài năng UEH.ISB",
-      cardLabel: "UEH ISB",
-      image: "img/card-isb.jpg",
-      desc: "Chương trình chính quy 100% tiếng Anh do UEH cấp bằng Honours, đạt kiểm định quốc tế FIBAA (Thụy Sĩ), phát triển toàn diện năng lực người học trong môi trường năng động.",
-      extra: `<p><strong>Lộ trình đào tạo:</strong> Xét tuyển chuyên ngành Kinh doanh quốc tế, Quản trị kinh doanh, Marketing, Tài chính ứng dụng, Kế toán sau 2 học kỳ.</p>`
-    },
-    {
-      id: "song-nganh",
-      title: "Chương trình Song ngành tích hợp",
-      cardLabel: "Song ngành tích hợp",
-      image: "img/card-songnganh.jpg",
-      desc: "Chương trình đào tạo tối ưu giúp sinh viên nhận 2 bằng Cử nhân trong thời gian rút ngắn từ 2 đến 2.5 năm, mở rộng tư duy liên ngành và bứt phá lợi thế cạnh tranh.",
-      extra: `<p><strong>Cơ hội:</strong> Tích hợp 39 chương trình song ngành hàng đầu tại UEH.</p>`
-    },
-    {
-      id: "song-bang",
-      title: "Chương trình Song bằng quốc tế",
-      cardLabel: "Song bằng quốc tế",
-      image: "img/card-songbang.jpg",
-      desc: "Chương trình phối hợp với các Đại học đối tác uy tín trên thế giới, nhận đồng thời bằng của UEH và bằng của Đại học đối tác quốc tế.",
-      extra: `<p><strong>Trải nghiệm:</strong> Học tập toàn cầu ngay tại Việt Nam với bằng cấp quốc tế.</p>`
-    },
-    {
-      id: "trao-doi-lien-ket",
-      title: "Chương trình Trao đổi & Liên kết quốc tế",
-      cardLabel: "Trao đổi & Liên kết quốc tế",
-      image: "img/card-traodoi.jpg",
-      desc: "Chương trình hợp tác đào tạo giữa UEH và các đối tác đại học quốc tế, giúp sinh viên trải nghiệm nền văn hóa mới và giao lưu sinh viên toàn cầu.",
-      extra: `<p><strong>Các hình thức:</strong> Summer camp, Giao lưu sinh viên quốc tế (Singapore, Thái Lan, Nhật Bản) và chuyển tiếp liên kết.</p>`
+  /* ==========================================================================
+   PROGRAMS.JS — Section "Học gì ở UEH?"
+   1. Chọn thẻ -> đổi nội dung cột trái (tab pattern, hỗ trợ bàn phím).
+   2. Cột phải cuộn riêng (rê chuột + lăn chuột + kéo chuột); hết thẻ thì trang mới cuộn tiếp.
+   3. Accordion (Trao đổi & Liên kết quốc tế).
+   ========================================================================== */
+(() => {
+  'use strict';
+
+  const root = document.querySelector('[data-programs]');
+  if (!root) return;
+
+  const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
+  const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+  const viewport = root.querySelector('.programs__viewport');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = Math.max(0, tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true'));
+
+  /* ---------- 1. Chọn chương trình ---------- */
+  function select(index, { focus = false, reveal = true } = {}) {
+    index = (index + tabs.length) % tabs.length;
+    tabs.forEach((tab, i) => {
+      const on = i === index;
+      tab.setAttribute('aria-selected', String(on));
+      tab.tabIndex = on ? 0 : -1;
+      panels[i].hidden = !on;
+    });
+    current = index;
+    if (focus) tabs[index].focus({ preventScroll: true });
+    if (reveal) {
+      tabs[index].scrollIntoView({
+        block: 'nearest',
+        inline: 'nearest',
+        behavior: reduceMotion.matches ? 'auto' : 'smooth',
+      });
     }
-  ];
-
-  const cardsGrid = document.getElementById("uehCardsGrid");
-  const detailBox = document.getElementById("uehDetailBox");
-  const programTitle = document.getElementById("programTitle");
-  const programDesc = document.getElementById("programDesc");
-  const programExtra = document.getElementById("programExtra");
-
-  // 1. Render 8 Cards vào DOM
-  function renderCards() {
-    cardsGrid.innerHTML = programsData.map((item, index) => `
-      <div class="ueh-card-item ${index === 0 ? 'active' : ''}" data-id="${item.id}">
-        <div class="ueh-card-thumb">
-          <img src="${item.image}" alt="${item.title}" onerror="this.src='[https://via.placeholder.com/200x120?text=$](https://via.placeholder.com/200x120?text=$){encodeURIComponent(item.cardLabel)}'">
-        </div>
-        <span class="ueh-card-title-text">${item.cardLabel}</span>
-      </div>
-    `).join('');
   }
 
-  // 2. Cập nhật nội dung cột trái khi chuyển đổi Card
-  function updateDetailContent(program) {
-    // Hiệu ứng mờ dần ra
-    detailBox.classList.add("fade-out");
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(i));
+    tab.addEventListener('keydown', (e) => {
+      // Lưới 2 cột: trái/phải = ±1, lên/xuống = ±2
+      const step = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: 2, ArrowUp: -2 }[e.key];
+      if (step !== undefined) {
+        e.preventDefault();
+        const next = i + step;
+        if (next >= 0 && next < tabs.length) select(next, { focus: true });
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        select(0, { focus: true });
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        select(tabs.length - 1, { focus: true });
+      }
+    });
+  });
 
-    setTimeout(() => {
-      programTitle.textContent = program.title;
-      programDesc.textContent = program.desc;
-      programExtra.innerHTML = program.extra;
+  select(current, { reveal: false });
 
-      // Hiệu ứng hiện lại
-      detailBox.classList.remove("fade-out");
-    }, 200);
+  /* ---------- 2. Cột phải: cuộn + kéo chuột ---------- */
+  function updateScrollState() {
+    const vertical = viewport.scrollHeight - viewport.clientHeight;
+    const horizontal = viewport.scrollWidth - viewport.clientWidth;
+    root.dataset.scrollable = String(vertical > 1 || horizontal > 1);
+  }
+  updateScrollState();
+  window.addEventListener('resize', updateScrollState, { passive: true });
+  if ('ResizeObserver' in window) new ResizeObserver(updateScrollState).observe(viewport);
+
+  let drag = null;
+  let suppressClick = false;
+
+  viewport.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    const vertical = getComputedStyle(viewport).overflowY === 'auto';
+    drag = {
+      vertical,
+      start: vertical ? e.clientY : e.clientX,
+      origin: vertical ? viewport.scrollTop : viewport.scrollLeft,
+      moved: false,
+    };
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    const delta = (drag.vertical ? e.clientY : e.clientX) - drag.start;
+    if (!drag.moved && Math.abs(delta) > 5) {
+      drag.moved = true;
+      viewport.classList.add('is-dragging');
+    }
+    if (drag.moved) {
+      if (drag.vertical) viewport.scrollTop = drag.origin - delta;
+      else viewport.scrollLeft = drag.origin - delta;
+    }
+  });
+
+  window.addEventListener('pointerup', () => {
+    if (drag && drag.moved) {
+      suppressClick = true;                 // kéo xong không tính là bấm vào thẻ
+      setTimeout(() => { suppressClick = false; }, 0);
+    }
+    drag = null;
+    viewport.classList.remove('is-dragging');
+  });
+
+  viewport.addEventListener('click', (e) => {
+    if (suppressClick) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }, true);
+
+  /* ---------- 3. Accordion ---------- */
+  function setAccordion(item, open) {
+    item.classList.toggle('is-open', open);
+    const trigger = item.querySelector('.acc-trigger');
+    trigger.setAttribute('aria-expanded', String(open));
+    item.querySelector('.acc-panel').setAttribute('aria-hidden', String(!open));
   }
 
-  // 3. Đăng ký sự kiện Click cho từng Card
-  function attachCardEvents() {
-    const cardElements = document.querySelectorAll(".ueh-card-item");
-    cardElements.forEach(card => {
-      card.addEventListener("click", function() {
-        const programId = this.getAttribute("data-id");
-        const selectedProgram = programsData.find(p => p.id === programId);
-
-        if (selectedProgram) {
-          cardElements.forEach(c => c.classList.remove("active"));
-          this.classList.add("active");
-          updateDetailContent(selectedProgram);
-        }
+  root.querySelectorAll('.acc').forEach((acc) => {
+    const items = Array.from(acc.querySelectorAll('.acc-item'));
+    items.forEach((item) => {
+      item.querySelector('.acc-trigger').addEventListener('click', () => {
+        const willOpen = !item.classList.contains('is-open');
+        items.forEach((it) => setAccordion(it, false));
+        if (willOpen) setAccordion(item, true);
       });
     });
-  }
+  });
 
-  // Khởi chạy
-  renderCards();
-  attachCardEvents();
-});
+  /* ---------- Liên kết chưa có URL thật: không nhảy lên đầu trang ---------- */
+  root.querySelectorAll('a[href="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => e.preventDefault());
+  });
+})();
   </script>
  
 </body>

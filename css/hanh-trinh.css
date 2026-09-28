@@ -48,11 +48,11 @@
 /* ---------- Hàng video + chữ ---------- */
 .hanhtrinh-row {
   display: grid;
-  /* 659 : 551 = số đo ảnh mẫu (video 659px, cột chữ ~553px) */
-  grid-template-columns: minmax(0, 659fr) minmax(0, 551fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   column-gap: var(--spacing-horizontal);                /* 30px */
   align-items: start;
 }
+
 
 /* ---------- Khung video YouTube ---------- */
 .hanhtrinh-video {

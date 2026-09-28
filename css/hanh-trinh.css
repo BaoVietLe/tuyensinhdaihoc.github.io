@@ -1,0 +1,147 @@
+/* ==========================================================================
+   HANH-TRINH.CSS — "UEH - Nơi mọi hành trình bền vững bắt đầu!"
+   Chỉ dùng biến/class của root.css. Số đo lấy từ ảnh mẫu 1440px:
+   - logo 79x46 | photo/video 659x228 | khoảng cách tiêu đề→video 35px
+   - cột chữ rộng ~553px, cách video ~27-30px, thụt lề 2 bên ~100px
+   ========================================================================== */
+
+.section-hanhtrinh {
+  --hanhtrinh-gutter: clamp(24px, 7vw, 100px);
+  width: 100%;
+  min-height: 100vh;               /* luôn vừa (tối thiểu) 1 màn hình */
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;             /* nội dung căn giữa dọc trong màn hình */
+  box-sizing: border-box;
+  padding: var(--spacing-vertical) 0;
+}
+
+.hanhtrinh-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--hanhtrinh-gutter);
+  box-sizing: border-box;
+}
+
+/* ---------- H1: logo (ảnh) + chữ, 1 dòng ---------- */
+.hanhtrinh-title {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-icon-text) * 1.5);
+  margin-bottom: var(--spacing-vertical);               /* 35px xuống video */
+  /* h1 = 40px (root) ở >=1290px; nhỏ hơn thì co theo màn để vẫn vừa 1 dòng */
+  font-size: min(var(--font-size-h1), 3.1vw);
+  /* ảnh mẫu: tiêu đề bắt đầu cách mép nội dung ~227px (18.3% ở 1440px);
+     tự giảm phần thụt lề khi màn hẹp để tiêu đề không bị xuống dòng */
+  padding-left: max(0px, min(18.3%, calc(100% - 25em)));
+}
+
+.hanhtrinh-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(48px, 5.49vw, 79px);   /* 79px @1440px, tỉ lệ 79:46 */
+  height: auto;
+  aspect-ratio: 79 / 46;
+}
+
+/* ---------- Hàng video + chữ ---------- */
+.hanhtrinh-row {
+  display: grid;
+  /* 659 : 551 = số đo ảnh mẫu (video 659px, cột chữ ~553px) */
+  grid-template-columns: minmax(0, 659fr) minmax(0, 551fr);
+  column-gap: var(--spacing-horizontal);                /* 30px */
+  align-items: start;
+}
+
+/* ---------- Khung video YouTube ---------- */
+.hanhtrinh-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 659 / 228;             /* đúng tỉ lệ ảnh mẫu */
+  border-radius: var(--border-radius-base);
+  overflow: hidden;
+  background-color: var(--color-secondary);
+}
+.hanhtrinh-video.is-playing {
+  aspect-ratio: 16 / 9;                /* khi phát: khung 16:9 chuẩn YouTube, không cắt thanh điều khiển */
+}
+
+.hanhtrinh-video__poster {
+  display: block;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+.hanhtrinh-video__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hanhtrinh-video__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-main);
+  color: #FFFFFF;
+  transition: transform 0.2s ease;
+}
+.hanhtrinh-video__play svg { width: 28px; height: 28px; }
+.hanhtrinh-video__poster:hover .hanhtrinh-video__play {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.hanhtrinh-video__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Cột chữ: H3, căn đều 2 bên, 2 đoạn liền nhau, thụt đầu dòng ---------- */
+.hanhtrinh-text {
+  min-width: 0;
+  /* ảnh mẫu: dòng đầu cột chữ nhô cao hơn mép trên video ~10px */
+  margin-top: calc(var(--spacing-icon-text) * -1);
+}
+.hanhtrinh-text p {
+  text-align: justify;
+  text-indent: var(--spacing-icon-text);  /* thụt đầu dòng như ảnh mẫu */
+  margin: 0;                              /* 2 đoạn nối liền, cách dòng đều 23px như ảnh */
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Tablet dọc / điện thoại: xếp dọc, tiêu đề căn giữa, cuộn tự nhiên trong 1 màn hình */
+@media (max-width: 900px) {
+  .hanhtrinh-title {
+    padding-left: 0;
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(22px, 5.4vw, var(--font-size-h1));
+  }
+  .hanhtrinh-logo { width: clamp(52px, 10vw, 79px); }
+
+  .hanhtrinh-row {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--spacing-vertical);
+  }
+  .hanhtrinh-text { margin-top: 0; }
+}
+
+/* Điện thoại: khung video 16:9 cho dễ xem/bấm (tỉ lệ 659:228 quá dẹt ở màn nhỏ) */
+@media (max-width: 600px) {
+  .hanhtrinh-video { aspect-ratio: 16 / 9; }
+  .hanhtrinh-video__play { width: 48px; height: 48px; }
+  .hanhtrinh-video__play svg { width: 24px; height: 24px; }
+}

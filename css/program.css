@@ -12,17 +12,30 @@
   --pad-l: clamp(24px, 7.01vw, 101px);            /* 101px @1440 */
   --pad-r: clamp(24px, 4.375vw, 63px);            /* 63px  @1440 */
 
-  /* Thẻ: 200x120 @1440, nhỏ dần theo màn hình */
-  --card-w: clamp(104px, 13.889vw, 200px);
+  /* Chế độ mặc định (desktop rộng): 2 thẻ/hàng, chỉ thấy 4 thẻ (2 hàng), thẻ 200x120 @1440 */
+  --cols: 2;
+  --rows-visible: 2;
+  --card-w: clamp(150px, 13.889vw, 200px);
   --card-h: calc(var(--card-w) * 0.6);
   --card-gap-x: calc(var(--card-w) * 0.03);       /* 6px @200 */
   --cap-h: calc(var(--card-w) * 0.15);            /* 30px @200: chỗ cho chú thích */
   --pitch: calc(var(--card-h) + var(--cap-h));    /* 150px @200 */
-  /* Cửa sổ cuộn: 3.5 hàng (525px @1440) -> hàng cuối chỉ lộ một nửa, phải cuộn mới thấy 2 thẻ dưới cùng; co lại nếu màn hình thấp */
-  --win-h: clamp(calc(var(--pitch) * 3), calc(100svh - var(--edge) * 2), calc(var(--pitch) * 3.5));
+  --win-h: calc(var(--pitch) * var(--rows-visible));
 
   background-color: #FFFFFF;
   padding: var(--edge) 0;
+}
+
+/* Desktop hẹp / tablet ngang: thẻ sẽ quá nhỏ -> 1 thẻ/hàng, phóng to thẻ,
+   vẫn chỉ thấy 4 thẻ (4 hàng), cuộn để xem tiếp. */
+@media (min-width: 769px) and (max-width: 1079px) {
+  .programs {
+    --cols: 1;
+    --rows-visible: 4;
+    --card-w: clamp(170px, 22vw, 240px);
+    /* màn hình thấp: giảm số hàng hiển thị (tối thiểu 2) để không tràn khỏi màn hình */
+    --win-h: max(calc(var(--pitch) * 2), min(calc(var(--pitch) * 4), calc(100svh - var(--edge) * 2)));
+  }
 }
 
 .programs__inner {
@@ -49,7 +62,7 @@
 }
 
 .programs__title {
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   font-size: clamp(28px, 5vw, var(--font-size-h1));
 }
 
@@ -111,7 +124,7 @@
 
 .program-panel__body a:hover,
 .program-panel__body a:focus-visible {
-  color: var(--color-secondary-dark);
+  color: var(--color-secondary);
 }
 
 .program-panel__body .lbl {
@@ -226,19 +239,20 @@
   color: var(--color-text);
 }
 
-/* ---------- Cột phải: 8 thẻ ---------- */
+/* ---------- Cột phải: 8 thẻ (cửa sổ cuộn hiển thị 4 thẻ) ---------- */
 .programs__side {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: clamp(10px, 1.4vw, 20px);
 }
 
 .programs__viewport {
-  width: calc(var(--card-w) * 2 + var(--card-gap-x));
+  width: calc(var(--card-w) * var(--cols) + var(--card-gap-x) * (var(--cols) - 1));
   height: var(--win-h);
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior-y: auto;      /* hết thẻ thì trang mới tiếp tục cuộn */
+  scroll-snap-type: y proximity;    /* dừng gọn theo từng hàng thẻ */
   scrollbar-width: none;
   -ms-overflow-style: none;
   user-select: none;
@@ -251,12 +265,12 @@
 
 .programs__viewport.is-dragging {
   cursor: grabbing;
+  scroll-snap-type: none;
 }
 
 .programs__cards {
-  position: relative;
   display: grid;
-  grid-template-columns: repeat(2, var(--card-w));
+  grid-template-columns: repeat(var(--cols), var(--card-w));
   grid-auto-rows: var(--pitch);
   column-gap: var(--card-gap-x);
 }
@@ -273,6 +287,7 @@
   color: inherit;
   cursor: pointer;
   text-align: center;
+  scroll-snap-align: start;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -291,7 +306,6 @@
 
 .programs__scroll-hint {
   writing-mode: vertical-rl;
-  margin-top: 63px;
   font-family: var(--font-family-base);
   font-size: 10px;
   font-weight: var(--font-weight-light);
@@ -300,21 +314,23 @@
   white-space: nowrap;
 }
 
-/* ---------- Nghệ thuật của thẻ (đơn vị em: 1em = 1/20 chiều rộng thẻ) ---------- */
+/* ---------- Ảnh thẻ (JPG có sẵn, tỉ lệ 5:3) ---------- */
 .pc-art {
-  position: relative;
   display: block;
   width: var(--card-w);
   height: var(--card-h);
-  font-size: calc(var(--card-w) / 20);
-  border-radius: 0.8em;
+  border-radius: 8px;                            /* đo từ ảnh mẫu */
   overflow: hidden;
-  background: var(--pc-bg);
-  color: #FFFFFF;
-  text-align: left;
-  font-family: var(--font-family-base);
-  opacity: 0.33;                                  /* đo từ ảnh: thẻ chưa chọn = 33% */
+  opacity: 0.33;                                 /* đo từ ảnh: thẻ chưa chọn = 33% */
   transition: opacity 0.25s ease;
+}
+
+.pc-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
 }
 
 .program-card:hover .pc-art {
@@ -332,184 +348,6 @@
 .program-card:focus-visible .pc-art {
   outline: 2px solid var(--color-main);
   outline-offset: 2px;
-}
-
-/* Ảnh thật của thẻ: đặt style="--photo:url(assets/programs/xxx.png)" lên .pc-art */
-.pc-art::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--photo, none) right bottom / auto 100% no-repeat;
-}
-
-.pc-art[style*="--photo"] .pc-person {
-  display: none;
-}
-
-.pc-person {
-  position: absolute;
-  right: 0.3em;
-  bottom: 0;
-  width: 9em;
-  height: 11em;
-  fill: var(--pc-person, rgba(0, 0, 0, 0.18));
-}
-
-.pc-logo {
-  position: absolute;
-  left: 1em;
-  top: 0.55em;
-  z-index: 1;
-  font-size: 1.1em;
-  font-weight: var(--font-weight-extrabold);
-  letter-spacing: -0.02em;
-  line-height: 0.85;
-  color: #FFFFFF;
-}
-
-.pc-logo small {
-  display: block;
-  margin-top: 0.15em;
-  font-size: 0.26em;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.14em;
-}
-
-.pc-logo--right {
-  left: auto;
-  right: 0.8em;
-}
-
-.pc-logo--right i {
-  font-style: normal;
-  margin-left: 0.25em;
-  padding-left: 0.25em;
-  border-left: 1px solid currentColor;
-}
-
-.pc-copy {
-  position: absolute;
-  left: 1.1em;
-  top: 2.75em;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.4em;
-  max-width: 11.5em;
-}
-
-.pc-kicker {
-  font-size: 1em;
-  font-style: italic;
-  font-weight: var(--font-weight-light);
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: var(--pc-kicker, #FFFFFF);
-}
-
-.pc-title {
-  font-size: 1.55em;
-  font-weight: var(--font-weight-extrabold);
-  line-height: 1.15;
-  text-transform: uppercase;
-  color: var(--pc-title, #FFFFFF);
-}
-
-.pc-copy::after {
-  content: '';
-  display: block;
-  width: 5em;
-  height: 1px;
-  margin-top: 0.4em;
-  background-color: var(--pc-title, #FFFFFF);
-  opacity: 0.55;
-}
-
-.pc-sub {
-  margin-top: 0.3em;
-  max-width: 12em;
-  font-size: 0.42em;
-  font-weight: var(--font-weight-regular);
-  line-height: 1.35;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.pc-art--chuan .pc-title {
-  font-size: 1.9em;
-}
-
-/* Thẻ "Cử nhân ...": không gạch chân, tiêu đề đậm không nghiêng */
-.pc-art--asia .pc-copy::after,
-.pc-art--isb .pc-copy::after {
-  display: none;
-}
-
-.pc-art--asia .pc-kicker,
-.pc-art--isb .pc-kicker {
-  font-style: normal;
-  font-weight: var(--font-weight-bold);
-  text-transform: none;
-  font-size: 1.05em;
-}
-
-.pc-art--asia .pc-title,
-.pc-art--isb .pc-title {
-  font-size: 1.7em;
-}
-
-.pc-art--isb .pc-title {
-  text-transform: none;
-}
-
-/* Màu từng thẻ (lấy mẫu trực tiếp từ ảnh) */
-.pc-art--chuan {
-  --pc-bg: linear-gradient(180deg, #E79D04, #D9A322);
-  --pc-kicker: #04143A;
-  --pc-title: #04143A;
-  --pc-person: rgba(4, 20, 58, 0.16);
-}
-
-.pc-art--banphan {
-  --pc-bg: #AD4F29;
-  --pc-kicker: #FFE0B2;
-  --pc-title: #FFE77C;
-  --pc-person: rgba(255, 255, 255, 0.16);
-}
-
-.pc-art--toanphan {
-  --pc-bg: linear-gradient(180deg, #16372C, #284F38);
-  --pc-kicker: #68C33F;
-  --pc-title: #FFFF9A;
-  --pc-person: rgba(255, 255, 255, 0.14);
-}
-
-.pc-art--asia {
-  --pc-bg: radial-gradient(circle at 80% 62%, #6B2C10 0, #3D0D09 52%, #2C0000 100%);
-  --pc-person: rgba(255, 255, 255, 0.12);
-}
-
-.pc-art--isb {
-  --pc-bg: linear-gradient(180deg, #EC1625, #ED2B36);
-  --pc-person: rgba(255, 255, 255, 0.2);
-}
-
-.pc-art--songnganh {
-  --pc-bg: #638766;
-  --pc-kicker: #D5EDB0;
-  --pc-title: #EEF88F;
-  --pc-person: rgba(255, 255, 255, 0.16);
-}
-
-.pc-art--songbang {
-  --pc-bg: linear-gradient(180deg, #F88504, #BE5B21);
-  --pc-person: rgba(255, 255, 255, 0.2);
-}
-
-.pc-art--traodoi {
-  --pc-bg: linear-gradient(180deg, #1E2D5F, #1E2D87);
-  --pc-person: rgba(255, 255, 255, 0.16);
 }
 
 /* ---------- Hiệu ứng ---------- */

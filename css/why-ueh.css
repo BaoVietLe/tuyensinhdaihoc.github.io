@@ -5,9 +5,10 @@
    ========================================================================== */
 
 .section-taisao {
-  --taisao-gutter: clamp(24px, 7vw, 100px); /* thụt lề 2 bên, đo từ ảnh mẫu ~100px ở 1440px */
-  --taisao-tab-w: 40px;                     /* bề rộng dải nhãn dọc */
+  --taisao-gutter: clamp(24px, 7vw, 100px); 
+  --taisao-tab-w: 40px;                     
   width: 100%;
+  background-color: var(--secondary-color); /* Nền section màu xanh */
 }
 
 .container-full {
@@ -130,6 +131,7 @@
   max-height: calc(100vh - 2 * var(--spacing-vertical));
   overflow-y: auto;
   padding-right: var(--spacing-icon-text);
+  color: #FFFFFF; /* Chuyển toàn bộ chữ cột phải sang màu trắng */
 }
 .taisao-list li {
   position: relative;

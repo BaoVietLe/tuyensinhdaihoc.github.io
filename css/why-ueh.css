@@ -1,9 +1,30 @@
 @layer components {
   /* ==========================================================
-     BASE SECTION (Nền xanh, Chữ trắng, Không hiệu ứng)
+     PHẦN TIÊU ĐỀ (Nền trắng)
+     ========================================================== */
+  .taisao-header-white {
+    background-color: #ffffff;
+    padding: 60px 0 30px 0;
+    text-align: center;
+  }
+
+  .taisao-title-h1 {
+    font-size: var(--font-size-h1);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* Ghi đè màu chữ cho thẻ H1 trên nền trắng thành màu xanh */
+  .taisao-title-h1.blue-text {
+    color: var(--color-secondary, #005b9f); 
+  }
+
+  /* ==========================================================
+     PHẦN NỘI DUNG (Nền xanh thẫm, Chữ trắng, Không hiệu ứng)
      ========================================================== */
   .section-taisao {
-    background-color: var(--color-secondary, #005b9f); /* Nền xanh tuân thủ root */
+    background-color: var(--color-secondary, #005b9f);
     color: #ffffff; 
     padding: 60px 0;
     font-family: inherit;
@@ -15,38 +36,37 @@
     padding: 0 40px;
   }
 
-  /* Reset toàn bộ font-weight về normal theo yêu cầu "chỉ giữ bold con số" */
+  /* Reset toàn bộ font-weight về normal - CHỈ BOLD THẺ STRONG */
   .section-taisao * {
     font-weight: normal;
   }
 
-  /* CHỈ CÁC THẺ STRONG (bao bọc con số) MỚI ĐƯỢC BOLD */
   .section-taisao strong {
     font-weight: bold;
     color: #ffffff;
   }
 
-  /* Tiêu đề H1 & H2 vẫn phải in đậm để tạo hệ thống phân cấp chuẩn UI */
-  .taisao-title-h1 {
-    font-size: var(--font-size-h1);
+  /* Khôi phục in đậm cho tiêu đề H1 và H2 nằm trong khối xanh */
+  .section-taisao .taisao-title-h1,
+  .section-taisao .taisao-title-h2 {
     font-weight: bold;
-    color: #ffffff;
-    text-transform: uppercase;
+    color: #ffffff; 
+  }
+  
+  .section-taisao .taisao-title-h1 {
+    margin-bottom: 50px;
     text-align: center;
-    margin: 0 0 50px 0;
   }
 
   .taisao-title-h2 {
     font-size: var(--font-size-h2);
-    font-weight: bold;
-    color: #ffffff;
     text-transform: uppercase;
     line-height: 1.4;
     margin: 0 0 20px 0;
   }
 
   /* ==========================================================
-     BỐ CỤC LƯỚI 2 CỘT TĨNH (NHƯ ẢNH MẪU)
+     BỐ CỤC LƯỚI 2 CỘT TĨNH
      ========================================================== */
   .taisao-row {
     display: flex;
@@ -55,19 +75,17 @@
     margin-bottom: 60px;
   }
 
-  /* Cột trái chứa Tiêu đề + Hình + Tab */
   .taisao-col-left {
     width: 35%;
     flex-shrink: 0;
   }
 
-  /* Cột phải chứa nội dung văn bản (ul, p) */
   .taisao-col-right {
     width: 65%;
   }
 
   /* ==========================================================
-     THIẾT KẾ CỘT TRÁI (Hình ảnh và Tabs bên cạnh)
+     CỘT TRÁI (Hình & Tabs)
      ========================================================== */
   .taisao-media-box {
     display: flex;
@@ -86,7 +104,6 @@
     display: block;
   }
 
-  /* Cột Tabs nằm bên phải sát ảnh */
   .taisao-tabs {
     display: flex;
     flex-direction: column;
@@ -103,18 +120,21 @@
     transform: rotate(180deg);
     text-transform: uppercase;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: bold !important; /* Ngoại lệ in đậm cho Tab */
     padding: 15px 0;
-    color: #ffffff;
+    color: #ffffff; /* Mặc định chữ trắng */
     text-align: center;
   }
 
-  .tab-outline {
-    background-color: transparent;
+  /* --- Cập nhật: Nền trắng, Chữ xanh --- */
+  .tab-white {
+    background-color: #ffffff;
+    color: var(--color-secondary, #005b9f) !important; /* Bắt buộc chữ xanh */
     border: 1px solid #ffffff;
-    border-left: none; /* Dính sát vào ảnh */
+    border-left: none; /* Dính sát vào mép ảnh */
   }
 
+  /* Nền cam, chữ trắng */
   .tab-orange {
     background-color: var(--color-main, #f26f33);
     border: 1px solid var(--color-main, #f26f33);
@@ -122,7 +142,7 @@
   }
 
   /* ==========================================================
-     THIẾT KẾ CỘT PHẢI (List và Đoạn văn)
+     CỘT PHẢI (List và Văn bản)
      ========================================================== */
   .taisao-list {
     list-style: none;
@@ -143,7 +163,7 @@
   }
 
   /* ==========================================================
-     MỤC 4: HÀNH TRÌNH BỀN VỮNG (Phần dưới cùng)
+     HÀNH TRÌNH BỀN VỮNG (Phần Video dưới cùng)
      ========================================================== */
   .taisao-row-center {
     margin-top: 80px;
@@ -157,7 +177,7 @@
   .taisao-video-wrapper {
     width: 100%;
     max-width: 659px;
-    aspect-ratio: 659 / 228; /* Khóa tỷ lệ chuẩn 659x228 */
+    aspect-ratio: 659 / 228; 
     background-color: #000;
   }
 
@@ -208,6 +228,7 @@
     border-top: none;
   }
 
-  .tab-outline { border-color: #ffffff; }
+  /* Giữ nguyên logic khi co màn hình */
+  .tab-white { border-color: #ffffff; }
   .tab-orange { border-color: var(--color-main, #f26f33); }
 }

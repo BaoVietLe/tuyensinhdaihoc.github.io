@@ -1,173 +1,168 @@
 /* ==========================================================================
-  PTTS.CSS
+   PTTS.CSS — "02 Phương thức tuyển sinh"
+   Theo đúng nguyên tắc của declare.css: chỉ dùng biến root.css, tab H3 (active:
+   --color-secondary + gạch chân; inactive: --color-text), toàn bộ văn bản ép
+   về đúng cỡ H3 bằng !important (tránh lỗi rule global "p" = 20px của root.css
+   — xem giải thích chi tiết trong declare.css). Khoảng cách dùng đúng
+   --spacing-vertical (35px) và --spacing-horizontal (30px).
    ========================================================================== */
 
-.ptts-section {
+.ptts {
   width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--spacing-horizontal);
-  padding-right: var(--spacing-horizontal);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--spacing-vertical) clamp(24px, 7vw, 100px);
+  box-sizing: border-box;
 }
 
-.text-center {
+.ptts-title {
   text-align: center;
+  margin-bottom: var(--spacing-vertical); /* 35px */
 }
 
-.mt-icon-text {
+/* ---------- Tabs (H3) ---------- */
+.ptts-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--spacing-horizontal); /* 30px, đúng quy định */
+  border-bottom: 1px solid #E3E7E8;
+  padding-bottom: var(--spacing-icon-text); /* 10px */
+  margin-bottom: var(--spacing-vertical); /* 35px xuống nội dung */
+}
+
+.ptts-tab {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0 0 8px;
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.ptts-tab:hover {
+  color: var(--color-secondary);
+}
+.ptts-tab.is-active {
+  color: var(--color-secondary);
+  border-bottom-color: var(--color-secondary);
+}
+
+/* ---------- Nội dung từng tab ---------- */
+.ptts-panel {
+  display: none;
+}
+.ptts-panel.is-active {
+  display: block;
+}
+
+.ptts-panel p,
+.ptts-panel li,
+.ptts-panel h3 {
+  font-family: var(--font-family-base) !important;
+  font-size: var(--font-size-h3) !important;
+  font-weight: var(--font-weight-light) !important;
+  line-height: 1.6 !important;
+}
+
+.ptts-panel > p,
+.ptts-block > p,
+.ptts-block > ul,
+.ptts-block {
+  margin: 0 0 var(--spacing-icon-text); /* 10px giữa các dòng/khối liền kề */
+}
+.ptts-panel > p:last-child { margin-bottom: 0; }
+
+/* Mỗi khối lớn (Khoản 2, Khoản 3, Đối tượng…) cách nhau đúng 1 khoảng dọc lớn hơn */
+.ptts-panel > .ptts-block,
+.ptts-panel > p + .ptts-block,
+.ptts-panel > .ptts-block + p {
   margin-top: var(--spacing-icon-text);
 }
-
-.mb-sm {
-  margin-bottom: 12px;
+.ptts-panel > .ptts-block {
+  margin-bottom: var(--spacing-icon-text);
 }
 
-/* ---------- 1. Thanh Tabs ---------- */
-.ptts-tabs-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  scrollbar-width: thin;
-}
-
-.ptts-tabs-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-horizontal); /* 30px */
-  min-width: max-content;
-}
-
-.tab-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-icon-text); /* 10px */
-  padding: 0 var(--spacing-horizontal); /* 30px */
-  border: 1px solid #E2E8F0;
-  background-color: #FFFFFF;
-  color: var(--color-text);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.tab-btn:hover {
-  border-color: var(--color-secondary);
+.ptts-lead {
+  font-weight: var(--font-weight-bold) !important;
   color: var(--color-secondary);
 }
 
-/* State Active của Tab */
-.tab-btn.active {
-  background-color: var(--color-secondary);
-  color: #FFFFFF;
-  border-color: var(--color-secondary);
-  font-weight: var(--font-weight-medium);
-  box-shadow: 0 4px 12px rgba(5, 107, 117, 0.2);
+.ptts-subhead {
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-bold) !important;
+  margin-bottom: var(--spacing-icon-text);
 }
 
-.tab-icon {
-  font-size: 18px;
+.ptts-indent {
+  padding-left: calc(var(--spacing-icon-text) * 2);
 }
 
-/* ---------- 2. Nội dung Tab (Panels & Cards) ---------- */
-.tab-panel {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+.ptts-formula {
+  font-weight: var(--font-weight-bold) !important;
+  color: var(--color-text);
+  background-color: #F5F7F7;
+  border-radius: calc(var(--border-radius-base) * 0.4);
+  padding: var(--spacing-icon-text) calc(var(--spacing-icon-text) * 1.6);
+  margin: var(--spacing-icon-text) 0 !important;
 }
 
-.tab-panel.active {
-  display: block;
-  opacity: 1;
-}
-
-.ptts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-horizontal); /* 30px */
-}
-
-/* Thẻ Thông Tin */
-.ptts-card {
-  position: relative;
-  background-color: #FFFFFF;
-  border: 1px solid #EAEFEF;
-  padding: var(--spacing-vertical) var(--spacing-horizontal); /* 35px 30px */
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.ptts-card-highlight {
-  background-color: #F8FAFC;
-  border-color: #CBD5E1;
-}
-
-.card-badge {
-  display: inline-block;
-  align-self: flex-start;
-  color: #FFFFFF;
-  font-size: 12px;
-  font-weight: var(--font-weight-semibold);
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 15px;
-}
-
-.card-title {
-  margin-bottom: 20px;
-}
-
-/* Danh sách gạch đầu dòng */
 .ptts-list {
   list-style: none;
-  padding-left: 0;
+  margin: 0 0 var(--spacing-icon-text);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-icon-text) * 0.8);
 }
-
 .ptts-list li {
   position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
+  padding-left: calc(var(--spacing-icon-text) * 2);
 }
-
 .ptts-list li::before {
   content: "•";
   position: absolute;
   left: 0;
+  color: var(--color-text);
+}
+.ptts-list--nested {
+  margin-top: calc(var(--spacing-icon-text) * 0.6);
+  padding-left: calc(var(--spacing-icon-text) * 1.6);
+}
+.ptts-list--nested li::before {
+  content: "–";
+}
+.ptts-note-inline {
+  margin: calc(var(--spacing-icon-text) * 0.4) 0 0 !important;
+  padding-left: 0;
+}
+
+.ptts-note {
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.ptts-divider {
+  border: none;
+  border-top: 1px solid #E3E7E8;
+  margin: var(--spacing-vertical) 0; /* 35px */
+}
+
+.ptts-placeholder {
   color: var(--color-main);
-  font-weight: bold;
-  font-size: 18px;
+  font-style: italic !important;
 }
 
-/* Nút CTA */
-.ptts-cta-box {
-  margin-top: var(--spacing-vertical); /* 35px */
-}
-
-.btn-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  color: #FFFFFF;
-  text-decoration: none;
-  font-weight: var(--font-weight-medium);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.btn-cta:hover {
-  opacity: 0.92;
-  transform: translateY(-2px);
-}
-
-/* Responsive cho Mobile & Tablet */
-@media (max-width: 992px) {
-  .ptts-grid {
-    grid-template-columns: 1fr;
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 640px) {
+  .ptts-tabs {
+    flex-direction: column;
+    gap: var(--spacing-icon-text);
   }
-  .ptts-tabs-list {
-    justify-content: flex-start;
+  .ptts-formula {
+    font-size: calc(var(--font-size-h3) * 0.95) !important;
   }
 }

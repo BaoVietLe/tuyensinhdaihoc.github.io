@@ -1,0 +1,173 @@
+/* ==========================================================================
+  PTTS.CSS
+   ========================================================================== */
+
+.ptts-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-horizontal);
+  padding-right: var(--spacing-horizontal);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-icon-text {
+  margin-top: var(--spacing-icon-text);
+}
+
+.mb-sm {
+  margin-bottom: 12px;
+}
+
+/* ---------- 1. Thanh Tabs ---------- */
+.ptts-tabs-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.ptts-tabs-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-horizontal); /* 30px */
+  min-width: max-content;
+}
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-icon-text); /* 10px */
+  padding: 0 var(--spacing-horizontal); /* 30px */
+  border: 1px solid #E2E8F0;
+  background-color: #FFFFFF;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+/* State Active của Tab */
+.tab-btn.active {
+  background-color: var(--color-secondary);
+  color: #FFFFFF;
+  border-color: var(--color-secondary);
+  font-weight: var(--font-weight-medium);
+  box-shadow: 0 4px 12px rgba(5, 107, 117, 0.2);
+}
+
+.tab-icon {
+  font-size: 18px;
+}
+
+/* ---------- 2. Nội dung Tab (Panels & Cards) ---------- */
+.tab-panel {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tab-panel.active {
+  display: block;
+  opacity: 1;
+}
+
+.ptts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-horizontal); /* 30px */
+}
+
+/* Thẻ Thông Tin */
+.ptts-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid #EAEFEF;
+  padding: var(--spacing-vertical) var(--spacing-horizontal); /* 35px 30px */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ptts-card-highlight {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.card-badge {
+  display: inline-block;
+  align-self: flex-start;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+/* Danh sách gạch đầu dòng */
+.ptts-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ptts-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.ptts-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-main);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Nút CTA */
+.ptts-cta-box {
+  margin-top: var(--spacing-vertical); /* 35px */
+}
+
+.btn-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-cta:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+/* Responsive cho Mobile & Tablet */
+@media (max-width: 992px) {
+  .ptts-grid {
+    grid-template-columns: 1fr;
+  }
+  .ptts-tabs-list {
+    justify-content: flex-start;
+  }
+}

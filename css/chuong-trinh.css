@@ -1,9 +1,9 @@
 /* ==========================================================================
    CHUONGTRINH.CSS — "Chương trình đào tạo – Mã đăng ký – Chỉ tiêu"
-   Toàn bộ màu, khoảng cách, chiều cao khối lấy từ root.css:
-   --color-main / --color-secondary / --color-secondary-dark / --color-text
-   --spacing-vertical (35px) / --spacing-horizontal (30px)
-   --shape-height (50px) / --border-radius-base (15px)
+   Dựng lại theo đúng bố cục ảnh mẫu. Toàn bộ màu/khoảng cách/chiều cao
+   lấy từ root.css: --color-main / --color-secondary-dark / --color-text,
+   --spacing-vertical (35px) / --spacing-horizontal (30px),
+   --shape-height (50px) / --border-radius-base (15px).
    ========================================================================== */
 
 .chuongtrinh {
@@ -16,50 +16,60 @@
   margin: 0 auto;
 }
 
+/* ---------- Tiêu đề: căn giữa ---------- */
 .chuongtrinh__title {
   text-align: center;
   color: var(--color-secondary);
-  margin-bottom: var(--spacing-vertical);
+  margin: 0 0 var(--spacing-vertical);
 }
 
-/* ---------- Tabs ---------- */
+/* ---------- Tabs: 1 khối căn giữa, tab đang chọn = chữ trần,
+   tab còn lại = khung bo góc màu xám nhạt (đúng ảnh mẫu) ---------- */
 .chuongtrinh__tabs {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: var(--spacing-horizontal);
   margin-bottom: var(--spacing-vertical);
-  justify-content: center; /* Căn giữa các tab theo chiều ngang */
 }
 
 .chuongtrinh__tab {
-  height: var(--shape-height);
-  padding: 0 22px;
-  display: inline-flex;
+  min-height: var(--shape-height);
+  padding: 8px 22px;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   background: none;
   border: none;
   border-radius: var(--border-radius-base);
   cursor: pointer;
-  color: var(--color-text);
-  text-align: left;
+  transition: background-color 0.15s ease;
 }
 
-.chuongtrinh__tab.is-active {
-  background-color: #F1F3F4;
+.chuongtrinh__tab:not(.is-active) {
+  background-color: #F5F6F7;
+}
+
+.chuongtrinh__tab:not(.is-active):hover {
+  background-color: #EEF0F1;
+}
+
+.chuongtrinh__tab-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .chuongtrinh__tab-label {
-  color: inherit;
+  color: var(--color-text);
   font-weight: var(--font-weight-bold);
-}
-
-.chuongtrinh__tab.is-active .chuongtrinh__tab-label {
-  color: var(--color-secondary);
+  white-space: nowrap;
 }
 
 .chuongtrinh__tab-code {
   color: var(--color-text);
+  opacity: 0.65;
   white-space: nowrap;
 }
 
@@ -72,8 +82,24 @@
   display: block;
 }
 
+/* ---------- Dòng lưu ý ngắn, luôn hiện, ngay dưới tabs ---------- */
+.chuongtrinh__panel > .chuongtrinh__alert {
+  background: none;
+  padding: 0;
+  margin-bottom: var(--spacing-horizontal);
+}
+
+.chuongtrinh__panel > .chuongtrinh__alert p {
+  color: var(--color-text);
+}
+
+.chuongtrinh__panel > .chuongtrinh__alert strong {
+  color: var(--color-main);
+}
+
 /* ---------- Toolbar: tìm kiếm / lọc lĩnh vực / xem điều kiện ---------- */
 .chuongtrinh__toolbar {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -85,7 +111,7 @@
   height: var(--shape-height);
   box-sizing: border-box;
   border-radius: var(--border-radius-base);
-  background-color: #F6F7F8;
+  background-color: #F5F6F7;
 }
 
 .ct-search {
@@ -119,7 +145,7 @@
 
 .ct-search input::placeholder {
   color: var(--color-text);
-  opacity: 0.7;
+  opacity: 0.65;
 }
 
 .ct-filter {
@@ -133,7 +159,7 @@
   align-items: center;
   gap: 10px;
   padding: 0 18px;
-  background-color: #F6F7F8;
+  background-color: #F5F6F7;
   border: none;
   border-radius: var(--border-radius-base);
   cursor: pointer;
@@ -142,6 +168,11 @@
   font-weight: var(--font-weight-light);
   color: var(--color-text);
   white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.ct-filter__btn:hover {
+  background-color: #EEF0F1;
 }
 
 .ct-filter__btn svg {
@@ -163,14 +194,14 @@
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  z-index: 20;
-  min-width: 260px;
+  z-index: 30;
+  min-width: 280px;
   max-height: 320px;
   overflow-y: auto;
   background: #FFFFFF;
   border: 1px solid #E7E9EA;
   border-radius: var(--border-radius-base);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
   padding: 8px;
 }
 
@@ -187,10 +218,11 @@
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-light);
   color: var(--color-text);
+  transition: background-color 0.15s ease;
 }
 
 .ct-filter__item:hover {
-  background-color: #F1F3F4;
+  background-color: #F5F6F7;
 }
 
 .ct-filter__item.is-selected {
@@ -205,11 +237,22 @@
   padding: 0 18px;
   border: none;
   cursor: pointer;
+  background-color: #F5F6F7;
   font-family: var(--font-family-base);
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-light);
-  color: var(--color-secondary);
+  color: var(--color-text);
   white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.ct-conditions-btn:hover {
+  background-color: #EEF0F1;
+}
+
+.ct-conditions-btn[aria-expanded="true"] {
+  color: var(--color-secondary-dark);
+  font-weight: var(--font-weight-bold);
 }
 
 .ct-conditions-btn .chev {
@@ -222,13 +265,24 @@
   transform: rotate(180deg);
 }
 
-/* ---------- Ghi chú / điều kiện xét tuyển (mở ra khi bấm nút) ---------- */
-.chuongtrinh__conditions {
+/* ---------- Điều kiện xét tuyển: ĐÈ LÊN bảng (overlay tuyệt đối) ---------- */
+.chuongtrinh__table-wrap {
   position: relative;
-  background-color: #F6F7F8;
+}
+
+.chuongtrinh__conditions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 25;
+  max-height: 70vh;
+  overflow-y: auto;
+  background-color: #FFFFFF;
+  border: 1px solid #E7E9EA;
   border-radius: var(--border-radius-base);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
   padding: var(--spacing-vertical) 44px;
-  margin-bottom: var(--spacing-vertical);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -246,22 +300,31 @@
   color: var(--color-secondary);
 }
 
+.chuongtrinh__conditions a:hover {
+  text-decoration: none;
+}
+
 .chuongtrinh__conditions-close {
   position: absolute;
-  top: 50%;
+  top: 28px;
   left: -18px;
-  transform: translateY(-50%);
+  transform: none;
   width: 36px;
   height: 36px;
   border-radius: 50%;
   border: 1px solid #E7E9EA;
   background-color: #FFFFFF;
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.15s ease;
+}
+
+.chuongtrinh__conditions-close:hover {
+  background-color: #F5F6F7;
 }
 
 .chuongtrinh__conditions-close svg {
@@ -269,9 +332,22 @@
   height: 16px;
 }
 
+/* Lớp phủ mờ phía sau khi mở điều kiện xét tuyển, bấm ra ngoài để đóng */
+.chuongtrinh__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 24;
+  background: rgba(17, 24, 28, 0.28);
+}
+
+.chuongtrinh__backdrop[hidden] {
+  display: none;
+}
+
 /* ---------- Bảng ---------- */
 .chuongtrinh__table-card {
   border: 1px solid #E7E9EA;
+  border-top: 3px solid var(--color-main);
   border-radius: var(--border-radius-base);
   overflow: hidden;
   margin-bottom: var(--spacing-vertical);
@@ -293,11 +369,16 @@
   top: 0;
   z-index: 1;
   background-color: var(--color-secondary);
-  color: #FFFFFF;
+  color: var(--color-main);
   font-weight: var(--font-weight-bold);
-  text-align: left;
-  padding: 14px 16px;
-  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 14px 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.chuongtrinh__table th:last-child {
+  border-right: none;
 }
 
 .chuongtrinh__table td {
@@ -305,10 +386,19 @@
   color: var(--color-text);
   border-bottom: 1px solid #EEF0F1;
   vertical-align: top;
+  text-align: center;
+}
+
+.chuongtrinh__table td.is-left {
+  text-align: left;
 }
 
 .chuongtrinh__table tbody tr:last-child td {
   border-bottom: none;
+}
+
+.chuongtrinh__table tbody tr.ct-data-row:hover td {
+  background-color: #FAFBFB;
 }
 
 .chuongtrinh__table .ct-link {
@@ -327,18 +417,19 @@
   white-space: nowrap;
 }
 
-/* Hàng tiêu đề lĩnh vực (I. Lĩnh vực ...) — màu viền trái đổi vòng theo 3 màu chủ đạo */
+/* Hàng tiêu đề lĩnh vực (I. Lĩnh vực ...) — nền vàng nhạt + viền trái đổi màu vòng */
 .ct-group-row td {
+  text-align: left;
   font-weight: var(--font-weight-bold);
   color: var(--color-secondary);
-  background-color: #F6FBFA;
+  background-color: #FDF6E3;
   border-left: 4px solid var(--color-main);
-  border-bottom: 1px solid #EEF0F1;
+  border-bottom: 1px solid #F1E7C6;
 }
 
 .ct-group-row:nth-of-type(3n+2) td { border-left-color: var(--color-main); }
 .ct-group-row:nth-of-type(3n+3) td { border-left-color: var(--color-secondary); }
-.ct-group-row:nth-of-type(3n+1) td { border-left-color: var(--color-secondary-dark); }
+.ct-group-row:nth-of-type(3n+1) td { border-left-color: var(--color-secondary); }
 
 .ct-group-row[hidden],
 .ct-data-row[hidden] {
@@ -347,6 +438,7 @@
 
 /* Hàng "Tuyển sinh cả nước / khu vực ĐBSCL..." (bảng KSV) */
 .ct-region-row td {
+  text-align: left;
   background-color: var(--color-secondary);
   color: #FFFFFF;
   font-weight: var(--font-weight-bold);
@@ -373,6 +465,11 @@
   cursor: pointer;
   color: var(--color-secondary);
   font-weight: var(--font-weight-bold);
+  transition: background-color 0.15s ease;
+}
+
+.ct-more-btn:hover {
+  background-color: #FAFBFB;
 }
 
 .ct-more-btn .chev {
@@ -397,21 +494,22 @@
 }
 
 .chuongtrinh__table--isb th {
-  background-color: var(--color-main);
+  color: #FFFFFF;
 }
 
-/* ---------- Lưu ý cuối trang ---------- */
-.chuongtrinh__alert {
-  background-color: #FFF7EC;
+/* ---------- Lưu ý cuối trang (KSA) ---------- */
+.chuongtrinh__panel > .chuongtrinh__table-wrap + .chuongtrinh__alert,
+.chuongtrinh__isb + .chuongtrinh__alert {
+  background-color: #FDF6E3;
   border-radius: var(--border-radius-base);
   padding: 18px 22px;
 }
 
-.chuongtrinh__alert p {
+.chuongtrinh__isb + .chuongtrinh__alert p {
   color: var(--color-text);
 }
 
-.chuongtrinh__alert strong {
+.chuongtrinh__isb + .chuongtrinh__alert strong {
   color: var(--color-main);
 }
 
@@ -431,13 +529,8 @@
   }
 
   .chuongtrinh__tabs {
+    justify-content: flex-start;
     gap: 12px;
-  }
-
-  .chuongtrinh__tab {
-    height: auto;
-    min-height: 44px;
-    padding: 10px 16px;
   }
 
   .chuongtrinh__toolbar {
@@ -449,6 +542,11 @@
   }
 
   .chuongtrinh__conditions {
+    position: fixed;
+    top: 5vh;
+    left: 16px;
+    right: 16px;
+    max-height: 90vh;
     padding: 24px 20px;
   }
 
@@ -456,6 +554,5 @@
     left: auto;
     right: 12px;
     top: 12px;
-    transform: none;
   }
 }

@@ -1,7 +1,7 @@
 /* ==========================================================================
    TOOLS.CSS — "Thông tin tuyển sinh - Bộ công cụ định hướng"
    Chỉ dùng biến root.css: nền --color-secondary, H1 (tiêu đề), H3 (bullet).
-   Ảnh gốc 549x346 (màn 1440px); giữ tỉ lệ khi co giãn.
+   Ảnh gốc 549x346 (màn 1440px); giữ tỉ lệ khi co giãn
    ========================================================================== */
 .tools {
   background-color: var(--color-secondary);

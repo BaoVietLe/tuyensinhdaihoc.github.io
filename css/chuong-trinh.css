@@ -28,6 +28,7 @@
   flex-wrap: wrap;
   gap: var(--spacing-horizontal);
   margin-bottom: var(--spacing-vertical);
+  justify-content: center; /* Căn giữa các tab theo chiều ngang */
 }
 
 .chuongtrinh__tab {

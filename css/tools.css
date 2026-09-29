@@ -14,7 +14,7 @@
   margin: 0 auto;
   padding: calc(var(--spacing-vertical) * 1.5) clamp(24px, 7vw, 105px);
   display: grid;
-  grid-template-columns: min(549px, 45%) minmax(0, 1fr);
+  grid-template-columns: min(557px, 45%) minmax(0, 1fr);
   gap: var(--spacing-horizontal); /* 30px */
   align-items: start;
   box-sizing: border-box;

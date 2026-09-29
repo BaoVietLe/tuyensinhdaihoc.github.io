@@ -159,6 +159,40 @@
 .ptts-panel .ptts-list, .ptts-panel .ptts-block { margin-bottom: var(--spacing-icon-text); }
 .ptts-panel .ptts-gap { margin-top: var(--spacing-vertical); }
 .ptts-text-secondary { color: var(--color-secondary); }
+.ptts-tabs { justify-content: space-between; }
+.ptts-tab { font-size: var(--font-size-h3); font-family: var(--font-family-base); }
+.ptts-tab:focus-visible { outline: 2px solid var(--color-secondary); outline-offset: 4px; }
+.ptts-panel .ptts-list, .ptts-panel .ptts-block { margin-bottom: var(--spacing-icon-text); }
+.ptts-panel .ptts-gap { margin-top: var(--spacing-vertical); }
+.ptts-text-secondary { color: var(--color-secondary); }
+@media (max-width: 640px) { .ptts-tabs { justify-content: flex-start; } }
+ 
+/* ===== Thẻ + popup ===== */
+.ptts-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 400px)); justify-content: center; gap: var(--spacing-horizontal); margin-top: var(--spacing-vertical); }
+.ptts-cards--2 { grid-template-columns: repeat(2, minmax(0, 400px)); }
+.ptts-card { aspect-ratio: 1 / 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: var(--spacing-icon-text); padding: var(--spacing-horizontal); text-align: left; cursor: pointer; font-family: var(--font-family-base); color: var(--color-text); background: #fff; border: 1px solid #E3E7E8; border-radius: var(--border-radius-base); transition: border-color .2s, box-shadow .2s, transform .2s; }
+.ptts-card:hover, .ptts-card:focus-visible { border-color: var(--color-secondary); box-shadow: 0 8px 24px rgba(5,107,117,.12); transform: translateY(-3px); outline: none; }
+.ptts-card:focus-visible { outline: 2px solid var(--color-secondary); outline-offset: 3px; }
+.ptts-card-icon { width: var(--shape-height); height: var(--shape-height); display: grid; place-items: center; border-radius: var(--border-radius-base); color: var(--color-secondary); background: #E6F1F2; transition: background .2s, color .2s; }
+.ptts-card:hover .ptts-card-icon, .ptts-card:focus-visible .ptts-card-icon { background: var(--color-secondary); color: #fff; }
+.ptts-card-body { display: flex; flex-direction: column; gap: var(--spacing-icon-text); }
+.ptts-card-name { color: var(--color-secondary); }
+.ptts-card-desc { line-height: 1.6; }
+.ptts-card-more { color: var(--color-secondary); font-weight: var(--font-weight-bold); }
+.ptts-modal { width: min(900px, 92vw); max-height: 85vh; margin: auto; padding: 0; border: none; border-radius: var(--border-radius-base); color: var(--color-text); background: #fff; overflow: hidden; }
+.ptts-modal[open] { display: flex; flex-direction: column; animation: ptts-in .2s ease; }
+.ptts-modal::backdrop { background: rgba(0,0,0,.45); }
+.ptts-modal-head { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-horizontal); padding: var(--spacing-icon-text) var(--spacing-horizontal); padding-left: var(--spacing-horizontal); border-bottom: 1px solid #E3E7E8; min-height: var(--shape-height); }
+.ptts-modal-close { border: none; background: transparent; cursor: pointer; font-size: 30px; line-height: 1; color: var(--color-text); width: 40px; height: 40px; border-radius: 50%; }
+.ptts-modal-close:hover { color: var(--color-secondary); background: #E6F1F2; }
+.ptts-modal-close:focus-visible { outline: 2px solid var(--color-secondary); }
+.ptts-modal-body { overflow-y: auto; padding: var(--spacing-vertical) var(--spacing-horizontal); }
+.ptts-modal-body > :first-child { margin-top: 0 !important; }
+body:has(.ptts-modal[open]) { overflow: hidden; }
+@keyframes ptts-in { from { opacity: 0; transform: translateY(12px); } }
+@media (prefers-reduced-motion: reduce) { .ptts-modal[open] { animation: none; } .ptts-card { transition: none; } }
+@media (max-width: 900px) { .ptts-cards, .ptts-cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .ptts-cards, .ptts-cards--2 { grid-template-columns: 1fr; } .ptts-card { aspect-ratio: auto; min-height: 220px; } }
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */

@@ -153,7 +153,12 @@
   color: var(--color-main);
   font-style: italic !important;
 }
-
+.ptts-tabs { justify-content: space-between; }
+.ptts-tab { font-size: var(--font-size-h3); font-family: var(--font-family-base); }
+.ptts-tab:focus-visible { outline: 2px solid var(--color-secondary); outline-offset: 4px; }
+.ptts-panel .ptts-list, .ptts-panel .ptts-block { margin-bottom: var(--spacing-icon-text); }
+.ptts-panel .ptts-gap { margin-top: var(--spacing-vertical); }
+.ptts-text-secondary { color: var(--color-secondary); }
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -165,4 +170,5 @@
   .ptts-formula {
     font-size: calc(var(--font-size-h3) * 0.95) !important;
   }
+   .ptts-tabs { justify-content: flex-start; }
 }

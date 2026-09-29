@@ -1875,135 +1875,121 @@
 </div>
 </section>
 
-  <section class="ptts" id="ptts" aria-labelledby="ptts-heading">
+  <section class="declare" id="ptts">
+    <h1 class="h1 declare-title">02 PHƯƠNG THỨC TUYỂN SINH</h1>
  
-  <h1 class="ptts-title h1 text-secondary-color" id="ptts-heading">02 PHƯƠNG THỨC TUYỂN SINH</h1>
- 
-  <div class="ptts-tabs" role="tablist" aria-label="Phương thức tuyển sinh">
-    <button class="ptts-tab h3 is-active" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">Xét tuyển thẳng theo Quy định của Bộ Giáo dục và Đào tạo (GD&amp; ĐT)</button>
-    <button class="ptts-tab h3" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">Phương thức xét tuyển tích hợp</button>
-  </div>
- 
-  <!-- ============ TAB 1: XÉT TUYỂN THẲNG ============ -->
-  <div class="ptts-panel is-active" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
-    <p>UEH xét tuyển thẳng các đối tượng theo quy định tại khoản 1; điểm a, b khoản 2; khoản 4 Điều 8 Quy chế tuyển sinh các ngành đào tạo trình độ đại học và ngành Giáo dục Mầm non trình độ cao đẳng, cụ thể:</p>
- 
-    <div class="ptts-cards"><button type="button" class="ptts-card" data-target="d-k1" aria-haspopup="dialog"><span class="ptts-card-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></svg></span><span class="ptts-card-body"><span class="ptts-card-name h2">Khoản 1</span><span class="ptts-card-desc h3">Anh hùng lao động, Anh hùng lực lượng vũ trang nhân dân, Chiến sĩ thi đua toàn quốc</span></span><span class="ptts-card-more h3">Xem chi tiết</span></button><button type="button" class="ptts-card" data-target="d-k2" aria-haspopup="dialog"><span class="ptts-card-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.7V17c0 .6-.5 1-1 1.2-1.2.5-2 2-2 3.8M14 14.7V17c0 .6.5 1 1 1.2 1.2.5 2 2 2 3.8M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><span class="ptts-card-body"><span class="ptts-card-name h2">Khoản 2</span><span class="ptts-card-desc h3">Đạt giải học sinh giỏi quốc gia, quốc tế; giải khoa học, kỹ thuật</span></span><span class="ptts-card-more h3">Xem chi tiết</span></button><button type="button" class="ptts-card" data-target="d-k3" aria-haspopup="dialog"><span class="ptts-card-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><span class="ptts-card-body"><span class="ptts-card-name h2">Khoản 3</span><span class="ptts-card-desc h3">Người nước ngoài, người Việt học ở nước ngoài, dân tộc thiểu số rất ít người, khuyết tật nặng</span></span><span class="ptts-card-more h3">Xem chi tiết</span></button></div>
-    <div class="ptts-details" hidden>
-    <div class="ptts-detail" id="d-k1" data-title="Khoản 1">
-    <div class="ptts-block ptts-gap">
-      <p><span class="ptts-text-secondary">– Khoản 1:</span> Anh hùng lao động, Anh hùng lực lượng vũ trang nhân dân, Chiến sĩ thi đua toàn quốc được tuyển thẳng vào các chương trình đào tạo do cơ sở đào tạo quy định.</p>
+    <div class="declare-tabs">
+      <div class="declare-tabs-track" style="justify-content:center">
+        <button type="button" class="h3 declare-tab is-active" data-panel="ptts-panel-1">Xét tuyển thẳng theo Quy định của Bộ Giáo dục và Đào tạo (GD&amp; ĐT)</button>
+        <button type="button" class="h3 declare-tab" data-panel="ptts-panel-2">Phương thức xét tuyển tích hợp</button>
+      </div>
     </div>
  
-    </div><div class="ptts-detail" id="d-k2" data-title="Khoản 2">
-    <div class="ptts-block ptts-gap">
-      <p class="ptts-text-secondary">– Khoản 2:</p>
+    <!-- ============ PANEL 1: XÉT TUYỂN THẲNG ============ -->
+    <div class="declare-panel stack-vertical is-active" id="ptts-panel-1">
+      <div class="declare-prose">
+        <p>UEH xét tuyển thẳng các đối tượng theo quy định tại khoản 1; điểm a, b khoản 2; khoản 4 Điều 8 Quy chế tuyển sinh các ngành đào tạo trình độ đại học và ngành Giáo dục Mầm non trình độ cao đẳng, cụ thể:</p>
+      </div>
+      <div class="declare-minitabs">
+        <div class="declare-minitabs-col">
+          <button type="button" class="h3 declare-minitab is-active" data-target="t1-1">Khoản 1 – Anh hùng, Chiến sĩ thi đua toàn quốc</button>
+          <button type="button" class="h3 declare-minitab" data-target="t1-2">Khoản 2 – Đạt giải học sinh giỏi, khoa học kỹ thuật</button>
+          <button type="button" class="h3 declare-minitab" data-target="t1-3">Khoản 3 – Các trường hợp xem xét nhận vào học</button>
+        </div>
+        <div class="declare-minitabs-content">
+          <div class="main-text declare-minitab-text is-active" id="t1-1">
+<p><span class="text-secondary-color">– Khoản 1:</span> Anh hùng lao động, Anh hùng lực lượng vũ trang nhân dân, Chiến sĩ thi đua toàn quốc được tuyển thẳng vào các chương trình đào tạo do cơ sở đào tạo quy định.</p>
+          </div>
+          <div class="main-text declare-minitab-text" id="t1-2">
+<p class="text-secondary-color">– Khoản 2:</p>
       <p>+ Điểm a: Thí sinh đạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia, quốc tế; thời gian đạt giải không quá 03 năm tính tới thời điểm xét tuyển thẳng;</p>
       <p>+ Điểm b: Thí sinh đạt giải nhất, nhì, ba kỳ thi khoa học, kỹ thuật cấp quốc gia, quốc tế do Bộ GDĐT tổ chức, cử tham gia và đạt ngưỡng đảm bảo chất lượng đầu vào của chương trình đào tạo. Thời gian đạt giải không quá 03 năm tính tới thời điểm nêu được xét tuyển thẳng;</p>
-      <p class="ptts-indent">UEH căn cứ môn đoạt giải, quy định hiện hành của Bộ GDĐT và nguyện vọng của thí sinh để xem xét, quyết định ngành, chuyên ngành, chương trình đào tạo theo học.</p>
-    </div>
- 
-    </div><div class="ptts-detail" id="d-k3" data-title="Khoản 3">
-    <div class="ptts-block ptts-gap">
-      <p class="ptts-text-secondary">– Khoản 3:</p>
-      <p class="ptts-indent">UEH căn cứ kết quả học tập cấp THPT của thí sinh và yêu cầu của ngành, chuyên ngành, chương trình đào tạo để xem xét, quyết định nhận vào học những trường hợp quy định dưới đây:</p>
-    </div>
- 
-    <div class="ptts-block ptts-gap">
+      <p>UEH căn cứ môn đoạt giải, quy định hiện hành của Bộ GDĐT và nguyện vọng của thí sinh để xem xét, quyết định ngành, chuyên ngành, chương trình đào tạo theo học.</p>
+          </div>
+          <div class="main-text declare-minitab-text" id="t1-3">
+<p class="text-secondary-color">– Khoản 3:</p>
+      <p>UEH căn cứ kết quả học tập cấp THPT của thí sinh và yêu cầu của ngành, chuyên ngành, chương trình đào tạo để xem xét, quyết định nhận vào học những trường hợp quy định dưới đây:</p>
       <p>a) Thí sinh là người nước ngoài (tốt nghiệp THPT hoặc tương đương) đã đạt chuẩn năng lực ngôn ngữ theo yêu cầu của chương trình đào tạo (do UEH quy định) phù hợp với quy định của Bộ GDĐT:</p>
       <p>– Thí sinh nước ngoài theo diện ngoài Hiệp định: UEH căn cứ kết quả học tập của thí sinh, quy định hiện hành của Bộ GDĐT, năng lực ngôn ngữ và nguyện vọng của thí sinh để xem xét, quyết định ngành, chuyên ngành, chương trình đào tạo theo học.</p>
       <p>– Thí sinh nước ngoài theo diện Hiệp định: UEH thực hiện theo quy chế tuyển sinh hiện hành của Bộ GDĐT.</p>
-    </div>
- 
-    <div class="ptts-block ptts-gap">
       <p>b) Thí sinh là người Việt Nam học tập cấp THPT, trung học nghề ở nước ngoài hoặc học tập chương trình giáo dục nước ngoài bằng tiếng nước ngoài ở Việt Nam đạt trình độ tương đương với trình độ THPT, trung học nghề của Việt Nam và đạt chuẩn năng lực ngôn ngữ theo yêu cầu của chương trình đào tạo phù hợp với quy định của Bộ GDĐT.</p>
       <p>Điều kiện nộp hồ sơ xét tuyển thẳng vào UEH:</p>
       <p>– Thí sinh có kết quả học tập tương đương đánh giá mức Tốt (học lực xếp loại từ Giỏi trở lên) đối với các năm lớp 10, lớp 11 và lớp 12 tương đương của Việt Nam, và</p>
       <p>– Có chứng chỉ tiếng Anh quốc tế còn thời hạn (tính đến ngày nộp hồ sơ xét tuyển) đạt yêu cầu ngôn ngữ chương trình đào tạo tương đương IELTS từ 5.5 (hoặc TOEFL iBT từ 62, hoặc TOEIC 4 kỹ năng từ 670 trong đó điểm các kỹ năng Speaking từ 140, Writing từ 140) trở lên, đáp ứng điều kiện đầu vào CTĐT thí sinh đăng ký.</p>
-    </div>
- 
-    <div class="ptts-block ptts-gap">
       <p>c) Thí sinh là người dân tộc thiểu số rất ít người theo quy định hiện hành của Chính phủ, điều kiện nộp hồ sơ xét tuyển thẳng vào UEH:</p>
       <p>– Thí sinh có kết quả học tập được đánh giá mức Tốt (học lực xếp loại từ Giỏi trở lên) đối với các năm lớp 10, lớp 11 và lớp 12.</p>
       <p>– Thí sinh phải học bổ sung kiến thức 01 (một) năm học trước khi vào học chính thức. Chương trình bổ sung kiến thức do UEH quy định.</p>
-    </div>
- 
-    <div class="ptts-block ptts-gap">
       <p>d) Thí sinh là người khuyết tật nặng có giấy xác nhận khuyết tật của cơ quan có thẩm quyền cấp theo quy định; có khả năng theo học một số chương trình đào tạo do UEH quy định nhưng không có khả năng dự tuyển theo phương thức tuyển sinh bình thường.</p>
       <p>Điều kiện nộp hồ sơ xét tuyển thẳng vào UEH:</p>
       <p>– Thí sinh được miễn thi tốt nghiệp THPT, và</p>
       <p>– Thí sinh có kết quả học tập được đánh giá mức Tốt (học lực xếp loại từ Giỏi trở lên) và kết quả rèn luyện được đánh giá mức Tốt (hạnh kiểm xếp loại Tốt) đối với các năm lớp 10, lớp 11 và lớp 12.</p>
       <p>UEH căn cứ tình trạng sức khỏe, yêu cầu của ngành, chuyên ngành, chương trình đào tạo và nguyện vọng của thí sinh để xem xét, quyết định nhận vào học.</p>
+          </div>
+        </div>
+      </div>
+      <div class="declare-prose">
+        <p>Lưu ý: UEH thông báo điểm cộng trên thông tin tuyển sinh đối với thí sinh quy định tại khoản 1; điểm a, b khoản 2 Điều 8 không dùng quyền tuyển thẳng; thí sinh quy định tại điểm b khoản 5 Điều 8 theo quy chế tuyển sinh hiện hành của Bộ GDĐT.</p>
+      </div>
     </div>
  
-    </div></div>
- 
-    <p class="ptts-gap">Lưu ý: UEH thông báo điểm cộng trên thông tin tuyển sinh đối với thí sinh quy định tại khoản 1; điểm a, b khoản 2 Điều 8 không dùng quyền tuyển thẳng; thí sinh quy định tại điểm b khoản 5 Điều 8 theo quy chế tuyển sinh hiện hành của Bộ GDĐT.</p>
-  </div>
- 
-  <!-- ============ TAB 2: XÉT TUYỂN TÍCH HỢP ============ -->
-  <div class="ptts-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
-    <p>Chọn đối tượng phù hợp để xem điều kiện đăng ký và cách tính điểm xét tuyển.</p>
-    <div class="ptts-cards ptts-cards--2"><button type="button" class="ptts-card" data-target="d-o1" aria-haspopup="dialog"><span class="ptts-card-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><span class="ptts-card-body"><span class="ptts-card-name h2">Đối tượng 1</span><span class="ptts-card-desc h3">Thí sinh tốt nghiệp chương trình THPT, trung học nghề của Việt Nam</span></span><span class="ptts-card-more h3">Xem chi tiết</span></button><button type="button" class="ptts-card" data-target="d-o2" aria-haspopup="dialog"><span class="ptts-card-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></span><span class="ptts-card-body"><span class="ptts-card-name h2">Đối tượng 2</span><span class="ptts-card-desc h3">Thí sinh (quốc tịch Việt Nam) tốt nghiệp chương trình THPT của nước ngoài</span></span><span class="ptts-card-more h3">Xem chi tiết</span></button></div>
-    <div class="ptts-details" hidden>
-    <div class="ptts-detail" id="d-o1" data-title="Đối tượng 1">
-    <p class="ptts-lead">Đối tượng 1: Thí sinh tốt nghiệp chương trình THPT, trung học nghề của Việt Nam</p>
-    <p>a) Điều kiện: Thí sinh tham gia một hoặc đồng thời các kỳ thi sau:</p>
+    <!-- ============ PANEL 2: XÉT TUYỂN TÍCH HỢP ============ -->
+    <div class="declare-panel" id="ptts-panel-2">
+      <div class="declare-minitabs">
+        <div class="declare-minitabs-col">
+          <button type="button" class="h3 declare-minitab is-active" data-target="t2-1">Đối tượng 1 – Tốt nghiệp THPT, trung học nghề Việt Nam</button>
+          <button type="button" class="h3 declare-minitab" data-target="t2-2">Đối tượng 2 – Tốt nghiệp THPT nước ngoài (quốc tịch Việt Nam)</button>
+        </div>
+        <div class="declare-minitabs-content">
+          <div class="main-text declare-minitab-text is-active" id="t2-1">
+<p>a) Điều kiện: Thí sinh tham gia một hoặc đồng thời các kỳ thi sau:</p>
     <p>+ Kỳ thi tốt nghiệp THPT năm 2026, trong đó có kết quả các môn thi theo tổ hợp xét tuyển của UEH (viết tắt TN THPT);</p>
     <p>+ Kỳ thi đánh giá năng lực do Đại học Quốc gia TP. Hồ Chí Minh tổ chức năm 2026 (viết tắt ĐGNL-HCM);</p>
     <p>+ Kỳ thi đánh giá đầu vào đại học V-SAT năm 2026 (viết tắt V-SAT).</p>
     <p>Thí sinh tốt nghiệp THPT, trung học nghề hoặc tương đương theo quy định của Bộ GDĐT, và đạt ngưỡng đảm bảo chất lượng đầu vào theo quy định của UEH.</p>
- 
-    <div class="ptts-block ptts-gap">
       <p>b) Điểm xét tuyển: Điểm xét tuyển được tính theo thang điểm 100, cụ thể như sau:</p>
-      <p class="ptts-formula">ĐIỂM XÉT TUYỂN = Điểm thi x Hệ số a + Điểm trung bình các năm học THPT x Hệ số b + Điểm cộng (nếu có) + Điểm ưu tiên KV, ĐT (nếu có)</p>
+      <p><strong>ĐIỂM XÉT TUYỂN = Điểm thi x Hệ số a + Điểm trung bình các năm học THPT x Hệ số b + Điểm cộng (nếu có) + Điểm ưu tiên KV, ĐT (nếu có)</strong></p>
       <p>Trong đó:</p>
-      <ul class="ptts-list">
+      <ul>
         <li>Hệ số a + Hệ số b = 100%, trong đó hệ số a = 60%, hệ số b = 40%</li>
         <li>Điểm thi: Xét các kỳ thi (TN THPT, ĐGNL-HCM, V-SAT) là tương đương nhau, thí sinh chỉ sử dụng 01 điểm kỳ thi tham gia xét tuyển. Trong đó, Thí sinh có đồng thời nhiều điểm thi của nhiều kỳ thi khác nhau, UEH sẽ quy đổi điểm tương đương giữa các kỳ thi chọn điểm xét tuyển có lợi nhất cho thí sinh.</li>
       </ul>
       <p>Lưu ý:</p>
       <p>+ Đối với thí sinh tốt nghiệp trước năm 2026 (thí sinh tự do) tham gia 1 trong các kỳ thi trên để xét tuyển.</p>
       <p>+ UEH áp dụng kỳ thi V-SAT do Đại học Cần Thơ tổ chức năm 2026 và chỉ áp dụng cho mã xét tuyển KSV.</p>
-      <ul class="ptts-list">
+      <ul>
         <li>Điểm trung bình các năm học THPT: Điểm TB các năm học THPT= (ĐTB lớp 10 x 1 + ĐTB lớp 11 x 2 + ĐTB lớp 12 x 3)/6</li>
       </ul>
       <p>Lưu ý: Trường hợp thí sinh không có điểm TB các năm học thì tính bằng cách trung bình cộng các môn có điểm học tập nhân hệ số 1 theo năm lớp 10 (ĐTB lớp 10), 11 (ĐTB lớp 11), và 12 (ĐTB lớp 12); Sau đó, điểm TB các năm học THPT= (ĐTB lớp 10 x 1 + ĐTB lớp 11 x 2 + ĐTB lớp 12 x 3)/6 và làm tròn theo điểm TB các năm học THPT.</p>
-      <ul class="ptts-list">
+      <ul>
         <li>Điểm cộng: tối đa 10% theo thang điểm xét tuyển tính từ các tiêu chí sau:</li>
       </ul>
       <p>+ Thí sinh có chứng chỉ tiếng Anh quốc tế còn thời hạn (tính đến ngày nộp hồ sơ xét tuyển) tương đương IELTS từ 6.0 (hoặc TOEFL iBT từ 73, hoặc TOEIC 4 kỹ năng từ 785 trong đó điểm các kỹ năng Speaking từ 160, Writing từ 150) trở lên.</p>
       <p>+ Thí sinh đạt giải thưởng (Nhất, Nhì, Ba) kỳ thi chọn học sinh Giỏi THPT cấp tỉnh, cấp thành phố (trực thuộc trung ương) các môn: Toán, Vật lý, Hoá học, Tiếng Anh, Ngữ văn, Lịch sử, Địa lí, Tin học, Giáo dục kinh tế và pháp luật, Sinh học, Công nghệ (Định hướng công nghiệp hoặc Định hướng nông nghiệp).</p>
       <p>+ Thí sinh là học sinh trường THPT chuyên/năng khiếu.</p>
-      <ul class="ptts-list">
+      <ul>
         <li>Điểm ưu tiên KV, ĐT: theo quy định của Bộ GD&amp;ĐT.</li>
       </ul>
-    </div>
- 
-    </div><div class="ptts-detail" id="d-o2" data-title="Đối tượng 2">
-    <p class="ptts-lead">Đối tượng 2: Thí sinh (quốc tịch Việt Nam) tốt nghiệp chương trình THPT của nước ngoài</p>
-    <p>Điều kiện đăng ký xét tuyển:</p>
+          </div>
+          <div class="main-text declare-minitab-text" id="t2-2">
+<p>Điều kiện đăng ký xét tuyển:</p>
     <p>– Thí sinh (quốc tịch Việt Nam) tốt nghiệp chương trình THPT của nước ngoài nhưng không đủ điều kiện tham gia xét tuyển thẳng.</p>
     <p>Điểm xét tuyển: Điểm xét tuyển được tính theo thang điểm 100, cụ thể như sau:</p>
-    <p class="ptts-formula">ĐIỂM XÉT TUYỂN = Điểm trung bình các năm học THPT (quy đổi) + Điểm cộng (nếu có) + Điểm ưu tiên KV, ĐT (nếu có)</p>
+    <p><strong>ĐIỂM XÉT TUYỂN = Điểm trung bình các năm học THPT (quy đổi) + Điểm cộng (nếu có) + Điểm ưu tiên KV, ĐT (nếu có)</strong></p>
     <p>Trong đó:</p>
-    <ul class="ptts-list">
+    <ul>
       <li>Điểm trung bình các năm học THPT (quy đổi) = (Điểm trung bình các năm học THPT/Thang điểm tối đa chương trình học) x 100</li>
       <li>Điểm cộng: tối đa 10% theo thang điểm xét tuyển tính từ các tiêu chí sau:</li>
     </ul>
     <p>+ Thí sinh có chứng chỉ tiếng Anh quốc tế còn thời hạn (tính đến ngày nộp hồ sơ xét tuyển) tương đương IELTS từ 6.0 (hoặc TOEFL iBT từ 73, hoặc TOEIC 4 kỹ năng từ 785 trong đó điểm các kỹ năng Speaking từ 160, Writing từ 150) trở lên.</p>
     <p>+ Thí sinh có chứng chỉ SAT (điểm tổng từ 1296 điểm) hoặc ACT (từ 27 điểm).</p>
-    <ul class="ptts-list">
+    <ul>
       <li>Điểm ưu tiên KV, ĐT: theo quy định của Bộ GD&amp;ĐT.</li>
     </ul>
-    </div></div>
-  </div>
-</section>
- 
-<dialog class="ptts-modal" id="ptts-modal" aria-labelledby="ptts-modal-title">
-  <div class="ptts-modal-head"><h2 class="h2 text-secondary-color" id="ptts-modal-title"></h2><button type="button" class="ptts-modal-close" aria-label="Đóng">&times;</button></div>
-  <div class="ptts-panel is-active ptts-modal-body" id="ptts-modal-body"></div>
-</dialog>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   
   <script>
     // Bật/tắt menu mobile khi bấm nút hamburger
@@ -2454,39 +2440,34 @@
     applyFilters();
   }
 })();
-
+//PTTS
 (function () {
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.ptts-tab'));
-  function activate(tab, focus) {
-    tabs.forEach(function (t) {
-      var on = t === tab, panel = document.getElementById(t.getAttribute('aria-controls'));
-      t.classList.toggle('is-active', on);
-      t.setAttribute('aria-selected', on);
-      t.tabIndex = on ? 0 : -1;
-      panel.classList.toggle('is-active', on);
-      panel.hidden = !on;
-    });
-    if (focus) tab.focus();
-  }
-  tabs.forEach(function (t, i) {
-    t.addEventListener('click', function () { activate(t); });
-    t.addEventListener('keydown', function (e) {
-      var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-      if (n) { e.preventDefault(); activate(tabs[(i + n + tabs.length) % tabs.length], true); }
+  var section = document.getElementById('ptts');
+  if (!section) return;
+  var tabs = section.querySelectorAll('.declare-tab');
+  var panels = section.querySelectorAll('.declare-panel');
+ 
+  // 1) Chuyển tab chính + panel nội dung
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('is-active'); });
+      panels.forEach(function (p) { p.classList.remove('is-active'); });
+      tab.classList.add('is-active');
+      document.getElementById(tab.dataset.panel).classList.add('is-active');
     });
   });
-})();
-(function () {
-  var dlg = document.getElementById('ptts-modal'), body = document.getElementById('ptts-modal-body'), title = document.getElementById('ptts-modal-title');
-  document.querySelectorAll('.ptts-card').forEach(function (c) {
-    c.addEventListener('click', function () {
-      var d = document.getElementById(c.dataset.target);
-      title.textContent = d.dataset.title;
-      body.innerHTML = d.innerHTML; body.scrollTop = 0; dlg.showModal();
+ 
+  // 2) Mini-tab (khoản / đối tượng): chuyển nội dung con tương ứng
+  section.querySelectorAll('.declare-minitab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var col = btn.closest('.declare-minitabs-col');
+      var content = col.nextElementSibling;
+      col.querySelectorAll('.declare-minitab').forEach(function (b) { b.classList.remove('is-active'); });
+      content.querySelectorAll('.declare-minitab-text').forEach(function (t) { t.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      document.getElementById(btn.dataset.target).classList.add('is-active');
     });
   });
-  dlg.querySelector('.ptts-modal-close').addEventListener('click', function () { dlg.close(); });
-  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
 })();
   </script>
  

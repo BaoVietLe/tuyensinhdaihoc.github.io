@@ -10,7 +10,7 @@
   position: relative; /* làm điểm neo cho menu mobile (position:absolute) */
   width: 100%;
   max-width: 1440px;
-  height: 81px;
+  height: 90px;
   margin: 0 auto;       /* tự căn giữa khi màn hình > 1440px */
   background-color: var(--color-secondary);
   display: flex;

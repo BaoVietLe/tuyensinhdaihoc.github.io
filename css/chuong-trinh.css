@@ -1,0 +1,460 @@
+/* ==========================================================================
+   CHUONGTRINH.CSS — "Chương trình đào tạo – Mã đăng ký – Chỉ tiêu"
+   Toàn bộ màu, khoảng cách, chiều cao khối lấy từ root.css:
+   --color-main / --color-secondary / --color-secondary-dark / --color-text
+   --spacing-vertical (35px) / --spacing-horizontal (30px)
+   --shape-height (50px) / --border-radius-base (15px)
+   ========================================================================== */
+
+.chuongtrinh {
+  background-color: #FFFFFF;
+  padding: var(--spacing-vertical) 40px;
+}
+
+.chuongtrinh__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.chuongtrinh__title {
+  text-align: center;
+  color: var(--color-secondary-dark);
+  margin-bottom: var(--spacing-vertical);
+}
+
+/* ---------- Tabs ---------- */
+.chuongtrinh__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-horizontal);
+  margin-bottom: var(--spacing-vertical);
+}
+
+.chuongtrinh__tab {
+  height: var(--shape-height);
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  border-radius: var(--border-radius-base);
+  cursor: pointer;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.chuongtrinh__tab.is-active {
+  background-color: #F1F3F4;
+}
+
+.chuongtrinh__tab-label {
+  color: inherit;
+  font-weight: var(--font-weight-bold);
+}
+
+.chuongtrinh__tab.is-active .chuongtrinh__tab-label {
+  color: var(--color-secondary-dark);
+}
+
+.chuongtrinh__tab-code {
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* ---------- Panels ---------- */
+.chuongtrinh__panel {
+  display: none;
+}
+
+.chuongtrinh__panel.is-active {
+  display: block;
+}
+
+/* ---------- Toolbar: tìm kiếm / lọc lĩnh vực / xem điều kiện ---------- */
+.chuongtrinh__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-horizontal);
+  margin-bottom: var(--spacing-vertical);
+}
+
+.ct-control {
+  height: var(--shape-height);
+  box-sizing: border-box;
+  border-radius: var(--border-radius-base);
+  background-color: #F6F7F8;
+}
+
+.ct-search {
+  flex: 1 1 320px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  cursor: text;
+}
+
+.ct-search svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.ct-search input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
+}
+
+.ct-search input::placeholder {
+  color: var(--color-text);
+  opacity: 0.7;
+}
+
+.ct-filter {
+  position: relative;
+  background: none;
+}
+
+.ct-filter__btn {
+  height: var(--shape-height);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  background-color: #F6F7F8;
+  border: none;
+  border-radius: var(--border-radius-base);
+  cursor: pointer;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.ct-filter__btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.ct-filter__btn .chev {
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.ct-filter__btn[aria-expanded="true"] .chev {
+  transform: rotate(180deg);
+}
+
+.ct-filter__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 20;
+  min-width: 260px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: #FFFFFF;
+  border: 1px solid #E7E9EA;
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+}
+
+.ct-filter__item {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
+}
+
+.ct-filter__item:hover {
+  background-color: #F1F3F4;
+}
+
+.ct-filter__item.is-selected {
+  color: var(--color-secondary-dark);
+  font-weight: var(--font-weight-bold);
+}
+
+.ct-conditions-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  color: var(--color-secondary-dark);
+  white-space: nowrap;
+}
+
+.ct-conditions-btn .chev {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.ct-conditions-btn[aria-expanded="true"] .chev {
+  transform: rotate(180deg);
+}
+
+/* ---------- Ghi chú / điều kiện xét tuyển (mở ra khi bấm nút) ---------- */
+.chuongtrinh__conditions {
+  position: relative;
+  background-color: #F6F7F8;
+  border-radius: var(--border-radius-base);
+  padding: var(--spacing-vertical) 44px;
+  margin-bottom: var(--spacing-vertical);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chuongtrinh__conditions[hidden] {
+  display: none;
+}
+
+.chuongtrinh__conditions p {
+  color: var(--color-text);
+}
+
+.chuongtrinh__conditions a {
+  color: var(--color-secondary-dark);
+}
+
+.chuongtrinh__conditions-close {
+  position: absolute;
+  top: 50%;
+  left: -18px;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #E7E9EA;
+  background-color: #FFFFFF;
+  color: var(--color-secondary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.chuongtrinh__conditions-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Bảng ---------- */
+.chuongtrinh__table-card {
+  border: 1px solid #E7E9EA;
+  border-radius: var(--border-radius-base);
+  overflow: hidden;
+  margin-bottom: var(--spacing-vertical);
+}
+
+.chuongtrinh__table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.chuongtrinh__table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+}
+
+.chuongtrinh__table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--color-secondary-dark);
+  color: #FFFFFF;
+  font-weight: var(--font-weight-bold);
+  text-align: left;
+  padding: 14px 16px;
+  white-space: nowrap;
+}
+
+.chuongtrinh__table td {
+  padding: 12px 16px;
+  color: var(--color-text);
+  border-bottom: 1px solid #EEF0F1;
+  vertical-align: top;
+}
+
+.chuongtrinh__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.chuongtrinh__table .ct-link {
+  color: var(--color-secondary-dark);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.chuongtrinh__table .ct-link:hover {
+  text-decoration: underline;
+}
+
+.to-hop,
+.isb-to-hop {
+  white-space: nowrap;
+}
+
+/* Hàng tiêu đề lĩnh vực (I. Lĩnh vực ...) — màu viền trái đổi vòng theo 3 màu chủ đạo */
+.ct-group-row td {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary-dark);
+  background-color: #F6FBFA;
+  border-left: 4px solid var(--color-main);
+  border-bottom: 1px solid #EEF0F1;
+}
+
+.ct-group-row:nth-of-type(3n+2) td { border-left-color: var(--color-main); }
+.ct-group-row:nth-of-type(3n+3) td { border-left-color: var(--color-secondary); }
+.ct-group-row:nth-of-type(3n+1) td { border-left-color: var(--color-secondary-dark); }
+
+.ct-group-row[hidden],
+.ct-data-row[hidden] {
+  display: none;
+}
+
+/* Hàng "Tuyển sinh cả nước / khu vực ĐBSCL..." (bảng KSV) */
+.ct-region-row td {
+  background-color: var(--color-secondary-dark);
+  color: #FFFFFF;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 16px;
+}
+
+/* Nút "Xem thêm lĩnh vực" */
+.ct-more-row td {
+  padding: 0;
+  border-bottom: none;
+}
+
+.ct-more-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-secondary-dark);
+  font-weight: var(--font-weight-bold);
+}
+
+.ct-more-btn .chev {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.ct-more-btn[aria-expanded="true"] .chev {
+  transform: rotate(180deg);
+}
+
+/* ---------- Khối ISB & ASIA Co-op ---------- */
+.chuongtrinh__isb {
+  margin-bottom: var(--spacing-vertical);
+}
+
+.chuongtrinh__isb-title {
+  color: var(--color-secondary-dark);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 14px;
+}
+
+.chuongtrinh__table--isb th {
+  background-color: var(--color-main);
+}
+
+/* ---------- Lưu ý cuối trang ---------- */
+.chuongtrinh__alert {
+  background-color: #FFF7EC;
+  border-radius: var(--border-radius-base);
+  padding: 18px 22px;
+}
+
+.chuongtrinh__alert p {
+  color: var(--color-text);
+}
+
+.chuongtrinh__alert strong {
+  color: var(--color-main);
+}
+
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .chuongtrinh {
+    padding: var(--spacing-vertical) 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chuongtrinh {
+    padding: 24px 20px;
+  }
+
+  .chuongtrinh__tabs {
+    gap: 12px;
+  }
+
+  .chuongtrinh__tab {
+    height: auto;
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+
+  .chuongtrinh__toolbar {
+    gap: 12px;
+  }
+
+  .ct-search {
+    flex-basis: 100%;
+  }
+
+  .chuongtrinh__conditions {
+    padding: 24px 20px;
+  }
+
+  .chuongtrinh__conditions-close {
+    left: auto;
+    right: 12px;
+    top: 12px;
+    transform: none;
+  }
+}

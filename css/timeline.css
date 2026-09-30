@@ -1,0 +1,260 @@
+/* ==========================================================================
+   TIMELINE.CSS — "07 Bước xét tuyển thành công"
+   Màu/khoảng cách/bo góc lấy từ root.css:
+   --color-main / --color-secondary-dark / --color-text
+   --spacing-vertical (35px) / --spacing-horizontal (30px)
+   --border-radius-base (15px)
+   ========================================================================== */
+
+.timeline {
+  background-color: #FFFFFF;
+  padding: var(--spacing-vertical) 40px;
+}
+
+.timeline__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.timeline__title {
+  text-align: center;
+  color: var(--color-secondary-dark);
+  margin: 0 0 var(--spacing-vertical);
+}
+
+/* ---------- Khung cuộn ngang + 2 nút điều hướng ---------- */
+.timeline__viewport {
+  position: relative;
+}
+
+.timeline__nav {
+  position: absolute;
+  top: 27px;                     /* ngang tâm hàng "Bước N: + chấm tròn" */
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;            /* bo tròn hoàn toàn */
+  border: 1px solid #E7E9EA;
+  background-color: #FFFFFF;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.timeline__nav:hover {
+  background-color: #F5F6F7;
+}
+
+.timeline__nav[disabled] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.timeline__nav svg {
+  width: 18px;
+  height: 18px;
+}
+
+.timeline__nav--prev {
+  left: -6px;
+}
+
+.timeline__nav--next {
+  right: -6px;
+}
+
+.timeline__track {
+  display: flex;
+  gap: var(--spacing-horizontal);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  padding: 4px 46px var(--spacing-vertical);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.timeline__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Từng bước ---------- */
+.timeline__step {
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline__step-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.timeline__step-label {
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.timeline__dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;            /* bo tròn hoàn toàn */
+  background-color: #EFF1F2;
+  color: var(--color-secondary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.timeline__dot svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Thẻ (card) ---------- */
+.timeline__card {
+  position: relative;
+  display: block;
+  background-color: #FFFFFF;
+  border-radius: var(--border-radius-base);   /* bo góc khối ngoài */
+  box-shadow: 0 10px 24px rgba(17, 24, 28, 0.08);
+  padding: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.timeline__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(17, 24, 28, 0.12);
+}
+
+.timeline__badge {
+  position: absolute;
+  top: 0;
+  left: 22px;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: var(--color-main);
+  color: #FFFFFF;
+  font-weight: var(--font-weight-bold);
+  padding: 5px 14px;
+  border-radius: 999px;          /* bo tròn viên thuốc */
+  white-space: nowrap;
+}
+
+.timeline__link-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;            /* bo tròn hoàn toàn */
+  background-color: #FFFFFF;
+  color: var(--color-secondary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.timeline__link-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.timeline__sheet {
+  display: block;
+  background-color: var(--color-secondary-dark);
+  border-radius: calc(var(--border-radius-base) - 4px);  /* bo góc khối trong, nhỏ hơn khối ngoài */
+  padding: 20px 16px 16px;
+  min-height: 190px;
+}
+
+.timeline__desc {
+  display: block;
+  color: #FFFFFF;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 14px;
+}
+
+.timeline__illus {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.timeline__illus svg {
+  width: 64px;
+  height: 64px;
+  color: var(--color-main);
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: 50%;            /* bo tròn hoàn toàn khung minh hoạ */
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.timeline__qr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.timeline__qr img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;            /* bo góc nhẹ cho ảnh QR */
+  background-color: #FFFFFF;
+  padding: 3px;
+  flex-shrink: 0;
+}
+
+.timeline__qr-text {
+  color: var(--color-text);
+  word-break: break-all;
+}
+
+.timeline__step:not(:has(.timeline__qr)) .timeline__sheet {
+  min-height: 150px;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .timeline {
+    padding: var(--spacing-vertical) 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding: 24px 20px;
+  }
+
+  .timeline__step {
+    width: 240px;
+  }
+
+  .timeline__track {
+    gap: 16px;
+    padding: 4px 40px 24px;
+  }
+
+  .timeline__nav {
+    width: 40px;
+    height: 40px;
+  }
+}

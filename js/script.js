@@ -1,0 +1,15 @@
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const hdr=$('#hdr'),onScroll=()=>hdr.classList.toggle('is-solid',scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
+$('.nav__toggle').onclick=e=>e.currentTarget.setAttribute('aria-expanded',$('.nav ul').classList.toggle('is-open'));
+$$('.nav a').forEach(a=>a.onclick=()=>$('.nav ul').classList.remove('is-open'));
+$$('.carousel').forEach(c=>{const t=$('.carousel__track',c),s=d=>()=>t.scrollBy({left:d*t.clientWidth*.8,behavior:'smooth'});
+ const p=$('.arrow--prev',c),n=$('.arrow--next',c);if(p){p.onclick=s(-1);n.onclick=s(1)}});
+$$('[data-tabs]').forEach(g=>$$('.tab',g).forEach(t=>t.onclick=()=>{$$('.tab',g).forEach(x=>x.classList.toggle('is-active',x===t));
+ const k=t.dataset.k;$$(g.dataset.tabs).forEach(i=>i.hidden=k!=='all'&&i.dataset.k!==k)}));
+const rows=$$('#tbl tbody tr:not(.group)'),campusBtns=$$('[data-campus]');
+const showCampus=c=>{campusBtns.forEach(x=>x.classList.toggle('is-active',x.dataset.campus===c));rows.forEach(r=>r.hidden=r.dataset.c!==c)};
+campusBtns.forEach(b=>b.onclick=()=>showCampus(b.dataset.campus));showCampus('hcm');
+$('#q').oninput=e=>{const v=e.target.value.toLowerCase(),c=$('[data-campus].is-active').dataset.campus;rows.forEach(r=>r.hidden=r.dataset.c!==c||!r.textContent.toLowerCase().includes(v))};
+$('#reg').onsubmit=e=>{e.preventDefault();let ok=true;$$('[required]',e.target).forEach(f=>{const bad=!f.value.trim()||(f.type==='email'&&!/^\S+@\S+\.\S+$/.test(f.value));f.setAttribute('aria-invalid',bad);if(bad)ok=false});
+ $('.err',e.target).textContent=ok?'Đăng ký thành công! Chúng tôi sẽ liên hệ bạn sớm.':'Vui lòng điền đầy đủ thông tin hợp lệ.'};
+$('#top-btn').onclick=()=>scrollTo({top:0,behavior:'smooth'});

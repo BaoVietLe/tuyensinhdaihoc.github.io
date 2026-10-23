@@ -4,20 +4,17 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/root.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"></head>
 <body>
-<header class="nav top"><div class="container"><a href="#hero"><img class="logo-img" src="img/logo-navbar.png" alt="UEH University"></a>
+<header class="nav top"><div class="container-fluid nav-in"><a href="#hero"><img class="logo-img" src="img/logo-navbar.png" alt="UEH University"></a>
 <div class="nav-right"><div class="meta"><a href="#kp-sec">Khám phá I am who I choose to be</a><a href="#programs"><i class="tick">✓</i> Học tại TP. Hồ Chí Minh (KSA)</a><a href="#programs"><i class="tick">✓</i> Học tại Vĩnh Long - UEH Mekong (KSV)</a></div>
 <nav class="nav-links"><a href="#why">Tại sao chọn UEH?</a><a href="#learn">Học gì ở UEH</a><a href="#method">Phương thức tuyển sinh</a><a href="#steps-sec">7 bước xét tuyển ở UEH</a><a href="#programs">Chương trình đào tạo</a><a href="#faq">Q&amp;A</a></nav></div></div></header>
 <main>
 <section id="hero" class="hero"><div class="hero-slides" aria-hidden="true"><i class="on" style="background-image:url(img/herobanner-1.png)"></i><i style="background-image:url(img/herobanner-2.png)"></i><i style="background-image:url(img/herobanner-3.png)"></i></div><div class="hero-ov"></div>
-<div class="container hero-in"><div class="row align-items-end gy-4"><div class="col-lg-7">
-<h1 class="ghost">Chuỗi Virtual<br>Open Days</h1>
-<div class="d-flex flex-wrap gap-small my-4"><a class="btn-main" href="#reg">Đăng ký tư vấn</a><a class="btn-light-pill" href="#kp-sec">Khám phá I am who I choose to be →</a></div>
+<div class="container-fluid hero-in"><div class="d-flex flex-wrap gap-small mb-4"><a class="btn-main" href="#reg">Đăng ký tư vấn</a><a class="btn-light-pill" href="#kp-sec">Khám phá I am who I choose to be →</a></div>
 <p class="h3 mb-1 text-white">Chào mừng bạn đến với</p><h2 class="hero-h text-white text-uppercase">Cổng tuyển sinh Đại học UEH</h2>
 <div class="hero-stats"><div class="qr"></div><div><b class="h2">8240</b><span class="h4">Chỉ tiêu<br>học tại TP.HCM</span></div><div><b class="h2">82</b><span class="h4">Chương trình<br>học tại Vĩnh Long</span></div><div><b class="h2">650</b><span class="h4">Chỉ tiêu<br>học tại Vĩnh Long</span></div><div><b class="h2">15</b><span class="h4">Chương trình<br>học tại Vĩnh Long</span></div></div></div>
-<div class="col-lg-5"><div class="ask"><span class="h3">Tư vấn tuyển sinh trực tuyến</span><b class="h1">ASK UEH NOW</b></div></div></div></div>
 <div class="dots"><button class="on" aria-label="Slide 1"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button></div></section>
 
-<section id="kp-sec" class="sec"><div class="container"><h1 class="sec-title">Khám phá tuyên ngôn UEH I am who I choose to be</h1><div class="row g-3" id="kp"></div></div></section>
+<section id="kp-sec" class="sec"><div class="container"><h1 class="sec-title">Khám phá tuyên ngôn UEH I am who I choose to be</h1><div class="kp-wrap"><button class="kp-btn" id="kpL" aria-label="Trước">‹</button><div class="row g-3 flex-nowrap kp-row" id="kp"></div><button class="kp-btn" id="kpR" aria-label="Sau">›</button></div></div></section>
 
 <section id="why" class="sec" style="padding-bottom:0"><div class="container"><h1 class="sec-title">Tại sao chọn UEH?</h1></div>
 <div class="band sec"><div class="container"><h2 class="band-h">Chất lượng được công nhận bằng xếp hạng toàn cầu</h2><div class="row gy-4"><div class="col-lg-8"><div class="row gy-4">
@@ -29,7 +26,7 @@
 <div class="tabs" data-tabs><button class="pill on" data-t>Tất cả</button><button class="pill" data-t>Hiệp hội</button><button class="pill" data-t>Viện</button><button class="pill" data-t>Liên đoàn</button></div><div class="row g-4" id="assoc"></div>
 <h2 class="h2 text-secondary-color text-center text-uppercase my-5">Rộng mở cơ hội nghề nghiệp cùng UEH</h2><div class="row g-4" id="career"></div><div class="row g-4 mt-2"><div class="col-md-6"><img class="pic" src="img/tai-sao-ueh-2.jpg" alt=""></div><div class="col-md-6"><img class="pic" src="img/tai-sao-ueh-3.jpg" alt=""></div></div></div></div></section>
 
-<section id="learn" class="sec"><div class="container"><h1 class="sec-title">Học gì ở UEH?</h1><div class="row g-3" id="prog"></div><p class="h4 text-center mt-3">Nhấn vào từng thẻ để xem chi tiết →</p></div></section>
+<section id="learn" class="sec"><div class="container"><h1 class="sec-title">Học gì ở UEH?</h1><div class="row g-3" id="prog1"></div><p class="h4 text-center my-3">Nhấn vào từng thẻ để xem chi tiết →</p><div class="row g-3" id="prog2"></div></div></section>
 
 <section id="programs" class="sec" style="padding-top:0"><div class="container"><h1 class="sec-title">Chương trình đào tạo - Mã đăng ký - Chỉ tiêu</h1>
 <div class="tabs" data-tabs><a href="#" class="on" data-t>Học tại TP. Hồ Chí Minh</a><a href="#" data-t>Học tại Vĩnh Long</a></div>

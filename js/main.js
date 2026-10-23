@@ -9,9 +9,10 @@ function onScroll(){
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 // Render dữ liệu lặp
 const render=(id,arr,fn)=>$(id).innerHTML=arr.map(fn).join('');
-render('#kp',['Vì sao tôi là người tôi chọn tại UEH','Học đón đầu tương lai, nâng lực công nghệ và bền vững','Học thật, làm thật, đa dạng loại hình đào tạo','Bắt đầu hành trình "Tôi là người tôi chọn"','Học tập không giới hạn, gắn với đa ngành, đa lĩnh vực'],(t,i)=>`<div class="col-6 col-md"><div class="card-soft"><span class="num">${i+1}</span><p>${t}</p><span class="arrow">↗</span></div></div>`);
+render('#kp',['Vì sao tôi là người tôi chọn tại UEH','Học đón đầu tương lai, nâng lực công nghệ và bền vững','Học thật, làm thật, đa dạng loại hình đào tạo','Bắt đầu hành trình "Tôi là người tôi chọn"','Học tập không giới hạn, gắn với đa ngành, đa lĩnh vực'],(t,i)=>`<div class="col-8 col-md-4 col-lg kp-item"><div class="card-soft"><span class="num">${i+1}</span><p>${t}</p><span class="arrow">↗</span></div></div>`);
 const ex=['png','png','png','jpg','jpg','png','png','png'];
-render('#prog',ex,(e,i)=>`<div class="col-6 col-md-3"><a href="#" class="prog" style="background-image:url(img/hoc-gi-ueh-${i+1}.${e})" aria-label="Chương trình ${i+1}"><span class="arrow">↗</span></a></div>`);
+const pcard=(e,i)=>`<div class="col-6 col-md-3"><a href="#" class="prog"><img src="img/hoc-gi-ueh-${i+1}.${e}" alt="Chương trình ${i+1}"><span class="arrow arrow-l">↗</span></a></div>`;
+render('#prog1',ex.slice(0,4),pcard);$('#prog2').innerHTML=ex.slice(4).map((e,i)=>pcard(e,i+4)).join('');
 render('#assoc',['Hiệp hội Kế toán Công chứng Úc (CPA)','Viện CFA Hoa Kỳ','Viện kế toán công chứng Anh và xứ Wales (ICAEW)'],t=>`<div class="col-md-4"><div class="tile"><div class="img-ph"></div><span>${t}</span></div></div>`);
 render('#career',['Chương trình Học kỳ doanh nghiệp','Tham quan doanh nghiệp','UEH Career Fair','Cổng thông tin việc làm UEH'],t=>`<div class="col-md-4"><div class="tile"><div class="img-ph"></div><span>${t}</span></div></div>`);
 render('#steps',['Thấu hiểu bản thân, lựa chọn ngành','Tìm hiểu chương trình đào tạo','Chọn phương thức xét tuyển'],(t,i)=>`<div class="col-md-4"><small>Bước ${i+1}</small><div class="card-soft mt-2"><img class="pic" src="img/phuongthuc.jpg" alt=""><p class="mt-2">${t}</p></div></div>`);
@@ -27,3 +28,6 @@ const sl=$$('.hero-slides i'),dt=$$('.dots button');let k=0,tm;
 const go=n=>{k=(n+sl.length)%sl.length;sl.forEach((s,i)=>s.classList.toggle('on',i===k));dt.forEach((d,i)=>d.classList.toggle('on',i===k))};
 const play=()=>{clearInterval(tm);tm=setInterval(()=>go(k+1),5000)};
 dt.forEach((d,i)=>d.onclick=()=>{go(i);play()});play();
+
+// Carousel Khám phá
+const kp=$('#kp');$('#kpL').onclick=()=>kp.scrollBy({left:-kp.clientWidth/2,behavior:'smooth'});$('#kpR').onclick=()=>kp.scrollBy({left:kp.clientWidth/2,behavior:'smooth'});

@@ -62,7 +62,13 @@
 
   // Popup riêng "Xem điều kiện xét tuyển" (thẻ <dialog>)
   var modal=$('#cond-modal');
-  $('#open-cond').addEventListener('click',function(){modal.showModal()});
+  var campusName={hcm:'Học tại TP. Hồ Chí Minh (KSA)',vl:'Học tại Vĩnh Long – UEH Mekong (KSV)'};
+  $('#open-cond').addEventListener('click',function(){
+    // nội dung popup đổi theo tab cơ sở đang chọn
+    $$('.cond',modal).forEach(function(b){b.hidden=b.dataset.campus!==campus});
+    $('#cond-campus').textContent=campusName[campus];
+    modal.showModal();
+  });
   $('#close-cond').addEventListener('click',function(){modal.close()});
   $('#ok-cond').addEventListener('click',function(){modal.close()});
   modal.addEventListener('click',function(e){if(e.target===modal)modal.close()}); // bấm ra ngoài để đóng

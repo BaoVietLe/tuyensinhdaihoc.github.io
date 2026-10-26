@@ -87,7 +87,7 @@ button,input,select{font:inherit;color:inherit}
 .rank__side img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--border-radius-base)}
 .pill{display:inline-block;padding:10px 18px;border:1px solid #fff;border-radius:var(--border-radius-sm);font-size:12px;font-weight:var(--font-weight-medium);text-align:center;align-self:flex-start;line-height:1.2}
 .pill--dim{align-self:flex-end;border-color:rgba(255,255,255,.45);color:rgba(255,255,255,.6)}
-.pill--dark{color:var(--color-secondary);border-color:var(--color-secondary)}
+.pill--dark{color:var(--color-secondary);border-color:var(--color-secondary);padding:12px 24px;border-radius:14px;font-size:12px;font-weight:var(--font-weight-regular);letter-spacing:.02em}
 .bg-alt.section .tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--spacing-vertical)}
 .tab{min-width:140px;height:40px;padding-inline:var(--space-4);border:1px solid var(--color-secondary);background:transparent;color:var(--color-secondary);border-radius:var(--border-radius-sm);cursor:pointer;font-weight:var(--font-weight-medium)}
 .tab.is-active{background:var(--color-secondary);color:#fff}
@@ -107,14 +107,14 @@ button,input,select{font:inherit;color:inherit}
 .career__side{grid-column:span 2;display:flex;flex-direction:column;gap:var(--space-2);align-items:center}
 .career--swap .pcard{text-align:right}
 .career__side--start{align-items:flex-start;text-align:left}
-.career__side--start .career__mid{justify-content:flex-start}
-.career__side--left{align-items:flex-start;text-align:left}
-.career__side--left .career__mid{justify-content:flex-start}
-@media(min-width:993px){.career__side--left{justify-self:end}}
-.career__mid{display:flex;gap:var(--space-3);align-items:center}
-.career__mid img{width:200px;border-radius:var(--border-radius-base)}
-.facts{font-size:11px;color:var(--color-secondary);display:grid;gap:var(--space-2)}
-.facts b{font-size:18px}
+.career__side--start .career__mid{display:flex;gap:var(--space-4);align-items:stretch;width:100%}
+.career__mid img{flex:0 1 62%;min-width:0;max-width:440px;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:var(--border-radius-base)}
+.career__side>.pill--dark:last-child{margin-left:clamp(48px,24%,200px)}
+/* Số liệu: chữ căn giữa, có thanh dọc ở giữa hai khối */
+.facts{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-around;padding-left:var(--space-4);text-align:center;color:var(--color-secondary);font-size:12px;font-weight:var(--font-weight-light);line-height:1.5}
+.facts::before{content:"";position:absolute;left:0;top:50%;height:44px;width:1px;transform:translateY(-50%);background:currentColor}
+.facts br{display:none}
+.facts b{display:block;font-size:14px;font-weight:var(--font-weight-semibold)}
 
 /* Học gì ở UEH – thẻ có góc lõm dưới trái + nút tròn mũi tên ↗ */
 .hg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3)}
@@ -195,7 +195,7 @@ td a{color:var(--color-secondary);font-weight:var(--font-weight-semibold)}
 
 /* Tin tức */
 .news{flex:0 0 clamp(300px,32%,420px);display:flex;align-items:stretch;gap:var(--space-2);scroll-snap-align:start}
-.news__thumb{flex:none;position:relative;width:11%;align-self:stretch;min-height:56px;border-radius:var(--border-radius-sm);overflow:hidden;background:#d8dde1}
+.news__thumb{flex:none;position:relative;width:15%;align-self:stretch;min-height:56px;border-radius:var(--border-radius-sm);overflow:hidden;background:#d8dde1}
 .news__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
 .news__body{flex:1;min-width:0}
 .news__title{display:block;font-size:13px;font-weight:var(--font-weight-semibold);line-height:1.35;color:#1f2933;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -252,3 +252,5 @@ td a{color:var(--color-secondary);font-weight:var(--font-weight-semibold)}
 @media(max-width:992px){.career--swap .pcard{text-align:center}}
 
 @media(max-width:992px){.career__side{grid-column:auto}}
+
+@media(max-width:576px){.career__mid{flex-direction:column}.career__mid img{flex-basis:auto;max-width:none}.facts{padding-left:0;gap:var(--space-2)}.facts::before{display:none}}

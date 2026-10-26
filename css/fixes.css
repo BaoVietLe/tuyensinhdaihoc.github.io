@@ -28,3 +28,16 @@
   .facts>div+div{border-left:1px solid currentColor}
   .facts::before{display:none}
 }
+
+/* 3. Khối video "UEH – Nơi mọi hành trình bền vững bắt đầu": bỏ khung cam, gọn và đồng nhất với các tiêu đề khác */
+.video-showcase__grid{gap:var(--spacing-large);align-items:center}
+.video-showcase__frame{border-radius:var(--border-radius-base);box-shadow:0 8px 24px rgba(5,107,117,.15)}
+.video-showcase__content{max-width:560px}
+.video-showcase__badge{
+  display:block;margin:0 0 var(--space-3);padding:0;background:none;border-radius:0;
+  color:var(--color-secondary);text-transform:uppercase;
+  font-size:clamp(22px,3vw,30px);font-weight:var(--font-weight-bold);line-height:1.25;
+}
+.video-showcase__badge br{display:none}
+.video-showcase__text p{font-size:14px;line-height:1.7;text-align:left;margin-bottom:var(--space-2)}
+@media(max-width:992px){.video-showcase__content{max-width:none}}

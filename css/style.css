@@ -86,7 +86,7 @@ button,input,select{font:inherit;color:inherit}
 .rank__side{display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-3)}
 .rank__side img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--border-radius-base)}
 .pill{display:inline-block;padding:10px 18px;border:1px solid #fff;border-radius:var(--border-radius-sm);font-size:12px;font-weight:var(--font-weight-medium);text-align:center;align-self:flex-start;line-height:1.2}
-.pill--dim{align-self:flex-end;border-color:rgba(255,255,255,.45);color:rgba(255,255,255,.6)}
+.pill--dim{display:inline-block;padding:10px 18px;border:1px solid #fff;border-radius:var(--border-radius-sm);font-size:12px;font-weight:var(--font-weight-medium);text-align:center;align-self:flex-start;line-height:1.2}
 .pill--dark{color:var(--color-secondary);border-color:var(--color-secondary);padding:12px 24px;border-radius:14px;font-size:12px;font-weight:var(--font-weight-regular);letter-spacing:.02em}
 .bg-alt.section .tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--spacing-vertical)}
 .tab{min-width:140px;height:40px;padding-inline:var(--space-4);border:1px solid var(--color-secondary);background:transparent;color:var(--color-secondary);border-radius:var(--border-radius-sm);cursor:pointer;font-weight:var(--font-weight-medium)}
@@ -111,7 +111,7 @@ button,input,select{font:inherit;color:inherit}
 .career__side--left{align-items:flex-start;text-align:left;width:min(100%,640px)}
 @media(min-width:993px){.career__side--left{justify-self:end}}
 .career__mid{display:flex;gap:var(--space-4);align-items:stretch;width:100%}
-.career__mid img{flex:0 1 62%;min-width:0;max-width:440px;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:var(--border-radius-base)}
+.career__mid img{flex:0 1 45%;min-width:0;max-width:350px;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:var(--border-radius-base)}
 .career__side>.pill--dark:last-child{margin-left:clamp(48px,24%,200px)}
 /* Số liệu: chữ căn giữa, có thanh dọc ở giữa hai khối */
 .facts{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-around;padding-left:var(--space-4);text-align:center;color:var(--color-secondary);font-size:12px;font-weight:var(--font-weight-light);line-height:1.5}

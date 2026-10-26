@@ -111,7 +111,7 @@ button,input,select{font:inherit;color:inherit}
 .career__side--left{align-items:flex-start;text-align:left;width:min(100%,640px)}
 @media(min-width:993px){.career__side--left{justify-self:end}}
 .career__mid{display:flex;gap:var(--space-4);align-items:stretch;width:100%}
-.career__mid img{flex:0 1 45%;min-width:0;max-width:350px;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:var(--border-radius-base)}
+.career__mid img{flex:0 1 35%;min-width:0;max-width:150px;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:var(--border-radius-base)}
 .career__side>.pill--dark:last-child{margin-left:clamp(48px,24%,200px)}
 /* Số liệu: chữ căn giữa, có thanh dọc ở giữa hai khối */
 .facts{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-around;padding-left:var(--space-4);text-align:center;color:var(--color-secondary);font-size:12px;font-weight:var(--font-weight-light);line-height:1.5}

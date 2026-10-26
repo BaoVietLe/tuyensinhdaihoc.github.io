@@ -86,7 +86,7 @@ button,input,select{font:inherit;color:inherit}
 .rank__side{display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-3)}
 .rank__side img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--border-radius-base)}
 .pill{display:inline-block;padding:10px 18px;border:1px solid #fff;border-radius:var(--border-radius-sm);font-size:12px;font-weight:var(--font-weight-medium);text-align:center;align-self:flex-start;line-height:1.2}
-.pill--dim{display:inline-block;padding:10px 18px;border:1px solid #fff;border-radius:var(--border-radius-sm);font-size:12px;font-weight:var(--font-weight-medium);text-align:center;align-self:flex-start;line-height:1.2}
+.pill--dim{display:inline-block;padding:10px 18px;border:1px solid #fff;border-radius:var(--border-radius-sm);font-size:12px;font-weight:var(--font-weight-medium);text-align:center;align-self:flex-end;line-height:1.2}
 .pill--dark{color:var(--color-secondary);border-color:var(--color-secondary);padding:12px 24px;border-radius:14px;font-size:12px;font-weight:var(--font-weight-regular);letter-spacing:.02em}
 .bg-alt.section .tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--spacing-vertical)}
 .tab{min-width:140px;height:40px;padding-inline:var(--space-4);border:1px solid var(--color-secondary);background:transparent;color:var(--color-secondary);border-radius:var(--border-radius-sm);cursor:pointer;font-weight:var(--font-weight-medium)}

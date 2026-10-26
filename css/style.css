@@ -105,6 +105,10 @@ button,input,select{font:inherit;color:inherit}
 .pcard.is-hidden{display:none}
 .career{display:grid;grid-template-columns:1fr 2fr;gap:var(--space-4);margin-top:var(--space-4);align-items:center}
 .career__side{display:flex;flex-direction:column;gap:var(--space-2);align-items:center}
+.career--swap{grid-template-columns:2fr 1fr}
+.career--swap .pcard{text-align:right}
+.career__side--start{align-items:flex-start;text-align:left}
+.career__side--start .career__mid{justify-content:flex-start}
 .career__side--left{align-items:flex-start;text-align:left}
 .career__side--left .career__mid{justify-content:flex-start}
 @media(min-width:993px){.career__side--left{justify-self:end}}
@@ -243,3 +247,5 @@ td a{color:var(--color-secondary);font-weight:var(--font-weight-semibold)}
   .rank__grid li,.rank__grid li:nth-child(3n+2),.rank__grid li:nth-child(3n){border-left:0;padding-inline:0}
   .rank__grid li::before{content:"•";flex:none;margin-right:var(--space-2)}
 }
+
+@media(max-width:992px){.career--swap .pcard{text-align:center}}

@@ -25,46 +25,81 @@
     if(n)n.addEventListener('click',function(){step(1)});
   });
 
-  // Tab lọc đối tác (Tất cả / Hiệp hội / Viện / Liên đoàn)
+  // Đối tác: tab lọc + chỉ hiện 3 khối đầu, "Xem thêm" để mở rộng
+  var PARTNER_FIRST=3,pBtn=$('#p-more');
   $$('[data-tabs]').forEach(function(box){
-    var items=$$(box.getAttribute('data-tabs'));
+    var items=$$(box.getAttribute('data-tabs')),key='all',open=false;
+    function apply(){
+      var n=0;
+      items.forEach(function(i){
+        var m=key==='all'||i.dataset.k===key;
+        var show=m&&(open||n<PARTNER_FIRST);
+        if(m)n++;
+        i.classList.toggle('is-hidden',!show);
+      });
+      pBtn.hidden=n<=PARTNER_FIRST;
+      pBtn.classList.toggle('is-open',open);
+      $('span',pBtn).textContent=open?'THU GỌN':'XEM THÊM';
+    }
     $$('.tab',box).forEach(function(b){
       b.addEventListener('click',function(){
         $$('.tab',box).forEach(function(x){x.classList.remove('is-active')});
         b.classList.add('is-active');
-        var k=b.dataset.k;
-        items.forEach(function(i){i.classList.toggle('is-hidden',k!=='all'&&i.dataset.k!==k)});
+        key=b.dataset.k;open=false;apply();
       });
     });
+    pBtn.addEventListener('click',function(){open=!open;apply()});
+    apply();
   });
 
-  // Chương trình đào tạo: tab cơ sở + tìm kiếm
-  var rows=$$('#tbl tbody tr[data-c]'),groups=$$('#tbl tr.group'),campus='hcm',q=$('#q');
-  function render(){
-    var kw=q.value.trim().toLowerCase();
-    rows.forEach(function(r){
-      var ok=r.dataset.c===campus&&(!kw||r.textContent.toLowerCase().indexOf(kw)>-1);
+  // Chương trình đào tạo: tab cơ sở + tìm kiếm + xem thêm lĩnh vực
+  var FIELD_LIMIT=3,tab='ksa',expanded=false,q=$('#q'),moreBtn=$('#more-fields');
+  var panels={ksa:$('#tabContentKsa'),ksv:$('#tabContentKsv')};
+  var campusOf={ksa:'hcm',ksv:'vl'};
+
+  function filterTable(t,kw,exp){
+    var gi=-1,cur=null,reg=null,grps=[],regs=[],total=0;
+    $$('tbody tr',t).forEach(function(r){
+      if(r.classList.contains('main-region-heading')){reg={el:r,n:0};regs.push(reg);return}
+      if(r.classList.contains('section-heading')){gi++;cur={el:r,n:0,reg:reg};grps.push(cur);return}
+      var ok=(!kw||r.textContent.toLowerCase().indexOf(kw)>-1)&&(exp||gi<FIELD_LIMIT);
       r.style.display=ok?'':'none';
+      if(ok){total++;if(cur)cur.n++}
     });
-    groups.forEach(function(g){
-      var n=g.nextElementSibling,has=false;
-      while(n&&!n.classList.contains('group')){if(n.style.display!=='none')has=true;n=n.nextElementSibling}
-      g.style.display=has?'':'none';
-    });
+    grps.forEach(function(g){g.el.style.display=g.n?'':'none';if(g.n&&g.reg)g.reg.n++});
+    regs.forEach(function(g){g.el.style.display=g.n?'':'none'});
+    return total;
   }
-  $$('[data-campus]').forEach(function(b){
-    b.addEventListener('click',function(){
-      $$('[data-campus]').forEach(function(x){x.classList.remove('is-active')});
-      b.classList.add('is-active');campus=b.dataset.campus;render();
+  function render(){
+    var kw=q.value.trim().toLowerCase(),exp=expanded||!!kw;
+    Object.keys(panels).forEach(function(k){panels[k].classList.toggle('active',k===tab)});
+    var p=panels[tab];
+    p.classList.toggle('is-collapsed',!exp);
+    $$('table',p).forEach(function(t){
+      var n=filterTable(t,kw,exp);
+      if(t.classList.contains('isb-table')){$('.isb-block-wrapper',p).style.display=n?'':'none'}
     });
+    moreBtn.hidden=!!kw;
+    moreBtn.classList.toggle('is-open',expanded);
+    $('span',moreBtn).textContent=expanded?'THU GỌN':'XEM THÊM LĨNH VỰC';
+  }
+  $$('#programs [data-tab]').forEach(function(b){
+    b.addEventListener('click',function(){
+      $$('#programs [data-tab]').forEach(function(x){x.classList.remove('is-active')});
+      b.classList.add('is-active');tab=b.dataset.tab;render();
+    });
+  });
+  moreBtn.addEventListener('click',function(){
+    expanded=!expanded;render();
+    if(!expanded)$('#programs').scrollIntoView({behavior:'smooth'});
   });
   q.addEventListener('input',render);render();
 
-  // Popup riêng "Xem điều kiện xét tuyển" (thẻ <dialog>)
+  // Popup "Xem điều kiện xét tuyển" (thẻ <dialog>), đổi nội dung theo tab đang chọn
   var modal=$('#cond-modal');
   var campusName={hcm:'Học tại TP. Hồ Chí Minh (KSA)',vl:'Học tại Vĩnh Long – UEH Mekong (KSV)'};
   $('#open-cond').addEventListener('click',function(){
-    // nội dung popup đổi theo tab cơ sở đang chọn
+    var campus=campusOf[tab];
     $$('.cond',modal).forEach(function(b){b.hidden=b.dataset.campus!==campus});
     $('#cond-campus').textContent=campusName[campus];
     modal.showModal();

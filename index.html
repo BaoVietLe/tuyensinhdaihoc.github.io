@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tuyển sinh Đại học chính quy UEH</title>
   <link rel="icon" href="img/ueh-logo-xanh.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/root.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -367,22 +368,31 @@
       <h2 class="title">07 BƯỚC XÉT TUYỂN THÀNH CÔNG</h2>
 
       <div class="carousel">
-        <button class="arrow arrow--prev" aria-label="Trước">‹</button>
+        <button class="arrow arrow--prev arrow--round" aria-label="Trước"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
         <div class="carousel__track">
           <div class="stepcard">
-            <small>Bước 1</small>
-            <div>Thấu hiểu tính cách, sở thích bản thân. Lựa chọn ngành, nghề phù hợp.</div>
+            <small>Bước 1:</small>
+            <div class="stepcard__line"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i></div>
+            <div class="stepcard__card">
+              <img src="img/buoc-xet-tuyen-1.png" alt="Bước 1: Thấu hiểu tính cách, sở thích bản thân. Lựa chọn ngành, nghề phù hợp.">
+            </div>
           </div>
           <div class="stepcard">
-            <small>Bước 2</small>
-            <div>Xác định nơi học tập mong muốn, tìm hiểu các chương trình đào tạo, ghi lại mã trường, mã đăng ký tuyển sinh.</div>
+            <small>Bước 2:</small>
+            <div class="stepcard__line"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i></div>
+            <div class="stepcard__card">
+              <img src="img/buoc-xet-tuyen-2.png" alt="Bước 2: Xác định nơi học tập mong muốn, tìm hiểu các chương trình đào tạo, ghi lại mã trường, mã đăng ký tuyển sinh.">
+            </div>
           </div>
           <div class="stepcard">
-            <small>Bước 3</small>
-            <div>Lựa chọn phương thức xét tuyển phù hợp, chuẩn bị hồ sơ thật kỹ càng và theo dõi các mốc thời gian quan trọng.</div>
+            <small>Bước 3:</small>
+            <div class="stepcard__line"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i></div>
+            <div class="stepcard__card">
+              <img src="img/buoc-xet-tuyen-3.png" alt="Bước 3: Lựa chọn phương thức xét tuyển phù hợp, chuẩn bị hồ sơ thật kỹ càng và theo dõi các mốc thời gian quan trọng.">
+            </div>
           </div>
         </div>
-        <button class="arrow arrow--next" aria-label="Sau">›</button>
+        <button class="arrow arrow--next arrow--round" aria-label="Sau"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
       </div>
     </div>
   </section>
@@ -392,9 +402,15 @@
     <div class="container">
       <h2>HỎI TẤT TẦN TẬT VỀ UEH</h2>
 
-      <form class="search" role="search">
-        <input type="search" placeholder="Bạn cần hỗ trợ gì từ UEH?" aria-label="Tìm kiếm hỏi đáp">
-        <button class="btn btn--accent">Tìm kiếm</button>
+      <form class="search" id="faq-form" role="search">
+        <label class="search__field">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="search" placeholder="Bạn cần hỗ trợ gì từ UEH?" aria-label="Tìm kiếm hỏi đáp">
+        </label>
+        <button class="btn btn--search" type="submit">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          Tìm kiếm
+        </button>
       </form>
 
       <div class="chips">
@@ -419,16 +435,25 @@
       <div class="carousel">
         <div class="carousel__track">
           <article class="news">
-            <div class="thumb"></div>
-            <p>UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</p>
+            <img src="img/tin-tuyen-sinh-1.jpg" alt="">
+            <div class="news__body">
+              <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
+              <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
+            </div>
           </article>
           <article class="news">
-            <div class="thumb"></div>
-            <p>UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</p>
+            <img src="img/tin-tuyen-sinh-2.jpg" alt="">
+            <div class="news__body">
+              <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
+              <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
+            </div>
           </article>
           <article class="news">
-            <div class="thumb"></div>
-            <p>UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</p>
+            <img src="img/tin-tuyen-sinh-3.jpg" alt="">
+            <div class="news__body">
+              <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
+              <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
+            </div>
           </article>
         </div>
       </div>

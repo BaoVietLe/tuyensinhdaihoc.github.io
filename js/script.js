@@ -5,7 +5,7 @@
   var hdr=$('#hdr');
   function onScroll(){
     hdr.classList.toggle('is-stuck',window.scrollY>60);
-    $('#top-btn').style.visibility=window.scrollY>400?'visible':'hidden';
+    var tb=$('#top-btn');if(tb)tb.style.visibility=window.scrollY>400?'visible':'hidden';
   }
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
@@ -52,6 +52,8 @@
     apply();
   });
 
+  // (chỉ chạy ở trang chủ)
+  if($('#programs')){
   // Chương trình đào tạo: tab cơ sở + tìm kiếm + xem thêm lĩnh vực
   var FIELD_LIMIT=3,tab='ksa',expanded=false,q=$('#q'),moreBtn=$('#more-fields');
   var panels={ksa:$('#tabContentKsa'),ksv:$('#tabContentKsv')};
@@ -108,6 +110,8 @@
   $('#ok-cond').addEventListener('click',function(){modal.close()});
   modal.addEventListener('click',function(e){if(e.target===modal)modal.close()}); // bấm ra ngoài để đóng
 
+  }
+
   // Video giới thiệu: nút tạm dừng / phát (điều khiển YouTube qua postMessage)
   var vFrame=$('#uehYoutubePlayer'),vBtn=$('#videoPlayPauseBtn'),vIcon=$('#videoCtrlIcon'),vPlaying=true;
   function ytCmd(fn){if(vFrame&&vFrame.contentWindow)vFrame.contentWindow.postMessage(JSON.stringify({event:'command',func:fn,args:''}),'*')}
@@ -131,16 +135,16 @@
   });
 
   // Form đăng ký
-  var f=$('#reg'),err=$('.err',f);
-  f.addEventListener('submit',function(e){
+  var f=$('#reg'),err=f&&$('.err',f);
+  if(f)f.addEventListener('submit',function(e){
     e.preventDefault();
     var bad=$$('[required]',f).some(function(i){return!i.value.trim()||!i.checkValidity()});
     err.textContent=bad?'Vui lòng nhập đủ Họ tên, Email và Điện thoại hợp lệ.':'Đã gửi đăng ký. UEH sẽ liên hệ bạn sớm.';
   });
 
   // Form tìm kiếm FAQ (chưa nối backend)
-  $('#faq-form').addEventListener('submit',function(e){e.preventDefault()});
+  var fq=$('#faq-form');if(fq)fq.addEventListener('submit',function(e){e.preventDefault()});
 
   // Lên đầu trang
-  $('#top-btn').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  if($('#top-btn'))$('#top-btn').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 })();

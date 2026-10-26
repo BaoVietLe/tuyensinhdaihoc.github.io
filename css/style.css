@@ -107,7 +107,10 @@ button,input,select{font:inherit;color:inherit}
 .career__side{grid-column:span 2;display:flex;flex-direction:column;gap:var(--space-2);align-items:center}
 .career--swap .pcard{text-align:right}
 .career__side--start{align-items:flex-start;text-align:left}
-.career__side--start .career__mid{display:flex;gap:var(--space-4);align-items:stretch;width:100%}
+.career__side--start .career__mid,.career__side--left .career__mid{justify-content:flex-start}
+.career__side--left{align-items:flex-start;text-align:left;width:min(100%,640px)}
+@media(min-width:993px){.career__side--left{justify-self:end}}
+.career__mid{display:flex;gap:var(--space-4);align-items:stretch;width:100%}
 .career__mid img{flex:0 1 62%;min-width:0;max-width:440px;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:var(--border-radius-base)}
 .career__side>.pill--dark:last-child{margin-left:clamp(48px,24%,200px)}
 /* Số liệu: chữ căn giữa, có thanh dọc ở giữa hai khối */

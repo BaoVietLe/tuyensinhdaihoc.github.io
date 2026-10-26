@@ -108,6 +108,16 @@
   $('#ok-cond').addEventListener('click',function(){modal.close()});
   modal.addEventListener('click',function(e){if(e.target===modal)modal.close()}); // bấm ra ngoài để đóng
 
+  // Video giới thiệu: nút tạm dừng / phát (điều khiển YouTube qua postMessage)
+  var vFrame=$('#uehYoutubePlayer'),vBtn=$('#videoPlayPauseBtn'),vIcon=$('#videoCtrlIcon'),vPlaying=true;
+  function ytCmd(fn){if(vFrame&&vFrame.contentWindow)vFrame.contentWindow.postMessage(JSON.stringify({event:'command',func:fn,args:''}),'*')}
+  if(vBtn){vBtn.addEventListener('click',function(){
+    vPlaying=!vPlaying;ytCmd(vPlaying?'playVideo':'pauseVideo');
+    vIcon.className='fa-solid '+(vPlaying?'fa-pause':'fa-play');
+    vBtn.classList.toggle('is-paused',!vPlaying);
+    vBtn.setAttribute('aria-label',vPlaying?'Tạm dừng video':'Phát video');
+  })}
+
   // Tab chuyển nội dung (Tin tuyển sinh / Tin hướng nghiệp)
   $$('[data-panel]').forEach(function(b){
     b.addEventListener('click',function(){

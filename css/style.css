@@ -195,7 +195,7 @@ td a{color:var(--color-secondary);font-weight:var(--font-weight-semibold)}
 
 /* Tin tức */
 .news{flex:0 0 clamp(300px,32%,420px);display:flex;align-items:stretch;gap:var(--space-2);scroll-snap-align:start}
-.news__thumb{flex:none;position:relative;width:30%;align-self:stretch;min-height:56px;border-radius:var(--border-radius-sm);overflow:hidden;background:#d8dde1}
+.news__thumb{flex:none;position:relative;width:22%;align-self:stretch;min-height:56px;border-radius:var(--border-radius-sm);overflow:hidden;background:#d8dde1}
 .news__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
 .news__body{flex:1;min-width:0}
 .news__title{display:block;font-size:13px;font-weight:var(--font-weight-semibold);line-height:1.35;color:#1f2933;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

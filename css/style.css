@@ -223,9 +223,32 @@ td a{color:var(--color-secondary);font-weight:var(--font-weight-semibold)}
 .footer li{margin-bottom:var(--space-2);font-weight:var(--font-weight-light)}
 .footer .logo img{height:60px;margin-bottom:var(--space-3)}
 .copy{text-align:center;padding:var(--space-3);margin-top:var(--space-4);font-size:10px;opacity:.7}
-.fab{position:fixed;right:16px;bottom:16px;z-index:40;display:flex;flex-direction:column;gap:var(--space-2)}
-.fab button{width:40px;height:40px;border-radius:50%;border:2px solid #fff;background:var(--color-secondary);color:#fff;font-size:16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.fab .chat{background:#0084ff}
+.fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.fab button {
+  width: 40px;
+  height: 40px;
+  border-radius: 60px; /* Thay đổi từ 50% thành 60px để bo tròn theo ý bạn */
+  border: 2px solid #fff;
+  background: var(--color-secondary);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+
+.fab .chat {
+  background: #fff;
+}
+
 
 /* RESPONSIVE */
 @media(max-width:992px){

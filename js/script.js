@@ -60,15 +60,24 @@
   });
   q.addEventListener('input',render);render();
 
-  // Popup "Xem điều kiện xét tuyển"
-  var pb=$('.pop__btn'),pbox=$('.pop__box');
-  function closePop(){pbox.classList.remove('is-open');pb.setAttribute('aria-expanded','false')}
-  pb.addEventListener('click',function(e){
-    e.stopPropagation();
-    var o=pbox.classList.toggle('is-open');pb.setAttribute('aria-expanded',o);
+  // Popup riêng "Xem điều kiện xét tuyển" (thẻ <dialog>)
+  var modal=$('#cond-modal');
+  $('#open-cond').addEventListener('click',function(){modal.showModal()});
+  $('#close-cond').addEventListener('click',function(){modal.close()});
+  $('#ok-cond').addEventListener('click',function(){modal.close()});
+  modal.addEventListener('click',function(e){if(e.target===modal)modal.close()}); // bấm ra ngoài để đóng
+
+  // Tab chuyển nội dung (Tin tuyển sinh / Tin hướng nghiệp)
+  $$('[data-panel]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var bar=b.parentNode;
+      $$('[data-panel]',bar).forEach(function(x){
+        var on=x===b;
+        x.classList.toggle('is-active',on);x.setAttribute('aria-selected',on);
+        $('#'+x.dataset.panel).hidden=!on;
+      });
+    });
   });
-  document.addEventListener('click',function(e){if(!pbox.contains(e.target))closePop()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePop()});
 
   // Form đăng ký
   var f=$('#reg'),err=$('.err',f);

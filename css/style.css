@@ -88,17 +88,18 @@ button,input,select{font:inherit;color:inherit}
 .facts{font-size:11px;color:var(--color-secondary);display:grid;gap:var(--space-2)}
 .facts b{font-size:18px}
 
-/* Học gì ở UEH – thẻ có góc lõm dưới trái + nút tròn */
-.hg-grid{--n:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3)}
-.hg-card{position:relative}
-.hg-card__img{display:block;border-radius:var(--border-radius-base);overflow:hidden;
-  -webkit-mask:radial-gradient(circle var(--n) at 0 100%,transparent calc(var(--n) - .5px),#000 var(--n));
-  mask:radial-gradient(circle var(--n) at 0 100%,transparent calc(var(--n) - .5px),#000 var(--n));
-  transition:transform .25s}
+/* Học gì ở UEH – thẻ có góc lõm dưới trái + nút tròn mũi tên ↗ */
+.hg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3)}
+.hg-card{--n:60px;--R:24px;--r:12px;--hg-bg:#fff;position:relative;transition:transform .25s}
+.hg-card:hover{transform:translateY(-3px)}
+.hg-card__img{display:block;border-radius:var(--border-radius-base);overflow:hidden}
 .hg-card__img img{width:100%;aspect-ratio:16/10;object-fit:cover}
-.hg-card:hover .hg-card__img{transform:translateY(-3px)}
-.hg-card__go{position:absolute;left:5px;bottom:5px;width:32px;height:32px;border-radius:50%;background:var(--color-secondary);color:#fff;display:grid;place-items:center;font-size:14px;transition:background .2s,transform .2s}
-.hg-card__go:hover,.hg-card__go:focus-visible{background:var(--color-main);transform:scale(1.08)}
+.hg-card__go{position:absolute;left:0;bottom:0;width:var(--n);height:var(--n);display:grid;place-items:center;background:var(--hg-bg);border-top-right-radius:var(--R)}
+.hg-card__go::before,.hg-card__go::after{content:"";position:absolute;width:var(--r);height:var(--r);background:radial-gradient(circle var(--r) at 100% 0,transparent calc(var(--r) - .5px),var(--hg-bg) var(--r))}
+.hg-card__go::before{left:0;bottom:100%}
+.hg-card__go::after{left:100%;bottom:0}
+.hg-card__btn{width:40px;height:40px;border-radius:50%;background:var(--color-secondary);color:#fff;display:grid;place-items:center;transition:background .2s,transform .2s}
+.hg-card__go:hover .hg-card__btn,.hg-card__go:focus-visible .hg-card__btn{background:var(--color-main);transform:scale(1.08)}
 .hint{grid-column:1/-1;text-align:center;font-size:12px;font-style:italic}
 
 /* Chương trình đào tạo */

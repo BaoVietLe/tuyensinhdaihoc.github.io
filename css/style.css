@@ -54,10 +54,17 @@ button,input,select{font:inherit;color:inherit}
 .arrow{flex:none;width:32px;height:32px;border:0;background:none;color:var(--color-secondary);font-size:28px;cursor:pointer}
 .arrow:hover{color:var(--color-main)}
 
-/* Khai phá tuyên ngôn */
-.step{position:relative;flex:1 0 190px;min-height:150px;scroll-snap-align:start;background:var(--color-bg-soft);border-radius:var(--border-radius-base);padding:34px 16px 44px;text-align:center;font-size:14px;font-weight:var(--font-weight-light);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.06)}
-.step i{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:var(--color-secondary);color:#fff;font-style:normal;font-weight:var(--font-weight-semibold);font-size:18px;display:grid;place-items:center;border:4px solid #fff}
-.step::after{content:"↗";position:absolute;right:12px;bottom:12px;width:24px;height:24px;border-radius:50%;background:var(--color-secondary);color:#fff;font-size:13px;display:grid;place-items:center}
+/* Khai phá tuyên ngôn – thẻ có góc lõm dưới phải + nút ↗, số tròn nằm trên đỉnh */
+.step{--n:46px;--R:20px;--r:10px;--hg-bg:#fff;position:relative;flex:1 0 190px;min-height:140px;scroll-snap-align:start;background:var(--color-bg-soft);border-radius:var(--border-radius-base);padding:34px 18px 44px;display:flex;align-items:center;justify-content:center;text-align:center}
+.step i{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:32px;height:32px;border-radius:50%;background:var(--color-secondary);color:#fff;font-style:normal;font-weight:var(--font-weight-semibold);font-size:18px;display:grid;place-items:center;border:6px solid var(--hg-bg);box-sizing:content-box}
+.step__text{font-size:13px;font-weight:var(--font-weight-light);line-height:1.4;color:#6b7077}
+.step__go{position:absolute;right:0;bottom:0;width:var(--n);height:var(--n);display:grid;place-items:center;background:var(--hg-bg);border-top-left-radius:var(--R)}
+.step__go::before,.step__go::after{content:"";position:absolute;width:var(--r);height:var(--r);background:radial-gradient(circle var(--r) at 0 0,transparent calc(var(--r) - .5px),var(--hg-bg) var(--r))}
+.step__go::before{right:0;bottom:100%}
+.step__go::after{right:100%;bottom:0}
+.step__btn{width:30px;height:30px;border-radius:50%;background:#b9dcdc;color:var(--color-secondary);display:grid;place-items:center;transition:background .2s,color .2s}
+.step__go:hover .step__btn,.step__go:focus-visible .step__btn{background:var(--color-secondary);color:#fff}
+.arrow--chev{width:24px;height:24px;font-size:14px;display:grid;place-items:center}
 .stepcard{flex:0 0 calc((100% - var(--space-4)*2)/3);min-width:250px;scroll-snap-align:start;display:flex;flex-direction:column;gap:var(--space-2)}
 .stepcard small{font-size:12px;font-weight:var(--font-weight-light);color:var(--color-text)}
 .stepcard__line{display:flex;align-items:center;gap:var(--space-2);color:#7b8088;font-size:13px}

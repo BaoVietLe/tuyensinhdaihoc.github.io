@@ -212,8 +212,9 @@ td a{color:var(--color-secondary);font-weight:var(--font-weight-semibold)}
 .isb-block-wrapper{margin-top:var(--space-4)}
 .isb-title{color:var(--color-secondary);font-size:var(--font-size-h2);font-weight:var(--font-weight-bold);margin-bottom:var(--space-3)}
 .isb-table td:nth-child(3){text-align:left;line-height:1.8}
-.chuongtrinh-alert-note{margin-top:var(--space-3);padding:var(--space-2) var(--space-3);background:#fff7f2;border:1px dashed var(--color-main);border-radius:var(--border-radius-sm)}
-.chuongtrinh-alert-note p{font-size:12px;font-weight:var(--font-weight-light)}
+.chuongtrinh-alert-note {margin-top: var(--space-3);padding: var(--space-2) var(--space-3);background: #ffffff;border: 1px solid #e0e0e0;border-radius: var(--border-radius-sm);}
+.chuongtrinh-alert-note p {font-size: 12px;font-weight: var(--font-weight-light);color: var(--color-text); /* Chữ màu xám */margin: 0; /* Đảm bảo không bị vỡ dòng ngoài ý muốn */}
+
 /* thu gọn: ẩn khối ISB & lưu ý cuối khi chưa bấm "Xem thêm lĩnh vực" */
 .chuongtrinh-tab-panel.is-collapsed .isb-block-wrapper,
 .chuongtrinh-tab-panel.is-collapsed > .chuongtrinh-alert-note:last-child{display:none}

@@ -252,31 +252,30 @@
     <div class="container">
       <h2 class="title">CHƯƠNG TRÌNH ĐÀO TẠO – MÃ ĐĂNG KÝ – CHỈ TIÊU</h2>
 
-      <div class="tabs tabs--line">
-        <button class="tab tab--line is-active" data-campus="hcm">HỌC TẠI TP. HỒ CHÍ MINH</button>
-        <button class="tab tab--line" data-campus="vl">HỌC TẠI VĨNH LONG</button>
+      <div class="tabs tabs--line" role="tablist">
+        <button class="tab tab--line h2 is-active" role="tab" data-campus="hcm">HỌC TẠI TP. HỒ CHÍ MINH</button>
+        <button class="tab tab--line h2" role="tab" data-campus="vl">HỌC TẠI VĨNH LONG</button>
       </div>
 
       <p class="note">* Lưu ý: Thí sinh có thể sử dụng kết quả các chứng chỉ ngoại ngữ quốc tế để xét tuyển.</p>
 
       <div class="toolbar">
-        <input id="q" type="search" placeholder="Tìm theo tên chương trình, ngành, hoặc mã xét tuyển..." aria-label="Tìm kiếm">
+        <label class="field field--grow">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="q" type="search" placeholder="Tìm theo tên chương trình, ngành, hoặc mã xét tuyển..." aria-label="Tìm kiếm">
+        </label>
 
-        <select aria-label="Lọc theo lĩnh vực">
-          <option>Lọc theo lĩnh vực</option>
-        </select>
+        <label class="field">
+          <i class="fa-solid fa-filter" aria-hidden="true"></i>
+          <select aria-label="Lọc theo lĩnh vực">
+            <option>Lọc theo lĩnh vực</option>
+          </select>
+        </label>
 
-        <div class="pop">
-          <button type="button" class="pop__btn" aria-expanded="false" aria-controls="cond">Xem điều kiện xét tuyển ⌄</button>
-          <div class="pop__box" id="cond" role="dialog" aria-label="Điều kiện xét tuyển">
-            <h4>Điều kiện xét tuyển</h4>
-            <ul>
-              <li>Tốt nghiệp THPT hoặc tương đương</li>
-              <li>Có điểm thi theo tổ hợp môn của ngành</li>
-              <li>Chứng chỉ ngoại ngữ quốc tế được quy đổi để xét tuyển</li>
-            </ul>
-          </div>
-        </div>
+        <button type="button" class="field field--btn" id="open-cond" aria-haspopup="dialog">
+          Xem điều kiện xét tuyển
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
       </div>
 
       <div class="table-wrap">
@@ -447,34 +446,60 @@
     <div class="container">
       <h2 class="title">TIN TỨC TUYỂN SINH ĐẠI HỌC CHÍNH QUY</h2>
 
-      <div class="tabs tabs--line">
-        <button class="tab tab--line is-active">TIN TUYỂN SINH</button>
-        <button class="tab tab--line">TIN HƯỚNG NGHIỆP</button>
+      <div class="tabs tabs--line" role="tablist">
+        <button class="tab tab--line h2 is-active" role="tab" aria-selected="true" aria-controls="news-ts" data-panel="news-ts">TIN TUYỂN SINH</button>
+        <button class="tab tab--line h2" role="tab" aria-selected="false" aria-controls="news-hn" data-panel="news-hn">TIN HƯỚNG NGHIỆP</button>
       </div>
 
-      <div class="carousel">
+      <div class="carousel news-panel" id="news-ts" role="tabpanel">
         <div class="carousel__track">
-          <article class="news">
-            <img src="img/tin-tuyen-sinh-1.jpg" alt="">
-            <div class="news__body">
-              <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
-              <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
-            </div>
-          </article>
-          <article class="news">
-            <img src="img/tin-tuyen-sinh-2.jpg" alt="">
-            <div class="news__body">
-              <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
-              <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
-            </div>
-          </article>
-          <article class="news">
-            <img src="img/tin-tuyen-sinh-3.jpg" alt="">
-            <div class="news__body">
-              <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
-              <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
-            </div>
-          </article>
+            <article class="news">
+              <img src="img/tin-tuyen-sinh-1.jpg" alt="">
+              <div class="news__body">
+                <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
+                <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="img/tin-tuyen-sinh-2.jpg" alt="">
+              <div class="news__body">
+                <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
+                <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="img/tin-tuyen-sinh-3.jpg" alt="">
+              <div class="news__body">
+                <h3 class="news__title"><a href="#">UEH thông báo nộp phiếu điểm thi môn Vẽ mỹ thuật đối với thí sinh sử dụng tổ hợp V00 đăng ký xét tuyển Khóa 52 (Mã xét tuyển KSA)</a></h3>
+                <p class="news__desc">Đại học Kinh tế TP. Hồ Chí Minh thông báo thí sinh sử dụng tổ hợp V00 (Toán, Vật lý, Vẽ mỹ thuật) đăng ký xét tuyển theo Phương thức 2: Phương thức xét tuyển tích hợp nộp phiếu điểm thi môn Vẽ mỹ thuật trước hạn quy định.</p>
+              </div>
+            </article>
+        </div>
+      </div>
+
+      <div class="carousel news-panel" id="news-hn" role="tabpanel" hidden>
+        <div class="carousel__track">
+            <article class="news">
+              <img src="img/tin-huong-nghiep-1.jpg" alt="">
+              <div class="news__body">
+                <h3 class="news__title"><a href="#">Xu hướng ngành nghề: nhóm ngành Kinh tế – Kinh doanh được doanh nghiệp tìm kiếm nhiều</a></h3>
+                <p class="news__desc">Tổng hợp nhu cầu tuyển dụng và mức lương khởi điểm của các nhóm ngành, giúp thí sinh cân nhắc khi chọn ngành học phù hợp với định hướng nghề nghiệp.</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="img/tin-huong-nghiep-2.jpg" alt="">
+              <div class="news__body">
+                <h3 class="news__title"><a href="#">Xu hướng ngành nghề: nhóm ngành Kinh tế – Kinh doanh được doanh nghiệp tìm kiếm nhiều</a></h3>
+                <p class="news__desc">Tổng hợp nhu cầu tuyển dụng và mức lương khởi điểm của các nhóm ngành, giúp thí sinh cân nhắc khi chọn ngành học phù hợp với định hướng nghề nghiệp.</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="img/tin-huong-nghiep-3.jpg" alt="">
+              <div class="news__body">
+                <h3 class="news__title"><a href="#">Xu hướng ngành nghề: nhóm ngành Kinh tế – Kinh doanh được doanh nghiệp tìm kiếm nhiều</a></h3>
+                <p class="news__desc">Tổng hợp nhu cầu tuyển dụng và mức lương khởi điểm của các nhóm ngành, giúp thí sinh cân nhắc khi chọn ngành học phù hợp với định hướng nghề nghiệp.</p>
+              </div>
+            </article>
         </div>
       </div>
     </div>
@@ -554,6 +579,30 @@
     <button id="top-btn" aria-label="Lên đầu trang">↑</button>
     <button class="chat" aria-label="Chat">💬</button>
   </div>
+
+  <!-- ============ POPUP ĐIỀU KIỆN XÉT TUYỂN ============ -->
+  <dialog class="modal" id="cond-modal" aria-labelledby="cond-title">
+    <div class="modal__head">
+      <h2 class="modal__title" id="cond-title">Điều kiện xét tuyển</h2>
+      <button type="button" class="modal__close" id="close-cond" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <div class="modal__body">
+      <h3>Điều kiện chung</h3>
+      <ul>
+        <li>Đã tốt nghiệp THPT hoặc tương đương.</li>
+        <li>Đáp ứng ngưỡng bảo đảm chất lượng đầu vào theo quy định của UEH.</li>
+      </ul>
+      <h3>Theo từng phương thức</h3>
+      <ul>
+        <li>Xét tuyển thẳng theo quy chế của Bộ GD&amp;ĐT.</li>
+        <li>Xét tuyển tích hợp: kết quả học tập, chứng chỉ ngoại ngữ quốc tế và thành tích khác.</li>
+      </ul>
+      <p class="modal__note">Nội dung chi tiết từng ngành xem tại cột “Chương trình chuẩn” trong bảng.</p>
+    </div>
+    <div class="modal__foot">
+      <button type="button" class="btn" id="ok-cond">Đã hiểu</button>
+    </div>
+  </dialog>
 
   <script src="js/script.js"></script>
 </body>

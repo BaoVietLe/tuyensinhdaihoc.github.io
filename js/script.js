@@ -1,15 +1,83 @@
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const hdr=$('#hdr'),onScroll=()=>hdr.classList.toggle('is-solid',scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
-$('.nav__toggle').onclick=e=>e.currentTarget.setAttribute('aria-expanded',$('.nav ul').classList.toggle('is-open'));
-$$('.nav a').forEach(a=>a.onclick=()=>$('.nav ul').classList.remove('is-open'));
-$$('.carousel').forEach(c=>{const t=$('.carousel__track',c),s=d=>()=>t.scrollBy({left:d*t.clientWidth*.8,behavior:'smooth'});
- const p=$('.arrow--prev',c),n=$('.arrow--next',c);if(p){p.onclick=s(-1);n.onclick=s(1)}});
-$$('[data-tabs]').forEach(g=>$$('.tab',g).forEach(t=>t.onclick=()=>{$$('.tab',g).forEach(x=>x.classList.toggle('is-active',x===t));
- const k=t.dataset.k;$$(g.dataset.tabs).forEach(i=>i.hidden=k!=='all'&&i.dataset.k!==k)}));
-const rows=$$('#tbl tbody tr:not(.group)'),campusBtns=$$('[data-campus]');
-const showCampus=c=>{campusBtns.forEach(x=>x.classList.toggle('is-active',x.dataset.campus===c));rows.forEach(r=>r.hidden=r.dataset.c!==c)};
-campusBtns.forEach(b=>b.onclick=()=>showCampus(b.dataset.campus));showCampus('hcm');
-$('#q').oninput=e=>{const v=e.target.value.toLowerCase(),c=$('[data-campus].is-active').dataset.campus;rows.forEach(r=>r.hidden=r.dataset.c!==c||!r.textContent.toLowerCase().includes(v))};
-$('#reg').onsubmit=e=>{e.preventDefault();let ok=true;$$('[required]',e.target).forEach(f=>{const bad=!f.value.trim()||(f.type==='email'&&!/^\S+@\S+\.\S+$/.test(f.value));f.setAttribute('aria-invalid',bad);if(bad)ok=false});
- $('.err',e.target).textContent=ok?'Đăng ký thành công! Chúng tôi sẽ liên hệ bạn sớm.':'Vui lòng điền đầy đủ thông tin hợp lệ.'};
-$('#top-btn').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+(function(){
+  var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+  // Header: nền xanh khi cuộn
+  var hdr=$('#hdr');
+  function onScroll(){
+    hdr.classList.toggle('is-stuck',window.scrollY>60);
+    $('#top-btn').style.visibility=window.scrollY>400?'visible':'hidden';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Menu mobile
+  var tg=$('.nav__toggle'),ul=$('.nav ul');
+  tg.addEventListener('click',function(){
+    var o=ul.classList.toggle('is-open');tg.setAttribute('aria-expanded',o);
+  });
+  $$('.nav ul a').forEach(function(a){a.addEventListener('click',function(){ul.classList.remove('is-open')})});
+
+  // Carousel: mũi tên cuộn ngang
+  $$('.carousel').forEach(function(c){
+    var t=$('.carousel__track',c);
+    var step=function(d){t.scrollBy({left:d*(t.clientWidth*0.8),behavior:'smooth'})};
+    var p=$('.arrow--prev',c),n=$('.arrow--next',c);
+    if(p)p.addEventListener('click',function(){step(-1)});
+    if(n)n.addEventListener('click',function(){step(1)});
+  });
+
+  // Tab lọc đối tác (Tất cả / Hiệp hội / Viện / Liên đoàn)
+  $$('[data-tabs]').forEach(function(box){
+    var items=$$(box.getAttribute('data-tabs'));
+    $$('.tab',box).forEach(function(b){
+      b.addEventListener('click',function(){
+        $$('.tab',box).forEach(function(x){x.classList.remove('is-active')});
+        b.classList.add('is-active');
+        var k=b.dataset.k;
+        items.forEach(function(i){i.classList.toggle('is-hidden',k!=='all'&&i.dataset.k!==k)});
+      });
+    });
+  });
+
+  // Chương trình đào tạo: tab cơ sở + tìm kiếm
+  var rows=$$('#tbl tbody tr[data-c]'),groups=$$('#tbl tr.group'),campus='hcm',q=$('#q');
+  function render(){
+    var kw=q.value.trim().toLowerCase();
+    rows.forEach(function(r){
+      var ok=r.dataset.c===campus&&(!kw||r.textContent.toLowerCase().indexOf(kw)>-1);
+      r.style.display=ok?'':'none';
+    });
+    groups.forEach(function(g){
+      var n=g.nextElementSibling,has=false;
+      while(n&&!n.classList.contains('group')){if(n.style.display!=='none')has=true;n=n.nextElementSibling}
+      g.style.display=has?'':'none';
+    });
+  }
+  $$('[data-campus]').forEach(function(b){
+    b.addEventListener('click',function(){
+      $$('[data-campus]').forEach(function(x){x.classList.remove('is-active')});
+      b.classList.add('is-active');campus=b.dataset.campus;render();
+    });
+  });
+  q.addEventListener('input',render);render();
+
+  // Popup "Xem điều kiện xét tuyển"
+  var pb=$('.pop__btn'),pbox=$('.pop__box');
+  function closePop(){pbox.classList.remove('is-open');pb.setAttribute('aria-expanded','false')}
+  pb.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=pbox.classList.toggle('is-open');pb.setAttribute('aria-expanded',o);
+  });
+  document.addEventListener('click',function(e){if(!pbox.contains(e.target))closePop()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePop()});
+
+  // Form đăng ký
+  var f=$('#reg'),err=$('.err',f);
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=$$('[required]',f).some(function(i){return!i.value.trim()||!i.checkValidity()});
+    err.textContent=bad?'Vui lòng nhập đủ Họ tên, Email và Điện thoại hợp lệ.':'Đã gửi đăng ký. UEH sẽ liên hệ bạn sớm.';
+  });
+
+  // Lên đầu trang
+  $('#top-btn').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+})();

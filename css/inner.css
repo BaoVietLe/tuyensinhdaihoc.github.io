@@ -63,3 +63,15 @@
 .page-inner .control-btn--chat{background:#0084ff;border-color:#fff;color:#fff;font-size:20px}
 
 @media(max-width:576px){.page-hero__cta{position:static;padding:var(--space-3) var(--pad-x);background:var(--color-secondary)}}
+
+/* Trang Phương thức tuyển sinh */
+.page-text--plain p{text-indent:0;text-align:left}
+.page-text--plain .formula{font-weight:var(--font-weight-regular);color:#3d4148;background:var(--color-bg-soft);border-left:4px solid var(--color-secondary);border-radius:var(--border-radius-sm);padding:var(--space-2) var(--space-3);margin-block:var(--space-2) var(--space-3)}
+.page-text ul{list-style:disc;padding-left:var(--space-4);margin-bottom:var(--space-2)}
+.page-text li{font-size:14px;font-weight:var(--font-weight-light);line-height:1.7}
+.page-text .sub{list-style:none;padding-left:0;margin-top:var(--space-1)}
+.page-text .sub li::before{content:"+";margin-right:8px;color:var(--color-secondary);font-weight:var(--font-weight-semibold)}
+.page-text h3+p,.page-text p+h3{margin-top:var(--space-2)}
+.page-text h3:not(:first-child){margin-top:var(--space-4)}
+.more-methods h3{color:var(--color-text);font-size:clamp(18px,2vw,24px);font-weight:var(--font-weight-bold);text-transform:uppercase;margin-bottom:var(--space-3)}
+.more-methods .links a[aria-current]{color:var(--color-secondary);font-weight:var(--font-weight-semibold)}

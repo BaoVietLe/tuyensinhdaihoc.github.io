@@ -78,6 +78,9 @@
     err.textContent=bad?'Vui lòng nhập đủ Họ tên, Email và Điện thoại hợp lệ.':'Đã gửi đăng ký. UEH sẽ liên hệ bạn sớm.';
   });
 
+  // Form tìm kiếm FAQ (chưa nối backend)
+  $('#faq-form').addEventListener('submit',function(e){e.preventDefault()});
+
   // Lên đầu trang
   $('#top-btn').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 })();

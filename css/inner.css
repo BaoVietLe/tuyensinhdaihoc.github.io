@@ -1,0 +1,65 @@
+/* INNER.CSS – bổ sung cho trang con (nạp SAU root.css và style.css, không sửa style cũ) */
+
+/* Navbar luôn xanh, không đổi màu khi cuộn (trang khai-pha-tuyen-ngon) */
+.page-solid-nav .site-header .nav{background:var(--color-secondary);box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.page-solid-nav .site-header .nav ul a:hover{background:rgba(255,255,255,.18)}
+.page-solid-nav .page-main{padding-top:var(--nav-height)}
+
+/* Hero trang con: ảnh banner rộng, nút nằm góc dưới phải */
+.page-hero{position:relative;overflow:hidden;background:#2b3a8c}
+.page-hero img{width:100%;aspect-ratio:2.25/1;min-height:340px;object-fit:cover;object-position:left top}
+.page-hero__cta{position:absolute;right:var(--pad-x);bottom:var(--space-5);display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.page-hero .btn--outline{background:rgba(255,255,255,.12)}
+.page-hero .btn--outline:hover{background:rgba(255,255,255,.28)}
+
+/* Tiêu đề & văn bản */
+.breadcrumb{padding-block:var(--space-4) 0;font-size:12px;font-weight:var(--font-weight-light)}
+.breadcrumb ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
+.breadcrumb li+li::before{content:"›";margin-right:6px}
+.breadcrumb a:hover{color:var(--color-secondary);text-decoration:underline}
+.breadcrumb [aria-current]{color:var(--color-secondary)}
+.page-title{color:var(--color-secondary);text-align:center;text-transform:uppercase;font-size:clamp(24px,3.4vw,40px);font-weight:var(--font-weight-bold);line-height:1.2;margin:var(--space-3) 0 var(--space-4)}
+.page-lead{color:var(--color-secondary);font-size:clamp(20px,2.4vw,28px);font-weight:var(--font-weight-bold);line-height:1.25;margin-block:var(--spacing-large) var(--space-4)}
+.page-text h3{font-size:14px;font-weight:var(--font-weight-semibold);color:#3d4148;margin-bottom:var(--space-2)}
+.page-text p{font-size:14px;font-weight:var(--font-weight-light);line-height:1.65;text-align:justify;text-indent:var(--space-3);margin-bottom:var(--space-2)}
+.page-body{padding-bottom:var(--spacing-large)}
+
+/* Accordion (thẻ <details>, không cần JS) */
+.acc{border:0}
+.acc summary{display:flex;align-items:center;gap:8px;padding:var(--space-3) 0;cursor:pointer;list-style:none;font-size:14px;font-weight:var(--font-weight-semibold);color:#3d4148}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"›";font-size:18px;line-height:1;transition:transform .2s}
+.acc summary:hover{color:var(--color-secondary)}
+.acc[open] summary::after{transform:rotate(90deg)}
+.acc__body{padding:0 0 var(--space-3);font-size:14px;font-weight:var(--font-weight-light)}
+.acc__body p{font-size:14px;text-indent:0}
+.acc__body ul{list-style:disc;padding-left:var(--space-4)}
+.acc__body li{font-size:13px;line-height:1.7;color:var(--color-text)}
+
+/* Khối xanh: các chương trình khác (nền xanh nên góc lõm cũng phải xanh) */
+.cta-teal{background:var(--color-secondary);color:#fff;padding-block:var(--spacing-large)}
+.cta-teal h2{text-align:center;text-transform:uppercase;font-size:clamp(18px,2.4vw,24px);margin-bottom:var(--space-4)}
+.cta-teal .hg-card{--hg-bg:var(--color-secondary)}
+.cta-teal .hg-card__btn{background:#fff;color:var(--color-secondary)}
+.cta-teal .hg-card__go:hover .hg-card__btn{background:var(--color-main);color:#fff}
+
+/* Khối xám: xem thêm khai phá (thẻ trắng trên nền xám) */
+.alt-steps{background:var(--color-bg-soft);padding-block:var(--spacing-large)}
+.alt-steps .title{margin-bottom:var(--spacing-vertical)}
+.alt-steps .step{background:#fff;--hg-bg:var(--color-bg-soft)}
+
+/* Bộ công cụ: tiêu đề xám */
+.tools{padding-block:var(--spacing-large)}
+.subtitle--gray{color:var(--color-text);margin-block:0 var(--spacing-vertical)}
+
+/* Footer trang con: viền cam, icon, mũi tên đầu dòng */
+.page-inner .footer{border-top:3px solid var(--color-main)}
+.page-inner .footer__links li::before{content:"›";margin-right:8px;color:var(--color-main)}
+.page-inner .footer i{margin-right:8px;color:var(--color-main);width:14px;text-align:center}
+
+/* Nút nổi: tròn, viền */
+.page-inner .fab{flex-direction:column;align-items:center}
+.page-inner .control-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--color-secondary);border:2px solid var(--color-secondary);font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.page-inner .control-btn--chat{background:#0084ff;border-color:#fff;color:#fff;font-size:20px}
+
+@media(max-width:576px){.page-hero__cta{position:static;padding:var(--space-3) var(--pad-x);background:var(--color-secondary)}}
